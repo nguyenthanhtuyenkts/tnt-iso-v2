@@ -238,13 +238,14 @@
 ;;; [7] COMMANDS - LỆNH
 ;;; ====================================================================================================
 (defun TNT_TS_SET (/ K)
+  (TNT:TS:MAKE-ALL)
   (initget "1 2 3")
   (setq K (getkword
-    "\nChọn STYLE [1=TNT_ROMANS_SHX / 2=TNT_HELVETINS_TTF / 3=TNT_ALTER_GOTHIC_TTF] <1>: "))
+    "\nChon STYLE [1=.TNT_A_TXT_3_NOTE / 2=.TNT_A_TXT_1_MAIN / 3=.TNT_A_TXT_2_SUB] <1>: "))
   (cond
-    ((= K "2") (setvar "TEXTSTYLE" "TNT_HELVETINS_TTF"))
-    ((= K "3") (setvar "TEXTSTYLE" "TNT_ALTER_GOTHIC_TTF"))
-    (T        (setvar "TEXTSTYLE" "TNT_ROMANS_SHX"))
+    ((= K "2") (setvar "TEXTSTYLE" ".TNT_A_TXT_1_MAIN"))
+    ((= K "3") (setvar "TEXTSTYLE" ".TNT_A_TXT_2_SUB"))
+    (T        (setvar "TEXTSTYLE" ".TNT_A_TXT_3_NOTE"))
   )
   (princ (strcat "\n[TNT] Current TEXTSTYLE = " (getvar "TEXTSTYLE")))
   (princ))
@@ -299,10 +300,8 @@
   (setvar "cmdecho" 0)
   (if (not (tblsearch "dimstyle" ".TNT_A_DIM_1"))
   (progn    
-    (command "STYLE"            "Standard"  "" "" "" "" "" "" "" "" "")  
     (command "DIMSTYLE"         "R"         "Standard")
-    (if (not (tblsearch "STYLE" ".TNT_A_TXT_3_NOTE"))
-    (command "STYLE"            ".TNT_A_TXT_3_NOTE"   "uromans.shx" "" "0.8" "" "" "" "" "" ""))
+    (TNT:TS:ENSURE ".TNT_A_TXT_3_NOTE" "uromans.shx" 0.0 0.8 0.0 nil)
     (command "DIMASO"           "ON")       ;Create dimension objects    
     (command "DIMADEC"          "0")        ;Angular decimal places
     (command "DIMALT"           "Off")      ;Alternate units selected
@@ -387,10 +386,8 @@
   (setvar "cmdecho" 0)
   (if (not (tblsearch "dimstyle" ".TNT_A_DIM_2"))
   (progn    
-    (command "STYLE"            "Standard"  "" "" "" "" "" "" "" "" "")  
     (command "DIMSTYLE"         "R"         "Standard")
-    (if (not (tblsearch "STYLE" ".TNT_A_TXT_3_NOTE"))
-    (command "STYLE"            ".TNT_A_TXT_3_NOTE"   "uromans.shx" "" "0.8" "" "" "" "" "" ""))
+    (TNT:TS:ENSURE ".TNT_A_TXT_3_NOTE" "uromans.shx" 0.0 0.8 0.0 nil)
     (command "DIMASO"           "ON")       ;Create dimension objects    
     (command "DIMADEC"          "0")        ;Angular decimal places
     (command "DIMALT"           "Off")      ;Alternate units selected
@@ -475,10 +472,8 @@
   (setvar "cmdecho" 0)
   (if (not (tblsearch "dimstyle" ".TNT_A_DIM_3"))
   (progn    
-    (command "STYLE"            "Standard"  "" "" "" "" "" "" "" "" "")  
     (command "DIMSTYLE"         "R"         "Standard")
-    (if (not (tblsearch "STYLE" ".TNT_A_TXT_3_NOTE"))
-    (command "STYLE"            ".TNT_A_TXT_3_NOTE"   "uromans.shx" "" "0.8" "" "" "" "" "" ""))
+    (TNT:TS:ENSURE ".TNT_A_TXT_3_NOTE" "uromans.shx" 0.0 0.8 0.0 nil)
     (command "DIMASO"           "ON")       ;Create dimension objects    
     (command "DIMADEC"          "0")        ;Angular decimal places
     (command "DIMALT"           "Off")      ;Alternate units selected
@@ -649,7 +644,7 @@
 ;;; ====================================================================================================
 ;; * GROUP 1 - SYSTEM/SETUP - (TNT:SHORTCUT:CMD:SYS:*)
 ;; * GROUP 2 - MANAGEMENT - (TNT:SHORTCUT:CMD:MGT:*)
-(defun TNT:SHORTCUT:CMD:MGT:SE1 (/)     (command ".OSMODE" 16383)        (princ))
+(defun TNT:SHORTCUT:CMD:MGT:SE1 (/)     (command ".OSMODE" 15871)        (princ))
 (defun TNT:SHORTCUT:CMD:MGT:G1  (/)     (if (= (getvar "PICKSTYLE") 0)  (setvar "PICKSTYLE" 1)  (setvar "PICKSTYLE" 0)) (princ))
 (defun TNT:SHORTCUT:CMD:MGT:C1  (/ LT)  (setq LT (getvar "TILEMODE"))   (setvar "TILEMODE" (if (= LT 0) 1 0))           (princ))
 (defun TNT:SHORTCUT:CMD:MGT:C2  (/)     (command ".LAYOUT" "S" "")      (princ))

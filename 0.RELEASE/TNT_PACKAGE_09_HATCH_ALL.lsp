@@ -122,7 +122,7 @@
           )
         )
       )
-      (setvar "OSMODE" 16383)
+      (setvar "OSMODE" 15871)
       (setvar "CMDECHO" 1)
       (command "UNDO" "END")
       (princ)

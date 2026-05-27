@@ -1,6 +1,6 @@
 # TNT Release Lisp Index
 
-- Generated: 2026-05-27 16:00:54 +07:00
+- Generated: 2026-05-27 16:40:23 +07:00
 - Scope: 0.RELEASE - goi lisp va support dang release
 - Files indexed: 13
 - Public commands found: 75
@@ -89,7 +89,7 @@
 
 | File | Hint | Commands | Helpers | Sources/Notes |
 |---|---|---:|---:|---|
-| <code>TNT_PACKAGE_00_SYSTEM_ALL.lsp</code> | system/setup | 1 | 40 | ;;; -, ;;; - DATA LAYER HỆ THỐNG, B_TNT_Settings_Create_Layer.lsp, B_TNT_SETTINGS_CREATE_LAYER.LSP, L_TNT_FUNCTION_CREATE_SYSTEM, L_TNT_Function_Create_System.lsp |
+| <code>TNT_PACKAGE_00_SYSTEM_ALL.lsp</code> | system/setup | 1 | 42 | ;;; -, ;;; - DATA LAYER HỆ THỐNG, B_TNT_Settings_Create_Layer.lsp, B_TNT_SETTINGS_CREATE_LAYER.LSP, L_TNT_FUNCTION_CREATE_SYSTEM, L_TNT_Function_Create_System.lsp |
 | <code>TNT_PACKAGE_01_CREATE_ALL.lsp</code> | tao chuan | 0 | 83 | ;;; - GỌI LỆNH LUÔN TẠO MỚI NẾU CHƯA CÓ., I_TNT_FUNCTION_CREATE_LAYER, I_TNT_Function_Create_Layer.lsp, J_TNT_FUNCTION_CREATE_TEXTSTYLE, J_TNT_Function_Create_Textstyle.lsp, K_TNT_Function_Create_Dimension.lsp, M_TNT_Function_Create_Block.lsp, N_TNT_Function_Create_Shortcut.lsp ... +1 |
 | <code>TNT_PACKAGE_02_GENERAL_ALL.lsp</code> | dong bo ti le/doi tuong | 1 | 13 | B_TNT_General_Sync.lsp |
 | <code>TNT_PACKAGE_03_MANAGE_ALL.lsp</code> | quan ly/chinh sua | 8 | 23 | 77_ROTATE VIEWPORT_VR1-VR2-VR3-VRR.lsp, 88_AUTO RESET OSNAP.LSP, B_TNT_Manage_MoveToCenter.lsp, E_STT.lsp |
@@ -107,18 +107,18 @@
 
 ### TNT_PACKAGE_00_SYSTEM_ALL.lsp
 
-- Size: 27.5 KB
-- Modified: 2026-05-26 09:42:47
+- Size: 28.1 KB
+- Modified: 2026-05-27 16:15:39
 - Hint: system/setup
 - Commands: <code>TNT_SETTING_ALL</code>
-- Helper/internal functions: 40; sample: <code>TNT:FS:EXT, TNT:FS:FIND-FONTFILE, TNT:FS:SAFE-CALL, TNT:FS:SAFE-PUT, TNT:FS:STR-LOWER, TNT:FS:WINFONTS-PATH, TNT:LAYER:STD-EXCLUDE-NAMES, TNT:LAYER:STD-EXCLUDE-TABLE, TNT:LAYER:STD-NAMES, TNT:LAYER:STD-TABLE, TNT:PACKAGE:FS:SAFE-CALL, TNT:PACKAGE:FS:SAFE-PUT, TNT:STR:TRIM, TNT:SYS:DIR?, TNT:SYS:FILE?, TNT:SYS:JOIN, TNT:SYS:LOG, TNT:SYS:POP, TNT:SYS:PUSH, TNT:SYS:RUN-SAFE ... +20</code>
+- Helper/internal functions: 42; sample: <code>TNT:FS:EXT, TNT:FS:FIND-FONTFILE, TNT:FS:SAFE-CALL, TNT:FS:SAFE-PUT, TNT:FS:STR-LOWER, TNT:FS:WINFONTS-PATH, TNT:LAYER:STD-EXCLUDE-NAMES, TNT:LAYER:STD-EXCLUDE-TABLE, TNT:LAYER:STD-NAMES, TNT:LAYER:STD-TABLE, TNT:PACKAGE:FS:SAFE-CALL, TNT:PACKAGE:FS:SAFE-PUT, TNT:STR:TRIM, TNT:SYS:DIR?, TNT:SYS:FILE?, TNT:SYS:JOIN, TNT:SYS:LOG, TNT:SYS:POP, TNT:SYS:PUSH, TNT:SYS:RUN-SAFE ... +22</code>
 - Consolidated sources: <code>B_TNT_Settings_Create_Layer.lsp, L_TNT_Function_Create_System.lsp</code>
 - Notes: B_TNT_SETTINGS_CREATE_LAYER.LSP; ;;; - DATA LAYER HỆ THỐNG; L_TNT_FUNCTION_CREATE_SYSTEM; ;;; -
 
 ### TNT_PACKAGE_01_CREATE_ALL.lsp
 
-- Size: 48.4 KB
-- Modified: 2026-05-26 14:40:09
+- Size: 47.9 KB
+- Modified: 2026-05-27 16:38:49
 - Hint: tao chuan
 - Helper/internal functions: 83; sample: <code>TNT:BLOCK:MAKE, TNT:LAY:_ACI, TNT:LAY:_LW, TNT:LAY:_YN->BOOL, TNT:LAY:CREATE, TNT:LAY:DESCRIPTION, TNT:LAY:ENSURE-LTYPE, TNT:LAYER:MAKE, TNT:SHORTCUT:CMD:ANNO:1, TNT:SHORTCUT:CMD:ANNO:2, TNT:SHORTCUT:CMD:ANNO:3, TNT:SHORTCUT:CMD:ANNO:D, TNT:SHORTCUT:CMD:ANNO:D1, TNT:SHORTCUT:CMD:ANNO:D2, TNT:SHORTCUT:CMD:ANNO:DA, TNT:SHORTCUT:CMD:ANNO:DC, TNT:SHORTCUT:CMD:ANNO:DE, TNT:SHORTCUT:CMD:ANNO:DG, TNT:SHORTCUT:CMD:ANNO:DN, TNT:SHORTCUT:CMD:ANNO:DS ... +63</code>
 - Consolidated sources: <code>I_TNT_Function_Create_Layer.lsp, J_TNT_Function_Create_Textstyle.lsp, K_TNT_Function_Create_Dimension.lsp, M_TNT_Function_Create_Block.lsp, N_TNT_Function_Create_Shortcut.lsp</code>
@@ -135,8 +135,8 @@
 
 ### TNT_PACKAGE_03_MANAGE_ALL.lsp
 
-- Size: 28.8 KB
-- Modified: 2026-05-26 09:42:47
+- Size: 28.9 KB
+- Modified: 2026-05-27 16:17:10
 - Hint: quan ly/chinh sua
 - Commands: <code>stt, VC, VC1, VC2, VR1(/, VR2, VR3, VRR</code>
 - Helper/internal functions: 23; sample: <code>_replace, getCentroid, GetGeometricCenter, get-reference-point, ND:ATK_sortXY, ND:att_get, ND:att_set, ND:ent_pick, ND:ent_sort-pline, ND:get_key, ND:get_real, ND:ins_pt, ND:ins_pt_dim, ND:listbox, ND:STT_dcl, ND:STT_modetile, ND:unformat, ND:unique, resetosmode, sleep_osnap ... +3</code>
@@ -165,7 +165,7 @@
 ### TNT_PACKAGE_06_TEXT_ALL.lsp
 
 - Size: 42.9 KB
-- Modified: 2026-05-26 09:42:47
+- Modified: 2026-05-27 16:16:19
 - Hint: text
 - Commands: <code>bmask, df(, dfx(, dx(, ED2, ft(, T1, TA</code>
 - Helper/internal functions: 32; sample: <code>*error*, LM:acdoc, LM:endundo, LM:startundo, mask:acdoc, mask:color->mleadercolor, mask:dimstylefill, mask:endundo, mask:getdefaults, mask:getdimxdata, mask:main, mask:maskentity, mask:maskselection, mask:selection, mask:setdefaults, mask:setdimxdata, mask:settings, mask:ssget, mask:startundo, mask:substonce ... +12</code>
@@ -192,7 +192,7 @@
 ### TNT_PACKAGE_09_HATCH_ALL.lsp
 
 - Size: 9.1 KB
-- Modified: 2026-05-26 09:42:47
+- Modified: 2026-05-27 16:15:39
 - Hint: hatch
 - Commands: <code>H25, H251, H252, H253, H254, H255, HA, HB, HC, HF, HG, HS, HSA, HSE, HT, HV, RHB</code>
 - Consolidated sources: <code>B_TNT_Hatch.lsp, C_TNT_Hatch_Boundary.lsp</code>

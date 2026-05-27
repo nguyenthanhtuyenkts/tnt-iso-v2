@@ -265,7 +265,7 @@
 	lst (vl-sort lst '(lambda (e1 e2) (> (caddr (assoc 10 (entget e1))) (caddr (assoc 10 (entget e2))))))
 );setq
 (command "undo" "begin")
-(setvar "osmode" 15359)
+(setvar "osmode" 14847)
 (setq kc (getdist "\n Nhap khoang cach giua cac text"))
 (setq ddau (cdr(assoc 10 (entget(car lst)))) i 0 a2 (ssadd))
 (setq mau (entget (car (entsel "\nChon text chuan"))))
@@ -299,7 +299,7 @@
 	lst (vl-sort lst '(lambda (e1 e2) (> (caddr (assoc 10 (entget e1))) (caddr (assoc 10 (entget e2))))))
 );setq
 (command "undo" "begin")
-(setvar "osmode" 15359)
+(setvar "osmode" 14847)
 (setq kc (getdist "\n Nhap khoang cach giua cac text"))
 
 (setq ddau (cdr(assoc 10 (entget(car lst)))) i 0 di 0 a2 (ssadd))

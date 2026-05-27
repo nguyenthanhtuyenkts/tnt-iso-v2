@@ -1,6 +1,6 @@
 # TNT Legacy Lisp Index
 
-- Generated: 2026-05-27 16:00:53 +07:00
+- Generated: 2026-05-27 16:40:22 +07:00
 - Scope: 2.LEGACY - kho lisp cu de tham chieu
 - Files indexed: 150
 - Public commands found: 188
@@ -11,419 +11,419 @@
 |---|---|---|
 | <code>??</code> | <code>0.DANG SU DUNG\E_STT.lsp</code> | danh so thu tu |
 | <code>??</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\E_STT.lsp</code> | quan ly/chinh sua, danh so thu tu |
-| <code>??</code> | <code>4.TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu |
+| <code>??</code> | <code>TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu |
 | <code>&#96;</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>&#96;</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>&#96;</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>&#96;&#96;</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>&#96;&#96;</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>&#96;&#96;</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>&#96;&#96;&#96;</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>&#96;&#96;&#96;</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>&#96;&#96;&#96;</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>010_SYS_LOAD_ALL</code> | <code>1.NHAT GUI\A_010_System_Load_All.lsp</code> | system/setup |
 | <code>010_SYS_SET_ROOT</code> | <code>1.NHAT GUI\A_010_System_Load_All.lsp</code> | system/setup |
 | <code>1</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>1</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>1</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>1&#96;</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>1&#96;</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>1&#96;</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>1c</code> | <code>0.DANG SU DUNG\E_STT.lsp</code> | danh so thu tu |
 | <code>1c</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\E_STT.lsp</code> | quan ly/chinh sua, danh so thu tu |
-| <code>1c</code> | <code>4.TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu |
+| <code>1c</code> | <code>TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu |
 | <code>2</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>2</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>2</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>2&#96;</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>2&#96;</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>2&#96;</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>3</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>3</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>3</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>A1</code> | <code>1.NHAT GUI\10_PACKAGE_07_LEADER\B_010_Leader_.lsp</code> | leader |
 | <code>A2</code> | <code>1.NHAT GUI\10_PACKAGE_07_LEADER\B_010_Leader_.lsp</code> | leader |
 | <code>A3</code> | <code>0.DANG SU DUNG\7_TNT_LEADER.lsp</code> | leader |
 | <code>A3</code> | <code>1.NHAT GUI\10_PACKAGE_07_LEADER\B_010_Leader_.lsp</code> | leader |
-| <code>A3</code> | <code>4.TAM GUI\00-F_GENERAL_LEADER.lsp</code> | dong bo ti le/doi tuong, leader |
+| <code>A3</code> | <code>TAM GUI\00-F_GENERAL_LEADER.lsp</code> | dong bo ti le/doi tuong, leader |
 | <code>A4</code> | <code>1.NHAT GUI\10_PACKAGE_07_LEADER\B_010_Leader_.lsp</code> | leader |
 | <code>AD</code> | <code>0.DANG SU DUNG\11-A_DIMENSION_ ALIGN.lsp</code> | dimension, can chinh |
 | <code>AD</code> | <code>1.NHAT GUI\11_PACKAGE_08_DIMENSION\C_010_Dimension_Align.lsp</code> | dimension, can chinh |
 | <code>AD</code> | <code>1.NHAT GUI\11-A_DIMENSION_ ALIGN.lsp</code> | dimension, can chinh |
-| <code>AD</code> | <code>4.TAM GUI\11-A_DIMENSION_ ALIGN.lsp</code> | dimension, can chinh |
+| <code>AD</code> | <code>TAM GUI\11-A_DIMENSION_ ALIGN.lsp</code> | dimension, can chinh |
 | <code>AddSupportPath1</code> | <code>0.DANG SU DUNG\8_TNT_BLOCK.lsp</code> | block |
-| <code>AddSupportPath1</code> | <code>4.TAM GUI\00-G_GENERAL_BLOCK.lsp</code> | dong bo ti le/doi tuong, block |
+| <code>AddSupportPath1</code> | <code>TAM GUI\00-G_GENERAL_BLOCK.lsp</code> | dong bo ti le/doi tuong, block |
 | <code>ADIM</code> | <code>0.DANG SU DUNG\11-A_DIMENSION_ ALIGN.lsp</code> | dimension, can chinh |
 | <code>ADIM</code> | <code>1.NHAT GUI\11_PACKAGE_08_DIMENSION\C_010_Dimension_Align.lsp</code> | dimension, can chinh |
 | <code>ADIM</code> | <code>1.NHAT GUI\11-A_DIMENSION_ ALIGN.lsp</code> | dimension, can chinh |
-| <code>ADIM</code> | <code>4.TAM GUI\11-A_DIMENSION_ ALIGN.lsp</code> | dimension, can chinh |
+| <code>ADIM</code> | <code>TAM GUI\11-A_DIMENSION_ ALIGN.lsp</code> | dimension, can chinh |
 | <code>ae(/</code> | <code>0.DANG SU DUNG\AREA_ae.LSP</code> | dien tich |
 | <code>ASC</code> | <code>1.NHAT GUI\13_PACKAGE_10_BLOCK\Current Style.lsp</code> | block, style hien hanh |
 | <code>AT1</code> | <code>1.NHAT GUI\13_PACKAGE_10_BLOCK\66_BLOCK_COPY TEXT ATT_AT1.lsp</code> | text, block, copy |
 | <code>AT1</code> | <code>1.NHAT GUI\66_BLOCK_COPY TEXT ATT_AT1.lsp</code> | text, block, copy |
-| <code>AT1</code> | <code>4.TAM GUI\66_BLOCK_COPY TEXT ATT_AT1.lsp</code> | text, block, copy |
+| <code>AT1</code> | <code>TAM GUI\66_BLOCK_COPY TEXT ATT_AT1.lsp</code> | text, block, copy |
 | <code>AT2</code> | <code>1.NHAT GUI\13_PACKAGE_10_BLOCK\66_BLOCK_COPY TEXT ATT_AT1.lsp</code> | text, block, copy |
 | <code>AT2</code> | <code>1.NHAT GUI\66_BLOCK_COPY TEXT ATT_AT1.lsp</code> | text, block, copy |
-| <code>AT2</code> | <code>4.TAM GUI\66_BLOCK_COPY TEXT ATT_AT1.lsp</code> | text, block, copy |
+| <code>AT2</code> | <code>TAM GUI\66_BLOCK_COPY TEXT ATT_AT1.lsp</code> | text, block, copy |
 | <code>ATT</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>ATT</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>ATT</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>B0</code> | <code>1.NHAT GUI\13_PACKAGE_10_BLOCK\00-G_GENERAL_BLOCK.lsp</code> | dong bo ti le/doi tuong, block |
-| <code>B0</code> | <code>4.TAM GUI\00-G_GENERAL_BLOCK.lsp</code> | dong bo ti le/doi tuong, block |
+| <code>B0</code> | <code>TAM GUI\00-G_GENERAL_BLOCK.lsp</code> | dong bo ti le/doi tuong, block |
 | <code>b1</code> | <code>0.DANG SU DUNG\8_TNT_BLOCK.lsp</code> | block |
 | <code>b1</code> | <code>0.DANG SU DUNG\BLOCK LAYER 0.lsp</code> | layer, block |
 | <code>b1</code> | <code>1.NHAT GUI\13_PACKAGE_10_BLOCK\66_BLOCK_CHANGE VIS_B1.lsp</code> | block |
 | <code>b1</code> | <code>1.NHAT GUI\BLOCK LAYER 0.lsp</code> | layer, block |
-| <code>b1</code> | <code>4.TAM GUI\66_BLOCK_CHANGE VIS_B1.lsp</code> | block |
+| <code>b1</code> | <code>TAM GUI\66_BLOCK_CHANGE VIS_B1.lsp</code> | block |
 | <code>b3</code> | <code>0.DANG SU DUNG\66_BLOCK_BASE_B3.lsp</code> | block |
 | <code>b3</code> | <code>1.NHAT GUI\66_BLOCK_BASE_B3.lsp</code> | block |
-| <code>b3</code> | <code>4.TAM GUI\66_BLOCK_BASE_B3.lsp</code> | block |
+| <code>b3</code> | <code>TAM GUI\66_BLOCK_BASE_B3.lsp</code> | block |
 | <code>BB</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>BB</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>BB</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>BC</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>BC</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>BC</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>BD</code> | <code>0.DANG SU DUNG\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>BD</code> | <code>0.DANG SU DUNG\4_TNT_DIM.lsp</code> | dimension |
 | <code>BD</code> | <code>0.DANG SU DUNG\B_010_Dimension.lsp</code> | dimension |
 | <code>BD</code> | <code>1.NHAT GUI\11_PACKAGE_08_DIMENSION\B_010_Dimension.lsp</code> | dimension |
-| <code>BD</code> | <code>4.TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
+| <code>BD</code> | <code>TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>BE</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>BE</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>BE</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>bmask</code> | <code>1.NHAT GUI\09_PACKAGE_06_TEXT\D_010_Text_Mask.lsp</code> | text |
-| <code>bmask</code> | <code>4.TAM GUI\33-B_TEXT_MASK V1-5.lsp</code> | text |
+| <code>bmask</code> | <code>TAM GUI\33-B_TEXT_MASK V1-5.lsp</code> | text |
 | <code>BR</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>BR</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>BR</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>C</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>C</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>C</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>C1</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
 | <code>c1</code> | <code>0.DANG SU DUNG\E_STT.lsp</code> | danh so thu tu |
 | <code>c1</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\E_STT.lsp</code> | quan ly/chinh sua, danh so thu tu |
-| <code>C1</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
-| <code>c1</code> | <code>4.TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu |
+| <code>C1</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>c1</code> | <code>TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu |
 | <code>C2</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
 | <code>c2</code> | <code>0.DANG SU DUNG\E_STT.lsp</code> | danh so thu tu |
 | <code>c2</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\E_STT.lsp</code> | quan ly/chinh sua, danh so thu tu |
-| <code>C2</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
-| <code>c2</code> | <code>4.TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu |
+| <code>C2</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>c2</code> | <code>TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu |
 | <code>c2wipe</code> | <code>0.DANG SU DUNG\CircularWipeoutV1-2.lsp</code> | wipeout |
 | <code>C3</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>C3</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>C3</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>CA</code> | <code>1.NHAT GUI\13_PACKAGE_10_BLOCK\66_A_BLOCK_CAO DO_CA.lsp</code> | block, cao do |
-| <code>CA</code> | <code>4.TAM GUI\66-A_BLOCK_CAO DO_CA.lsp</code> | block, cao do |
+| <code>CA</code> | <code>TAM GUI\66-A_BLOCK_CAO DO_CA.lsp</code> | block, cao do |
 | <code>CB</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
 | <code>cb</code> | <code>0.DANG SU DUNG\23_BLOCK_CopyRenameBlockV1-5.lsp</code> | block, copy, rename |
 | <code>cb</code> | <code>1.NHAT GUI\13_PACKAGE_10_BLOCK\66_BLOCK_COPY RENAME_RB-CB.lsp</code> | block, copy, rename |
 | <code>cb</code> | <code>1.NHAT GUI\23_BLOCK_CopyRenameBlockV1-5.lsp</code> | block, copy, rename |
-| <code>CB</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
-| <code>cb</code> | <code>4.TAM GUI\66_BLOCK_COPY RENAME_RB-CB.lsp</code> | block, copy, rename |
+| <code>CB</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>cb</code> | <code>TAM GUI\66_BLOCK_COPY RENAME_RB-CB.lsp</code> | block, copy, rename |
 | <code>cbp</code> | <code>0.DANG SU DUNG\66_BLOCK_BASE_B3.lsp</code> | block |
 | <code>cbp</code> | <code>1.NHAT GUI\66_BLOCK_BASE_B3.lsp</code> | block |
-| <code>cbp</code> | <code>4.TAM GUI\66_BLOCK_BASE_B3.lsp</code> | block |
+| <code>cbp</code> | <code>TAM GUI\66_BLOCK_BASE_B3.lsp</code> | block |
 | <code>CC</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>CC</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>CC</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>CD</code> | <code>0.DANG SU DUNG\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>CD</code> | <code>0.DANG SU DUNG\4_TNT_DIM.lsp</code> | dimension |
 | <code>CD</code> | <code>0.DANG SU DUNG\B_010_Dimension.lsp</code> | dimension |
 | <code>CD</code> | <code>1.NHAT GUI\11_PACKAGE_08_DIMENSION\B_010_Dimension.lsp</code> | dimension |
-| <code>CD</code> | <code>4.TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
+| <code>CD</code> | <code>TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>CHANGETEXTSTYLE</code> | <code>1.NHAT GUI\Change Textstyle.lsp</code> | text |
 | <code>CV</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>CV</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>CV</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>cwipe</code> | <code>0.DANG SU DUNG\CircularWipeoutV1-2.lsp</code> | wipeout |
 | <code>CX</code> | <code>0.DANG SU DUNG\15. Copy & Xoay.lsp</code> | copy |
 | <code>D</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>D</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>D</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>D1</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>D1</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>D1</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>D2</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>D2</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>D2</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>D3</code> | <code>0.DANG SU DUNG\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>D3</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
 | <code>D3</code> | <code>0.DANG SU DUNG\B_010_Dimension.lsp</code> | dimension |
 | <code>D3</code> | <code>1.NHAT GUI\11_PACKAGE_08_DIMENSION\B_010_Dimension.lsp</code> | dimension |
-| <code>D3</code> | <code>4.TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
+| <code>D3</code> | <code>TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>D4</code> | <code>0.DANG SU DUNG\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>D4</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
 | <code>D4</code> | <code>0.DANG SU DUNG\4_TNT_DIM.lsp</code> | dimension |
 | <code>D4</code> | <code>0.DANG SU DUNG\B_010_Dimension.lsp</code> | dimension |
 | <code>D4</code> | <code>1.NHAT GUI\11_PACKAGE_08_DIMENSION\B_010_Dimension.lsp</code> | dimension |
-| <code>D4</code> | <code>4.TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
+| <code>D4</code> | <code>TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>D5</code> | <code>0.DANG SU DUNG\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>D5</code> | <code>0.DANG SU DUNG\B_010_Dimension.lsp</code> | dimension |
 | <code>D5</code> | <code>1.NHAT GUI\11_PACKAGE_08_DIMENSION\B_010_Dimension.lsp</code> | dimension |
-| <code>D5</code> | <code>4.TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
+| <code>D5</code> | <code>TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>DA</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>DA</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>DA</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>DB</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>DB</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>DB</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>DC</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>DC</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>DC</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>dd</code> | <code>0.DANG SU DUNG\8.DD_TinhDienTich.LSP</code> |  |
 | <code>dd</code> | <code>1.NHAT GUI\8.DD_TinhDienTich.LSP</code> |  |
 | <code>DE</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>DE</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>DE</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>df(</code> | <code>1.NHAT GUI\09_PACKAGE_06_TEXT\CanChinhText-ft_df_dfx_dx.lsp</code> | text |
 | <code>dfx(</code> | <code>1.NHAT GUI\09_PACKAGE_06_TEXT\CanChinhText-ft_df_dfx_dx.lsp</code> | text |
 | <code>DG</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>DG</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>DG</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>DN</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>DN</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>DN</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>DoubleOffset</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\77_DoubleOffsetV1_SF1.lsp</code> | quan ly/chinh sua |
-| <code>DoubleOffset</code> | <code>4.TAM GUI\77_DoubleOffsetV1_SF1.lsp</code> |  |
+| <code>DoubleOffset</code> | <code>TAM GUI\77_DoubleOffsetV1_SF1.lsp</code> |  |
 | <code>DRB</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>DRB</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>DRB</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>DRF</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>DRF</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
-| <code>DS</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>DRF</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>DS</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>DST</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
 | <code>DTM</code> | <code>0.DANG SU DUNG\TINH DIEN TICH.LSP</code> | dien tich |
 | <code>DV</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
 | <code>DX</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>DX</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>DX</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>dx(</code> | <code>1.NHAT GUI\09_PACKAGE_06_TEXT\CanChinhText-ft_df_dfx_dx.lsp</code> | text |
 | <code>DXF</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>DXF</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>DXF</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>E1</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>E1</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>E1</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>ED2</code> | <code>1.NHAT GUI\09_PACKAGE_06_TEXT\33-A_TEXT_CHINH SUA TEXT.lsp</code> | text |
 | <code>ED2</code> | <code>1.NHAT GUI\09_PACKAGE_06_TEXT\33-A1_TEXT_CHINH SUA TEXT.lsp</code> | text |
-| <code>ED2</code> | <code>4.TAM GUI\33-A_TEXT_CHINH SUA TEXT.lsp</code> | text |
-| <code>ED2</code> | <code>4.TAM GUI\33-A1_TEXT_CHINH SUA TEXT.lsp</code> | text |
+| <code>ED2</code> | <code>TAM GUI\33-A_TEXT_CHINH SUA TEXT.lsp</code> | text |
+| <code>ED2</code> | <code>TAM GUI\33-A1_TEXT_CHINH SUA TEXT.lsp</code> | text |
 | <code>F</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>F</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>F</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>F1</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>F1</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>F1</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>FF</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>FF</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>FF</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>FIM</code> | <code>0.DANG SU DUNG\Fix Imprecise 2D Drawing.lsp</code> | ve/phu tro ve |
 | <code>ft</code> | <code>0.DANG SU DUNG\E_STT.lsp</code> | danh so thu tu |
 | <code>ft</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\E_STT.lsp</code> | quan ly/chinh sua, danh so thu tu |
-| <code>ft</code> | <code>4.TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu |
+| <code>ft</code> | <code>TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu |
 | <code>ft(</code> | <code>1.NHAT GUI\09_PACKAGE_06_TEXT\CanChinhText-ft_df_dfx_dx.lsp</code> | text |
 | <code>g1</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>g1</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>g1</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>H1</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\77_DRAW HIDE_H1-H2.lsp</code> | quan ly/chinh sua, ve/phu tro ve |
-| <code>H1</code> | <code>4.TAM GUI\77_DRAW HIDE_H1-H2.lsp</code> | ve/phu tro ve |
+| <code>H1</code> | <code>TAM GUI\77_DRAW HIDE_H1-H2.lsp</code> | ve/phu tro ve |
 | <code>H2</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\77_DRAW HIDE_H1-H2.lsp</code> | quan ly/chinh sua, ve/phu tro ve |
-| <code>H2</code> | <code>4.TAM GUI\77_DRAW HIDE_H1-H2.lsp</code> | ve/phu tro ve |
+| <code>H2</code> | <code>TAM GUI\77_DRAW HIDE_H1-H2.lsp</code> | ve/phu tro ve |
 | <code>H25</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>H25</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>H25</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>H25</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>H251</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>H251</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>H251</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>H251</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>H252</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>H252</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>H252</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>H252</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>H253</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>H253</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>H253</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>H253</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>H254</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>H254</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>H254</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>H254</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>H255</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>H255</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>H255</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>H255</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>HA</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>HA</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>HA</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>HA</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>HATCHSET</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>HB</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>HB</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>HB</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>HB</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>HC</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>HC</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>HC</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>HC</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>HF</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>HF</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>HF</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>HF</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>HG</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>HG</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>HG</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>HG</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>HS</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>HS</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>HS</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>HS</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>HSA</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>HSA</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>HSA</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>HSA</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>HSE</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>HSE</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>HSE</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>HSE</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>HT</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>HT</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>HT</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>HT</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>HV</code> | <code>0.DANG SU DUNG\5_TNT_HATCH.lsp</code> | hatch |
 | <code>HV</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\B_010_Hatch.lsp</code> | hatch |
-| <code>HV</code> | <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
+| <code>HV</code> | <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch |
 | <code>KH(</code> | <code>0.DANG SU DUNG\LISP SUA KH TEN BAN VE.lsp</code> |  |
 | <code>LAY</code> | <code>0.DANG SU DUNG\6_TNT_LAYER.lsp</code> | layer |
 | <code>LAY</code> | <code>1.NHAT GUI\010_Layer_(Lay).lsp</code> | layer |
 | <code>LAY</code> | <code>3.TAM BAN GIAO\010_Layer_(Lay).lsp</code> | layer |
 | <code>LB1</code> | <code>1.NHAT GUI\11_PACKAGE_08_DIMENSION\77_LoBan-LB1-LB2-LB3.lsp</code> | dimension |
-| <code>LB1</code> | <code>4.TAM GUI\77_LoBan-LB1-LB2-LB3.lsp</code> |  |
+| <code>LB1</code> | <code>TAM GUI\77_LoBan-LB1-LB2-LB3.lsp</code> |  |
 | <code>LB2</code> | <code>1.NHAT GUI\11_PACKAGE_08_DIMENSION\77_LoBan-LB1-LB2-LB3.lsp</code> | dimension |
-| <code>LB2</code> | <code>4.TAM GUI\77_LoBan-LB1-LB2-LB3.lsp</code> |  |
+| <code>LB2</code> | <code>TAM GUI\77_LoBan-LB1-LB2-LB3.lsp</code> |  |
 | <code>LB3</code> | <code>1.NHAT GUI\11_PACKAGE_08_DIMENSION\77_LoBan-LB1-LB2-LB3.lsp</code> | dimension |
-| <code>LB3</code> | <code>4.TAM GUI\77_LoBan-LB1-LB2-LB3.lsp</code> |  |
+| <code>LB3</code> | <code>TAM GUI\77_LoBan-LB1-LB2-LB3.lsp</code> |  |
 | <code>M2C</code> | <code>0.DANG SU DUNG\[M2C] Move objects to Center of region by lisp.vn.lsp</code> |  |
 | <code>M2C1</code> | <code>0.DANG SU DUNG\[M2C] Move objects to Center of region by lisp.vn.lsp</code> |  |
 | <code>MAB</code> | <code>0.DANG SU DUNG\66_BLOCK_THAY THE BLOCK_MAB.lsp</code> | block |
 | <code>MAB</code> | <code>1.NHAT GUI\13_PACKAGE_10_BLOCK\66_BLOCK_THAY THE BLOCK_MAB.lsp</code> | block |
 | <code>MAB</code> | <code>1.NHAT GUI\66_BLOCK_THAY THE BLOCK_MAB.lsp</code> | block |
-| <code>MAB</code> | <code>4.TAM GUI\66_BLOCK_THAY THE BLOCK_MAB.lsp</code> | block |
+| <code>MAB</code> | <code>TAM GUI\66_BLOCK_THAY THE BLOCK_MAB.lsp</code> | block |
 | <code>mteditreactoroff</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\88_MTEditReactorV1-1.lsp</code> | quan ly/chinh sua |
-| <code>mteditreactoroff</code> | <code>4.TAM GUI\88_MTEditReactorV1-1.lsp</code> |  |
+| <code>mteditreactoroff</code> | <code>TAM GUI\88_MTEditReactorV1-1.lsp</code> |  |
 | <code>mteditreactoron</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\88_MTEditReactorV1-1.lsp</code> | quan ly/chinh sua |
-| <code>mteditreactoron</code> | <code>4.TAM GUI\88_MTEditReactorV1-1.lsp</code> |  |
+| <code>mteditreactoron</code> | <code>TAM GUI\88_MTEditReactorV1-1.lsp</code> |  |
 | <code>N0</code> | <code>0.DANG SU DUNG\6_TNT_LAYER.lsp</code> | layer |
 | <code>NC</code> | <code>0.DANG SU DUNG\6_TNT_LAYER.lsp</code> | layer |
 | <code>NC</code> | <code>1.NHAT GUI\08_PACKAGE_05_LAYER\C_010_Layer_Set.lsp</code> | layer |
-| <code>NC</code> | <code>4.TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
+| <code>NC</code> | <code>TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
 | <code>nc1(/</code> | <code>0.DANG SU DUNG\Net Cat.lsp</code> |  |
 | <code>nc1(/</code> | <code>1.NHAT GUI\07_PACKAGE_04_DRAW\77_DRAW NET CAT_NC1.lsp</code> | ve/phu tro ve |
-| <code>nc1(/</code> | <code>4.TAM GUI\77_DRAW NET CAT_NC1.lsp</code> | ve/phu tro ve |
+| <code>nc1(/</code> | <code>TAM GUI\77_DRAW NET CAT_NC1.lsp</code> | ve/phu tro ve |
 | <code>ND</code> | <code>0.DANG SU DUNG\6_TNT_LAYER.lsp</code> | layer |
 | <code>ND</code> | <code>1.NHAT GUI\08_PACKAGE_05_LAYER\C_010_Layer_Set.lsp</code> | layer |
-| <code>ND</code> | <code>4.TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
+| <code>ND</code> | <code>TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
 | <code>NE</code> | <code>1.NHAT GUI\08_PACKAGE_05_LAYER\C_010_Layer_Set.lsp</code> | layer |
-| <code>NE</code> | <code>4.TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
+| <code>NE</code> | <code>TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
 | <code>NH</code> | <code>0.DANG SU DUNG\6_TNT_LAYER.lsp</code> | layer |
 | <code>NH</code> | <code>1.NHAT GUI\08_PACKAGE_05_LAYER\C_010_Layer_Set.lsp</code> | layer |
-| <code>NH</code> | <code>4.TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
+| <code>NH</code> | <code>TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
 | <code>NK</code> | <code>0.DANG SU DUNG\6_TNT_LAYER.lsp</code> | layer |
 | <code>NK</code> | <code>1.NHAT GUI\08_PACKAGE_05_LAYER\C_010_Layer_Set.lsp</code> | layer |
-| <code>NK</code> | <code>4.TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
+| <code>NK</code> | <code>TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
 | <code>NM</code> | <code>0.DANG SU DUNG\6_TNT_LAYER.lsp</code> | layer |
 | <code>NM</code> | <code>1.NHAT GUI\08_PACKAGE_05_LAYER\C_010_Layer_Set.lsp</code> | layer |
-| <code>NM</code> | <code>4.TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
+| <code>NM</code> | <code>TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
 | <code>NN</code> | <code>0.DANG SU DUNG\6_TNT_LAYER.lsp</code> | layer |
 | <code>NN</code> | <code>1.NHAT GUI\08_PACKAGE_05_LAYER\C_010_Layer_Set.lsp</code> | layer |
-| <code>NN</code> | <code>4.TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
+| <code>NN</code> | <code>TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
 | <code>NNT</code> | <code>0.DANG SU DUNG\6_TNT_LAYER.lsp</code> | layer |
 | <code>NNT</code> | <code>1.NHAT GUI\08_PACKAGE_05_LAYER\C_010_Layer_Set.lsp</code> | layer |
-| <code>NNT</code> | <code>4.TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
+| <code>NNT</code> | <code>TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
 | <code>NT</code> | <code>0.DANG SU DUNG\6_TNT_LAYER.lsp</code> | layer |
 | <code>NT</code> | <code>1.NHAT GUI\08_PACKAGE_05_LAYER\C_010_Layer_Set.lsp</code> | layer |
-| <code>NT</code> | <code>4.TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
+| <code>NT</code> | <code>TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
 | <code>NTR</code> | <code>0.DANG SU DUNG\6_TNT_LAYER.lsp</code> | layer |
 | <code>NTR</code> | <code>1.NHAT GUI\08_PACKAGE_05_LAYER\C_010_Layer_Set.lsp</code> | layer |
-| <code>NTR</code> | <code>4.TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
+| <code>NTR</code> | <code>TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
 | <code>outline</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\77_OutlineObjectsV1-0.lsp</code> | quan ly/chinh sua |
-| <code>outline</code> | <code>4.TAM GUI\77_OutlineObjectsV1-0.lsp</code> |  |
+| <code>outline</code> | <code>TAM GUI\77_OutlineObjectsV1-0.lsp</code> |  |
 | <code>PU</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>PU</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>PU</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>Q</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>Q</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>Q</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>Q1</code> | <code>0.DANG SU DUNG\3_TNT_TEXT.lsp</code> | text |
 | <code>QQ</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>QQ</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>QQ</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>R</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>R</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>R</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>rb</code> | <code>0.DANG SU DUNG\23_BLOCK_CopyRenameBlockV1-5.lsp</code> | block, copy, rename |
 | <code>rb</code> | <code>1.NHAT GUI\13_PACKAGE_10_BLOCK\66_BLOCK_COPY RENAME_RB-CB.lsp</code> | block, copy, rename |
 | <code>rb</code> | <code>1.NHAT GUI\23_BLOCK_CopyRenameBlockV1-5.lsp</code> | block, copy, rename |
-| <code>rb</code> | <code>4.TAM GUI\66_BLOCK_COPY RENAME_RB-CB.lsp</code> | block, copy, rename |
+| <code>rb</code> | <code>TAM GUI\66_BLOCK_COPY RENAME_RB-CB.lsp</code> | block, copy, rename |
 | <code>REF</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>REF</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>REF</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>REFC</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>REFC</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>REFC</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>RHB</code> | <code>1.NHAT GUI\12_PACKAGE_09_HATCH\C_010_Hatch_Boundary.lsp</code> | hatch |
-| <code>RR</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
-| <code>RRT</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>RR</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>RRT</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>RT</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>RT</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>RT</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>RT1</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>RT1</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
-| <code>RT2</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>RT1</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>RT2</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>RV</code> | <code>1.NHAT GUI\07_PACKAGE_04_DRAW\77_DRAW RevCloud (Eng) (RV).lsp</code> | ve/phu tro ve |
 | <code>SA</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>SA</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>SA</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>SB</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>SB</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>SB</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>SD</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>SD</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>SD</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>SD1</code> | <code>0.DANG SU DUNG\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>SD1</code> | <code>0.DANG SU DUNG\B_010_Dimension.lsp</code> | dimension |
 | <code>SD1</code> | <code>1.NHAT GUI\11_PACKAGE_08_DIMENSION\B_010_Dimension.lsp</code> | dimension |
-| <code>SD1</code> | <code>4.TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
+| <code>SD1</code> | <code>TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>SD2</code> | <code>0.DANG SU DUNG\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>SD2</code> | <code>0.DANG SU DUNG\B_010_Dimension.lsp</code> | dimension |
 | <code>SD2</code> | <code>1.NHAT GUI\11_PACKAGE_08_DIMENSION\B_010_Dimension.lsp</code> | dimension |
-| <code>SD2</code> | <code>4.TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
+| <code>SD2</code> | <code>TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>SE1</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>SE1</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>SE1</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>SETTING</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
 | <code>SF</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>SF</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>SF</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>SF1</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\77_DoubleOffsetV1_SF1.lsp</code> | quan ly/chinh sua |
-| <code>SF1</code> | <code>4.TAM GUI\77_DoubleOffsetV1_SF1.lsp</code> |  |
+| <code>SF1</code> | <code>TAM GUI\77_DoubleOffsetV1_SF1.lsp</code> |  |
 | <code>SHOWPOINTCHECK</code> | <code>0.DANG SU DUNG\Fix Imprecise 2D Drawing.lsp</code> | ve/phu tro ve |
 | <code>SHT</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>SHT</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>SHT</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>SPU</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\88_SPU.LSP</code> | quan ly/chinh sua |
-| <code>SPU</code> | <code>4.TAM GUI\88_SPU.LSP</code> |  |
+| <code>SPU</code> | <code>TAM GUI\88_SPU.LSP</code> |  |
 | <code>SSC</code> | <code>1.NHAT GUI\13_PACKAGE_10_BLOCK\Current Style.lsp</code> | block, style hien hanh |
 | <code>ST</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>ST</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>ST</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>stt</code> | <code>0.DANG SU DUNG\E_STT.lsp</code> | danh so thu tu |
 | <code>stt</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\E_STT.lsp</code> | quan ly/chinh sua, danh so thu tu |
-| <code>stt</code> | <code>4.TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu |
+| <code>stt</code> | <code>TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu |
 | <code>SV</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>SV</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>SV</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>T1</code> | <code>1.NHAT GUI\09_PACKAGE_06_TEXT\B_010_Text_Copy.lsp</code> | text, copy |
-| <code>T1</code> | <code>4.TAM GUI\00-H_GENERAL_TEXT.lsp</code> | dong bo ti le/doi tuong, text |
-| <code>T2</code> | <code>4.TAM GUI\00-H_GENERAL_TEXT.lsp</code> | dong bo ti le/doi tuong, text |
-| <code>T9</code> | <code>4.TAM GUI\00-H_GENERAL_TEXT.lsp</code> | dong bo ti le/doi tuong, text |
+| <code>T1</code> | <code>TAM GUI\00-H_GENERAL_TEXT.lsp</code> | dong bo ti le/doi tuong, text |
+| <code>T2</code> | <code>TAM GUI\00-H_GENERAL_TEXT.lsp</code> | dong bo ti le/doi tuong, text |
+| <code>T9</code> | <code>TAM GUI\00-H_GENERAL_TEXT.lsp</code> | dong bo ti le/doi tuong, text |
 | <code>TAOLAYER</code> | <code>0.DANG SU DUNG\6_TNT_LAYER.lsp</code> | layer |
-| <code>tcase</code> | <code>4.TAM GUI\00-H_GENERAL_TEXT.lsp</code> | dong bo ti le/doi tuong, text |
+| <code>tcase</code> | <code>TAM GUI\00-H_GENERAL_TEXT.lsp</code> | dong bo ti le/doi tuong, text |
 | <code>TD1(</code> | <code>0.DANG SU DUNG\TD1_TD2_TD3.lsp</code> |  |
 | <code>TD2(</code> | <code>0.DANG SU DUNG\TD1_TD2_TD3.lsp</code> |  |
 | <code>TD3(</code> | <code>0.DANG SU DUNG\TD1_TD2_TD3.lsp</code> |  |
 | <code>TNT</code> | <code>0.DANG SU DUNG\1_TNT.lsp</code> |  |
 | <code>TNT</code> | <code>1.NHAT GUI\05_PACKAGE_02_GENERAL\B_010_General_Sync.lsp</code> | dong bo ti le/doi tuong |
 | <code>TNT</code> | <code>3.TAM BAN GIAO\010_Sync_(Tnt).lsp</code> |  |
-| <code>TNT</code> | <code>4.TAM GUI\00-B_GENERAL_SYNC.lsp</code> | dong bo ti le/doi tuong |
+| <code>TNT</code> | <code>TAM GUI\00-B_GENERAL_SYNC.lsp</code> | dong bo ti le/doi tuong |
 | <code>TNT_DCL_CREATE</code> | <code>0.DANG SU DUNG\00_A_DCL_CREATE.lsp</code> | tao chuan |
 | <code>TNT_DCL_CREATE</code> | <code>1.NHAT GUI\04_PACKAGE_01_CREATE\G_010_User_Interface_DCL_Cmd.lsp</code> | tao chuan |
-| <code>TNT_DCL_CREATE</code> | <code>4.TAM GUI\00_A_DCL_CREATE.lsp</code> | tao chuan |
-| <code>TNT_DCL_CREATE</code> | <code>4.TAM GUI\00_A_DCL_CREATEV2.lsp</code> | tao chuan |
+| <code>TNT_DCL_CREATE</code> | <code>TAM GUI\00_A_DCL_CREATE.lsp</code> | tao chuan |
+| <code>TNT_DCL_CREATE</code> | <code>TAM GUI\00_A_DCL_CREATEV2.lsp</code> | tao chuan |
 | <code>TNT_DCL_TOOLS</code> | <code>1.NHAT GUI\04_PACKAGE_01_CREATE\G_010_User_Interface_DCL_Cmd.lsp</code> | tao chuan |
 | <code>TNT_DIM</code> | <code>0.DANG SU DUNG\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>TNT_DIM</code> | <code>0.DANG SU DUNG\4_TNT_DIM.lsp</code> | dimension |
-| <code>TNT_DIM</code> | <code>4.TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
+| <code>TNT_DIM</code> | <code>TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension |
 | <code>TNT_EXPORT_LAYERS</code> | <code>0.DANG SU DUNG\TNT_EXPORT_LAYERS_TO_TXT.lsp</code> | layer |
 | <code>TNT_ISO</code> | <code>0.DANG SU DUNG\8_TNT_BLOCK.lsp</code> | block |
-| <code>TNT_ISO</code> | <code>4.TAM GUI\00-G_GENERAL_BLOCK.lsp</code> | dong bo ti le/doi tuong, block |
+| <code>TNT_ISO</code> | <code>TAM GUI\00-G_GENERAL_BLOCK.lsp</code> | dong bo ti le/doi tuong, block |
 | <code>TNT_LAYAUTO</code> | <code>1.NHAT GUI\08_PACKAGE_05_LAYER\B_010_Layer_Change.lsp</code> | layer |
-| <code>TNT_LAYAUTO</code> | <code>4.TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
-| <code>TNT_SYSTEM</code> | <code>4.TAM GUI\00_A_GENERAL_SYSTEM.lsp</code> | system/setup, dong bo ti le/doi tuong |
+| <code>TNT_LAYAUTO</code> | <code>TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer |
+| <code>TNT_SYSTEM</code> | <code>TAM GUI\00_A_GENERAL_SYSTEM.lsp</code> | system/setup, dong bo ti le/doi tuong |
 | <code>TT</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>TT</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>TT</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>TT1</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
 | <code>V</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>V</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>V</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>V1</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>V1</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>V1</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>V2</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>V2</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>V2</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>V3</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>V3</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>V3</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>vbb</code> | <code>0.DANG SU DUNG\77_DRAW RECTANG_PLOT.lsp</code> | ve/phu tro ve, plot/in |
 | <code>vbb</code> | <code>1.NHAT GUI\07_PACKAGE_04_DRAW\77_DRAW RECTANG_PLOT.lsp</code> | ve/phu tro ve, plot/in |
 | <code>vbb</code> | <code>1.NHAT GUI\77_DRAW RECTANG_PLOT.lsp</code> | ve/phu tro ve, plot/in |
-| <code>vbb</code> | <code>4.TAM GUI\77_DRAW RECTANG_PLOT.lsp</code> | ve/phu tro ve, plot/in |
+| <code>vbb</code> | <code>TAM GUI\77_DRAW RECTANG_PLOT.lsp</code> | ve/phu tro ve, plot/in |
 | <code>VC</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\B_010_Manage_MoveToCenter.lsp</code> | quan ly/chinh sua |
-| <code>VC</code> | <code>4.TAM GUI\77_DRAW MOVE TO CENTER_VC1-VC2.lsp</code> | ve/phu tro ve |
+| <code>VC</code> | <code>TAM GUI\77_DRAW MOVE TO CENTER_VC1-VC2.lsp</code> | ve/phu tro ve |
 | <code>VC1</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\B_010_Manage_MoveToCenter.lsp</code> | quan ly/chinh sua |
-| <code>VC1</code> | <code>4.TAM GUI\77_DRAW MOVE TO CENTER_VC1-VC2.lsp</code> | ve/phu tro ve |
+| <code>VC1</code> | <code>TAM GUI\77_DRAW MOVE TO CENTER_VC1-VC2.lsp</code> | ve/phu tro ve |
 | <code>VR1(/</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> | quan ly/chinh sua |
-| <code>VR1(/</code> | <code>4.TAM GUI\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> |  |
+| <code>VR1(/</code> | <code>TAM GUI\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> |  |
 | <code>VR2</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> | quan ly/chinh sua |
-| <code>VR2</code> | <code>4.TAM GUI\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> |  |
+| <code>VR2</code> | <code>TAM GUI\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> |  |
 | <code>VR3</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> | quan ly/chinh sua |
-| <code>VR3</code> | <code>4.TAM GUI\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> |  |
+| <code>VR3</code> | <code>TAM GUI\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> |  |
 | <code>VRR</code> | <code>1.NHAT GUI\06_PACKAGE_03_MANAGE\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> | quan ly/chinh sua |
-| <code>VRR</code> | <code>4.TAM GUI\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> |  |
+| <code>VRR</code> | <code>TAM GUI\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> |  |
 | <code>wq</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>wq</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>wq</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>wq1</code> | <code>0.DANG SU DUNG\WI.lsp</code> |  |
 | <code>wq1</code> | <code>1.NHAT GUI\07_PACKAGE_04_DRAW\77_DRAW WIPEOUT_WQ1.lsp</code> | ve/phu tro ve, wipeout |
-| <code>wq1</code> | <code>4.TAM GUI\77_DRAW WIPEOUT_WQ1.lsp</code> | ve/phu tro ve, wipeout |
+| <code>wq1</code> | <code>TAM GUI\77_DRAW WIPEOUT_WQ1.lsp</code> | ve/phu tro ve, wipeout |
 | <code>xre</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>xre</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>xre</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>XZ</code> | <code>0.DANG SU DUNG\2_TNT_SHORTCUT.lsp</code> | shortcut |
-| <code>XZ</code> | <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
+| <code>XZ</code> | <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut |
 | <code>zz</code> | <code>1.NHAT GUI\07_PACKAGE_04_DRAW\77_DRAW RevCloud (Eng) (RV).lsp</code> | ve/phu tro ve |
 
 ## File Index
@@ -541,45 +541,45 @@
 | <code>1.NHAT GUI\Incremental Value V6.0.VLX</code> |  | 0 | 0 | Binary/compiled support file; cannot extract commands automatically. |
 | <code>3.TAM BAN GIAO\010_Layer_(Lay).lsp</code> | layer | 1 | 4 | ;;; - CHANGE LAYER HATCH, TEXT, LEADER, DIM, D_010_LAYER_CHANGE.LSP |
 | <code>3.TAM BAN GIAO\010_Sync_(Tnt).lsp</code> |  | 1 | 11 |  |
-| <code>4.TAM GUI\00_A_DCL_CREATE.lsp</code> | tao chuan | 1 | 16 |  |
-| <code>4.TAM GUI\00_A_DCL_CREATEV2.lsp</code> | tao chuan | 1 | 16 |  |
-| <code>4.TAM GUI\00_A_GENERAL_SYSTEM.lsp</code> | system/setup, dong bo ti le/doi tuong | 1 | 6 |  |
-| <code>4.TAM GUI\00-B_GENERAL_SYNC.lsp</code> | dong bo ti le/doi tuong | 1 | 11 |  |
-| <code>4.TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension | 8 | 16 |  |
-| <code>4.TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch | 16 | 0 |  |
-| <code>4.TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer | 11 | 4 |  |
-| <code>4.TAM GUI\00-F_GENERAL_LEADER.lsp</code> | dong bo ti le/doi tuong, leader | 1 | 1 |  |
-| <code>4.TAM GUI\00-G_GENERAL_BLOCK.lsp</code> | dong bo ti le/doi tuong, block | 3 | 4 |  |
-| <code>4.TAM GUI\00-H_GENERAL_TEXT.lsp</code> | dong bo ti le/doi tuong, text | 4 | 4 | nil on cancel, one of the following strings if OK is pressed: |
-| <code>4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut | 66 | 2 |  |
-| <code>4.TAM GUI\11-A_DIMENSION_ ALIGN.lsp</code> | dimension, can chinh | 2 | 38 |  |
-| <code>4.TAM GUI\33-A_TEXT_CHINH SUA TEXT.lsp</code> | text | 1 | 12 |  |
-| <code>4.TAM GUI\33-A1_TEXT_CHINH SUA TEXT.lsp</code> | text | 1 | 11 |  |
-| <code>4.TAM GUI\33-B_TEXT_MASK V1-5.lsp</code> | text | 1 | 17 |  |
-| <code>4.TAM GUI\66_BLOCK_BASE_B3.lsp</code> | block | 2 | 11 | a list whose first item is a 3x3 transformation matrix and, the true (effective) name of a supplied block reference, the VLA Active Document Object |
-| <code>4.TAM GUI\66_BLOCK_CHANGE VIS_B1.lsp</code> | block | 1 | 12 | [any] New value if successful, else nil, the value of a Dynamic Block property (if present), values of Dynamic Block properties using a supplied association list. |
-| <code>4.TAM GUI\66_BLOCK_COPY RENAME_RB-CB.lsp</code> | block, copy, rename | 2 | 2 |  |
-| <code>4.TAM GUI\66_BLOCK_COPY TEXT ATT_AT1.lsp</code> | text, block, copy | 2 | 0 |  |
-| <code>4.TAM GUI\66_BLOCK_THAY THE BLOCK_MAB.lsp</code> | block | 1 | 2 |  |
-| <code>4.TAM GUI\66-A_BLOCK_CAO DO_CA.lsp</code> | block, cao do | 1 | 1 | [str] Attribute value if successful, else nil., the value of the first attribute with the given tag found within the block, if present. |
-| <code>4.TAM GUI\77_DoubleOffsetV1_SF1.lsp</code> |  | 2 | 4 |  |
-| <code>4.TAM GUI\77_DRAW HIDE_H1-H2.lsp</code> | ve/phu tro ve | 2 | 1 |  |
-| <code>4.TAM GUI\77_DRAW MOVE TO CENTER_VC1-VC2.lsp</code> | ve/phu tro ve | 2 | 3 |  |
-| <code>4.TAM GUI\77_DRAW NET CAT_NC1.lsp</code> | ve/phu tro ve | 1 | 0 |  |
-| <code>4.TAM GUI\77_DRAW RECTANG_PLOT.lsp</code> | ve/phu tro ve, plot/in | 1 | 0 |  |
-| <code>4.TAM GUI\77_DRAW WIPEOUT_WQ1.lsp</code> | ve/phu tro ve, wipeout | 1 | 2 | a "Wipeout" from an object (circle, ellipse, or polyline with arcs), the vertices list of the polygon figuring the curve object |
-| <code>4.TAM GUI\77_LoBan-LB1-LB2-LB3.lsp</code> |  | 3 | 0 |  |
-| <code>4.TAM GUI\77_OutlineObjectsV1-0.lsp</code> |  | 1 | 6 | [sel] A selection set of all objects created, a list of the lower-left and upper-right WCS coordinates of a, the VLA Active Document Object |
-| <code>4.TAM GUI\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> |  | 4 | 0 |  |
-| <code>4.TAM GUI\88_AUTO RESET OSNAP.LSP</code> |  | 0 | 1 |  |
-| <code>4.TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu | 6 | 22 |  |
-| <code>4.TAM GUI\88_GeomProps2021x64.arx</code> |  | 0 | 0 | Binary/compiled support file; cannot extract commands automatically. |
-| <code>4.TAM GUI\88_IN_InHangLoatTrenModel.VLX</code> |  | 0 | 0 | Binary/compiled support file; cannot extract commands automatically. |
-| <code>4.TAM GUI\88_Incremental Value V6.0.VLX</code> |  | 0 | 0 | Binary/compiled support file; cannot extract commands automatically. |
-| <code>4.TAM GUI\88_MPL1_10.VLX</code> |  | 0 | 0 | Binary/compiled support file; cannot extract commands automatically. |
-| <code>4.TAM GUI\88_MTEditReactorV1-1.lsp</code> |  | 2 | 3 |  |
-| <code>4.TAM GUI\88_RasterToOle.dll</code> |  | 0 | 0 | Binary/compiled support file; cannot extract commands automatically. |
-| <code>4.TAM GUI\88_SPU.LSP</code> |  | 1 | 1 |  |
+| <code>TAM GUI\00_A_DCL_CREATE.lsp</code> | tao chuan | 1 | 16 |  |
+| <code>TAM GUI\00_A_DCL_CREATEV2.lsp</code> | tao chuan | 1 | 16 |  |
+| <code>TAM GUI\00_A_GENERAL_SYSTEM.lsp</code> | system/setup, dong bo ti le/doi tuong | 1 | 6 |  |
+| <code>TAM GUI\00-B_GENERAL_SYNC.lsp</code> | dong bo ti le/doi tuong | 1 | 11 |  |
+| <code>TAM GUI\00-C_GENERAL_DIMENSION.lsp</code> | dong bo ti le/doi tuong, dimension | 8 | 16 |  |
+| <code>TAM GUI\00-D_GENERAL_HATCH.lsp</code> | dong bo ti le/doi tuong, hatch | 16 | 0 |  |
+| <code>TAM GUI\00-E_GENERAL_LAYER.lsp</code> | dong bo ti le/doi tuong, layer | 11 | 4 |  |
+| <code>TAM GUI\00-F_GENERAL_LEADER.lsp</code> | dong bo ti le/doi tuong, leader | 1 | 1 |  |
+| <code>TAM GUI\00-G_GENERAL_BLOCK.lsp</code> | dong bo ti le/doi tuong, block | 3 | 4 |  |
+| <code>TAM GUI\00-H_GENERAL_TEXT.lsp</code> | dong bo ti le/doi tuong, text | 4 | 4 | nil on cancel, one of the following strings if OK is pressed: |
+| <code>TAM GUI\00-I_GENERAL_SHORTCUT.lsp</code> | dong bo ti le/doi tuong, shortcut | 66 | 2 |  |
+| <code>TAM GUI\11-A_DIMENSION_ ALIGN.lsp</code> | dimension, can chinh | 2 | 38 |  |
+| <code>TAM GUI\33-A_TEXT_CHINH SUA TEXT.lsp</code> | text | 1 | 12 |  |
+| <code>TAM GUI\33-A1_TEXT_CHINH SUA TEXT.lsp</code> | text | 1 | 11 |  |
+| <code>TAM GUI\33-B_TEXT_MASK V1-5.lsp</code> | text | 1 | 17 |  |
+| <code>TAM GUI\66_BLOCK_BASE_B3.lsp</code> | block | 2 | 11 | a list whose first item is a 3x3 transformation matrix and, the true (effective) name of a supplied block reference, the VLA Active Document Object |
+| <code>TAM GUI\66_BLOCK_CHANGE VIS_B1.lsp</code> | block | 1 | 12 | [any] New value if successful, else nil, the value of a Dynamic Block property (if present), values of Dynamic Block properties using a supplied association list. |
+| <code>TAM GUI\66_BLOCK_COPY RENAME_RB-CB.lsp</code> | block, copy, rename | 2 | 2 |  |
+| <code>TAM GUI\66_BLOCK_COPY TEXT ATT_AT1.lsp</code> | text, block, copy | 2 | 0 |  |
+| <code>TAM GUI\66_BLOCK_THAY THE BLOCK_MAB.lsp</code> | block | 1 | 2 |  |
+| <code>TAM GUI\66-A_BLOCK_CAO DO_CA.lsp</code> | block, cao do | 1 | 1 | [str] Attribute value if successful, else nil., the value of the first attribute with the given tag found within the block, if present. |
+| <code>TAM GUI\77_DoubleOffsetV1_SF1.lsp</code> |  | 2 | 4 |  |
+| <code>TAM GUI\77_DRAW HIDE_H1-H2.lsp</code> | ve/phu tro ve | 2 | 1 |  |
+| <code>TAM GUI\77_DRAW MOVE TO CENTER_VC1-VC2.lsp</code> | ve/phu tro ve | 2 | 3 |  |
+| <code>TAM GUI\77_DRAW NET CAT_NC1.lsp</code> | ve/phu tro ve | 1 | 0 |  |
+| <code>TAM GUI\77_DRAW RECTANG_PLOT.lsp</code> | ve/phu tro ve, plot/in | 1 | 0 |  |
+| <code>TAM GUI\77_DRAW WIPEOUT_WQ1.lsp</code> | ve/phu tro ve, wipeout | 1 | 2 | a "Wipeout" from an object (circle, ellipse, or polyline with arcs), the vertices list of the polygon figuring the curve object |
+| <code>TAM GUI\77_LoBan-LB1-LB2-LB3.lsp</code> |  | 3 | 0 |  |
+| <code>TAM GUI\77_OutlineObjectsV1-0.lsp</code> |  | 1 | 6 | [sel] A selection set of all objects created, a list of the lower-left and upper-right WCS coordinates of a, the VLA Active Document Object |
+| <code>TAM GUI\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp</code> |  | 4 | 0 |  |
+| <code>TAM GUI\88_AUTO RESET OSNAP.LSP</code> |  | 0 | 1 |  |
+| <code>TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp</code> | text, dimension, danh so thu tu | 6 | 22 |  |
+| <code>TAM GUI\88_GeomProps2021x64.arx</code> |  | 0 | 0 | Binary/compiled support file; cannot extract commands automatically. |
+| <code>TAM GUI\88_IN_InHangLoatTrenModel.VLX</code> |  | 0 | 0 | Binary/compiled support file; cannot extract commands automatically. |
+| <code>TAM GUI\88_Incremental Value V6.0.VLX</code> |  | 0 | 0 | Binary/compiled support file; cannot extract commands automatically. |
+| <code>TAM GUI\88_MPL1_10.VLX</code> |  | 0 | 0 | Binary/compiled support file; cannot extract commands automatically. |
+| <code>TAM GUI\88_MTEditReactorV1-1.lsp</code> |  | 2 | 3 |  |
+| <code>TAM GUI\88_RasterToOle.dll</code> |  | 0 | 0 | Binary/compiled support file; cannot extract commands automatically. |
+| <code>TAM GUI\88_SPU.LSP</code> |  | 1 | 1 |  |
 
 ## Detail By File
 
@@ -1427,7 +1427,7 @@
 - Commands: <code>TNT</code>
 - Helper/internal functions: 11; sample: <code>CV:SS-TO-LIST, GET_EFFECTIVENAME_BLOCK, TNT:FilterBlocksByName, TNT:FilterEntitiesByType, TNT:GetScaleFromFrame, TNT:ScaleBlocks, TNT:ScaleCircle, TNT:ScaleDimension, TNT:ScaleLeader, TNT:ScaleLines, TNT:ScaleText</code>
 
-### 4.TAM GUI\00_A_DCL_CREATE.lsp
+### TAM GUI\00_A_DCL_CREATE.lsp
 
 - Size: 33.2 KB
 - Modified: 2025-07-16 23:39:50
@@ -1435,7 +1435,7 @@
 - Commands: <code>TNT_DCL_CREATE</code>
 - Helper/internal functions: 16; sample: <code>010_CREATE_DIM, 010_CREATE_LAYER, 010_CREATE_SYSTEM, 010_MAKE_FILE_DCL, 010_SET_TILE_DECORATION, 010_SET_TILE_OF_SEP, 010_SHOW_ABOUT_DIALOG, 010_SHOW_CREATE_DIALOG, 010_SHOW_HELP_DIALOG, ensure-navvcube-off, set-if-needed, TNT_DIM1, TNT_DIM2, TNT_LAYER, TNT_MAKE_LAYER, TNT_SYSTEM</code>
 
-### 4.TAM GUI\00_A_DCL_CREATEV2.lsp
+### TAM GUI\00_A_DCL_CREATEV2.lsp
 
 - Size: 33.2 KB
 - Modified: 2025-07-30 23:24:46
@@ -1443,7 +1443,7 @@
 - Commands: <code>TNT_DCL_CREATE</code>
 - Helper/internal functions: 16; sample: <code>010_CREATE_DIM, 010_CREATE_LAYER, 010_CREATE_SYSTEM, 010_MAKE_FILE_DCL, 010_SET_TILE_DECORATION, 010_SET_TILE_OF_SEP, 010_SHOW_ABOUT_DIALOG, 010_SHOW_CREATE_DIALOG, 010_SHOW_HELP_DIALOG, ensure-navvcube-off, set-if-needed, TNT_DIM1, TNT_DIM2, TNT_LAYER, TNT_MAKE_LAYER, TNT_SYSTEM</code>
 
-### 4.TAM GUI\00_A_GENERAL_SYSTEM.lsp
+### TAM GUI\00_A_GENERAL_SYSTEM.lsp
 
 - Size: 5.8 KB
 - Modified: 2025-07-16 14:07:06
@@ -1451,7 +1451,7 @@
 - Commands: <code>TNT_SYSTEM</code>
 - Helper/internal functions: 6; sample: <code>ensure-navvcube-off, getHDD, getHDDInfo, main, set-if-needed, SETTING</code>
 
-### 4.TAM GUI\00-B_GENERAL_SYNC.lsp
+### TAM GUI\00-B_GENERAL_SYNC.lsp
 
 - Size: 9.6 KB
 - Modified: 2025-06-28 15:16:36
@@ -1459,7 +1459,7 @@
 - Commands: <code>TNT</code>
 - Helper/internal functions: 11; sample: <code>CV:SS-TO-LIST, GET_EFFECTIVENAME_BLOCK, TNT:FilterBlocksByName, TNT:FilterEntitiesByType, TNT:GetScaleFromFrame, TNT:ScaleBlocks, TNT:ScaleCircle, TNT:ScaleDimension, TNT:ScaleLeader, TNT:ScaleLines, TNT:ScaleText</code>
 
-### 4.TAM GUI\00-C_GENERAL_DIMENSION.lsp
+### TAM GUI\00-C_GENERAL_DIMENSION.lsp
 
 - Size: 29.4 KB
 - Modified: 2025-06-12 17:44:36
@@ -1467,14 +1467,14 @@
 - Commands: <code>BD, CD, D3, D4, D5, SD1, SD2, TNT_DIM</code>
 - Helper/internal functions: 16; sample: <code>cdim, chanvuonggoc, CV:SS-TO-LIST, done, GET_EFFECTIVENAME_BLOCK, hoanh_newerror, init, khoangcachdim, myerror, phanloai, phia, PrintDimscale, ss2ent, textdimheight, TNT_DIM1, TNT_DIM2</code>
 
-### 4.TAM GUI\00-D_GENERAL_HATCH.lsp
+### TAM GUI\00-D_GENERAL_HATCH.lsp
 
 - Size: 7.5 KB
 - Modified: 2025-05-16 01:06:16
 - Hint: dong bo ti le/doi tuong, hatch
 - Commands: <code>H25, H251, H252, H253, H254, H255, HA, HB, HC, HF, HG, HS, HSA, HSE, HT, HV</code>
 
-### 4.TAM GUI\00-E_GENERAL_LAYER.lsp
+### TAM GUI\00-E_GENERAL_LAYER.lsp
 
 - Size: 2.9 KB
 - Modified: 2025-07-16 22:34:20
@@ -1482,7 +1482,7 @@
 - Commands: <code>NC, ND, NE, NH, NK, NM, NN, NNT, NT, NTR, TNT_LAYAUTO</code>
 - Helper/internal functions: 4; sample: <code>TNT_CHANGE_LAYER_DIM, TNT_CHANGE_LAYER_HATCH, TNT_CHANGE_LAYER_TEXT, TNT_SET_OR_CHANGE_LAYER</code>
 
-### 4.TAM GUI\00-F_GENERAL_LEADER.lsp
+### TAM GUI\00-F_GENERAL_LEADER.lsp
 
 - Size: 2.4 KB
 - Modified: 2025-06-12 17:44:32
@@ -1490,7 +1490,7 @@
 - Commands: <code>A3</code>
 - Helper/internal functions: 1; sample: <code>CV:ss-to-list</code>
 
-### 4.TAM GUI\00-G_GENERAL_BLOCK.lsp
+### TAM GUI\00-G_GENERAL_BLOCK.lsp
 
 - Size: 6.4 KB
 - Modified: 2025-05-16 01:07:54
@@ -1498,7 +1498,7 @@
 - Commands: <code>AddSupportPath1, B0, TNT_ISO</code>
 - Helper/internal functions: 4; sample: <code>*error*, AddSupportPath, fun_get-block-subref-by-block, func_restore-layers</code>
 
-### 4.TAM GUI\00-H_GENERAL_TEXT.lsp
+### TAM GUI\00-H_GENERAL_TEXT.lsp
 
 - Size: 9.4 KB
 - Modified: 2025-05-16 01:03:54
@@ -1507,7 +1507,7 @@
 - Helper/internal functions: 4; sample: <code>acet-tcase, acet-tcase-ui, acet-tcase-ui-cmd, acet-tcase-ui-dlg</code>
 - Notes: one of the following strings if OK is pressed:; nil on cancel
 
-### 4.TAM GUI\00-I_GENERAL_SHORTCUT.lsp
+### TAM GUI\00-I_GENERAL_SHORTCUT.lsp
 
 - Size: 8.5 KB
 - Modified: 2025-06-12 17:44:28
@@ -1515,7 +1515,7 @@
 - Commands: <code>&#96;, &#96;&#96;, &#96;&#96;&#96;, 1, 1&#96;, 2, 2&#96;, 3, ATT, BB, BC, BE, BR, C, C1, C2, C3, CB, CC, CV, D, D1, D2, DA, DB, DC, DE, DG, DN, DRB, DRF, DS, DX, DXF, E1, F, F1, FF, g1, PU, Q, QQ, R, REF, REFC, RR, RRT, RT, RT1, RT2, SA, SB, SD, SE1, SF, SHT, ST, SV, TT, V, V1, V2, V3, wq, xre, XZ</code>
 - Helper/internal functions: 2; sample: <code>LM:rand, QR</code>
 
-### 4.TAM GUI\11-A_DIMENSION_ ALIGN.lsp
+### TAM GUI\11-A_DIMENSION_ ALIGN.lsp
 
 - Size: 42.3 KB
 - Modified: 2025-07-03 12:09:32
@@ -1523,7 +1523,7 @@
 - Commands: <code>AD, ADIM</code>
 - Helper/internal functions: 38; sample: <code>*error*, CREATE-ABOUT-DIALOG, DIMUL_ARANGEDIM, DIMUL_CLASSIFICATION_LEVEL, DIMUL_CONVERT_SELECTIONSET_TO_LISTENAMEOBJECT, DIMUL_CREATE_LISTENAMEOBJECT_ON_POINT, DIMUL_CREATE_LISTVLALAYERLOCK, DIMUL_EQUAL_TWO_POINT, DIMUL_FIND_LISTDELTA, DIMUL_GET_ANGLEDIMPERMAIN, DIMUL_GET_ANNOTATIONSCALES, DIMUL_GET_BASEPOINTGLOBAL_DISTANCEBASEGLOBAL, DIMUL_GET_DISTANCEBASE, DIMUL_GET_DISTANCEBASEGLOBAL, DIMUL_GET_DISTANCETEXT, DIMUL_GET_LISTANNOTATIONSCALES, DIMUL_GET_LISTDATADIM, DIMUL_GET_SCALEFACTOR, DIMUL_INITIAL_DISTANCEBASEGLOBAL, DIMUL_PROJECTION_TO_LINE ... +18</code>
 
-### 4.TAM GUI\33-A_TEXT_CHINH SUA TEXT.lsp
+### TAM GUI\33-A_TEXT_CHINH SUA TEXT.lsp
 
 - Size: 8 KB
 - Modified: 2025-06-10 01:11:50
@@ -1531,7 +1531,7 @@
 - Commands: <code>ED2</code>
 - Helper/internal functions: 12; sample: <code>CREATE-ABOUT-DIALOG, CREATE-EDIT-TEXT-DIALOG, CTESTY_SET_TILE_OF_SEP, EDIT-ATTRIBUTE, GET-GC, LIC_SET_TILE_DECORATION, MAKE-ABOUT-DCL, MAKE-FILE-DCL, MY-ERR, PUT-GC, SHOW-ABOUT-DIALOG, SHOW-EDIT-DIALOG</code>
 
-### 4.TAM GUI\33-A1_TEXT_CHINH SUA TEXT.lsp
+### TAM GUI\33-A1_TEXT_CHINH SUA TEXT.lsp
 
 - Size: 6.9 KB
 - Modified: 2025-06-10 00:19:48
@@ -1539,7 +1539,7 @@
 - Commands: <code>ED2</code>
 - Helper/internal functions: 11; sample: <code>CREATE-ABOUT-DIALOG, CREATE-EDIT-TEXT-DIALOG, CTESTY_SET_TILE_OF_SEP, EDIT-ATTRIBUTE, GET-GC, LIC_SET_TILE_DECORATION, MAKE-FILE-DCL, MY-ERR, PUT-GC, SHOW-ABOUT-DIALOG, SHOW-EDIT-DIALOG</code>
 
-### 4.TAM GUI\33-B_TEXT_MASK V1-5.lsp
+### TAM GUI\33-B_TEXT_MASK V1-5.lsp
 
 - Size: 22 KB
 - Modified: 2024-09-01 17:57:24
@@ -1547,7 +1547,7 @@
 - Commands: <code>bmask</code>
 - Helper/internal functions: 17; sample: <code>*error*, mask:acdoc, mask:color->mleadercolor, mask:dimstylefill, mask:endundo, mask:getdefaults, mask:getdimxdata, mask:main, mask:maskentity, mask:maskselection, mask:selection, mask:setdefaults, mask:setdimxdata, mask:settings, mask:ssget, mask:startundo, mask:substonce</code>
 
-### 4.TAM GUI\66_BLOCK_BASE_B3.lsp
+### TAM GUI\66_BLOCK_BASE_B3.lsp
 
 - Size: 11.8 KB
 - Modified: 2025-06-01 17:30:08
@@ -1556,7 +1556,7 @@
 - Helper/internal functions: 11; sample: <code>*error*, LM:acdoc, LM:blockname, LM:changeblockbasepoint, LM:endundo, LM:startundo, mxm, mxv, refgeom, revrefgeom, trp</code>
 - Notes: a list whose first item is a 3x3 transformation matrix and; the true (effective) name of a supplied block reference; the VLA Active Document Object
 
-### 4.TAM GUI\66_BLOCK_CHANGE VIS_B1.lsp
+### TAM GUI\66_BLOCK_CHANGE VIS_B1.lsp
 
 - Size: 8.4 KB
 - Modified: 2024-04-18 16:26:02
@@ -1565,7 +1565,7 @@
 - Helper/internal functions: 12; sample: <code>Changevisibilyti, get-user-choice, LM:getdynpropallowedvalues, LM:getdynprops, LM:getdynpropvalue, LM:getvisibilityparametername, LM:getvisibilitystate, LM:setdynprops, LM:setdynpropvalue, LM:SetVisibilityState, LM:toggleflipstate, show-visibility-states</code>
 - Notes: the value of a Dynamic Block property (if present); [any] New value if successful, else nil; values of Dynamic Block properties using a supplied association list.
 
-### 4.TAM GUI\66_BLOCK_COPY RENAME_RB-CB.lsp
+### TAM GUI\66_BLOCK_COPY RENAME_RB-CB.lsp
 
 - Size: 8.2 KB
 - Modified: 2024-03-14 16:30:30
@@ -1573,14 +1573,14 @@
 - Commands: <code>cb, rb</code>
 - Helper/internal functions: 2; sample: <code>*error*, LM:RenameBlockReference</code>
 
-### 4.TAM GUI\66_BLOCK_COPY TEXT ATT_AT1.lsp
+### TAM GUI\66_BLOCK_COPY TEXT ATT_AT1.lsp
 
 - Size: 1 KB
 - Modified: 2025-05-20 17:50:50
 - Hint: text, block, copy
 - Commands: <code>AT1, AT2</code>
 
-### 4.TAM GUI\66_BLOCK_THAY THE BLOCK_MAB.lsp
+### TAM GUI\66_BLOCK_THAY THE BLOCK_MAB.lsp
 
 - Size: 2.8 KB
 - Modified: 2025-05-30 10:20:26
@@ -1588,7 +1588,7 @@
 - Commands: <code>MAB</code>
 - Helper/internal functions: 2; sample: <code>*error*, AT:GetSel</code>
 
-### 4.TAM GUI\66-A_BLOCK_CAO DO_CA.lsp
+### TAM GUI\66-A_BLOCK_CAO DO_CA.lsp
 
 - Size: 2.9 KB
 - Modified: 2025-05-16 01:08:32
@@ -1597,14 +1597,14 @@
 - Helper/internal functions: 1; sample: <code>LM:setattributevalue</code>
 - Notes: the value of the first attribute with the given tag found within the block, if present.; [str] Attribute value if successful, else nil.
 
-### 4.TAM GUI\77_DoubleOffsetV1_SF1.lsp
+### TAM GUI\77_DoubleOffsetV1_SF1.lsp
 
 - Size: 7.1 KB
 - Modified: 2024-10-14 15:17:42
 - Commands: <code>DoubleOffset, SF1</code>
 - Helper/internal functions: 4; sample: <code>*error*, _EndUndo, _StartUndo, DoubleOffset</code>
 
-### 4.TAM GUI\77_DRAW HIDE_H1-H2.lsp
+### TAM GUI\77_DRAW HIDE_H1-H2.lsp
 
 - Size: 1.5 KB
 - Modified: 2024-03-16 16:47:30
@@ -1612,7 +1612,7 @@
 - Commands: <code>H1, H2</code>
 - Helper/internal functions: 1; sample: <code>Dxf</code>
 
-### 4.TAM GUI\77_DRAW MOVE TO CENTER_VC1-VC2.lsp
+### TAM GUI\77_DRAW MOVE TO CENTER_VC1-VC2.lsp
 
 - Size: 3.3 KB
 - Modified: 2025-05-16 01:09:00
@@ -1620,21 +1620,21 @@
 - Commands: <code>VC, VC1</code>
 - Helper/internal functions: 3; sample: <code>boundingbox, find-closed-entity, TT:ListBoundingBox</code>
 
-### 4.TAM GUI\77_DRAW NET CAT_NC1.lsp
+### TAM GUI\77_DRAW NET CAT_NC1.lsp
 
 - Size: 0.5 KB
 - Modified: 2023-08-29 19:19:46
 - Hint: ve/phu tro ve
 - Commands: <code>nc1(/</code>
 
-### 4.TAM GUI\77_DRAW RECTANG_PLOT.lsp
+### TAM GUI\77_DRAW RECTANG_PLOT.lsp
 
 - Size: 2.5 KB
 - Modified: 2025-05-05 00:17:20
 - Hint: ve/phu tro ve, plot/in
 - Commands: <code>vbb</code>
 
-### 4.TAM GUI\77_DRAW WIPEOUT_WQ1.lsp
+### TAM GUI\77_DRAW WIPEOUT_WQ1.lsp
 
 - Size: 3.8 KB
 - Modified: 2022-12-15 18:17:56
@@ -1643,13 +1643,13 @@
 - Helper/internal functions: 2; sample: <code>ent2ptlst, MakeWipeout</code>
 - Notes: a "Wipeout" from an object (circle, ellipse, or polyline with arcs); the vertices list of the polygon figuring the curve object
 
-### 4.TAM GUI\77_LoBan-LB1-LB2-LB3.lsp
+### TAM GUI\77_LoBan-LB1-LB2-LB3.lsp
 
 - Size: 2.9 KB
 - Modified: 2024-07-18 03:04:28
 - Commands: <code>LB1, LB2, LB3</code>
 
-### 4.TAM GUI\77_OutlineObjectsV1-0.lsp
+### TAM GUI\77_OutlineObjectsV1-0.lsp
 
 - Size: 6.1 KB
 - Modified: 2025-03-21 15:24:40
@@ -1657,19 +1657,19 @@
 - Helper/internal functions: 6; sample: <code>*error*, LM:acdoc, LM:endundo, LM:outline, LM:ssboundingbox, LM:startundo</code>
 - Notes: [sel] A selection set of all objects created; a list of the lower-left and upper-right WCS coordinates of a; the VLA Active Document Object
 
-### 4.TAM GUI\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp
+### TAM GUI\77_ROTATE VIEWPORT_R1-R2-R3-RR.lsp
 
 - Size: 0.6 KB
 - Modified: 2025-06-03 00:38:34
 - Commands: <code>VR1(/, VR2, VR3, VRR</code>
 
-### 4.TAM GUI\88_AUTO RESET OSNAP.LSP
+### TAM GUI\88_AUTO RESET OSNAP.LSP
 
 - Size: 0.4 KB
 - Modified: 2025-06-07 10:48:32
 - Helper/internal functions: 1; sample: <code>resetosmode</code>
 
-### 4.TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp
+### TAM GUI\88_Danh STT, them bot noi dung Text, Att, Dim v1.04.lsp
 
 - Size: 32.9 KB
 - Modified: 2025-03-07 11:39:28
@@ -1677,44 +1677,44 @@
 - Commands: <code>??, 1c, c1, c2, ft, stt</code>
 - Helper/internal functions: 22; sample: <code>_replace, ND:ATK_sortXY, ND:att_get, ND:att_set, ND:copy+, ND:ent_pick, ND:ent_sort-pline, ND:FT_but_ADD, ND:FT_but_DEL, ND:FT_savevar, ND:FT_write, ND:get_key, ND:get_real, ND:ins_pt, ND:ins_pt_dim, ND:listbox, ND:str_trim, ND:str++, ND:STT_dcl, ND:STT_modetile ... +2</code>
 
-### 4.TAM GUI\88_GeomProps2021x64.arx
+### TAM GUI\88_GeomProps2021x64.arx
 
 - Size: 124 KB
 - Modified: 2023-06-01 00:50:24
 - Notes: Binary/compiled support file; cannot extract commands automatically.
 
-### 4.TAM GUI\88_IN_InHangLoatTrenModel.VLX
+### TAM GUI\88_IN_InHangLoatTrenModel.VLX
 
 - Size: 23.4 KB
 - Modified: 2016-02-23 05:56:26
 - Notes: Binary/compiled support file; cannot extract commands automatically.
 
-### 4.TAM GUI\88_Incremental Value V6.0.VLX
+### TAM GUI\88_Incremental Value V6.0.VLX
 
 - Size: 42.9 KB
 - Modified: 2024-03-03 16:33:24
 - Notes: Binary/compiled support file; cannot extract commands automatically.
 
-### 4.TAM GUI\88_MPL1_10.VLX
+### TAM GUI\88_MPL1_10.VLX
 
 - Size: 32.6 KB
 - Modified: 2021-11-15 12:01:32
 - Notes: Binary/compiled support file; cannot extract commands automatically.
 
-### 4.TAM GUI\88_MTEditReactorV1-1.lsp
+### TAM GUI\88_MTEditReactorV1-1.lsp
 
 - Size: 1.9 KB
 - Modified: 2025-05-17 12:12:36
 - Commands: <code>mteditreactoroff, mteditreactoron</code>
 - Helper/internal functions: 3; sample: <code>mtedit-reactor-callback, mtedit-reactor-clean, mtedit-reactor-remove</code>
 
-### 4.TAM GUI\88_RasterToOle.dll
+### TAM GUI\88_RasterToOle.dll
 
 - Size: 63 KB
 - Modified: 2025-04-01 10:56:10
 - Notes: Binary/compiled support file; cannot extract commands automatically.
 
-### 4.TAM GUI\88_SPU.LSP
+### TAM GUI\88_SPU.LSP
 
 - Size: 1.7 KB
 - Modified: 2023-11-29 18:15:00

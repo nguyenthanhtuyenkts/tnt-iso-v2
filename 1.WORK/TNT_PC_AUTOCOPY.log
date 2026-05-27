@@ -1,0 +1,59 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 27 Tha'ng Nam 2026 4:54:45 CH
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  15	D:\0.TNT ISO 2026\0.RELEASE\
+	  *EXTRA File 		   5.0 m	TNT_ISO_2026_FINAL.dwg
+	    New File  		   17553	RELEASE_LISP_INDEX.md  0%  100%  
+	    Newer     		   28812	TNT_PACKAGE_00_SYSTEM_ALL.lsp  0%  100%  
+	    Newer     		   49051	TNT_PACKAGE_01_CREATE_ALL.lsp  0%  100%  
+	    Newer     		   29579	TNT_PACKAGE_03_MANAGE_ALL.lsp  0%  100%  
+	    Newer     		   43893	TNT_PACKAGE_06_TEXT_ALL.lsp  0%  100%  
+	    Newer     		    9338	TNT_PACKAGE_09_HATCH_ALL.lsp  0%  100%  
+	    New File  		    4504	TNT_PLOT_STYLE_2026.ctb  0%  100%  
+	    New File  		   5.0 m	TNT_TEMPLATE_2026.dwg  0%    9%   19%   29%   39%   49%   59%   68%   78%   88%   98%  100%  
+	  New Dir         10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	    New File  		   78608	UNI Alter Gothic (H).ttf  0%  100%  
+	    New File  		   79580	UNI Avant (H) Bold.ttf  0%  100%  
+	    New File  		   78056	UNI Avant (H) Regular.ttf  0%  100%  
+	    New File  		   80096	UNI Helve (H).ttf  0%  100%  
+	    New File  		   62676	UNI HelvetIns (H).ttf  0%  100%  
+	    New File  		   78108	UNI Hong Ha (H) Bold.ttf  0%  100%  
+	    New File  		   81408	UNI Hong Ha (H) Regular.ttf  0%  100%  
+	    New File  		   92188	UNI Hong Ha (T) Bold.ttf  0%  100%  
+	    New File  		   94248	UNI Hong Ha (T) Regular.ttf  0%  100%  
+	    New File  		   14345	uromans.shx  0%  100%  
+	  New Dir          1	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+	    New File  		    6638	TNT_MIGRATE_SIMPLE.lsp  0%  100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         2         1         0         0         0
+   Files :        26        19         7         0         0         1
+   Bytes :    6.20 m    5.96 m   252.6 k         0         0    5.07 m
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :            14470687 Bytes/sec.
+   Speed :             828.019 MegaBytes/min.
+   Ended : 27 Tha'ng Nam 2026 4:54:45 CH
+

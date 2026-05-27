@@ -45,9 +45,10 @@ p1 (trans p1 1 0))
 ;;; BEGIN SOURCE: 88_AUTO RESET OSNAP.LSP
 ;;; ====================================================================================================
 ;;;***[AUTOLISP - AUTO RESET OSNAP]***
+(setq *TNT.MANAGE.OSMODE.DEFAULT* 15871)
 (Defun resetosmode (v1 v2 /)
-  (if (/= (getvar "osmode") 16383) 
-    (setvar "osmode" 16383))
+  (if (/= (getvar "osmode") *TNT.MANAGE.OSMODE.DEFAULT*) 
+    (setvar "osmode" *TNT.MANAGE.OSMODE.DEFAULT*))
   (if (/= (getvar "MODEMACRO") "TNT Architecture") 
     (setvar "MODEMACRO" "TNT Architecture")
   )
@@ -59,6 +60,7 @@ p1 (trans p1 1 0))
     (:vlr-lispCancelled . ResetOsmode)
   )
 )
+(resetosmode nil nil)
 ;;; ====================================================================================================
 ;;; END SOURCE: 88_AUTO RESET OSNAP.LSP
 ;;; ====================================================================================================

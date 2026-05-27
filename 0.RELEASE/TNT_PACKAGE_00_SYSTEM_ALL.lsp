@@ -61,6 +61,9 @@
   )
 )
 
+(setq *TNT.SYSTEM.OSMODE.NEAREST-BIT* 512)
+(setq *TNT.SYSTEM.OSMODE.DEFAULT* 15871)
+
 (defun TNT:SYS:SAFE-SETVAR (var value / name val str)
   (cond
     ((and (listp var) (= (length var) 2)) (setq name (car var) val (cadr var)))
@@ -130,6 +133,23 @@
   (if oldcmdecho (setvar "CMDECHO" oldcmdecho))
   (if (vl-catch-all-error-p err)
     (TNT:SYS:LOG (strcat "ERROR: " (vl-catch-all-error-message err)))
+  )
+  (princ)
+)
+
+(defun TNT:SYSTEM:OSMODE-WITHOUT-NEAREST (value / v)
+  (setq v (if (= (type value) 'INT) value (getvar "OSMODE")))
+  (- v (logand v *TNT.SYSTEM.OSMODE.NEAREST-BIT*))
+)
+
+(defun TNT:SYSTEM:ENSURE-OSMODE-NO-NEAREST (/ old new)
+  (setq old (getvar "OSMODE"))
+  (setq new (TNT:SYSTEM:OSMODE-WITHOUT-NEAREST old))
+  (if (/= old new)
+    (progn
+      (setvar "OSMODE" new)
+      (TNT:SYS:LOG (strcat "DONE: OSMODE Nearest OFF (" (vl-princ-to-string old) " -> " (vl-princ-to-string new) ")."))
+    )
   )
   (princ)
 )
@@ -427,7 +447,7 @@
   ;11 DRAW
     (TNT:SYSTEM_SETTING "SNAPMODE" 0)                            ;TẮT BẮT ĐIỂM GRID
     (TNT:SYSTEM_SETTING "GRIDMODE" 0)                            ;TẮT BẮT ĐIỂM GRID 
-    (TNT:SYSTEM_SETTING "OSMODE" 16383)                          ;BAT TAT CA BAT DIEM
+    (TNT:SYSTEM_SETTING "OSMODE" *TNT.SYSTEM.OSMODE.DEFAULT*)     ;BAT BAT DIEM, TRU NEAREST
     (TNT:SYSTEM_SETTING "APERTURE" 20)                           ;KHOẢNG CÁCH HIỆN THỊ BẮT ĐIỂM
     (TNT:SYSTEM_SETTING "PEDITACCEPT" 1)                         ;TẠO NHANH PLINE TỪ LINE KHÔNG HIỂN THỊ HỘP THOẠI COMMAND
     (princ)
@@ -588,5 +608,6 @@
 ;;; ----------------------------------------------------------------------------------------------------
 (TNT:SYSTEM:LEADER-REACTOR-INIT)
 (TNT:SYSTEM:STARTUP-PALETTE-REACTOR-INIT)
+(TNT:SYSTEM:ENSURE-OSMODE-NO-NEAREST)
 (TNT:SYS:LOG "TNT system settings loaded. No package autoload was executed.")
 (princ)
