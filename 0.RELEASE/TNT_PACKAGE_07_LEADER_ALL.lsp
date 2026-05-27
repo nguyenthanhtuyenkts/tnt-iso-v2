@@ -628,5 +628,5 @@
 ;;; END SOURCE: B_TNT_Leader_.lsp
 ;;; ====================================================================================================
 
-(princ "`n[TNT] Loaded TNT_PACKAGE_07_LEADER_ALL.lsp")
+(princ "\n[TNT] Loaded TNT_PACKAGE_07_LEADER_ALL.lsp")
 (princ)

@@ -1,6 +1,6 @@
 # TNT Legacy Lisp Index
 
-- Generated: 2026-05-27 16:40:22 +07:00
+- Generated: 2026-05-27 18:37:30 +07:00
 - Scope: 2.LEGACY - kho lisp cu de tham chieu
 - Files indexed: 150
 - Public commands found: 188

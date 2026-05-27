@@ -1829,5 +1829,5 @@
 ;;; END SOURCE: D_LoBan-LB1-LB2-LB3.lsp
 ;;; ====================================================================================================
 
-(princ "`n[TNT] Loaded TNT_PACKAGE_08_DIMENSION_ALL.lsp")
+(princ "\n[TNT] Loaded TNT_PACKAGE_08_DIMENSION_ALL.lsp")
 (princ)

@@ -46,21 +46,40 @@ p1 (trans p1 1 0))
 ;;; ====================================================================================================
 ;;;***[AUTOLISP - AUTO RESET OSNAP]***
 (setq *TNT.MANAGE.OSMODE.DEFAULT* 15871)
-(Defun resetosmode (v1 v2 /)
-  (if (/= (getvar "osmode") *TNT.MANAGE.OSMODE.DEFAULT*) 
-    (setvar "osmode" *TNT.MANAGE.OSMODE.DEFAULT*))
+(defun TNT:MANAGE:OSMODE:DEFAULT (/)
+  (if (= (type *TNT.MANAGE.OSMODE.DEFAULT*) 'INT)
+    *TNT.MANAGE.OSMODE.DEFAULT*
+    15871
+  )
+)
+
+(defun TNT:MANAGE:RESET-OSMODE (reactor data / target)
+  (setq target (TNT:MANAGE:OSMODE:DEFAULT))
+  (if (/= (getvar "OSMODE") target) 
+    (setvar "OSMODE" target))
   (if (/= (getvar "MODEMACRO") "TNT Architecture") 
     (setvar "MODEMACRO" "TNT Architecture")
   )
-  (Princ)
+  (princ)
 )
-(vlr-editor-reactor  nil
-  '(
-    (:vlr-lispEnded . ResetOsmode)
-    (:vlr-lispCancelled . ResetOsmode)
+
+(defun resetosmode (reactor data /)
+  (TNT:MANAGE:RESET-OSMODE reactor data)
+)
+
+(if (and (boundp '*TNT.MANAGE.OSMODE.REACTOR*) *TNT.MANAGE.OSMODE.REACTOR*)
+  (vl-catch-all-apply 'vlr-remove (list *TNT.MANAGE.OSMODE.REACTOR*))
+)
+(setq *TNT.MANAGE.OSMODE.REACTOR*
+  (vlr-editor-reactor
+    nil
+    '(
+      (:vlr-lispEnded . TNT:MANAGE:RESET-OSMODE)
+      (:vlr-lispCancelled . TNT:MANAGE:RESET-OSMODE)
+    )
   )
 )
-(resetosmode nil nil)
+(TNT:MANAGE:RESET-OSMODE nil nil)
 ;;; ====================================================================================================
 ;;; END SOURCE: 88_AUTO RESET OSNAP.LSP
 ;;; ====================================================================================================
@@ -846,5 +865,5 @@ p1 (trans p1 1 0))
 ;;; END SOURCE: E_STT.lsp
 ;;; ====================================================================================================
 
-(princ "`n[TNT] Loaded TNT_PACKAGE_03_MANAGE_ALL.lsp")
+(princ "\n[TNT] Loaded TNT_PACKAGE_03_MANAGE_ALL.lsp")
 (princ)

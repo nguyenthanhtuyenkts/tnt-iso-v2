@@ -377,7 +377,7 @@
 	)
 )
 
-(princ  "\n:  Command \"RV\" - Draw RevCloud" )
+(princ  "\n[TNT] Command RV loaded: Draw RevCloud." )
 (princ)
 
 ;; Calligraphy Style
@@ -397,5 +397,5 @@
 ;;; END SOURCE: E_TNT_Draw_RevCloud_RV.lsp
 ;;; ====================================================================================================
 
-(princ "`n[TNT] Loaded TNT_PACKAGE_04_DRAW_ALL.lsp")
+(princ "\n[TNT] Loaded TNT_PACKAGE_04_DRAW_ALL.lsp")
 (princ)

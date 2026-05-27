@@ -285,5 +285,5 @@
 ;;; END SOURCE: B_TNT_General_Sync.lsp
 ;;; ====================================================================================================
 
-(princ "`n[TNT] Loaded TNT_PACKAGE_02_GENERAL_ALL.lsp")
+(princ "\n[TNT] Loaded TNT_PACKAGE_02_GENERAL_ALL.lsp")
 (princ)

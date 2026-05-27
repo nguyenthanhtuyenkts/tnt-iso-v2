@@ -134,14 +134,13 @@
   (princ)
 )
 
-(defun TNT_SHORTCUT_ALL (/)
+(defun TNT_SHORTCUT (/)
   (TNT:SHORTCUT:LAYER:INIT)
-  (TNT:SHORTCUT:LAYER:PRINT-TABLE)
   (princ)
 )
 
-(defun c:TNT_SHORTCUT_ALL (/)
-  (TNT_SHORTCUT_ALL)
+(defun c:TNT_SHORTCUT (/)
+  (TNT_SHORTCUT)
   (princ)
 )
 

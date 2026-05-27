@@ -267,5 +267,5 @@
 ;;; END SOURCE: C_TNT_Hatch_Boundary.lsp
 ;;; ====================================================================================================
 
-(princ "`n[TNT] Loaded TNT_PACKAGE_09_HATCH_ALL.lsp")
+(princ "\n[TNT] Loaded TNT_PACKAGE_09_HATCH_ALL.lsp")
 (princ)

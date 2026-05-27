@@ -108,8 +108,6 @@
   (TNT:LAY:CREATE)
   (TNT:LAYER:CHANGE)
   (TNT:MODEL:FORCE-BYLAYER-STD)
-  (TNT:PAPER:FORCE-BYLAYER-STD)
-  (TNT:LAYER:ENSURE-STANDARD)
   (PRINC "\n[TNT] DONE: TNT_LAYER.")
   (PRINC))
 ;;; ====================================================================================================
@@ -252,5 +250,5 @@
   (princ)
 )
 
-(princ "`n[TNT] Loaded TNT_PACKAGE_05_LAYER_ALL.lsp")
+(princ "\n[TNT] Loaded TNT_PACKAGE_05_LAYER_ALL.lsp")
 (princ)

@@ -832,5 +832,5 @@
 ;;; END SOURCE: N_TNT_Function_Create_Shortcut.lsp
 ;;; ====================================================================================================
 
-(princ "`n[TNT] Loaded TNT_PACKAGE_01_CREATE_ALL.lsp")
+(princ "\n[TNT] Loaded TNT_PACKAGE_01_CREATE_ALL.lsp")
 (princ)

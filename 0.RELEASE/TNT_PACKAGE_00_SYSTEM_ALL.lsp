@@ -63,6 +63,7 @@
 
 (setq *TNT.SYSTEM.OSMODE.NEAREST-BIT* 512)
 (setq *TNT.SYSTEM.OSMODE.DEFAULT* 15871)
+(setq *TNT.SYSTEM.ENABLE.COMMAND.REACTORS* nil)
 
 (defun TNT:SYS:SAFE-SETVAR (var value / name val str)
   (cond
@@ -383,14 +384,39 @@
   (princ)
 )
 
-(defun TNT_SETTING_ALL (/)
+(defun TNT_SETTING (/)
   (TNT_SYSTEM_CREATE)
-  (TNT:SYS:LOG "DONE: TNT_SETTING_ALL.")
+  (TNT:SYS:LOG "DONE: TNT_SETTING.")
   (princ)
 )
 
-(defun c:TNT_SETTING_ALL (/)
-  (TNT_SETTING_ALL)
+(defun c:TNT_SETTING (/)
+  (TNT_SETTING)
+  (princ)
+)
+
+(defun TNT_INIT_ALL (/)
+  (TNT_SETTING)
+  (cond
+    ((member "TNT:LAY:CREATE" (atoms-family 1))
+      (TNT:SYS:RUN-SAFE (function TNT:LAY:CREATE)))
+    (T
+      (TNT:SYS:LOG "SKIP: TNT layer create is not loaded."))
+  )
+  (cond
+    ((member "TNT:SHORTCUT:LAYER:INIT" (atoms-family 1))
+      (TNT:SHORTCUT:LAYER:INIT))
+    ((member "TNT_SHORTCUT" (atoms-family 1))
+      (TNT_SHORTCUT))
+    (T
+      (TNT:SYS:LOG "SKIP: TNT_SHORTCUT is not loaded."))
+  )
+  (TNT:SYS:LOG "DONE: TNT_INIT_ALL.")
+  (princ)
+)
+
+(defun c:0 (/)
+  (TNT_INIT_ALL)
   (princ)
 )
 ;;; ====================================================================================================
@@ -498,6 +524,17 @@
   NAME
 )
 
+(defun TNT:SYSTEM:COMMAND-NAME-FROM-DATA (DATA / RAW)
+  (setq RAW
+    (cond
+      ((and (listp DATA) DATA) (car DATA))
+      ((= (type DATA) 'STR) DATA)
+      (T "")
+    )
+  )
+  (TNT:SYSTEM:NORMALIZE-COMMAND RAW)
+)
+
 (defun TNT:SYSTEM:LEADER-COMMAND? (CMD / NAME)
   (setq NAME (TNT:SYSTEM:NORMALIZE-COMMAND CMD))
   (if (member NAME '("LEADER" "QLEADER" "MLEADER"))
@@ -527,9 +564,9 @@
 )
 
 (defun TNT:SYSTEM:LEADER-COMMAND-START (REACTOR DATA / CMD)
-  (setq CMD (car DATA))
+  (setq CMD (TNT:SYSTEM:COMMAND-NAME-FROM-DATA DATA))
   (if (TNT:SYSTEM:LEADER-COMMAND? CMD)
-    (TNT:SYSTEM:SET-LEADER-LAYER)
+    (vl-catch-all-apply 'TNT:SYSTEM:SET-LEADER-LAYER nil)
   )
   (princ)
 )
@@ -579,10 +616,18 @@
 )
 
 (defun TNT:SYSTEM:STARTUP-PALETTE-COMMAND-END (REACTOR DATA / CMD)
-  (setq CMD (car DATA))
+  (setq CMD (TNT:SYSTEM:COMMAND-NAME-FROM-DATA DATA))
   (if (TNT:SYSTEM:STARTUP-PALETTE-COMMAND? CMD)
-    (TNT:SYSTEM:CLOSE-STARTUP-PALETTES)
+    (vl-catch-all-apply 'TNT:SYSTEM:CLOSE-STARTUP-PALETTES nil)
   )
+  (princ)
+)
+
+(defun TNT:SYSTEM:LEADER-REACTOR-OFF (/)
+  (if (and (boundp '*TNT.SYSTEM.LEADER.REACTOR*) *TNT.SYSTEM.LEADER.REACTOR*)
+    (vl-catch-all-apply 'vlr-remove (list *TNT.SYSTEM.LEADER.REACTOR*))
+  )
+  (setq *TNT.SYSTEM.LEADER.REACTOR* nil)
   (princ)
 )
 
@@ -599,6 +644,28 @@
   (TNT:SYSTEM:CLOSE-STARTUP-PALETTES)
   (princ)
 )
+
+(defun TNT:SYSTEM:STARTUP-PALETTE-REACTOR-OFF (/)
+  (if (and (boundp '*TNT.SYSTEM.STARTUP.PALETTE.REACTOR*) *TNT.SYSTEM.STARTUP.PALETTE.REACTOR*)
+    (vl-catch-all-apply 'vlr-remove (list *TNT.SYSTEM.STARTUP.PALETTE.REACTOR*))
+  )
+  (setq *TNT.SYSTEM.STARTUP.PALETTE.REACTOR* nil)
+  (princ)
+)
+
+(defun TNT:SYSTEM:COMMAND-REACTORS-INIT (/)
+  (if *TNT.SYSTEM.ENABLE.COMMAND.REACTORS*
+    (progn
+      (vl-catch-all-apply 'TNT:SYSTEM:LEADER-REACTOR-INIT nil)
+      (vl-catch-all-apply 'TNT:SYSTEM:STARTUP-PALETTE-REACTOR-INIT nil)
+    )
+    (progn
+      (TNT:SYSTEM:LEADER-REACTOR-OFF)
+      (TNT:SYSTEM:STARTUP-PALETTE-REACTOR-OFF)
+    )
+  )
+  (princ)
+)
 ;;; ====================================================================================================
 ;;; END SOURCE: L_TNT_Function_Create_System.lsp
 ;;; ====================================================================================================
@@ -606,8 +673,7 @@
 ;;; ----------------------------------------------------------------------------------------------------
 ;;; End
 ;;; ----------------------------------------------------------------------------------------------------
-(TNT:SYSTEM:LEADER-REACTOR-INIT)
-(TNT:SYSTEM:STARTUP-PALETTE-REACTOR-INIT)
+(TNT:SYSTEM:COMMAND-REACTORS-INIT)
 (TNT:SYSTEM:ENSURE-OSMODE-NO-NEAREST)
 (TNT:SYS:LOG "TNT system settings loaded. No package autoload was executed.")
 (princ)

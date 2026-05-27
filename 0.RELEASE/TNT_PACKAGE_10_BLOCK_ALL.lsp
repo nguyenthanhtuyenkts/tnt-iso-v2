@@ -3509,5 +3509,5 @@
 ;;; END SOURCE: H_TNT_Block_Cote_CA.lsp
 ;;; ====================================================================================================
 
-(princ "`n[TNT] Loaded TNT_PACKAGE_10_BLOCK_ALL.lsp")
+(princ "\n[TNT] Loaded TNT_PACKAGE_10_BLOCK_ALL.lsp")
 (princ)

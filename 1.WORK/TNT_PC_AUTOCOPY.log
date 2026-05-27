@@ -57,3 +57,187 @@ Exc Files : *.bak
    Speed :             828.019 MegaBytes/min.
    Ended : 27 Tha'ng Nam 2026 4:54:45 CH
 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 27 Tha'ng Nam 2026 6:05:18 CH
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  15	D:\0.TNT ISO 2026\0.RELEASE\
+	    Newer     		   17616	RELEASE_LISP_INDEX.md  0%  100%  
+	    Newer     		   29303	TNT_PACKAGE_00_SYSTEM_ALL.lsp  0%  100%  
+	    Newer     		    5472	TNT_PACKAGE_11_SHORTCUT.lsp  0%  100%  
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                   1	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        26         3        23         0         0         0
+   Bytes :    6.20 m    51.1 k    6.15 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :             2381409 Bytes/sec.
+   Speed :             136.265 MegaBytes/min.
+   Ended : 27 Tha'ng Nam 2026 6:05:18 CH
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 27 Tha'ng Nam 2026 6:19:08 CH
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  15	D:\0.TNT ISO 2026\0.RELEASE\
+	    Newer     		   17616	RELEASE_LISP_INDEX.md  0%  100%  
+	    Newer     		   30054	TNT_PACKAGE_03_MANAGE_ALL.lsp  0%  100%  
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                   1	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        26         2        24         0         0         0
+   Bytes :    6.20 m    46.5 k    6.16 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :             3178000 Bytes/sec.
+   Speed :             181.846 MegaBytes/min.
+   Ended : 27 Tha'ng Nam 2026 6:19:08 CH
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 27 Tha'ng Nam 2026 6:44:59 CH
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  15	D:\0.TNT ISO 2026\0.RELEASE\
+	  *EXTRA File 		      64	TNT_TEMPLATE_2026.dwl
+2026/05/27 18:44:59 ERROR 32 (0x00000020) Deleting Extra File Z:\0000.TNT_ISO_2026\TNT_TEMPLATE_2026.dwl
+The process cannot access the file because it is being used by another process.
+
+	  *EXTRA File 		     216	TNT_TEMPLATE_2026.dwl2
+2026/05/27 18:44:59 ERROR 32 (0x00000020) Deleting Extra File Z:\0000.TNT_ISO_2026\TNT_TEMPLATE_2026.dwl2
+The process cannot access the file because it is being used by another process.
+
+	    Newer     		   17616	RELEASE_LISP_INDEX.md  0%  100%  
+	    Newer     		   29630	TNT_PACKAGE_00_SYSTEM_ALL.lsp  0%  100%  
+	    Newer     		   49050	TNT_PACKAGE_01_CREATE_ALL.lsp  0%  100%  
+	    Newer     		   12734	TNT_PACKAGE_02_GENERAL_ALL.lsp  0%  100%  
+	    Newer     		   30053	TNT_PACKAGE_03_MANAGE_ALL.lsp  0%  100%  
+	    Newer     		   12573	TNT_PACKAGE_04_DRAW_ALL.lsp  0%  100%  
+	    Newer     		   11634	TNT_PACKAGE_05_LAYER_ALL.lsp  0%  100%  
+	    Newer     		   43892	TNT_PACKAGE_06_TEXT_ALL.lsp  0%  100%  
+	    Newer     		   22265	TNT_PACKAGE_07_LEADER_ALL.lsp  0%  100%  
+	    Newer     		   66678	TNT_PACKAGE_08_DIMENSION_ALL.lsp  0%  100%  
+	    Newer     		    9337	TNT_PACKAGE_09_HATCH_ALL.lsp  0%  100%  
+	    Newer     		  127299	TNT_PACKAGE_10_BLOCK_ALL.lsp  0%  100%  
+	    Newer     		    5437	TNT_PACKAGE_11_SHORTCUT.lsp  0%  100%  
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                   1	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        26        13        13         0         0         2
+   Bytes :    6.20 m   427.9 k    5.79 m         0         0       280
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :             5155270 Bytes/sec.
+   Speed :             294.986 MegaBytes/min.
+   Ended : 27 Tha'ng Nam 2026 6:44:59 CH
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 27 Tha'ng Nam 2026 6:48:43 CH
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  16	D:\0.TNT ISO 2026\0.RELEASE\
+	    Newer     		   30535	TNT_PACKAGE_00_SYSTEM_ALL.lsp  0%  100%  
+	    Newer     		   5.4 m	TNT_TEMPLATE_2026.dwg  0%    9%   18%   27%   36%   45%   54%   64%   73%   82%   91%  100%  
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                   1	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        27         2        25         0         0         0
+   Bytes :   12.08 m    5.49 m    6.58 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :            42999477 Bytes/sec.
+   Speed :            2460.449 MegaBytes/min.
+   Ended : 27 Tha'ng Nam 2026 6:48:43 CH
+

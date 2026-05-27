@@ -1,6 +1,6 @@
 # TNT ISO 2026 - Work History
 
-- Created: 2026-05-27 16:40:21 +07:00
+- Created: 2026-05-27 18:37:27 +07:00
 - Workspace root: `D:\0.TNT ISO 2026`
 
 ## Folder Rules
@@ -22,6 +22,7 @@
 
 - Tao bo index Markdown cho `2.LEGACY` va `0.RELEASE`.
 - Giu file sinh ra/tool trong `1.WORK`; chi tao index doi chieu tai chinh folder can tham chieu.
-- Kiem tra loi copy block bang Ctrl+C/Ctrl+V bi nhay font ve Standard. Nguyen nhan kha nghi trong release la dimension create reset `STYLE Standard`; da bo cac lenh ghi de `Standard`, thay tao `.TNT_A_TXT_3_NOTE` bang `TNT:TS:ENSURE`, va sua `TNT_TS_SET` ve dung ten style `.TNT_A_TXT_*`.
-- Tao `1.WORK/TNT_PC_AUTOCOPY.cmd` de copy toan bo `0.RELEASE` sang `Z:\0000.TNT_ISO_2026` bang robocopy, co log tai `1.WORK/TNT_PC_AUTOCOPY.log`.
-- Doi `TNT_PC_AUTOCOPY.cmd` sang che do `/MIR` de NAS la ban release cuoi giong het `0.RELEASE`; co canh bao va yeu cau go `RELEASE` truoc khi xoa file thua o dich.
+- Toi uu lenh `0`: chi goi `TNT_SETTING`, `TNT:LAY:CREATE`, va init shortcut; khong goi `TNT_LAYER`. Giu `TNT_LAYER` lam lenh quet/sua rieng, bo tao layer lan 2 va chi ep ByLayer trong ModelSpace. `TNT_SHORTCUT` khong in bang shortcut nua.
+- Sua log load package: doi `` `n[TNT]`` thanh `\n[TNT]` trong package 01-10 va chuan hoa thong bao `RV`.
+- Harden command reactor trong `TNT_PACKAGE_00_SYSTEM_ALL.lsp`: doc ten lenh qua helper an toan va boc callback bang `vl-catch-all-apply` de tranh loi `bad argument type: fixnump: #<VLR-Command-Reactor>`.
+- Tam tat command reactor mac dinh khi load package 00 (`*TNT.SYSTEM.ENABLE.COMMAND.REACTORS* = nil`) vi log van bao loi `fixnump: #<VLR-Command-Reactor>` truoc package 01. Cac reactor phu van giu ham init/off de bat lai sau neu can.

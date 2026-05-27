@@ -1068,5 +1068,5 @@
 ;;; END SOURCE: F_A1_TEXT_CHINH SUA TEXT.lsp
 ;;; ====================================================================================================
 
-(princ "`n[TNT] Loaded TNT_PACKAGE_06_TEXT_ALL.lsp")
+(princ "\n[TNT] Loaded TNT_PACKAGE_06_TEXT_ALL.lsp")
 (princ)
