@@ -1,0 +1,28 @@
+(defun c:VR2 ()
+  (command "_UCS" "_Z" "90")
+  (command "_PLAN" "_Current")
+)
+
+(defun c:VR3 ()
+  (command "_UCS" "_Z" "-90")
+  (command "_PLAN" "_Current")
+)
+
+
+(defun c:VRR ()
+  (command "_UCS" "_World")
+  (command "_PLAN" "_World")
+)
+
+(defun c:VR1(/ p1 p2 p3 goc vs)
+(setq p1 (getpoint "\nChon Tam")
+p2 (getpoint p1 "\nChon Phuong hien tai")
+p3 (getpoint p1 "\nChon Phuong moi")
+goc (-(angle p3 p1)(angle p2 p1))
+vs (getvar "viewsize")
+p1 (trans p1 1 0))
+(command "ucs" "z" (/(* 180 goc)pi) "")
+(command "plan" "")
+(command "zoom" "c" (trans p1 0 1) vs)
+(princ)
+)

@@ -1,0 +1,9 @@
+Bước 1:
+ - Copy File 	".010.A_PACKAGE_STANDARD_AUTOCAD.rar" 
+ - Paste to 	"C:\"
+Bước 2:
+ - Open Autocad
+ - Command -> 010_SYS_LOAD_ALL
+Bước 3:
+Bước 4: 
+Bước 5:

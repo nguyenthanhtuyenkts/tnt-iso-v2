@@ -1,0 +1,742 @@
+(vl-load-com)
+(setvar "MODEMACRO" "010 Architect")
+;HAM CON
+ (defun CV:SS-TO-LIST ( SS VLA / N E L)
+    (if SS
+    (progn
+        (setq N (sslength SS))
+        (while (setq E (ssname SS (setq N (1- N))))
+          (setq L (cons (if VLA (vlax-ename->vla-object E) E) L) )
+        )
+      )
+    )
+  )
+  (defun GET_EFFECTIVENAME_BLOCK ( VlaObject / NameBlock )
+    (vl-catch-all-apply (function (lambda ( / )
+      (setq NameBlock (cdr (assoc 2 (entget (cdr (assoc 340 (entget (vlax-vla-object->ename (vla-item (vla-item (vla-GetExtensionDictionary VlaObject) "AcDbBlockRepresentation") "AcDbRepData")))))))))
+    )))
+    (if (not NameBlock)
+      (setq NameBlock (cdr (assoc 2 (entget (vlax-vla-object->ename VlaObject)))))
+    )
+    NameBlock
+  )
+;TAO DIM
+  (defun C:TNT_DIM ()
+    (setvar "MODEMACRO" "010 Architect")    
+    (TNT_DIM1)
+    (TNT_DIM2)
+    (princ)
+  )
+;TAO DIM 1
+  (defun TNT_DIM1 ()     
+  (setvar "cmdecho" 0)
+  (if (not (tblsearch "dimstyle" "TNT_DIM1"))
+  (progn    
+    (command "STYLE"            "Standard"  "" "" "" "" "" "" "" "" "")  
+    (command "DIMSTYLE"         "R"         "Standard")
+    (if (not (tblsearch "STYLE" "TNT_DIM"))
+    (command "STYLE"            "TNT_DIM"   "uromans.shx" "" "0.8" "" "" "" "" "" ""))
+    (command "DIMASO"           "ON")      ;Create dimension objects    
+    (command "DIMADEC"          "0")        ;Angular decimal places
+    (command "DIMALT"           "Off")      ;Alternate units selected
+    (command "DIMALTD"          "2")        ;Alternate unit decimal places
+    (command "DIMALTF"          "25.4")     ;Alternate unit scale factor   
+    (command "DIMALTRND"        "0")        ;Alternate units rounding value
+    (command "DIMALTTD"         "2")        ;Alternate tolerance decimal places
+    (command "DIMALTTZ"         "0")        ;Alternate tolerance zero suppression
+    (command "DIMALTU"          "2")        ;Alternate units
+    (command "DIMALTZ"          "0")        ;Alternate unit zero suppression
+    (command "DIMAPOST"         "")         ;Prefix and suffix for alternate text
+    (command "DIMARCSYM"        "0")        ;Arc length symbol
+    (command "DIMASZ"           "1.10")     ;Arrow size
+    (command "DIMATFIT"         "3")        ;Arrow and text fit
+    (command "DIMAUNIT"         "0")        ;Angular unit format
+    (command "DIMAZIN"          "0")        ;Angular zero supression
+    (command "DIMBLK"           "ArchTick") ;Arrow block name
+    (command "DIMBLK1"          "")         ;First arrow block name
+    (command "DIMBLK2"          "")         ;Second arrow block name
+    (command "DIMCEN"           "0.09")     ;Center mark size
+    (command "DIMCLRD"          "256")      ;Dimension line and leader color
+    (command "DIMCLRE"          "256")      ;Extension line color
+    (command "DIMCLRT"          "14")       ;Dimension text color
+    (command "DIMDEC"           "0")        ;Decimal places
+    (command "DIMDLE"           "1.1")      ;Dimension line extension
+    (command "DIMDLI"           "5")        ;Dimension line spacing
+    (command "DIMDSEP"          ".")        ;Decimal separator
+    (command "DIMEXE"           "1.1")      ;Extension above dimension line
+    (command "DIMEXO"           "0")        ;Extension line origin offset
+    (command "DIMFRAC"          "0")        ;Fraction format
+    (command "DIMFXL"           "0")        ;Fixed Extension Line
+    (command "DIMFXLON"         "Off")      ;Enable Fixed Extension Line
+    (command "DIMGAP"           "0.7")      ;Gap from dimension line to text
+    (command "DIMJOGANG"        "90")       ;Radius dimension jog angle
+    (command "DIMJUST"          "0")        ;Justification of text on dimension line
+    (command "DIMLDRBLK"        "")         ;Leader block name
+    (command "DIMLFAC"          "1")        ;Linear unit scale factor
+    (command "DIMLIM"           "Off")      ;Generate dimension limits
+    (command "DIMLTEX1"         "ByBlock")  ;Linetype extension line 1
+    (command "DIMLTEX2"         "ByBlock")  ;Linetype extension line 2
+    (command "DIMLTYPE"         "ByBlock")  ;Dimension linetype
+    (command "DIMLUNIT"         "2")        ;Linear unit format
+    (command "DIMLWD"           "-2")       ;Dimension line and leader lineweight
+    (command "DIMLWE"           "-2")       ;Extension line lineweight   
+    (command "DIMPOST"          "")         ;Prefix and suffix for dimension text
+    (command "DIMRND"           "0")        ;Rounding value
+    (command "DIMSAH"           "Off")      ;Separate arrow blocks
+    (command "DIMSCALE"         "1")        ;Overall scale factor
+    (command "DIMSD1"           "Off")      ;Suppress the first dimension line
+    (command "DIMSD2"           "Off")      ;Suppress the second dimension line
+    (command "DIMSE1"           "Off")      ;Suppress the first extension line
+    (command "DIMSE2"           "Off")      ;Suppress the second extension line
+    (command "DIMSOXD"          "On")       ;Suppress outside dimension lines
+    (command "DIMTAD"           "1")        ;Place text above the dimension line
+    (command "DIMTDEC"          "0")        ;Tolerance decimal places
+    (command "DIMTFAC"          "1")        ;Tolerance text height scaling factor
+    (command "DIMTFILL"         "0")        ;Text background enabled
+    (command "DIMTFILLCLR"      "256")      ;Text background color
+    (command "DIMTIH"           "Off")      ;Text inside extensions is horizontal
+    (command "DIMTIX"           "Off")      ;Place text inside extensions
+    (command "DIMTM"            "0")        ;Minus tolerance
+    (command "DIMTMOVE"         "0")        ;Text movement
+    (command "DIMTOFL"          "On")       ;Force line inside extension lines
+    (command "DIMTOH"           "Off")      ;Text outside horizontal
+    (command "DIMTOL"           "Off")      ;Tolerance dimensioning
+    (command "DIMTOLJ"          "1")        ;Tolerance vertical justification
+    (command "DIMTP"            "0")        ;Plus tolerance
+    (command "DIMTSZ"           "0")        ;Tick size
+    (command "DIMTVP"           "0")        ;Text vertical position
+    (command "DIMTXSTY"         "TNT_DIM")  ;Text style
+    (command "DIMTXT"           "2.00")     ;Text height
+    (command "DIMTXTDIRECTION"  "Off")      ;Dimension text direction
+    (command "DIMTZIN"          "0")        ;Tolerance zero suppression
+    (command "DIMUPT"           "Off")      ;User positioned text
+    (command "DIMZIN"           "0")        ;Zero suppression
+    (command "DIMSTYLE"         "S" "TNT_DIM1")
+    )    
+  )
+  (Setvar "cmdecho" 1)
+  (princ "\nDONE TNT_DIM1 TL-1:1.")
+  (princ)
+  )
+;TAO DIM 2
+  (defun TNT_DIM2 ()  
+  (setvar "cmdecho" 0)
+  (if (not (tblsearch "dimstyle" "TNT_DIM2"))
+  (progn    
+    (command "STYLE"            "Standard"  "" "" "" "" "" "" "" "" "")  
+    (command "DIMSTYLE"         "R"         "Standard")
+    (if (not (tblsearch "STYLE" "TNT_DIM"))
+    (command "STYLE"            "TNT_DIM"   "uromans.shx" "" "0.8" "" "" "" "" "" ""))
+    (command "DIMASO"           "ON")      ;Create dimension objects    
+    (command "DIMADEC"          "0")        ;Angular decimal places
+    (command "DIMALT"           "Off")      ;Alternate units selected
+    (command "DIMALTD"          "2")        ;Alternate unit decimal places
+    (command "DIMALTF"          "25.4")     ;Alternate unit scale factor   
+    (command "DIMALTRND"        "0")        ;Alternate units rounding value
+    (command "DIMALTTD"         "2")        ;Alternate tolerance decimal places
+    (command "DIMALTTZ"         "0")        ;Alternate tolerance zero suppression
+    (command "DIMALTU"          "2")        ;Alternate units
+    (command "DIMALTZ"          "0")        ;Alternate unit zero suppression
+    (command "DIMAPOST"         "")         ;Prefix and suffix for alternate text
+    (command "DIMARCSYM"        "0")        ;Arc length symbol
+    (command "DIMASZ"           "1.10")     ;Arrow size
+    (command "DIMATFIT"         "3")        ;Arrow and text fit
+    (command "DIMAUNIT"         "0")        ;Angular unit format
+    (command "DIMAZIN"          "0")        ;Angular zero supression
+    (command "DIMBLK"           "ArchTick") ;Arrow block name
+    (command "DIMBLK1"          "")         ;First arrow block name
+    (command "DIMBLK2"          "")         ;Second arrow block name
+    (command "DIMCEN"           "0.09")     ;Center mark size
+    (command "DIMCLRD"          "256")      ;Dimension line and leader color
+    (command "DIMCLRE"          "256")      ;Extension line color
+    (command "DIMCLRT"          "14")       ;Dimension text color
+    (command "DIMDEC"           "0")        ;Decimal places
+    (command "DIMDLE"           "1.1")      ;Dimension line extension
+    (command "DIMDLI"           "5")        ;Dimension line spacing
+    (command "DIMDSEP"          ".")        ;Decimal separator
+    (command "DIMEXE"           "1.1")      ;Extension above dimension line
+    (command "DIMEXO"           "0")        ;Extension line origin offset
+    (command "DIMFRAC"          "0")        ;Fraction format
+    (command "DIMFXL"           "0")        ;Fixed Extension Line
+    (command "DIMFXLON"         "Off")      ;Enable Fixed Extension Line
+    (command "DIMGAP"           "0.7")      ;Gap from dimension line to text
+    (command "DIMJOGANG"        "90")       ;Radius dimension jog angle
+    (command "DIMJUST"          "0")        ;Justification of text on dimension line
+    (command "DIMLDRBLK"        "")         ;Leader block name
+    (command "DIMLFAC"          "1")        ;Linear unit scale factor
+    (command "DIMLIM"           "Off")      ;Generate dimension limits
+    (command "DIMLTEX1"         "ByBlock")  ;Linetype extension line 1
+    (command "DIMLTEX2"         "ByBlock")  ;Linetype extension line 2
+    (command "DIMLTYPE"         "ByBlock")  ;Dimension linetype
+    (command "DIMLUNIT"         "2")        ;Linear unit format
+    (command "DIMLWD"           "-2")       ;Dimension line and leader lineweight
+    (command "DIMLWE"           "-2")       ;Extension line lineweight   
+    (command "DIMPOST"          "")         ;Prefix and suffix for dimension text
+    (command "DIMRND"           "0")        ;Rounding value
+    (command "DIMSAH"           "Off")      ;Separate arrow blocks
+    (command "DIMSCALE"         "1")        ;Overall scale factor
+    (command "DIMSD1"           "Off")      ;Suppress the first dimension line
+    (command "DIMSD2"           "Off")      ;Suppress the second dimension line
+    (command "DIMSE1"           "Off")      ;Suppress the first extension line
+    (command "DIMSE2"           "Off")      ;Suppress the second extension line
+    (command "DIMSOXD"          "Off")       ;Suppress outside dimension lines
+    (command "DIMTAD"           "1")        ;Place text above the dimension line
+    (command "DIMTDEC"          "0")        ;Tolerance decimal places
+    (command "DIMTFAC"          "1")        ;Tolerance text height scaling factor
+    (command "DIMTFILL"         "0")        ;Text background enabled
+    (command "DIMTFILLCLR"      "256")      ;Text background color
+    (command "DIMTIH"           "Off")      ;Text inside extensions is horizontal
+    (command "DIMTIX"           "On")      ;Place text inside extensions
+    (command "DIMTM"            "0")        ;Minus tolerance
+    (command "DIMTMOVE"         "0")        ;Text movement
+    (command "DIMTOFL"          "On")       ;Force line inside extension lines
+    (command "DIMTOH"           "Off")      ;Text outside horizontal
+    (command "DIMTOL"           "Off")      ;Tolerance dimensioning
+    (command "DIMTOLJ"          "1")        ;Tolerance vertical justification
+    (command "DIMTP"            "0")        ;Plus tolerance
+    (command "DIMTSZ"           "0")        ;Tick size
+    (command "DIMTVP"           "0")        ;Text vertical position
+    (command "DIMTXSTY"         "TNT_DIM")  ;Text style
+    (command "DIMTXT"           "2.00")     ;Text height
+    (command "DIMTXTDIRECTION"  "Off")      ;Dimension text direction
+    (command "DIMTZIN"          "0")        ;Tolerance zero suppression
+    (command "DIMUPT"           "Off")      ;User positioned text
+    (command "DIMZIN"           "0")        ;Zero suppression
+    (command "DIMSTYLE"         "S" "TNT_DIM2")
+    )    
+  )
+  (Setvar "cmdecho" 1)
+  (princ "\nDONE TNT_DIM2 TL-1:1.")
+  (princ)
+  )
+;CAT DIM
+  (defun myerror (s)                    ; If an error (such as CTRL-C) occurs
+                                        ; while this command is active...
+    (cond
+      ((= s "quit / exit abort") (princ))
+      ((/= s "Function cancelled") (princ (strcat "\nError: " s)))
+    )
+    (setvar "cmdecho" CMD) ; Restore saved modes
+    (setvar "osmode" OSM)
+    (setq *error* OLDERR) ; Restore old *error* handler
+    (princ)
+  )
+  ;*******************************************************************************
+  (DEFUN C:CD (/ CMD SS LTH DEM PT DS KDL N70 GOCX GOCY PT13 PT14 PTI PT13I PT14I
+                  PT13N PT14N O13 O14 N13 N14 OSM OLDERR PT10 PT11)
+  (setvar "MODEMACRO" "010 Architec")  
+  (SETQ CMD (GETVAR "CMDECHO"))
+  (SETQ OSM (GETVAR "OSMODE"))
+  (SETQ OLDERR *error*
+        *error* myerror)
+  (PRINC "Please select dimension object!")
+  (SETQ SS (SSGET))
+  (SETVAR "CMDECHO" 0)
+  (SETQ PT (GETPOINT "Point to trim or extend:"))
+  (SETQ PT (TRANS PT 1 0))
+  (COMMAND "UCS" "W")
+  (SETQ LTH (SSLENGTH SS))
+  (SETQ DEM 0)
+  (WHILE (< DEM LTH)
+      (PROGN
+    (SETQ DS (ENTGET (SSNAME SS DEM)))
+    (SETQ KDL (CDR (ASSOC 0 DS)))
+    (IF (= "DIMENSION" KDL)
+      (PROGN
+      (SETQ PT10 (CDR (ASSOC 10 DS)))
+      (SETQ PT11 (CDR (ASSOC 11 DS)))
+      (SETQ PT13 (CDR (ASSOC 13 DS)))
+      (SETQ PT14 (CDR (ASSOC 14 DS)))
+      (SETQ N70 (CDR (ASSOC 70 DS)))
+      (IF (OR (= N70 0) (= N70 32) (= N70 33) (= N70 160) (= N70 161))
+        (PROGN
+        (SETQ GOCY (ANGLE PT10 PT14))
+        (SETQ GOCX (+ GOCY (/ PI 2)))
+        )
+      )
+      (SETVAR "OSMODE" 0)
+      (SETQ PTI (POLAR PT GOCX 2))
+      (SETQ PT13I (POLAR PT13 GOCY 2))
+      (SETQ PT14I (POLAR PT14 GOCY 2))
+      (SETQ PT13N (INTERS PT PTI PT13 PT13I NIL))
+      (SETQ PT14N (INTERS PT PTI PT14 PT14I NIL))
+      (SETQ O13 (ASSOC 13 DS))
+      (SETQ O14 (ASSOC 14 DS))
+      (SETQ N13 (CONS 13 PT13N))
+      (SETQ N14 (CONS 14 PT14N))
+      (SETQ DS (SUBST N13 O13 DS))
+      (SETQ DS (SUBST N14 O14 DS))
+      (ENTMOD DS)
+      )
+    )
+    (SETQ DEM (+ DEM 1))
+      )
+  )
+  (COMMAND "UCS" "P")
+  (SETVAR "CMDECHO" CMD)
+  (SETVAR "OSMODE" OSM)
+  (setq *error* OLDERR)
+  (PRINC)
+  )
+  ;******************************************************************************
+;DONG DIM
+  (defun C:BD (/ CMD SS LTH DEM PT DS KDL N70 GOCX GOCY PT13 PT14 PTI
+                  PT10 PT10I PT10N O10 N10 PT11 PT11N O11 N11 KC OSM OLDERR)
+  (setvar "MODEMACRO" "010 Architec")
+  (setq CMD (getvar "CMDECHO")) ; LẤY BIẾN LỜI NHẮC ĐẦU VÀO
+  (setq OSM (getvar "OSMODE")) ; LẤY BIẾN BẮT ĐIỂM
+  (setq OLDERR *error*
+        *error* MYERROR)  
+  (setq SS (ssget)) ;CHỌN ĐỐI TƯỢNG
+  (setvar "CMDECHO" 0)
+  (setq PT (getpoint "PICK POINT:")) ;CHỌN ĐIỂM THAY ĐỔI
+  (setq PT (trans PT 1 0)) ;CHUYỂN ĐIỂM PT SANG HỆ TỌA ĐỘ WORK
+  (command "UCS" "W") ;CHUYỂN HỆ TỌA ĐỘ WORK
+  (setq LTH (sslength SS)) ;ĐẾM SỐ LƯỢNG ĐỐI TƯỢNG
+  (setq DEM 0)
+    (while (< DEM LTH) ;VÒNG LẶP
+      (progn
+        (setq DS (entget (ssname SS DEM)))
+        (setq KDL (cdr (assoc 0 DS)))
+        (if (= "DIMENSION" KDL)
+          (progn
+            (setq PT13 (cdr (assoc 13 DS)))
+            (setq PT14 (cdr (assoc 14 DS)))
+            (setq PT10 (cdr (assoc 10 DS)))
+            (setq PT11 (cdr (assoc 11 DS)))
+            (setq N70 (cdr (assoc 70 DS)))
+            (if (or (= N70 0) (= N70 32) (= N70 33) (= N70 160) (= N70 161))
+              (progn
+              (setq GOCY (ANGLE PT10 PT14))
+              (setq GOCX (+ GOCY (/ PI 2)))
+              )
+            )
+            (setvar "OSMODE" 0)
+            (setq PTI (POLAR PT GOCX 2))
+            (setq PT10I (POLAR PT10 GOCY 2))
+            (setq PT10N (INTERS PT PTI PT10 PT10I NIL))
+            (setq KC (DISTANCE PT10 PT10N))
+            (setq O10 (ASSOC 10 DS))
+            (setq N10 (CONS 10 PT10N))
+            (setq DS (SUBST N10 O10 DS))
+            (setq PT11N (POLAR PT11 (ANGLE PT10 PT10N) KC))
+            (setq O11 (ASSOC 11 DS))
+            (setq N11 (CONS 11 PT11N))
+            (setq DS (SUBST N11 O11 DS))
+            (ENTMOD DS)
+          )
+        )
+      (setq DEM (+ DEM 1))
+      )
+    )
+  (COMMAND "UCS" "P")
+  (SETVAR "CMDECHO" CMD)
+  (SETVAR "OSMODE" OSM)
+  (setq *error* OLDERR)
+  (princ)
+  )
+;CHUYEN DIM TNT_DIM1 VA TNT_DIM2
+  (defun C:SD1 (/ SS i ENAME ELIST ETYPE DIMROBJ DIMSCALEOLD)
+    (setvar "MODEMACRO" "010 Architec")
+    (setvar "CMDECHO" 0)
+    (setq DIMSCALEOLD (getvar "DIMSCALE"))
+    (setq SS (ssget '((0 . "DIMENSION"))))
+    (if (null ss)
+      (progn
+        (command "DIMSTYLE" "R" "TNT_DIM1")
+        (setvar "DIMSCALE" DIMSCALEOLD)
+        (prompt "\nĐã chuyển DimStyle TNT_DIM1")
+        (PrintDimscale DIMSCALEOLD)
+      )
+      (progn
+        (repeat (setq i (sslength ss))
+          (setq ENAME (ssname ss (setq i (1- i))))
+          (setq ELIST (entget ENAME))
+          (setq ETYPE (cdr (assoc 0 ELIST)))
+          (if (= ETYPE "DIMENSION")
+            (progn
+              (setq DIMROBJ (vlax-ename->vla-object ENAME))
+              (vla-put-StyleName DIMROBJ "TNT_DIM1")              
+              (vla-put-ScaleFactor DIMROBJ DIMSCALEOLD)
+              (vla-update DIMROBJ)              
+            )
+          )
+        )
+        (command "DIMSTYLE" "R" "TNT_DIM1")
+        (setvar "DIMSCALE" DIMSCALEOLD)
+        (prompt "\nĐã chuyển DimStyle TNT_DIM1")
+        (PrintDimscale DIMSCALEOLD)
+      )
+    )
+    (setvar "CMDECHO" 1)
+    (princ)
+  )
+  (defun C:SD2 (/ SS i ENAME ELIST ETYPE DIMROBJ DIMSCALEOLD)
+    (setvar "MODEMACRO" "010 Architec")
+    (setvar "CMDECHO" 0)
+    (setq DIMSCALEOLD (getvar "DIMSCALE"))
+    (setq SS (ssget '((0 . "DIMENSION"))))
+    (if (null ss)
+      (progn
+        (command "DIMSTYLE" "R" "TNT_DIM2")
+        (setvar "DIMSCALE" DIMSCALEOLD)
+        (prompt "\nĐã chuyển DimStyle TNT_DIM2")
+        (PrintDimscale DIMSCALEOLD)
+      )
+      (progn
+        (repeat (setq i (sslength ss))
+          (setq ENAME (ssname ss (setq i (1- i))))
+          (setq ELIST (entget ENAME))
+          (setq ETYPE (cdr (assoc 0 ELIST)))
+          (if (= ETYPE "DIMENSION")
+            (progn
+              (setq DIMROBJ (vlax-ename->vla-object ENAME))
+              (vla-put-StyleName DIMROBJ "TNT_DIM2")
+              (command "DIMSTYLE" "R" "TNT_DIM2")
+              (vla-put-ScaleFactor DIMROBJ DIMSCALEOLD)
+              (vla-update DIMROBJ)              
+            )
+          )
+        )
+        (command "DIMSTYLE" "R" "TNT_DIM2")
+        (setvar "DIMSCALE" DIMSCALEOLD)
+        (prompt "\nĐã chuyển DimStyle TNT_DIM2")
+        (PrintDimscale DIMSCALEOLD)
+      )
+    )
+    (setvar "CMDECHO" 1)
+    (princ)
+  )
+;LẤY TỶ LỆ DIM  
+  ;HAM CON IN THONG BAO
+    (defun PrintDimscale (val)
+      (prompt
+        (strcat "\nĐã gán DIMSCALE = "
+          (if (= (fix val) val)
+            (itoa (fix val))
+            (rtos val 2 3)
+          )
+        )
+      )
+    )
+  ;HAM CHINH XU LÝ
+  (defun c:D3 (/ 
+                DIMSCALEOLD
+                ENAME ELIST ETYPE               
+                BLOCKOBJ
+                DIMROBJ DIMSCALE
+                TEXTOBJ HEIGHT TEXTSTYLE KHUNGSCALE
+                LEADEROBJ LEADERSIZE
+              )
+    (setvar "MODEMACRO" "010 Architect")
+    (setvar "CMDECHO" 0)
+    (setq DIMSCALEOLD (getvar "DIMSCALE"))
+    (setq ENAME (entsel "\nPICK CHON"))
+    (if (null ENAME)
+      (prompt "\nCHON LAI")
+      (progn
+        (setq ELIST (entget (car ENAME)))
+        (setq ETYPE (cdr (assoc 0 ELIST)))
+        (cond
+          ((= ETYPE "INSERT")
+          (setq BLOCKOBJ (cdr (assoc 41 ELIST)))
+          (setq DIMSCALE BLOCKOBJ)
+          (setvar "DIMSCALE" BLOCKOBJ)
+          (PrintDimscale DIMSCALE)
+          )
+          ((= ETYPE "DIMENSION")
+            (setq DIMROBJ (vlax-ename->vla-object (car ENAME)))
+            (setq DIMSCALE (vla-get-ScaleFactor DIMROBJ))
+            (setvar "DIMSCALE" DIMSCALE) 
+            (PrintDimscale DIMSCALE)
+          )
+          ((= ETYPE "TEXT")
+            (setq TEXTOBJ (vlax-ename->vla-object (car ENAME)))
+            (setq HEIGHT (vla-get-Height TEXTOBJ))
+            (setq TEXTSTYLE (cdr (assoc 7 ELIST)))
+            (cond
+              ((= TEXTSTYLE "01_TNT_CHUCNANG")
+                (setq KHUNGSCALE (/ HEIGHT 4.0))
+              )
+              ((= TEXTSTYLE "02_TNT_Text")
+                (setq KHUNGSCALE (/ HEIGHT 2.0))
+              )
+            ) 
+            (setq DIMSCALE KHUNGSCALE)         
+            (setvar "DIMSCALE" KHUNGSCALE)
+            (PrintDimscale DIMSCALE)
+          )
+          ((= ETYPE "MTEXT")
+            (setq TEXTOBJ (vlax-ename->vla-object (car ENAME)))
+            (setq HEIGHT (vla-get-Height TEXTOBJ))
+            (setq TEXTSTYLE (cdr (assoc 7 ELIST)))
+            (cond
+              ((= TEXTSTYLE "01_TNT_CHUCNANG")
+                (setq KHUNGSCALE (/ HEIGHT 4.0))
+              )
+              ((= TEXTSTYLE "02_TNT_Text")
+                (setq KHUNGSCALE (/ HEIGHT 2.0))
+              )
+            )
+            (setq DIMSCALE KHUNGSCALE)
+            (setvar "DIMSCALE" KHUNGSCALE)
+            (PrintDimscale DIMSCALE)
+          )
+          ((= ETYPE "LEADER")
+            (setq LEADEROBJ (vlax-ename->vla-object (car ENAME)))
+            (setq LEADERSIZE (vla-get-ArrowheadSize LEADEROBJ))
+            (setq KHUNGSCALE (/ LEADERSIZE 2.0))
+            (setq DIMSCALE KHUNGSCALE)
+            (setvar "DIMSCALE" DIMSCALE)
+            (PrintDimscale DIMSCALE)
+          )
+        )
+      )
+    )
+    (setvar "CMDECHO" 1)
+    (princ)
+  )
+;KHOẢNG CÁCH DIM
+  (defun c:D4 ()
+    (setvar "MODEMACRO" "010 Architec")
+    (defun ss2ent (ss / sodt index lstent)
+      (setq sodt (if ss (sslength ss) 0)
+            index 0)
+      (repeat sodt
+        (setq ent (ssname ss index)
+              index (1+ index)
+              lstent (cons ent lstent))
+      )
+      (reverse lstent)
+    )
+
+    (defun hoanh_newerror (msg)
+      (if (and (/= msg "Function cancelled")
+              (/= msg "quit / exit abort"))
+          (princ (strcat "\n" msg))
+      )
+      (done)
+    )
+
+    (defun init ()
+      (setq HOANH_CMD (getvar "CMDECHO")
+            HOANH_OLDERROR *error*
+            *error* hoanh_newerror)
+      (setvar "CMDECHO" 0)
+      (command ".undo" "BE")
+    )
+
+    (defun done ()
+      (command ".redraw")
+      (command ".undo" "E")
+      (if HOANH_CMD (setvar "CMDECHO" HOANH_CMD))
+      (if HOANH_OLDERROR (setq *error* HOANH_OLDERROR))
+      (princ)
+    )
+
+    (defun cdim (entdt pchan pduong / tt old10 old13 old14 new10 new13 new14 p10n p13n p14n p10o p13o p14o gocduong gocchan pchanb pduongb loaidim)
+      (defun chanvuonggoc (ph p1 p2 / ptemp pkq goc)
+        (setq goc (+ (angle p1 p2) (/ pi 2.0))
+              ptemp (polar ph goc 1000.0)
+              pkq (inters ph ptemp p1 p2 nil))
+        pkq
+      )
+
+      (setq tt (entget entdt)
+            old10 (assoc '10 tt)
+            old13 (assoc '13 tt)
+            old14 (assoc '14 tt)
+            p10o (cdr old10)
+            p13o (cdr old13)
+            p14o (cdr old14)
+            loaidim (logand (cdr (assoc '70 tt)) 7)
+            gocduong (cond
+                      ((= loaidim 1) (angle p13o p14o))
+                      ((= loaidim 0) (cdr (assoc '50 tt)))
+                      (t nil)
+                    )
+            pchan (if pchan (list (car pchan) (cadr pchan) 0.0) pchan)
+            pduong (if pduong (list (car pduong) (cadr pduong) 0.0) pduong)
+      )
+
+      (if gocduong
+          (progn
+            (if pchan
+                (setq pchanb (polar pchan gocduong 1000.0)
+                      p13n (chanvuonggoc (list (car p13o) (cadr p13o) 0.0) pchan pchanb)
+                      p14n (chanvuonggoc (list (car p14o) (cadr p14o) 0.0) pchan pchanb)
+                      new13 (cons 13 p13n)
+                      new14 (cons 14 p14n)
+                      tt (subst new13 old13 tt)
+                      tt (subst new14 old14 tt))
+            )
+            (if pduong
+                (setq pduongb (polar pduong gocduong 1000.0)
+                      p10n (chanvuonggoc (list (car p10o) (cadr p10o) 0.0) pduong pduongb)
+                      new10 (cons 10 p10n)
+                      tt (subst new10 old10 tt))
+            )
+            (entmod tt)
+          )
+      )
+      gocduong
+    )
+
+    (defun textdimheight (ent / tmp)
+      (command ".copy" ent "" (list 0.0 0.0 0.0) "@")
+      (command ".explode" (entlast) "")
+      (setq tmp (cdr (assoc 40 (entget (entlast)))))
+      (command ".erase" "p" "")
+      tmp
+    )
+
+    (defun phia (p1 p2 p3 / x1 y1 z1 x2 y2 z2 x3 y3 z3)
+      (setq x1 (car p1)
+            y1 (cadr p1)
+            z1 (caddr p1)
+            x2 (car p2)
+            y2 (cadr p2)
+            z2 (caddr p2)
+            x3 (car p3)
+            y3 (cadr p3)
+            z3 (caddr p3)
+            tmp (+ (* (- x1 x2) x3)
+                    (* (- y1 y2) y3)
+                    (* (- z1 z2) z3)))
+      (cond
+        ((= tmp 0.0) 0.0)
+        (t (/ tmp (abs tmp)))
+      )
+    )
+
+    (defun khoangcachdim (p1 ent goc / tt p2 A B D)
+      (setq tt (entget ent)
+            p2 (cdr (assoc 10 tt))
+            B (cdr (assoc 50 tt))
+            A (angle p1 p2)
+            D (distance p1 p2))
+      (* (* D (sin (- A B))) (phia p1 (polar p1 goc 1.0) p2))
+    )
+
+    (defun phanloai (ent)
+      (setq kc (khoangcachdim pgoc ent goc)
+            loai (fix (/ kc heightdimgoc 0.93)))
+      (cons loai ent)
+    )
+
+    (init)
+    (princ)
+    
+    (while (not (setq entgoc (car (entsel "\n CHON DIM GOC: ")))))
+    (setq ttgoc (entget entgoc)
+          p13goc (cdr (assoc 13 ttgoc))
+          pgoc (cdr (assoc 10 ttgoc))
+          goc (cdr (assoc 50 ttgoc))
+          heightdimgoc (textdimheight entgoc)
+          ssd (ssget (list
+                      (cons 0 "DIMENSION")
+                      (cons -4 "<OR")
+                      (cons 70 32)
+                      (cons 70 64)
+                      (cons 70 96)
+                      (cons 70 128)
+                      (cons 70 160)
+                      (cons 70 196)
+                      (cons 70 224)
+                      (cons -4 "OR>")
+                      (cons -4 "<OR")
+                      (cons 50 goc)
+                      (cons 50 (+ goc pi))
+                      (cons 50 (- goc pi))
+                      (cons -4 "OR>")
+                      )
+                      )
+          lstd (ss2ent ssd)
+          lstd (mapcar 'phanloai lstd)
+          lstlevel nil
+    )
+
+    (foreach pp lstd
+      (if (not (member (car pp) lstlevel))
+          (setq lstlevel (append lstlevel (list (car pp))))
+      )
+    )
+
+    (setq lstlevel (vl-sort lstlevel '(lambda (x1 x2) (< x1 x2)))
+          lstam nil
+          lstduong nil
+          lstamtmp nil
+          lstduongtmp nil
+    )
+
+    (foreach pp lstlevel
+      (if (< pp 0.0)
+          (setq lstam (append lstam (list pp)))
+      )
+      (if (> pp 0.0)
+          (setq lstduong (append lstduong (list pp)))
+      )
+    )
+
+    (setq index 0)
+    (foreach pp (reverse lstam)
+      (setq index (1+ index)
+            lstamtmp (append lstamtmp (list (cons pp index))))
+    )
+
+    (setq lstam lstamtmp
+          index 0)
+
+    (foreach pp lstduong
+      (setq index (1+ index)
+            lstduongtmp (append lstduongtmp (list (cons pp index))))
+    )
+
+    (setq lstduong lstduongtmp)
+    (setq lstlevel (append lstduong lstam (list (cons 0.0 0))))
+    (setq kcdimstandard (* 3.0 heightdimgoc)) ; KHOANG CACH DIM = X3 TEXT
+
+    (foreach pp lstd
+      (setq plht (car pp))
+      (progn
+        (setq kcdimht (khoangcachdim pgoc (cdr pp) goc)
+              duongthu (cdr (assoc plht lstlevel))
+              heso (cond
+                    ((/= 0 kcdimht)
+                      (abs (* (/ kcdimstandard kcdimht) duongthu))
+                    )
+                    (t 0.0)
+                  )
+              diemchenht (cdr (assoc 10 (entget (cdr pp))))
+              pmoi (polar pgoc (angle pgoc diemchenht) (* heso (distance pgoc diemchenht))))
+        (cdim (cdr pp) p13goc pmoi)
+      )
+    )
+    (done)
+    (princ)
+  )
+;TỶ LỆ DIM
+ (defun c:D5 (/ DIMVALUENEW LSTDIM O1 DT DIMROBJ DIMVALUE DIMVALUENEW1 )
+  (setvar "MODEMACRO" "010 Architec")
+  (command "UNDO" "BE")
+  (setvar "CMDECHO" 0)
+  (setq DIMVALUENEW (getreal "\n TL SCALE :" ))
+  (setq LSTDIM (CV:SS-TO-LIST (ssget (list (cons 0 "DIMENSION"))) nil))  
+    (foreach ENT LSTDIM
+      (setq O1 (entget ENT))
+      (setq DT (cdr (assoc 0 O1)))
+      (cond
+        ((= DT "DIMENSION")         
+        (setq DIMROBJ (vlax-ename->vla-object ENT))
+        (setq DIMVALUE (cdr (assoc 42 O1)))
+        ;(vla-put-TextOverride DIMROBJ DIMVALUE) 
+        ;(setq DIMVALUENEW1 (rtos (/ DIMVALUE DIMVALUENEW)))
+        ;(vla-put-TextOverride DIMROBJ DIMVALUENEW1)
+        (vla-put-TextOverride DIMROBJ "")
+        (setq DIMVALUENEW1 (/ 1 DIMVALUENEW))
+        (vla-put-linearscalefactor DIMROBJ DIMVALUENEW1)
+        )
+      )
+    )
+  (princ)
+ )

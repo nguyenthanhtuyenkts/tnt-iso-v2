@@ -1,0 +1,31 @@
+;; Thay doi att tang dan 1 don vi cho cac block_att duoc chon theo att duoc chon dau tien.
+;; Doan Van Ha - CadViet.com - ngay 26/7/2013
+(vl-load-com)
+(defun C:KH( / ent ss tag lst pre suf int len num #SS->List #String:Split-First VxSetAtts)
+ (defun #SS->List (ss / i lst)
+  (repeat (setq i (sslength ss))
+   (setq lst (cons (ssname ss (setq i (1- i))) lst))))
+ (defun #String:Split-First (string symbol / i)
+  (if (setq i (vl-string-position (ascii symbol) string))
+   (list (substr string 1 (1+ i)) (substr string (+ 2 i)))
+   (list string)))
+ (defun VxSetAtts (Obj Lst / AttVal)
+  (mapcar '(lambda (Att) (if (setq AttVal (cdr (assoc (vla-get-TagString Att) Lst))) (vla-put-TextString Att AttVal))) (vlax-invoke Obj 'GetAttributes))
+  (vla-update Obj))
+ (if
+  (and
+   (setq ent (car (nentsel "\nChon Att So hieu cua ban ve dau tien: ")))
+   (princ "\nChon cac Block theo thu tu de thay So hieu ban ve...")
+   (setq ss (ssget '((0 . "Insert") (66 . 1)))))
+  (progn
+   (setq tag (cdr (assoc 2 (setq elist (entget ent)))))
+   (setq lst (#String:Split-First (cdr (assoc 1 elist)) "-"))
+   (setq pre (car lst))
+   (setq suf (cadr lst))
+   (setq int (atoi suf))
+   (setq len (strlen suf))
+   (foreach n (#SS->List ss)
+(setq num (itoa (setq int (1+ int))))
+(repeat (- len (strlen num))
+(setq num (strcat "0" num)))
+(VxSetAtts (vlax-ename->vla-object n) (list (cons tag (strcat pre num))))))))

@@ -1,0 +1,23 @@
+(defun c:Q1 (/ source target itarget str)
+  (setvar "MODEMACRO" "TNT Architecture")
+	(command "undo" "be") 
+	(prompt "\nSelect *TEXT, DIMENSION source:")
+	(setq source (ssget "+.:S:N" '((0 . "*TEXT,DIMENSION"))))
+		(if (and
+      source
+      (setq source (ssname source 0))
+      (setq str (cdr (assoc 1 (entget source))))     
+      (progn (prompt "\nSelect *TEXT, DIMENSION Target:") T)     
+      (setq target (ssget '((0 . "*TEXT,DIMENSION"))))
+      )
+			  (progn
+			    (setq i 0)
+			    (while (setq itarget (ssname target i))
+			         (entmod (subst  (cons 1 str) (assoc 1 (entget itarget)) (entget itarget)))
+		           (setq i (1+ i))      
+		    )   
+	    (command "undo" "end")
+	    (redraw)
+		)
+	)
+)
