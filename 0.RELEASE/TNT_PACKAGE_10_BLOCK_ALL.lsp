@@ -3497,7 +3497,107 @@
   (setvar "LUPREC" BHT)
   )
 
-  
+(defun TNT:BLOCK:MATB:ATTRIBUTES (blk / obj attrs)
+  (setq attrs nil)
+  (if blk
+    (progn
+      (setq obj (vlax-ename->vla-object blk))
+      (if (and (= (vla-get-objectname obj) "AcDbBlockReference")
+               (= (vla-get-HasAttributes obj) :vlax-true))
+        (setq attrs (vl-catch-all-apply 'vlax-invoke (list obj 'GetAttributes)))
+      )
+    )
+  )
+  (if (vl-catch-all-error-p attrs) nil attrs)
+)
+
+(defun TNT:BLOCK:MATB:SOURCE-MAP (blk / att tag style result)
+  (foreach att (TNT:BLOCK:MATB:ATTRIBUTES blk)
+    (if (and (vlax-property-available-p att 'TagString)
+             (vlax-property-available-p att 'StyleName))
+      (progn
+        (setq tag (strcase (vla-get-TagString att)))
+        (setq style (vla-get-StyleName att))
+        (if (and tag style (tblsearch "STYLE" style))
+          (setq result (cons (cons tag style) result))
+        )
+      )
+    )
+  )
+  result
+)
+
+(defun TNT:BLOCK:MATB:APPLY (blk stylemap / att tag item ok fail)
+  (setq ok 0 fail 0)
+  (foreach att (TNT:BLOCK:MATB:ATTRIBUTES blk)
+    (if (and (vlax-property-available-p att 'TagString)
+             (vlax-property-available-p att 'StyleName))
+      (progn
+        (setq tag (strcase (vla-get-TagString att)))
+        (setq item (assoc tag stylemap))
+        (if item
+          (if (not (vl-catch-all-error-p
+                     (vl-catch-all-apply 'vla-put-StyleName (list att (cdr item)))))
+            (setq ok (1+ ok))
+            (setq fail (1+ fail))
+          )
+        )
+      )
+    )
+  )
+  (list ok fail)
+)
+
+(defun c:MATB (/ *error* oldcmdecho src stylemap ss i blk result ok fail totalok totalfail)
+  (defun *error* (msg)
+    (if oldcmdecho (setvar "CMDECHO" oldcmdecho))
+    (command "_.UNDO" "_End")
+    (if (not (member msg '("Function cancelled" "quit / exit abort")))
+      (princ (strcat "\n[MATB] Error: " msg))
+    )
+    (princ)
+  )
+  (setq oldcmdecho (getvar "CMDECHO"))
+  (setvar "MODEMACRO" "TNT Architecture")
+  (setvar "CMDECHO" 0)
+  (command "_.UNDO" "_Begin")
+  (setq src (car (entsel "\n[MATB] Chon block nguon: ")))
+  (cond
+    ((not src)
+      (princ "\n[MATB] Khong chon block nguon.")
+    )
+    ((/= "INSERT" (cdr (assoc 0 (entget src))))
+      (princ "\n[MATB] Doi tuong nguon khong phai block.")
+    )
+    ((not (setq stylemap (TNT:BLOCK:MATB:SOURCE-MAP src)))
+      (princ "\n[MATB] Block nguon khong co attribute TextStyle hop le.")
+    )
+    (T
+      (princ "\n[MATB] Chon block dich:")
+      (setq ss (ssget '((0 . "INSERT"))))
+      (if ss
+        (progn
+          (setq i 0 totalok 0 totalfail 0)
+          (while (setq blk (ssname ss i))
+            (setq result (TNT:BLOCK:MATB:APPLY blk stylemap))
+            (setq ok (car result))
+            (setq fail (cadr result))
+            (setq totalok (+ totalok ok))
+            (setq totalfail (+ totalfail fail))
+            (setq i (1+ i))
+          )
+          (princ (strcat "\n[MATB] Da match TextStyle cho " (itoa totalok) " attribute. Loi: " (itoa totalfail) "."))
+        )
+        (princ "\n[MATB] Khong chon block dich.")
+      )
+    )
+  )
+  (command "_.UNDO" "_End")
+  (setvar "CMDECHO" oldcmdecho)
+  (princ)
+)
+
+
 
 
 

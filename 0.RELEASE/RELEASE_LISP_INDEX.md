@@ -3,7 +3,7 @@
 - Generated: 2026-05-27 18:37:30 +07:00
 - Scope: 0.RELEASE - goi lisp va support dang release
 - Files indexed: 13
-- Public commands found: 76
+- Public commands found: 78
 
 ## Quick Command Lookup
 
@@ -59,6 +59,8 @@
 | <code>LB2</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
 | <code>LB3</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
 | <code>MAB</code> | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block |
+| <code>MAT</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
+| <code>MATB</code> | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block |
 | <code>nc1(/</code> | <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve |
 | <code>rb</code> | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block |
 | <code>RHB</code> | <code>TNT_PACKAGE_09_HATCH_ALL.lsp</code> | hatch |
@@ -96,11 +98,11 @@
 | <code>TNT_PACKAGE_03_MANAGE_ALL.lsp</code> | quan ly/chinh sua | 8 | 25 | 77_ROTATE VIEWPORT_VR1-VR2-VR3-VRR.lsp, 88_AUTO RESET OSNAP.LSP, B_TNT_Manage_MoveToCenter.lsp, E_STT.lsp |
 | <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve | 6 | 5 | a "Wipeout" from an object (circle, ellipse, or polyline with arcs), B_TNT_Draw_Rectang_Plot_VBB.lsp, C_TNT_Draw_Line_SEC_NC1.lsp, cld.lsp, D_TNT_Draw_Wipeout_WQ1.lsp, E_TNT_Draw_RevCloud_RV.lsp, the vertices list of the polygon figuring the curve object |
 | <code>TNT_PACKAGE_05_LAYER_ALL.lsp</code> | layer | 3 | 13 | ;;; - CHANGE LAYER HATCH, TEXT, LEADER, DIM, ;;; - ÉP 1 ĐỐI TƯỢNG VỀ BYLAYER NẾU LAYER CỦA NÓ THUỘC DANH SÁCH CHUẨN, B_TNT_Layer_Fix.lsp, B_TNT_LAYER_FIX.LSP, D_TNT_Layer_Change.lsp, D_TNT_LAYER_CHANGE.LSP |
-| <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text | 8 | 32 | B_TNT_Text_Copy.lsp, C_TNT_Text_Align_TA.lsp, CanChinhText-ft_df_dfx_dx.lsp, D_TNT_Text_Mask.lsp, F_A1_TEXT_CHINH SUA TEXT.lsp |
+| <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text | 9 | 34 | B_TNT_Text_Copy.lsp, C_TNT_Text_Align_TA.lsp, CanChinhText-ft_df_dfx_dx.lsp, D_TNT_Text_Mask.lsp, F_A1_TEXT_CHINH SUA TEXT.lsp |
 | <code>TNT_PACKAGE_07_LEADER_ALL.lsp</code> | leader | 4 | 15 | B_TNT_Leader_.lsp |
 | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension | 12 | 52 | B_TNT_Dimension.lsp, C_TNT_Dimension_Align.lsp, D_LoBan-LB1-LB2-LB3.lsp |
 | <code>TNT_PACKAGE_09_HATCH_ALL.lsp</code> | hatch | 17 | 0 | B_TNT_Hatch.lsp, C_TNT_Hatch_Boundary.lsp |
-| <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block | 12 | 82 | .Current Style.lsp, a list whose first item is a 3x3 transformation matrix and, B_TNT_Block_Layer0_B0.lsp, C_TNT_Block_Basepoint_B3.lsp, D_TNT_Block_Copy_MAB.lsp, E_TNT_Block_Rename_RB-CB.lsp, F_TNT_Block_Copy_Text_Att_AT1.lsp, G_TNT_Block_Change_Vibisility_B1.lsp ... +4 |
+| <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block | 13 | 85 | .Current Style.lsp, a list whose first item is a 3x3 transformation matrix and, B_TNT_Block_Layer0_B0.lsp, C_TNT_Block_Basepoint_B3.lsp, D_TNT_Block_Copy_MAB.lsp, E_TNT_Block_Rename_RB-CB.lsp, F_TNT_Block_Copy_Text_Att_AT1.lsp, G_TNT_Block_Change_Vibisility_B1.lsp ... +4 |
 | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut | 1 | 7 |  |
 | <code>TNT_SUPPORT_LISP\TNT_MIGRATE_SIMPLE.lsp</code> | migration | 2 | 8 | TNT_MIGRATE_V16_SIMPLE to move old V16 layers to TNT ISO layers immediately. |
 
@@ -168,8 +170,8 @@
 - Size: 42.9 KB
 - Modified: 2026-05-27 16:16:19
 - Hint: text
-- Commands: <code>bmask, df(, dfx(, dx(, ED2, ft(, T1, TA</code>
-- Helper/internal functions: 32; sample: <code>*error*, LM:acdoc, LM:endundo, LM:startundo, mask:acdoc, mask:color->mleadercolor, mask:dimstylefill, mask:endundo, mask:getdefaults, mask:getdimxdata, mask:main, mask:maskentity, mask:maskselection, mask:selection, mask:setdefaults, mask:setdimxdata, mask:settings, mask:ssget, mask:startundo, mask:substonce ... +12</code>
+- Commands: <code>bmask, df(, dfx(, dx(, ED2, ft(, MAT, T1, TA</code>
+- Helper/internal functions: 34; sample: <code>*error*, LM:acdoc, LM:endundo, LM:startundo, mask:acdoc, mask:color->mleadercolor, mask:dimstylefill, mask:endundo, mask:getdefaults, mask:getdimxdata, mask:main, mask:maskentity, mask:maskselection, mask:selection, mask:setdefaults, mask:setdimxdata, mask:settings, mask:ssget, mask:startundo, mask:substonce ... +14</code>
 - Consolidated sources: <code>B_TNT_Text_Copy.lsp, C_TNT_Text_Align_TA.lsp, CanChinhText-ft_df_dfx_dx.lsp, D_TNT_Text_Mask.lsp, F_A1_TEXT_CHINH SUA TEXT.lsp</code>
 
 ### TNT_PACKAGE_07_LEADER_ALL.lsp
@@ -203,8 +205,8 @@
 - Size: 124.3 KB
 - Modified: 2026-05-26 09:42:47
 - Hint: block
-- Commands: <code>ASC, AT1, AT2, B0, b1, b3, CA, cb, cbp, MAB, rb, SSC</code>
-- Helper/internal functions: 82; sample: <code>*error*, AT:GetSel, Changevisibilyti, fun_get-block-subref-by-block, func_restore-layers, get-user-choice, LIC_GET_CURRENT_DATE, LIC_GET_TILE_LICENSENUMBER, LIC_GETSERIALNUMBER, LIC_LOAD_DIALOG, LIC_MAKE_FILE_DCL, LIC_REMOVE_SPACE_OF_STRING, LIC_REQUESTCODE, LIC_SEND_REQUESTAPI, LIC_SEND_REQUESTAPI_SENDDATAUSER, LIC_SET_TILE_DECORATION, LM:acdoc, LM:blockname, LM:changeblockbasepoint, LM:endundo ... +62</code>
+- Commands: <code>ASC, AT1, AT2, B0, b1, b3, CA, cb, cbp, MAB, MATB, rb, SSC</code>
+- Helper/internal functions: 85; sample: <code>*error*, AT:GetSel, Changevisibilyti, fun_get-block-subref-by-block, func_restore-layers, get-user-choice, LIC_GET_CURRENT_DATE, LIC_GET_TILE_LICENSENUMBER, LIC_GETSERIALNUMBER, LIC_LOAD_DIALOG, LIC_MAKE_FILE_DCL, LIC_REMOVE_SPACE_OF_STRING, LIC_REQUESTCODE, LIC_SEND_REQUESTAPI, LIC_SEND_REQUESTAPI_SENDDATAUSER, LIC_SET_TILE_DECORATION, LM:acdoc, LM:blockname, LM:changeblockbasepoint, LM:endundo ... +65</code>
 - Consolidated sources: <code>.Current Style.lsp, B_TNT_Block_Layer0_B0.lsp, C_TNT_Block_Basepoint_B3.lsp, D_TNT_Block_Copy_MAB.lsp, E_TNT_Block_Rename_RB-CB.lsp, F_TNT_Block_Copy_Text_Att_AT1.lsp, G_TNT_Block_Change_Vibisility_B1.lsp, H_TNT_Block_Cote_CA.lsp</code>
 - Notes: a list whose first item is a 3x3 transformation matrix and; the true (effective) name of a supplied block reference; the VLA Active Document Object; the value of a Dynamic Block property (if present)
 

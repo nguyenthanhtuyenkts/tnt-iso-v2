@@ -345,6 +345,108 @@
 (Princ)
 )
 
+(defun TNT:TEXT:MAT:GET-STYLE (ent / obj objname style)
+  (setq style nil)
+  (if ent
+    (progn
+      (setq obj (vlax-ename->vla-object ent))
+      (setq objname (vla-get-objectname obj))
+      (cond
+        ((and (= objname "AcDbMLeader") (vlax-property-available-p obj 'TextStyleName))
+          (setq style (vla-get-TextStyleName obj))
+        )
+        ((vlax-property-available-p obj 'StyleName)
+          (setq style (vla-get-StyleName obj))
+        )
+        ((assoc 7 (entget ent))
+          (setq style (cdr (assoc 7 (entget ent))))
+        )
+      )
+    )
+  )
+  style
+)
+
+(defun TNT:TEXT:MAT:PUT-STYLE (ent style / obj objname data old err)
+  (setq err nil)
+  (if (and ent style (tblsearch "STYLE" style))
+    (progn
+      (setq obj (vlax-ename->vla-object ent))
+      (setq objname (vla-get-objectname obj))
+      (setq err
+        (vl-catch-all-apply
+          (function
+            (lambda (/)
+              (cond
+                ((and (= objname "AcDbMLeader") (vlax-property-available-p obj 'TextStyleName))
+                  (vla-put-TextStyleName obj style)
+                )
+                ((vlax-property-available-p obj 'StyleName)
+                  (vla-put-StyleName obj style)
+                )
+                ((assoc 7 (entget ent))
+                  (setq data (entget ent))
+                  (setq old (assoc 7 data))
+                  (entmod (subst (cons 7 style) old data))
+                  (entupd ent)
+                )
+              )
+            )
+          )
+          '()
+        )
+      )
+      (not (vl-catch-all-error-p err))
+    )
+  )
+)
+
+(defun c:MAT (/ *error* oldcmdecho src srcstyle ss i ent ok fail)
+  (defun *error* (msg)
+    (if oldcmdecho (setvar "CMDECHO" oldcmdecho))
+    (command "_.UNDO" "_End")
+    (if (not (member msg '("Function cancelled" "quit / exit abort")))
+      (princ (strcat "\n[MAT] Error: " msg))
+    )
+    (princ)
+  )
+  (setq oldcmdecho (getvar "CMDECHO"))
+  (setvar "MODEMACRO" "TNT Architecture")
+  (setvar "CMDECHO" 0)
+  (command "_.UNDO" "_Begin")
+  (setq src (car (entsel "\n[MAT] Chon text nguon: ")))
+  (setq srcstyle (TNT:TEXT:MAT:GET-STYLE src))
+  (cond
+    ((not srcstyle)
+      (princ "\n[MAT] Doi tuong nguon khong co TextStyle.")
+    )
+    ((not (tblsearch "STYLE" srcstyle))
+      (princ (strcat "\n[MAT] Khong tim thay TextStyle: " srcstyle))
+    )
+    (T
+      (princ (strcat "\n[MAT] TextStyle nguon: " srcstyle))
+      (setq ss (ssget '((0 . "TEXT,MTEXT,ATTRIB,ATTDEF,MULTILEADER"))))
+      (if ss
+        (progn
+          (setq i 0 ok 0 fail 0)
+          (while (setq ent (ssname ss i))
+            (if (TNT:TEXT:MAT:PUT-STYLE ent srcstyle)
+              (setq ok (1+ ok))
+              (setq fail (1+ fail))
+            )
+            (setq i (1+ i))
+          )
+          (princ (strcat "\n[MAT] Da match TextStyle cho " (itoa ok) " doi tuong. Loi: " (itoa fail) "."))
+        )
+        (princ "\n[MAT] Khong chon doi tuong dich.")
+      )
+    )
+  )
+  (command "_.UNDO" "_End")
+  (setvar "CMDECHO" oldcmdecho)
+  (princ)
+)
+
 
 ;;; ====================================================================================================
 ;;; END SOURCE: CanChinhText-ft_df_dfx_dx.lsp
