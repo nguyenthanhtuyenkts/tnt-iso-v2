@@ -318,3 +318,83 @@ Exc Files : *.bak
    Speed :             241.080 MegaBytes/min.
    Ended : 28 Tha'ng Nam 2026 10:30:03 SA
 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 28 Tha'ng Nam 2026 10:38:13 SA
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  15	D:\0.TNT ISO 2026\0.RELEASE\
+	    Newer     		   30170	TNT_PACKAGE_00_SYSTEM_ALL.lsp  0%  100%  
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                   1	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        26         1        25         0         0         0
+   Bytes :    6.60 m    29.4 k    6.57 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :             4310000 Bytes/sec.
+   Speed :             246.620 MegaBytes/min.
+   Ended : 28 Tha'ng Nam 2026 10:38:13 SA
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 28 Tha'ng Nam 2026 10:42:24 SA
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  15	D:\0.TNT ISO 2026\0.RELEASE\
+	    Newer     		   30890	TNT_PACKAGE_00_SYSTEM_ALL.lsp  0%  100%  
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                   1	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        26         1        25         0         0         0
+   Bytes :    6.60 m    30.1 k    6.57 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :             5148333 Bytes/sec.
+   Speed :             294.589 MegaBytes/min.
+   Ended : 28 Tha'ng Nam 2026 10:42:24 SA
+

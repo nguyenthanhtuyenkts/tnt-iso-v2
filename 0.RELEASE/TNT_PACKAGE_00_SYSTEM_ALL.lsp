@@ -140,18 +140,33 @@
 
 (defun TNT:SYSTEM:OSMODE-WITHOUT-NEAREST (value / v)
   (setq v (if (= (type value) 'INT) value (getvar "OSMODE")))
-  (- v (logand v *TNT.SYSTEM.OSMODE.NEAREST-BIT*))
+  v
 )
 
-(defun TNT:SYSTEM:ENSURE-OSMODE-NO-NEAREST (/ old new)
-  (setq old (getvar "OSMODE"))
-  (setq new (TNT:SYSTEM:OSMODE-WITHOUT-NEAREST old))
-  (if (/= old new)
-    (progn
-      (setvar "OSMODE" new)
-      (TNT:SYS:LOG (strcat "DONE: OSMODE Nearest OFF (" (vl-princ-to-string old) " -> " (vl-princ-to-string new) ")."))
+(defun TNT:SYSTEM:ENSURE-OSMODE-NO-NEAREST (/)
+  (princ)
+)
+
+(defun TNT:SYSTEM:CLEAN-OSMODE-RESET-REACTORS (/ grp obj reactions pair cb name hit)
+  (foreach grp (vlr-reactors :vlr-editor-reactor)
+    (foreach obj (cdr grp)
+      (setq hit nil)
+      (setq reactions (vl-catch-all-apply 'vlr-reactions (list obj)))
+      (if (not (vl-catch-all-error-p reactions))
+        (foreach pair reactions
+          (setq cb (cdr pair))
+          (setq name (strcase (vl-princ-to-string cb)))
+          (if (member name '("RESETOSMODE" "TNT:MANAGE:RESET-OSMODE"))
+            (setq hit T)
+          )
+        )
+      )
+      (if hit
+        (vl-catch-all-apply 'vlr-remove (list obj))
+      )
     )
   )
+  (setq *TNT.MANAGE.OSMODE.REACTOR* nil)
   (princ)
 )
 
@@ -674,6 +689,6 @@
 ;;; End
 ;;; ----------------------------------------------------------------------------------------------------
 (TNT:SYSTEM:COMMAND-REACTORS-INIT)
-(TNT:SYSTEM:ENSURE-OSMODE-NO-NEAREST)
+(TNT:SYSTEM:CLEAN-OSMODE-RESET-REACTORS)
 (TNT:SYS:LOG "TNT system settings loaded. No package autoload was executed.")
 (princ)
