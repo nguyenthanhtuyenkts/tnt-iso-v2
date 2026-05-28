@@ -84,7 +84,8 @@
   (princ)
 )
   ;; 3.DI CHUYEN HATCH
-    (defun c:HV (/ ENAME ELIST ETYPE OLD SOL LAYN PT1 )
+    (defun c:HV (/ ENAME ELIST ETYPE OLD OLDOS SOL LAYN PT1 )
+      (setq OLDOS (getvar "OSMODE"))
       (setvar "MODEMACRO" "TNT Architecture")
       (setvar "CMDECHO" 0)
       (command "UNDO" "BE")      
@@ -122,7 +123,7 @@
           )
         )
       )
-      (setvar "OSMODE" 15871)
+      (setvar "OSMODE" OLDOS)
       (setvar "CMDECHO" 1)
       (command "UNDO" "END")
       (princ)

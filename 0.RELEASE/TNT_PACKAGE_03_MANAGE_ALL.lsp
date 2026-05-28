@@ -44,7 +44,7 @@ p1 (trans p1 1 0))
 ;;; ====================================================================================================
 ;;; BEGIN SOURCE: 88_AUTO RESET OSNAP.LSP
 ;;; ====================================================================================================
-;;;***[AUTOLISP - AUTO RESET OSNAP]***
+;;;***[AUTOLISP - MANUAL RESET OSNAP]***
 (setq *TNT.MANAGE.OSMODE.DEFAULT* 15871)
 (defun TNT:MANAGE:OSMODE:DEFAULT (/)
   (if (= (type *TNT.MANAGE.OSMODE.DEFAULT*) 'INT)
@@ -67,19 +67,11 @@ p1 (trans p1 1 0))
   (TNT:MANAGE:RESET-OSMODE reactor data)
 )
 
+;;; Remove the old auto-reset reactor if this file is loaded over an older version.
 (if (and (boundp '*TNT.MANAGE.OSMODE.REACTOR*) *TNT.MANAGE.OSMODE.REACTOR*)
   (vl-catch-all-apply 'vlr-remove (list *TNT.MANAGE.OSMODE.REACTOR*))
 )
-(setq *TNT.MANAGE.OSMODE.REACTOR*
-  (vlr-editor-reactor
-    nil
-    '(
-      (:vlr-lispEnded . TNT:MANAGE:RESET-OSMODE)
-      (:vlr-lispCancelled . TNT:MANAGE:RESET-OSMODE)
-    )
-  )
-)
-(TNT:MANAGE:RESET-OSMODE nil nil)
+(setq *TNT.MANAGE.OSMODE.REACTOR* nil)
 ;;; ====================================================================================================
 ;;; END SOURCE: 88_AUTO RESET OSNAP.LSP
 ;;; ====================================================================================================

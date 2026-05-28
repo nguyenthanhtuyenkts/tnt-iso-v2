@@ -644,7 +644,12 @@
 ;;; ====================================================================================================
 ;; * GROUP 1 - SYSTEM/SETUP - (TNT:SHORTCUT:CMD:SYS:*)
 ;; * GROUP 2 - MANAGEMENT - (TNT:SHORTCUT:CMD:MGT:*)
-(defun TNT:SHORTCUT:CMD:MGT:SE1 (/)     (command ".OSMODE" 15871)        (princ))
+(defun TNT:SHORTCUT:CMD:MGT:SE1 (/)
+  (if (member "TNT:MANAGE:RESET-OSMODE" (atoms-family 1))
+    (TNT:MANAGE:RESET-OSMODE nil nil)
+    (command ".OSMODE" 15871)
+  )
+  (princ))
 (defun TNT:SHORTCUT:CMD:MGT:G1  (/)     (if (= (getvar "PICKSTYLE") 0)  (setvar "PICKSTYLE" 1)  (setvar "PICKSTYLE" 0)) (princ))
 (defun TNT:SHORTCUT:CMD:MGT:C1  (/ LT)  (setq LT (getvar "TILEMODE"))   (setvar "TILEMODE" (if (= LT 0) 1 0))           (princ))
 (defun TNT:SHORTCUT:CMD:MGT:C2  (/)     (command ".LAYOUT" "S" "")      (princ))
