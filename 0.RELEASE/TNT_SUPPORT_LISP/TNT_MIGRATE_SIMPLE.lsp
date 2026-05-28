@@ -1,8 +1,9 @@
 ;;; ====================================================================================================
-;;; TNT_MIGRATE_V16_SIMPLE.lsp
-;;; Run command TNT_MIGRATE_V16_SIMPLE to move old V16 layers to TNT ISO layers immediately.
+;;; TNT_MIGRATE_SIMPLE.lsp
+;;; Run command TNT_MIGRATE_SIMPLE to move old V16 layers to TNT ISO layers immediately.
 ;;; No preview. No report. Layers not listed here are unchanged.
 ;;; Also migrates entities inside block definitions, then deletes old layers when AutoCAD allows it.
+;;; Run command TNT_MIGRATE_SELECTION to migrate only selected top-level objects.
 ;;; ====================================================================================================
 
 (vl-load-com)
@@ -135,6 +136,66 @@
   )
 )
 
+(defun TNT:V16S:TARGET-LAYER (layerName / pair result)
+  (setq result nil)
+  (foreach pair (TNT:V16S:MAP)
+    (if (= (strcase layerName) (strcase (car pair)))
+      (setq result (cadr pair))
+    )
+  )
+  result
+)
+
+(defun TNT:V16S:RUN-SELECTION (/ oldcmdecho ss i ent obj oldLayer newLayer changed skipped failed)
+  (setq oldcmdecho (getvar "CMDECHO"))
+  (setvar "CMDECHO" 0)
+  (setq ss (ssget))
+  (if ss
+    (progn
+      (command-s "_.UNDO" "_BE")
+      (setq i 0 changed 0 skipped 0 failed 0)
+      (while (setq ent (ssname ss i))
+        (setq obj (vlax-ename->vla-object ent))
+        (setq oldLayer (vl-catch-all-apply 'vla-get-Layer (list obj)))
+        (if (vl-catch-all-error-p oldLayer)
+          (setq failed (1+ failed))
+          (progn
+            (setq newLayer (TNT:V16S:TARGET-LAYER oldLayer))
+            (if newLayer
+              (progn
+                (TNT:V16S:UNLOCK oldLayer)
+                (TNT:V16S:UNLOCK newLayer)
+                (if (not (vl-catch-all-error-p
+                           (vl-catch-all-apply 'vla-put-Layer (list obj newLayer))))
+                  (setq changed (1+ changed))
+                  (setq failed (1+ failed))
+                )
+              )
+              (setq skipped (1+ skipped))
+            )
+          )
+        )
+        (setq i (1+ i))
+      )
+      (command-s "_.UNDO" "_END")
+      (princ
+        (strcat
+          "\n[TNT] DONE SELECTION MIGRATE. Changed: "
+          (itoa changed)
+          ". Skipped: "
+          (itoa skipped)
+          ". Failed: "
+          (itoa failed)
+          "."
+        )
+      )
+    )
+    (princ "\n[TNT] No objects selected.")
+  )
+  (setvar "CMDECHO" oldcmdecho)
+  (princ)
+)
+
 (defun TNT:V16S:RUN (/ oldcmdecho pair total totalBlocks count blockCount deleted deleteCount)
   (setq oldcmdecho (getvar "CMDECHO"))
   (setvar "CMDECHO" 0)
@@ -183,14 +244,13 @@
   (princ)
 )
 
-(defun c:TNT_MIGRATE_V16_SIMPLE (/)
-  (TNT:V16S:RUN)
-)
-
 (defun c:TNT_MIGRATE_SIMPLE (/)
   (TNT:V16S:RUN)
 )
 
-(princ "\n[TNT] Loaded TNT_MIGRATE_V16_SIMPLE.lsp. Command: TNT_MIGRATE_V16_SIMPLE")
-(princ "\n[TNT] Alias command: TNT_MIGRATE_SIMPLE")
+(defun c:TNT_MIGRATE_SELECTION (/)
+  (TNT:V16S:RUN-SELECTION)
+)
+
+(princ "\n[TNT] Loaded TNT_MIGRATE_SIMPLE.lsp. Commands: TNT_MIGRATE_SIMPLE, TNT_MIGRATE_SELECTION")
 (princ)

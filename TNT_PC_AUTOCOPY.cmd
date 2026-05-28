@@ -38,8 +38,8 @@ if not exist "%DST%\" (
 echo WARNING: This will make the NAS folder exactly match 0.RELEASE.
 echo Extra files and folders in "%DST%" will be deleted.
 echo.
-set /p "CONFIRM=Type RELEASE to continue: "
-if /I not "%CONFIRM%"=="RELEASE" (
+set /p "CONFIRM=Type OK to continue: "
+if /I not "%CONFIRM%"=="OK" (
   echo CANCELLED.
   exit /b 20
 )
