@@ -67,12 +67,14 @@
 | <code>RV</code> | <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve |
 | <code>SD1</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
 | <code>SD2</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
+| <code>SD3</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
 | <code>SSC</code> | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block |
 | <code>stt</code> | <code>TNT_PACKAGE_03_MANAGE_ALL.lsp</code> | quan ly/chinh sua |
 | <code>T1</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
 | <code>TA</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
 | <code>TNT</code> | <code>TNT_PACKAGE_02_GENERAL_ALL.lsp</code> | dong bo ti le/doi tuong |
 | <code>TNT_LAYER</code> | <code>TNT_PACKAGE_05_LAYER_ALL.lsp</code> | layer |
+| <code>TNT_MIGRATE_DIMSTYLE</code> | <code>TNT_SUPPORT_LISP\TNT_MIGRATE_DIMSTYLE.lsp</code> | migration |
 | <code>TNT_MIGRATE_SELECTION</code> | <code>TNT_SUPPORT_LISP\TNT_MIGRATE_SIMPLE.lsp</code> | migration |
 | <code>TNT_MIGRATE_SIMPLE</code> | <code>TNT_SUPPORT_LISP\TNT_MIGRATE_SIMPLE.lsp</code> | migration |
 | <code>TNT_SETTING</code> | <code>TNT_PACKAGE_00_SYSTEM_ALL.lsp</code> | system/setup |
@@ -188,7 +190,7 @@
 - Size: 65.1 KB
 - Modified: 2026-05-26 09:42:47
 - Hint: dimension
-- Commands: <code>AD, ADIM, BD, CD, D3, D4, D5, LB1, LB2, LB3, SD1, SD2</code>
+- Commands: <code>AD, ADIM, BD, CD, D3, D4, D5, LB1, LB2, LB3, SD1, SD2, SD3</code>
 - Helper/internal functions: 52; sample: <code>*error*, cdim, chanvuonggoc, CREATE-ABOUT-DIALOG, CV:SS-TO-LIST, DIMUL_ARANGEDIM, DIMUL_CLASSIFICATION_LEVEL, DIMUL_CONVERT_SELECTIONSET_TO_LISTENAMEOBJECT, DIMUL_CREATE_LISTENAMEOBJECT_ON_POINT, DIMUL_CREATE_LISTVLALAYERLOCK, DIMUL_EQUAL_TWO_POINT, DIMUL_FIND_LISTDELTA, DIMUL_GET_ANGLEDIMPERMAIN, DIMUL_GET_ANNOTATIONSCALES, DIMUL_GET_BASEPOINTGLOBAL_DISTANCEBASEGLOBAL, DIMUL_GET_DISTANCEBASE, DIMUL_GET_DISTANCEBASEGLOBAL, DIMUL_GET_DISTANCETEXT, DIMUL_GET_LISTANNOTATIONSCALES, DIMUL_GET_LISTDATADIM ... +32</code>
 - Consolidated sources: <code>B_TNT_Dimension.lsp, C_TNT_Dimension_Align.lsp, D_LoBan-LB1-LB2-LB3.lsp</code>
 
@@ -226,3 +228,9 @@
 - Commands: <code>TNT_MIGRATE_SELECTION, TNT_MIGRATE_SIMPLE</code>
 - Helper/internal functions: 10; sample: <code>TNT:V16S:ENSURE-LAYER, TNT:V16S:LAYER-OBJ, TNT:V16S:MAP, TNT:V16S:MOVE, TNT:V16S:MOVE-BLOCK-DEFS, TNT:V16S:PURGE-OLD-LAYER, TNT:V16S:RUN, TNT:V16S:RUN-SELECTION, TNT:V16S:TARGET-LAYER, TNT:V16S:UNLOCK</code>
 - Notes: TNT_MIGRATE_SIMPLE to move old V16 layers to TNT ISO layers immediately.
+
+### TNT_SUPPORT_LISP\TNT_MIGRATE_DIMSTYLE.lsp
+
+- Hint: migration
+- Commands: <code>TNT_MIGRATE_DIMSTYLE</code>
+- Notes: Migrates old dimstyles <code>TNT_DIM, TNT_DIM1, TNT_DIM2</code> to <code>.TNT_A_DIM_1, .TNT_A_DIM_2, .TNT_A_DIM_3</code> and tries to delete the old styles.

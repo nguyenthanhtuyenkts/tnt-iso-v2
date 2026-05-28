@@ -299,6 +299,7 @@ p1 (trans p1 1 0))
   (vla-startundomark (vla-get-activedocument (vlax-get-acad-object)))
   (setq title "\\U+0110�nh s\\U+1ED1 th\\U+1EE9 t\\U+1EF1 Text, Att, Dim")
   (setq dialog "STT")
+  (setq title "\\U+0110\\U+00E1nh s\\U+1ED1 th\\U+1EE9 t\\U+1EF1 Text, Att, Dim")
   (setq dcl (vl-filename-mktemp nil nil ".dcl"))
   (cond
     ((not (ND:STT_dcl dcl dialog title))
@@ -607,6 +608,73 @@ p1 (trans p1 1 0))
 	     "					: edit_box { key = \"3DUY-STT-START\"; label = \"STT b\\U+1EAFt \\U+0111\\U+1EA7u\"; edit_width = 7; }"
 	     "					: text { key = \"3DUY-STT-NOTE1\"; value = \"(STT b\\U+1EAFt \\U+0111\\U+1EA7u c� th\\U+1EC3 nh\\U+1EADp ch\\U+1EEF\"; }"
 	     "					: text { key = \"3DUY-STT-NOTE2\"; value = \"ho\\U+1EB7c s\\U+1ED1: 1, 02, 003, A, B, C,...)\"; }"
+	     "					}"
+	     "				}"
+	     "			}"
+	     "		ok_cancel;"
+	     "		}"
+	     )
+    (write-line x des)
+    )
+  (write-line "\t}" des)
+  (setq des (close des))
+  (while (not (findfile dcl)))
+  dcl
+  )
+
+;Tao file DCL - clean Unicode labels
+(defun ND:STT_dcl (dcl dialog title / des)
+  (setq des (open dcl "w"))
+  (write-line
+    (strcat dialog ":"
+	    "\ndialog"
+	    "\n\t{"
+	    (strcat "\n\tlabel = \"" title "\";")
+	    ) des)
+  (foreach x
+	   '(
+	     "	: column"
+	     "		{"
+	     "		: row"
+	     "			{"
+	     "			: column"
+	     "				{"
+	     "				width = 22 ;"
+	     "				: boxed_column"
+	     "					{"
+	     "					label = \"\\U+0110\\U+1ED1i t\\U+01B0\\U+1EE3ng\";"
+	     "					: toggle { key = \"3DUY-STT-BLK\"; label = \"Block Attribute\"; }"
+	     "					: toggle { key = \"3DUY-STT-TXT\"; label = \"Text\"; }"
+	     "					: toggle { key = \"3DUY-STT-MTX\"; label = \"Mtext\"; }"
+	     "					: toggle { key = \"3DUY-STT-DIM\"; label = \"Dimension\"; }"
+	     "					: radio_button { key = \"3DUY-STT-DIM-PRE\"; label = \"Dim prefix\"; }"
+	     "					: radio_button { key = \"3DUY-STT-DIM-SUF\"; label = \"Dim suffix\"; }"
+	     "					: radio_button { key = \"3DUY-STT-DIM-OVR\"; label = \"Text override\"; }"
+	     "					}"
+	     "				: boxed_column"
+	     "					{"
+	     "					label = \"T\\U+00E1c gi\\U+1EA3\";"
+	     "					: text { key = \"3DUY-TACGIA\"; value = \"3Duy | 0922.161.194\"; }"
+	     "					}"
+	     "				}"
+	     "			: column"
+	     "				{"
+	     "				width = 27 ;"
+	     "				: boxed_column"
+	     "					{"
+	     "					label = \"Ph\\U+01B0\\U+01A1ng th\\U+1EE9c nh\\U+1EADp\";"
+	     "					: radio_button { key = \"3DUY-STT-OVR\"; label = \"Ghi \\U+0111\\U+00E8\"; }"
+	     "					: radio_button { key = \"3DUY-STT-ADD-L\"; label = \"Th\\U+00EAm v\\U+00E0o \\U+0111\\U+1EA7u\"; }"
+	     "					: radio_button { key = \"3DUY-STT-ADD-R\"; label = \"Th\\U+00EAm v\\U+00E0o cu\\U+1ED1i\"; }"
+	     "					}"
+	     "				: boxed_column"
+	     "					{"
+	     "					label = \"Quy t\\U+1EAFc \\U+0111\\U+00E1nh s\\U+1ED1\";"
+	     "					: edit_box { key = \"3DUY-STT-PRE\"; label = \"Ti\\U+1EC1n t\\U+1ED1\"; edit_width = 7; }"
+	     "					: edit_box { key = \"3DUY-STT-SUF\"; label = \"H\\U+1EADu t\\U+1ED1\"; edit_width = 7; }"
+	     "					: edit_box { key = \"3DUY-STT-START\"; label = \"STT b\\U+1EAFt \\U+0111\\U+1EA7u\"; edit_width = 7; }"
+	     "					: text { key = \"3DUY-STT-NOTE1\"; value = \"(STT b\\U+1EAFt \\U+0111\\U+1EA7u c\\U+00F3 th\\U+1EC3 nh\\U+1EADp ch\\U+1EEF\"; }"
+	     "					: text { key = \"3DUY-STT-NOTE2\"; value = \"ho\\U+1EB7c s\\U+1ED1: 1, 02, 003, A, B, C, ...)\"; }"
 	     "					}"
 	     "				}"
 	     "			}"
