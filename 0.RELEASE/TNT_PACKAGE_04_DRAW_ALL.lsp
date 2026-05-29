@@ -397,5 +397,206 @@
 ;;; END SOURCE: E_TNT_Draw_RevCloud_RV.lsp
 ;;; ====================================================================================================
 
+;;; ====================================================================================================
+;;; BEGIN SOURCE: F_TNT_Draw_Area_DTM.lsp
+;;; ====================================================================================================
+(defun TNT:AREA:INIT (/)
+  (if (null *TNT-AREA-FACTOR*) (setq *TNT-AREA-FACTOR* 1000000.0))
+  (if (null *TNT-AREA-PRECISION*) (setq *TNT-AREA-PRECISION* 2))
+  (if (null *TNT-AREA-LAYER*) (setq *TNT-AREA-LAYER* "....20_TNT_N_TEXT"))
+  (if (null *TNT-AREA-STYLE*) (setq *TNT-AREA-STYLE* ".TNT_A_TXT_3_NOTE"))
+  (princ))
+
+(defun TNT:AREA:ENSURE-STANDARD (/)
+  (cond
+    ((member "TNT:LAY:CREATE" (atoms-family 1)) (TNT:LAY:CREATE))
+    ((not (tblsearch "LAYER" *TNT-AREA-LAYER*))
+     (command-s "_.-LAYER" "_N" *TNT-AREA-LAYER*
+                "_C" "9" *TNT-AREA-LAYER*
+                "_L" "CONTINUOUS" *TNT-AREA-LAYER*
+                ""))
+  )
+  (if (and (not (tblsearch "STYLE" *TNT-AREA-STYLE*))
+           (member "TNT_TEXTSTYLE_CREATE" (atoms-family 1)))
+    (TNT_TEXTSTYLE_CREATE))
+  (if (not (tblsearch "STYLE" *TNT-AREA-STYLE*))
+    (entmake
+      (list
+        '(0 . "STYLE")
+        '(100 . "AcDbSymbolTableRecord")
+        '(100 . "AcDbTextStyleTableRecord")
+        (cons 2 *TNT-AREA-STYLE*)
+        '(70 . 0)
+        '(40 . 0.0)
+        '(41 . 0.8)
+        '(50 . 0.0)
+        '(71 . 0)
+        '(42 . 2.5)
+        '(3 . "uromans.shx")
+        '(4 . ""))))
+  (princ))
+
+(defun TNT:AREA:TEXT-HEIGHT (/ v)
+  (cond
+    (*TNT-AREA-HEIGHT* *TNT-AREA-HEIGHT*)
+    ((and (setq v (getvar "CANNOSCALEVALUE")) (> v 0.0)) (* 2.5 v))
+    ((and (setq v (getvar "DIMSCALE")) (> v 0.0)) (* 2.5 v))
+    (T 250.0)))
+
+(defun TNT:AREA:FORMAT (raw / val)
+  (setq val (/ (abs raw) *TNT-AREA-FACTOR*))
+  (strcat (rtos val 2 *TNT-AREA-PRECISION*) " m2"))
+
+(defun TNT:AREA:CLOSED-POLYLINE-P (ent / data typ flag)
+  (setq data (entget ent)
+        typ  (cdr (assoc 0 data)))
+  (if (wcmatch typ "*POLYLINE")
+    (progn
+      (setq flag (cdr (assoc 70 data)))
+      (and flag (= 1 (logand 1 flag))))
+    T))
+
+(defun TNT:AREA:OBJECT-AREA (ent / obj ret)
+  (if (and ent (TNT:AREA:CLOSED-POLYLINE-P ent))
+    (progn
+      (setq obj (vlax-ename->vla-object ent))
+      (setq ret (vl-catch-all-apply 'vlax-get (list obj 'Area)))
+      (if (vl-catch-all-error-p ret)
+        (progn
+          (setq ret
+            (vl-catch-all-apply
+              '(lambda (/)
+                 (command-s "_.AREA" "_Object" ent)
+                 (getvar "AREA"))))
+          (if (vl-catch-all-error-p ret) nil (abs ret)))
+        (abs ret)))))
+
+(defun TNT:AREA:MAKE-BOUNDARY (pt / old last ent)
+  (setq old (getvar "CMDECHO")
+        last (entlast))
+  (setvar "CMDECHO" 0)
+  (setq ent
+    (vl-catch-all-apply
+      '(lambda (/)
+         (command-s "_.BPOLY" pt "")
+         (entlast))))
+  (setvar "CMDECHO" old)
+  (if (or (vl-catch-all-error-p ent) (eq ent last)) nil ent))
+
+(defun TNT:AREA:WRITE-TEXT (pt raw / layer style h txt ent)
+  (setq layer (if (tblsearch "LAYER" *TNT-AREA-LAYER*) *TNT-AREA-LAYER* (getvar "CLAYER"))
+        style (if (tblsearch "STYLE" *TNT-AREA-STYLE*) *TNT-AREA-STYLE* (getvar "TEXTSTYLE"))
+        h     (TNT:AREA:TEXT-HEIGHT)
+        txt   (TNT:AREA:FORMAT raw))
+  (setq ent
+    (entmakex
+      (list
+        '(0 . "TEXT")
+        '(100 . "AcDbEntity")
+        (cons 8 layer)
+        '(100 . "AcDbText")
+        (cons 10 pt)
+        (cons 11 pt)
+        (cons 40 h)
+        (cons 1 txt)
+        (cons 7 style)
+        '(50 . 0.0)
+        '(72 . 1)
+        '(73 . 2))))
+  (if (null ent)
+    (command-s "_.TEXT" "_J" "_MC" pt h 0.0 txt))
+  txt)
+
+(defun TNT:AREA:PICK-MODE (/ pt ent raw count)
+  (setq count 0)
+  (while (setq pt (getpoint "\nPick point inside closed area <Enter to finish>: "))
+    (setq ent (TNT:AREA:MAKE-BOUNDARY pt))
+    (cond
+      ((null ent)
+       (prompt "\n[DTM] Boundary not found. Check for open gaps."))
+      ((setq raw (TNT:AREA:OBJECT-AREA ent))
+       (TNT:AREA:WRITE-TEXT pt raw)
+       (entdel ent)
+       (setq count (1+ count))
+       (prompt (strcat "\n[DTM] " (TNT:AREA:FORMAT raw))))
+      (T
+       (entdel ent)
+       (prompt "\n[DTM] Cannot calculate boundary area."))))
+  count)
+
+(defun TNT:AREA:SELECT-MODE (/ ss i ent raw total skipped pt)
+  (prompt "\nSelect CIRCLE, ELLIPSE, REGION, HATCH, closed POLYLINE: ")
+  (setq ss (ssget '((-4 . "<OR")
+                    (0 . "CIRCLE")
+                    (0 . "ELLIPSE")
+                    (0 . "REGION")
+                    (0 . "HATCH")
+                    (0 . "*POLYLINE")
+                    (-4 . "OR>"))))
+  (if ss
+    (progn
+      (setq i 0 total 0.0 skipped 0)
+      (repeat (sslength ss)
+        (setq ent (ssname ss i)
+              i   (1+ i)
+              raw (TNT:AREA:OBJECT-AREA ent))
+        (if raw
+          (setq total (+ total raw))
+          (setq skipped (1+ skipped))))
+      (if (and (> total 0.0) (setq pt (getpoint "\nPick text insertion point: ")))
+        (prompt (strcat "\n[DTM] Total = " (TNT:AREA:WRITE-TEXT pt total))))
+      (if (> skipped 0)
+        (prompt (strcat "\n[DTM] Skipped " (itoa skipped) " open/invalid object(s).")))
+      total)
+    (prompt "\n[DTM] Nothing selected.")))
+
+(defun TNT:AREA:SETTINGS (/ v)
+  (prompt (strcat "\nCurrent factor: raw/" (rtos *TNT-AREA-FACTOR* 2 0)
+                  ", precision: " (itoa *TNT-AREA-PRECISION*)
+                  ", text height: "
+                  (if *TNT-AREA-HEIGHT* (rtos *TNT-AREA-HEIGHT* 2 2) "auto")))
+  (if (setq v (getreal "\nArea factor denominator <1000000 for mm2 to m2>: "))
+    (if (> v 0.0) (setq *TNT-AREA-FACTOR* v)))
+  (if (setq v (getint "\nDecimal precision <2>: "))
+    (if (>= v 0) (setq *TNT-AREA-PRECISION* v)))
+  (if (setq v (getreal "\nText height, 0 for auto: "))
+    (setq *TNT-AREA-HEIGHT* (if (> v 0.0) v nil)))
+  (princ))
+
+(defun TNT:AREA:RUN (/ *error* oldcmdecho oldosmode oldclayer mode)
+  (vl-load-com)
+  (TNT:AREA:INIT)
+  (setq oldcmdecho (getvar "CMDECHO")
+        oldosmode  (getvar "OSMODE")
+        oldclayer  (getvar "CLAYER"))
+  (defun *error* (msg)
+    (if oldcmdecho (setvar "CMDECHO" oldcmdecho))
+    (if oldosmode (setvar "OSMODE" oldosmode))
+    (if oldclayer (setvar "CLAYER" oldclayer))
+    (command-s "_.UNDO" "_End")
+    (if (and msg (not (wcmatch (strcase msg) "*CANCEL*,*QUIT*,*EXIT*")))
+      (prompt (strcat "\n[DTM] Error: " msg)))
+    (princ))
+  (setvar "CMDECHO" 0)
+  (command-s "_.UNDO" "_Begin")
+  (TNT:AREA:ENSURE-STANDARD)
+  (initget "Pick Select Settings")
+  (setq mode (getkword "\nArea mode [Pick/Select/Settings] <Pick>: "))
+  (cond
+    ((= mode "Select") (TNT:AREA:SELECT-MODE))
+    ((= mode "Settings") (TNT:AREA:SETTINGS))
+    (T (TNT:AREA:PICK-MODE)))
+  (setvar "CMDECHO" oldcmdecho)
+  (setvar "OSMODE" oldosmode)
+  (setvar "CLAYER" oldclayer)
+  (command-s "_.UNDO" "_End")
+  (princ))
+
+(defun c:DTM () (TNT:AREA:RUN))
+
+;;; ====================================================================================================
+;;; END SOURCE: F_TNT_Draw_Area_DTM.lsp
+;;; ====================================================================================================
+
 (princ "\n[TNT] Loaded TNT_PACKAGE_04_DRAW_ALL.lsp")
 (princ)

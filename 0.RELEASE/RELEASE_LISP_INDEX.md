@@ -3,7 +3,7 @@
 - Generated: 2026-05-27 18:37:30 +07:00
 - Scope: 0.RELEASE - goi lisp va support dang release
 - Files indexed: 13
-- Public commands found: 78
+- Public commands found: 79
 
 ## Quick Command Lookup
 
@@ -36,6 +36,7 @@
 | <code>D5</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
 | <code>df(</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
 | <code>dfx(</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
+| <code>DTM</code> | <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve, dien tich |
 | <code>dx(</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
 | <code>ED2</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
 | <code>ft(</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
@@ -98,7 +99,7 @@
 | <code>TNT_PACKAGE_01_CREATE_ALL.lsp</code> | tao chuan | 0 | 83 | ;;; - GỌI LỆNH LUÔN TẠO MỚI NẾU CHƯA CÓ., I_TNT_FUNCTION_CREATE_LAYER, I_TNT_Function_Create_Layer.lsp, J_TNT_FUNCTION_CREATE_TEXTSTYLE, J_TNT_Function_Create_Textstyle.lsp, K_TNT_Function_Create_Dimension.lsp, M_TNT_Function_Create_Block.lsp, N_TNT_Function_Create_Shortcut.lsp ... +1 |
 | <code>TNT_PACKAGE_02_GENERAL_ALL.lsp</code> | dong bo ti le/doi tuong | 1 | 13 | B_TNT_General_Sync.lsp |
 | <code>TNT_PACKAGE_03_MANAGE_ALL.lsp</code> | quan ly/chinh sua | 8 | 25 | 77_ROTATE VIEWPORT_VR1-VR2-VR3-VRR.lsp, 88_AUTO RESET OSNAP.LSP, B_TNT_Manage_MoveToCenter.lsp, E_STT.lsp |
-| <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve | 6 | 5 | a "Wipeout" from an object (circle, ellipse, or polyline with arcs), B_TNT_Draw_Rectang_Plot_VBB.lsp, C_TNT_Draw_Line_SEC_NC1.lsp, cld.lsp, D_TNT_Draw_Wipeout_WQ1.lsp, E_TNT_Draw_RevCloud_RV.lsp, the vertices list of the polygon figuring the curve object |
+| <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve | 7 | 16 | a "Wipeout" from an object (circle, ellipse, or polyline with arcs), B_TNT_Draw_Rectang_Plot_VBB.lsp, C_TNT_Draw_Line_SEC_NC1.lsp, cld.lsp, D_TNT_Draw_Wipeout_WQ1.lsp, E_TNT_Draw_RevCloud_RV.lsp, F_TNT_Draw_Area_DTM.lsp, the vertices list of the polygon figuring the curve object |
 | <code>TNT_PACKAGE_05_LAYER_ALL.lsp</code> | layer | 3 | 13 | ;;; - CHANGE LAYER HATCH, TEXT, LEADER, DIM, ;;; - ÉP 1 ĐỐI TƯỢNG VỀ BYLAYER NẾU LAYER CỦA NÓ THUỘC DANH SÁCH CHUẨN, B_TNT_Layer_Fix.lsp, B_TNT_LAYER_FIX.LSP, D_TNT_Layer_Change.lsp, D_TNT_LAYER_CHANGE.LSP |
 | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text | 9 | 34 | B_TNT_Text_Copy.lsp, C_TNT_Text_Align_TA.lsp, CanChinhText-ft_df_dfx_dx.lsp, D_TNT_Text_Mask.lsp, F_A1_TEXT_CHINH SUA TEXT.lsp |
 | <code>TNT_PACKAGE_07_LEADER_ALL.lsp</code> | leader | 4 | 15 | B_TNT_Leader_.lsp |
@@ -152,9 +153,9 @@
 - Size: 12.3 KB
 - Modified: 2026-05-26 09:42:47
 - Hint: ve/phu tro ve
-- Commands: <code>CLD, nc1(/, RV, vbb, wq1, zz</code>
-- Helper/internal functions: 5; sample: <code>ent2ptlst, MakeWipeout, newrevcloud, selectpolyline, setparameter</code>
-- Consolidated sources: <code>B_TNT_Draw_Rectang_Plot_VBB.lsp, C_TNT_Draw_Line_SEC_NC1.lsp, cld.lsp, D_TNT_Draw_Wipeout_WQ1.lsp, E_TNT_Draw_RevCloud_RV.lsp</code>
+- Commands: <code>CLD, DTM, nc1(/, RV, vbb, wq1, zz</code>
+- Helper/internal functions: 16; sample: <code>ent2ptlst, MakeWipeout, newrevcloud, selectpolyline, setparameter, TNT:AREA:CLOSED-POLYLINE-P, TNT:AREA:ENSURE-STANDARD, TNT:AREA:FORMAT, TNT:AREA:INIT, TNT:AREA:MAKE-BOUNDARY, TNT:AREA:OBJECT-AREA, TNT:AREA:PICK-MODE, TNT:AREA:RUN, TNT:AREA:SELECT-MODE, TNT:AREA:SETTINGS, TNT:AREA:TEXT-HEIGHT</code>
+- Consolidated sources: <code>B_TNT_Draw_Rectang_Plot_VBB.lsp, C_TNT_Draw_Line_SEC_NC1.lsp, cld.lsp, D_TNT_Draw_Wipeout_WQ1.lsp, E_TNT_Draw_RevCloud_RV.lsp, F_TNT_Draw_Area_DTM.lsp</code>
 - Notes: a "Wipeout" from an object (circle, ellipse, or polyline with arcs); the vertices list of the polygon figuring the curve object
 
 ### TNT_PACKAGE_05_LAYER_ALL.lsp
