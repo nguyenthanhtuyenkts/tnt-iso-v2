@@ -296,13 +296,19 @@
 ;;; ====================================================================================================
 ;;; [2] HÀM CON DIMENSION
 ;;; ====================================================================================================
+(defun TNT:DIM:SET-NONASSOC (/)
+  (vl-catch-all-apply 'setvar (list "DIMASSOC" 1))
+  (princ)
+)
+
 (defun TNT_A_DIM_1 ()  
   (setvar "cmdecho" 0)
+  (TNT:DIM:SET-NONASSOC)
   (if (not (tblsearch "dimstyle" ".TNT_A_DIM_1"))
   (progn    
     (command "DIMSTYLE"         "R"         "Standard")
     (TNT:TS:ENSURE ".TNT_A_TXT_3_NOTE" "uromans.shx" 0.0 0.8 0.0 nil)
-    (command "DIMASO"           "ON")       ;Create dimension objects    
+    (TNT:DIM:SET-NONASSOC)                  ;Dimension object, not attached to geometry
     (command "DIMADEC"          "0")        ;Angular decimal places
     (command "DIMALT"           "Off")      ;Alternate units selected
     (command "DIMALTD"          "2")        ;Alternate unit decimal places
@@ -384,11 +390,12 @@
 
 (defun TNT_A_DIM_2 ()     
   (setvar "cmdecho" 0)
+  (TNT:DIM:SET-NONASSOC)
   (if (not (tblsearch "dimstyle" ".TNT_A_DIM_2"))
   (progn    
     (command "DIMSTYLE"         "R"         "Standard")
     (TNT:TS:ENSURE ".TNT_A_TXT_3_NOTE" "uromans.shx" 0.0 0.8 0.0 nil)
-    (command "DIMASO"           "ON")       ;Create dimension objects    
+    (TNT:DIM:SET-NONASSOC)                  ;Dimension object, not attached to geometry
     (command "DIMADEC"          "0")        ;Angular decimal places
     (command "DIMALT"           "Off")      ;Alternate units selected
     (command "DIMALTD"          "2")        ;Alternate unit decimal places
@@ -470,11 +477,12 @@
 
 (defun TNT_A_DIM_3 ()     
   (setvar "cmdecho" 0)
+  (TNT:DIM:SET-NONASSOC)
   (if (not (tblsearch "dimstyle" ".TNT_A_DIM_3"))
   (progn    
     (command "DIMSTYLE"         "R"         "Standard")
     (TNT:TS:ENSURE ".TNT_A_TXT_3_NOTE" "uromans.shx" 0.0 0.8 0.0 nil)
-    (command "DIMASO"           "ON")       ;Create dimension objects    
+    (TNT:DIM:SET-NONASSOC)                  ;Dimension object, not attached to geometry
     (command "DIMADEC"          "0")        ;Angular decimal places
     (command "DIMALT"           "Off")      ;Alternate units selected
     (command "DIMALTD"          "2")        ;Alternate unit decimal places

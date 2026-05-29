@@ -32,6 +32,54 @@
     )
     NameBlock
   )
+  (defun TNT:DIM:SET-NONASSOC (/)
+    (vl-catch-all-apply 'setvar (list "DIMASSOC" 1))
+    (princ)
+  )
+
+  (defun TNT:DIM:DISASSOCIATE-SS (SS / OLDERR OLDCMDECHO)
+    (if SS
+      (progn
+        (setq OLDCMDECHO (getvar "CMDECHO"))
+        (setq OLDERR *error*)
+        (setq *error*
+          (lambda (S)
+            (if OLDCMDECHO (setvar "CMDECHO" OLDCMDECHO))
+            (setq *error* OLDERR)
+            (if (and S (/= S "Function cancelled"))
+              (princ (strcat "\n[TNT] ERROR: " S))
+            )
+            (princ)
+          )
+        )
+        (setvar "CMDECHO" 0)
+        (TNT:DIM:SET-NONASSOC)
+        (vl-cmdf "_.DIMDISASSOCIATE" SS "")
+        (setvar "CMDECHO" OLDCMDECHO)
+        (setq *error* OLDERR)
+        T
+      )
+      nil
+    )
+  )
+
+  (defun C:DDF (/ SS)
+    (setq SS (ssget '((0 . "DIMENSION"))))
+    (if (TNT:DIM:DISASSOCIATE-SS SS)
+      (princ "\n[TNT] DONE: DISASSOCIATE SELECTED DIMENSIONS. DIMASSOC = 1.")
+      (princ "\n[TNT] CANCEL: NO DIMENSIONS SELECTED.")
+    )
+    (princ)
+  )
+
+  (defun C:DDA (/ SS)
+    (setq SS (ssget "_X" '((0 . "DIMENSION"))))
+    (if (TNT:DIM:DISASSOCIATE-SS SS)
+      (princ "\n[TNT] DONE: DISASSOCIATE ALL DIMENSIONS. DIMASSOC = 1.")
+      (princ "\n[TNT] CANCEL: NO DIMENSIONS FOUND.")
+    )
+    (princ)
+  )
 ;CAT DIM
   (defun myerror (s)                    ; If an error (such as CTRL-C) occurs
                                         ; while this command is active...
