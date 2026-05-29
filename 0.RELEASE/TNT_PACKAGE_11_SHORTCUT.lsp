@@ -118,6 +118,55 @@
   (princ)
 )
 
+(defun TNT:SHORTCUT:PGP:TABLE (/)
+  '(
+    ("CC"  "CIRCLE")
+    ("C"   "COPY")
+    ("1"   "LAYISO")
+    ("2"   "LAYON")
+    ("3"   "LAYOFF")
+    ("11"  "REFEDIT")
+    ("22"  "REFCLOSE")
+    ("MM"  "MIRROR")
+    ("M"   "MOVE")
+    ("ML"  "MLINE")
+    ("R"   "ROTATE")
+    ("S"   "STRETCH")
+    ("SC"  "SCALE")
+    ("SPL" "SPLINE")
+    ("D"   "DIMLINEAR")
+    ("DC"  "DIMCONTINUE")
+    ("DD"  "DIMALIGNED")
+    ("DST" "DIMSTYLE")
+    ("LL"  "DIMSTYLE")
+    ("XX"  "XLINE")
+  )
+)
+
+(defun TNT:SHORTCUT:PGP:DEFINE-COMMAND (cmd target / sym)
+  (setq sym (read (strcat "C:" (strcase cmd))))
+  (if (not (member (strcat "C:" (strcase cmd)) (atoms-family 1)))
+    (eval
+      (list
+        'defun
+        sym
+        '(/)
+        (list 'setvar "MODEMACRO" "TNT Architecture")
+        (list 'command (strcat "_." target))
+        '(princ)
+      )
+    )
+  )
+)
+
+;;; FT is intentionally skipped because release already has command c:ft in TNT_PACKAGE_06_TEXT_ALL.lsp.
+(defun TNT:SHORTCUT:PGP:INIT (/ row)
+  (foreach row (TNT:SHORTCUT:PGP:TABLE)
+    (TNT:SHORTCUT:PGP:DEFINE-COMMAND (car row) (cadr row))
+  )
+  (princ)
+)
+
 ;;; ----------------------------------------------------------------------------------------------------
 ;;; [3] PUBLIC INITIALIZER / COMMANDS
 ;;; ----------------------------------------------------------------------------------------------------
@@ -131,6 +180,7 @@
   (foreach row (TNT:SHORTCUT:LAYER:TABLE)
     (TNT:SHORTCUT:LAYER:DEFINE-COMMAND (cadr row) (caddr row))
   )
+  (TNT:SHORTCUT:PGP:INIT)
   (princ)
 )
 

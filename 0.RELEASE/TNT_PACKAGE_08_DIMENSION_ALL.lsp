@@ -430,12 +430,12 @@
             HOANH_OLDERROR *error*
             *error* hoanh_newerror)
       (setvar "CMDECHO" 0)
-      (command ".undo" "BE")
+      (command-s "_.UNDO" "_BE")
     )
 
     (defun done ()
-      (command ".redraw")
-      (command ".undo" "E")
+      (command-s "_.REDRAW")
+      (command-s "_.UNDO" "_E")
       (if HOANH_CMD (setvar "CMDECHO" HOANH_CMD))
       (if HOANH_OLDERROR (setq *error* HOANH_OLDERROR))
       (princ)
@@ -531,10 +531,29 @@
       (cons loai ent)
     )
 
+    (defun chondimgoc (/ picked ent)
+      (while (not ent)
+        (initget "D4")
+        (setq picked (entsel "\n CHON DIM GOC: "))
+        (cond
+          ((equal picked "D4")
+            nil
+          )
+          ((and picked (= "DIMENSION" (cdr (assoc 0 (entget (car picked))))))
+            (setq ent (car picked))
+          )
+          (picked
+            (princ "\n[TNT] Hay chon dung doi tuong DIMENSION.")
+          )
+        )
+      )
+      ent
+    )
+
     (init)
     (princ)
     
-    (while (not (setq entgoc (car (entsel "\n CHON DIM GOC: ")))))
+    (setq entgoc (chondimgoc))
     (setq ttgoc (entget entgoc)
           p13goc (cdr (assoc 13 ttgoc))
           pgoc (cdr (assoc 10 ttgoc))
@@ -601,7 +620,7 @@
 
     (setq lstduong lstduongtmp)
     (setq lstlevel (append lstduong lstam (list (cons 0.0 0))))
-    (setq kcdimstandard (* 3.0 heightdimgoc)) ; KHOANG CACH DIM = X3 TEXT
+    (setq kcdimstandard (* 2.5 heightdimgoc)) ; KHOANG CACH DIM = X2.5 TEXT
 
     (foreach pp lstd
       (setq plht (car pp))

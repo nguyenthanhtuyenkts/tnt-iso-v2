@@ -1,0 +1,5 @@
+﻿"Topic","Detail"
+"Edit source","Edit CTB_255_Colors, not Layer_CTB_Sync, when generating a new CTB."
+"CTB scope","CTB is color-dependent. One ACI color change affects every layer using that ACI."
+"Do not overwrite","Build scripts write a new CTB file. Keep the original CTB untouched."
+"Lineweight","Use lineweight code from CTB_255_Colors. LineweightMm is a readable helper."

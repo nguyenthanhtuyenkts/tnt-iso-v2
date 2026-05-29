@@ -27,15 +27,21 @@
 | <code>CA</code> | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block |
 | <code>cb</code> | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block |
 | <code>cbp</code> | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block |
+| <code>CC</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 | <code>CD</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
 | <code>CLD</code> | <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve |
+| <code>C</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
+| <code>D</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 | <code>D1</code> | <code>TNT_PACKAGE_05_LAYER_ALL.lsp</code> | layer |
 | <code>D2</code> | <code>TNT_PACKAGE_05_LAYER_ALL.lsp</code> | layer |
 | <code>D3</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
 | <code>D4</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
 | <code>D5</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
+| <code>DC</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
+| <code>DD</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 | <code>df(</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
 | <code>dfx(</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
+| <code>DST</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 | <code>DTM</code> | <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve, dien tich |
 | <code>dx(</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
 | <code>ED2</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
@@ -56,19 +62,27 @@
 | <code>HSE</code> | <code>TNT_PACKAGE_09_HATCH_ALL.lsp</code> | hatch |
 | <code>HT</code> | <code>TNT_PACKAGE_09_HATCH_ALL.lsp</code> | hatch |
 | <code>HV</code> | <code>TNT_PACKAGE_09_HATCH_ALL.lsp</code> | hatch |
+| <code>LL</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 | <code>LB1</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
 | <code>LB2</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
 | <code>LB3</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
+| <code>M</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 | <code>MAB</code> | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block |
 | <code>MAT</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
 | <code>MATB</code> | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block |
+| <code>ML</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
+| <code>MM</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 | <code>nc1(/</code> | <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve |
+| <code>R</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 | <code>rb</code> | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block |
 | <code>RHB</code> | <code>TNT_PACKAGE_09_HATCH_ALL.lsp</code> | hatch |
 | <code>RV</code> | <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve |
+| <code>S</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
+| <code>SC</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 | <code>SD1</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
 | <code>SD2</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
 | <code>SD3</code> | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension |
+| <code>SPL</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 | <code>SSC</code> | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block |
 | <code>stt</code> | <code>TNT_PACKAGE_03_MANAGE_ALL.lsp</code> | quan ly/chinh sua |
 | <code>T1</code> | <code>TNT_PACKAGE_06_TEXT_ALL.lsp</code> | text |
@@ -89,7 +103,13 @@
 | <code>VR3</code> | <code>TNT_PACKAGE_03_MANAGE_ALL.lsp</code> | quan ly/chinh sua |
 | <code>VRR</code> | <code>TNT_PACKAGE_03_MANAGE_ALL.lsp</code> | quan ly/chinh sua |
 | <code>wq1</code> | <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve |
+| <code>XX</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 | <code>zz</code> | <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve |
+| <code>1</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
+| <code>2</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
+| <code>3</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
+| <code>11</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
+| <code>22</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 
 ## File Index
 
@@ -106,7 +126,7 @@
 | <code>TNT_PACKAGE_08_DIMENSION_ALL.lsp</code> | dimension | 12 | 52 | B_TNT_Dimension.lsp, C_TNT_Dimension_Align.lsp, D_LoBan-LB1-LB2-LB3.lsp |
 | <code>TNT_PACKAGE_09_HATCH_ALL.lsp</code> | hatch | 17 | 0 | B_TNT_Hatch.lsp, C_TNT_Hatch_Boundary.lsp |
 | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block | 13 | 85 | .Current Style.lsp, a list whose first item is a 3x3 transformation matrix and, B_TNT_Block_Layer0_B0.lsp, C_TNT_Block_Basepoint_B3.lsp, D_TNT_Block_Copy_MAB.lsp, E_TNT_Block_Rename_RB-CB.lsp, F_TNT_Block_Copy_Text_Att_AT1.lsp, G_TNT_Block_Change_Vibisility_B1.lsp ... +4 |
-| <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut | 1 | 7 |  |
+| <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut | 21 | 10 |  |
 | <code>TNT_SUPPORT_LISP\TNT_MIGRATE_SIMPLE.lsp</code> | migration | 2 | 10 | TNT_MIGRATE_SIMPLE to move old V16 layers to TNT ISO layers immediately. |
 
 ## Detail By File
@@ -218,8 +238,8 @@
 - Size: 5.3 KB
 - Modified: 2026-05-27 18:36:59
 - Hint: shortcut
-- Commands: <code>TNT_SHORTCUT</code>
-- Helper/internal functions: 7; sample: <code>TNT:SHORTCUT:LAYER:DEFINE-COMMAND, TNT:SHORTCUT:LAYER:ENSURE, TNT:SHORTCUT:LAYER:INIT, TNT:SHORTCUT:LAYER:PRINT-TABLE, TNT:SHORTCUT:LAYER:SET-OR-CHANGE, TNT:SHORTCUT:LAYER:TABLE, TNT_SHORTCUT</code>
+- Commands: <code>1, 11, 2, 22, 3, C, CC, D, DC, DD, DST, LL, M, ML, MM, R, S, SC, SPL, TNT_SHORTCUT, XX</code>
+- Helper/internal functions: 10; sample: <code>TNT:SHORTCUT:LAYER:DEFINE-COMMAND, TNT:SHORTCUT:LAYER:ENSURE, TNT:SHORTCUT:LAYER:INIT, TNT:SHORTCUT:LAYER:PRINT-TABLE, TNT:SHORTCUT:LAYER:SET-OR-CHANGE, TNT:SHORTCUT:LAYER:TABLE, TNT:SHORTCUT:PGP:DEFINE-COMMAND, TNT:SHORTCUT:PGP:INIT, TNT:SHORTCUT:PGP:TABLE, TNT_SHORTCUT</code>
 
 ### TNT_SUPPORT_LISP\TNT_MIGRATE_SIMPLE.lsp
 
