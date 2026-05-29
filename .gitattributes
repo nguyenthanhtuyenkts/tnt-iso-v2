@@ -1,0 +1,7 @@
+# Normalize text files for this Windows-based AutoLISP workspace.
+.gitattributes text eol=crlf
+*.lsp text eol=crlf
+*.LSP text eol=crlf
+*.ps1 text eol=crlf
+*.md text eol=crlf
+*.csv text eol=crlf
