@@ -1650,3 +1650,48 @@ Exc Files : *.bak
    Speed :             109.519 MegaBytes/min.
    Ended : 29 Tha'ng Nam 2026 6:45:25 CH
 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 30 Tha'ng Nam 2026 2:16:30 CH
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  18	D:\0.TNT ISO 2026\0.RELEASE\
+	    Newer     		   29786	TNT_PACKAGE_00_SYSTEM_ALL.lsp  0%  100%  
+	    Newer     		   49370	TNT_PACKAGE_01_CREATE_ALL.lsp  0%  100%  
+	    Newer     		   11654	TNT_PACKAGE_05_LAYER_ALL.lsp  0%  100%  
+	    Newer     		   70256	TNT_PACKAGE_08_DIMENSION_ALL.lsp  0%  100%  
+	    New File  		      65	TNT_TEMPLATE_2026.dwl  0%  100%  
+	    New File  		     217	TNT_TEMPLATE_2026.dwl2  0%  100%  
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                   2	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        30         6        24         0         0         0
+   Bytes :   12.27 m   157.5 k   12.11 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :             3667000 Bytes/sec.
+   Speed :             209.827 MegaBytes/min.
+   Ended : 30 Tha'ng Nam 2026 2:16:30 CH
+
