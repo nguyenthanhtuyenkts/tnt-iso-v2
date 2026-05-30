@@ -456,6 +456,7 @@
     (TNT:SYSTEM:DISASSOCIATE_DIMENSIONS)
     (TNT:SYSTEM_SETTING "HPLAYER" "....23_TNT_N_HATCH")        ;LAYER "HATCH"
     (TNT:SYSTEM_SETTING "TEXTLAYER" "....20_TNT_N_TEXT")        ;LAYER "TEXT"
+    (TNT:SYSTEM_SETTING "MLEADERLAYER" "....21_TNT_N_LEADER")   ;LAYER "MLEADER"
     (TNT:SYSTEM_SETTING "LTSCALE" 1)                             ;TỶ LỆ NÉT VẼ THỐNG NHẤT
     (TNT:SYSTEM_SETTING "CELTYPE" "CONTINUOUS")                  ;KIỂU NÉT MẶC ĐỊNH KHI VẼ MỚI  
   ;3 GROUP TEXT & DIMSTYLE
@@ -545,13 +546,6 @@
   )
 )
 
-;;; ----------------------------------------------------------------------------------------------------
-;;; LEADER DEFAULT LAYER
-;;; ----------------------------------------------------------------------------------------------------
-(defun TNT:SYSTEM:LEADER-LAYER (/)
-  "....21_TNT_N_LEADER"
-)
-
 (defun TNT:SYSTEM:NORMALIZE-COMMAND (CMD / NAME)
   (setq NAME (strcase (vl-princ-to-string CMD)))
   (while
@@ -573,55 +567,6 @@
     )
   )
   (TNT:SYSTEM:NORMALIZE-COMMAND RAW)
-)
-
-(defun TNT:SYSTEM:LEADER-COMMAND? (CMD / NAME)
-  (setq NAME (TNT:SYSTEM:NORMALIZE-COMMAND CMD))
-  (if (member NAME '("LEADER" "QLEADER" "MLEADER"))
-    T
-    nil
-  )
-)
-
-(defun TNT:SYSTEM:ENSURE-LAYER (LAYERNAME /)
-  (cond
-    ((tblsearch "LAYER" LAYERNAME) T)
-    ((member "TNT:LAY:CREATE" (atoms-family 1))
-      (TNT:LAY:CREATE)
-      (if (tblsearch "LAYER" LAYERNAME) T nil)
-    )
-    (T nil)
-  )
-)
-
-(defun TNT:SYSTEM:SET-LEADER-LAYER (/ LAYERNAME)
-  (setq LAYERNAME (TNT:SYSTEM:LEADER-LAYER))
-  (if (TNT:SYSTEM:ENSURE-LAYER LAYERNAME)
-    (setvar "CLAYER" LAYERNAME)
-    (TNT:SYS:LOG (strcat "ERROR: STANDARD LEADER LAYER NOT FOUND: " LAYERNAME))
-  )
-  (princ)
-)
-
-(defun TNT:SYSTEM:LEADER-COMMAND-START (REACTOR DATA / CMD)
-  (setq CMD (TNT:SYSTEM:COMMAND-NAME-FROM-DATA DATA))
-  (if (TNT:SYSTEM:LEADER-COMMAND? CMD)
-    (vl-catch-all-apply 'TNT:SYSTEM:SET-LEADER-LAYER nil)
-  )
-  (princ)
-)
-
-(defun TNT:SYSTEM:LEADER-REACTOR-INIT (/)
-  (if (and (boundp '*TNT.SYSTEM.LEADER.REACTOR*) *TNT.SYSTEM.LEADER.REACTOR*)
-    (vl-catch-all-apply 'vlr-remove (list *TNT.SYSTEM.LEADER.REACTOR*))
-  )
-  (setq *TNT.SYSTEM.LEADER.REACTOR*
-    (vlr-command-reactor
-      nil
-      '((:vlr-commandWillStart . TNT:SYSTEM:LEADER-COMMAND-START))
-    )
-  )
-  (princ)
 )
 
 ;;; ----------------------------------------------------------------------------------------------------
@@ -663,14 +608,6 @@
   (princ)
 )
 
-(defun TNT:SYSTEM:LEADER-REACTOR-OFF (/)
-  (if (and (boundp '*TNT.SYSTEM.LEADER.REACTOR*) *TNT.SYSTEM.LEADER.REACTOR*)
-    (vl-catch-all-apply 'vlr-remove (list *TNT.SYSTEM.LEADER.REACTOR*))
-  )
-  (setq *TNT.SYSTEM.LEADER.REACTOR* nil)
-  (princ)
-)
-
 (defun TNT:SYSTEM:STARTUP-PALETTE-REACTOR-INIT (/)
   (if (and (boundp '*TNT.SYSTEM.STARTUP.PALETTE.REACTOR*) *TNT.SYSTEM.STARTUP.PALETTE.REACTOR*)
     (vl-catch-all-apply 'vlr-remove (list *TNT.SYSTEM.STARTUP.PALETTE.REACTOR*))
@@ -696,11 +633,9 @@
 (defun TNT:SYSTEM:COMMAND-REACTORS-INIT (/)
   (if *TNT.SYSTEM.ENABLE.COMMAND.REACTORS*
     (progn
-      (vl-catch-all-apply 'TNT:SYSTEM:LEADER-REACTOR-INIT nil)
       (vl-catch-all-apply 'TNT:SYSTEM:STARTUP-PALETTE-REACTOR-INIT nil)
     )
     (progn
-      (TNT:SYSTEM:LEADER-REACTOR-OFF)
       (TNT:SYSTEM:STARTUP-PALETTE-REACTOR-OFF)
     )
   )

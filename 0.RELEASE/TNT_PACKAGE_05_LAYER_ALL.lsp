@@ -247,6 +247,7 @@
 
 (defun c:D2 (/)
   (command ".DIMSCALE")
+  (setvar "DIMASZ" 2.0)
   (princ)
 )
 
