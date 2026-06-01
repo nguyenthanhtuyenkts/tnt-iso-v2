@@ -26,3 +26,8 @@
 - Sua log load package: doi `` `n[TNT]`` thanh `\n[TNT]` trong package 01-10 va chuan hoa thong bao `RV`.
 - Harden command reactor trong `TNT_PACKAGE_00_SYSTEM_ALL.lsp`: doc ten lenh qua helper an toan va boc callback bang `vl-catch-all-apply` de tranh loi `bad argument type: fixnump: #<VLR-Command-Reactor>`.
 - Tam tat command reactor mac dinh khi load package 00 (`*TNT.SYSTEM.ENABLE.COMMAND.REACTORS* = nil`) vi log van bao loi `fixnump: #<VLR-Command-Reactor>` truoc package 01. Cac reactor phu van giu ham init/off de bat lai sau neu can.
+
+### 2026-06-01
+
+- Sua lenh `D4` trong package 08: tinh khoang cach DIM co dau theo huong DIM goc, loc DIM goc tuyen tinh, khoi phuc `*error*` dung cach va chuan hoa lenh noi bo theo ten lenh quoc te.
+- Them block `.TNT_MATERIAL-SECTION` vao danh sach block duoc dong bo scale boi lenh `TNT` trong package 02.

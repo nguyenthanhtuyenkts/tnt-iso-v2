@@ -425,7 +425,7 @@
 ;KHOẢNG CÁCH DIM
   (defun c:D4 ()
     (setvar "MODEMACRO" "TNT Architecture")
-    (defun ss2ent (ss / sodt index lstent)
+    (defun ss2ent (ss / sodt index ent lstent)
       (setq sodt (if ss (sslength ss) 0)
             index 0)
       (repeat sodt
@@ -456,7 +456,7 @@
       (command-s "_.REDRAW")
       (command-s "_.UNDO" "_E")
       (if HOANH_CMD (setvar "CMDECHO" HOANH_CMD))
-      (if HOANH_OLDERROR (setq *error* HOANH_OLDERROR))
+      (setq *error* HOANH_OLDERROR)
       (princ)
     )
 
@@ -509,39 +509,19 @@
     )
 
     (defun textdimheight (ent / tmp)
-      (command ".copy" ent "" (list 0.0 0.0 0.0) "@")
-      (command ".explode" (entlast) "")
+      (command "_.COPY" ent "" (list 0.0 0.0 0.0) "@")
+      (command "_.EXPLODE" (entlast) "")
       (setq tmp (cdr (assoc 40 (entget (entlast)))))
-      (command ".erase" "p" "")
+      (command "_.ERASE" "_P" "")
       tmp
     )
 
-    (defun phia (p1 p2 p3 / x1 y1 z1 x2 y2 z2 x3 y3 z3)
-      (setq x1 (car p1)
-            y1 (cadr p1)
-            z1 (caddr p1)
-            x2 (car p2)
-            y2 (cadr p2)
-            z2 (caddr p2)
-            x3 (car p3)
-            y3 (cadr p3)
-            z3 (caddr p3)
-            tmp (+ (* (- x1 x2) x3)
-                    (* (- y1 y2) y3)
-                    (* (- z1 z2) z3)))
-      (cond
-        ((= tmp 0.0) 0.0)
-        (t (/ tmp (abs tmp)))
-      )
-    )
-
-    (defun khoangcachdim (p1 ent goc / tt p2 A B D)
+    (defun khoangcachdim (p1 ent goc / tt p2 A D)
       (setq tt (entget ent)
             p2 (cdr (assoc 10 tt))
-            B (cdr (assoc 50 tt))
             A (angle p1 p2)
             D (distance p1 p2))
-      (* (* D (sin (- A B))) (phia p1 (polar p1 goc 1.0) p2))
+      (* D (sin (- A goc)))
     )
 
     (defun phanloai (ent)
@@ -558,11 +538,14 @@
           ((equal picked "D4")
             nil
           )
-          ((and picked (= "DIMENSION" (cdr (assoc 0 (entget (car picked))))))
+          ((and picked
+                (= "DIMENSION" (cdr (assoc 0 (entget (car picked)))))
+                (= 0 (logand (cdr (assoc 70 (entget (car picked)))) 7))
+                (assoc 50 (entget (car picked))))
             (setq ent (car picked))
           )
           (picked
-            (princ "\n[TNT] Hay chon dung doi tuong DIMENSION.")
+            (princ "\n[TNT] Hay chon DIMENSION tuyen tinh.")
           )
         )
       )

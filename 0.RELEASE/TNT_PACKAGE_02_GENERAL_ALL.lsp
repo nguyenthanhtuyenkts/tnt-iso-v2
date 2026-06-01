@@ -66,6 +66,7 @@
           ".TNT_ANNO-TAG-VIEW-01"
           ".TNT_ANNO-TAG-VIEW-02"
           ".TNT_BASE"
+          ".TNT_MATERIAL-SECTION"
         )
         (TNT:ScaleBlocks (TNT:FilterBlocksByName lstInsert blockName) scale)
       )
