@@ -190,7 +190,7 @@
                 (-4 . "<AND")
                   (-4 . "<OR")
                     (0 . "LEADER")
-                    (0 . "MLEADER")
+                    (0 . "MULTILEADER")
                   (-4 . "OR>")
                   (-4 . "<NOT")
                     (-4 . "<OR")

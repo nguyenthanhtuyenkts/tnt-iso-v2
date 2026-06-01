@@ -488,6 +488,11 @@
     (TNT:SYSTEM_SETTING "TRANSPARENCYDISPLAY" 0)                 ;LAYER KHÔNG BỊ MỜ
     (TNT:SYSTEM_SETTING "SELECTIONPREVIEW" 0)                    ;TẮT HIGHT KHI DI CHUỘT VÀO ĐỐI TƯỢNG
     (TNT:SYSTEM_SETTING "HIGHLIGHT" 1)                           ;BẬT HIGHT KHI CHỌN ĐỐI TƯỢNG
+    (TNT:SYSTEM_SETTING "SELECTIONOFFSCREEN" 1)                  ;GIU DOI TUONG DUOC CHON KHI NAM NGOAI MAN HINH
+    (TNT:SYS:LOG
+      (strcat
+        "SELECTIONOFFSCREEN = "
+        (vl-princ-to-string (getvar "SELECTIONOFFSCREEN"))))
   ;11 DRAW
     (TNT:SYSTEM_SETTING "SNAPMODE" 0)                            ;TẮT BẮT ĐIỂM GRID
     (TNT:SYSTEM_SETTING "GRIDMODE" 0)                            ;TẮT BẮT ĐIỂM GRID 

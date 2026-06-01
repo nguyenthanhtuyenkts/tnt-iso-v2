@@ -31,3 +31,9 @@
 
 - Sua lenh `D4` trong package 08: tinh khoang cach DIM co dau theo huong DIM goc, loc DIM goc tuyen tinh, khoi phuc `*error*` dung cach va chuan hoa lenh noi bo theo ten lenh quoc te.
 - Them block `.TNT_MATERIAL-SECTION` vao danh sach block duoc dong bo scale boi lenh `TNT` trong package 02.
+- Bo sung `TNT_SETTING`: quet `LEADER` va `MULTILEADER`, dua tat ca ve layer `....21_TNT_N_LEADER`.
+- Them wrapper `QLEADER` va `LE`: `UNDEFINE QLEADER`, tam chuyen `CLAYER` sang `....21_TNT_N_LEADER` khi ve leader moi va khoi phuc layer cu khi ket thuc hoac huy lenh.
+- Them bien he thong `SELECTIONOFFSCREEN = 1` vao `TNT_SETTING`.
+- Boc cai dat wrapper `QLEADER` bang `TNT:SYS:RUN-SAFE` va in lai gia tri `SELECTIONOFFSCREEN` sau khi set de tranh loi wrapper chan luong `TNT_SETTING`, dong thoi ho tro chan doan reload.
+- Chuyen toan bo wrapper `QLEADER`/`LE` khoi package system sang package layer; sua filter layer tu `MLEADER` thanh DXF type dung `MULTILEADER`.
+- Chuyen wrapper `QLEADER`/`LE` tu package layer sang dung package leader 07; package layer chi giu phan sua filter `MULTILEADER`.

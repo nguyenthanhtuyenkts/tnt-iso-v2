@@ -628,5 +628,68 @@
 ;;; END SOURCE: B_TNT_Leader_.lsp
 ;;; ====================================================================================================
 
+(defun TNT:LEADER:QLEADER (/ *error* LTARGET LOLDLAYER LOLDCMDECHO)
+  (setq LTARGET "....21_TNT_N_LEADER"
+        LOLDLAYER (getvar "CLAYER")
+        LOLDCMDECHO (getvar "CMDECHO"))
+  (defun *error* (LMSG)
+    (if LOLDLAYER (setvar "CLAYER" LOLDLAYER))
+    (setvar "CMDECHO" LOLDCMDECHO)
+    (if (and LMSG
+             (/= LMSG "Function cancelled")
+             (/= LMSG "quit / exit abort"))
+      (princ (strcat "\n[TNT] ERROR: QLEADER: " LMSG))
+    )
+    (princ)
+  )
+  (if (and (not (tblsearch "LAYER" LTARGET))
+           (member "TNT:LAY:CREATE" (atoms-family 1)))
+    (TNT:SYS:RUN-SAFE (function TNT:LAY:CREATE))
+  )
+  (cond
+    ((not (tblsearch "LAYER" LTARGET))
+      (princ (strcat "\n[TNT] CANCEL: LEADER LAYER NOT FOUND: " LTARGET))
+    )
+    (T
+      (setvar "CMDECHO" 0)
+      (setvar "CLAYER" LTARGET)
+      (command "_.QLEADER")
+      (while (> (getvar "CMDACTIVE") 0)
+        (command pause)
+      )
+    )
+  )
+  (if LOLDLAYER (setvar "CLAYER" LOLDLAYER))
+  (setvar "CMDECHO" LOLDCMDECHO)
+  (princ)
+)
+
+(defun c:QLEADER (/)
+  (TNT:LEADER:QLEADER)
+  (princ)
+)
+
+(defun c:LE (/)
+  (TNT:LEADER:QLEADER)
+  (princ)
+)
+
+(defun TNT:LEADER:INSTALL-QLEADER-WRAPPER (/ LERR)
+  (setq LERR
+    (vl-catch-all-apply
+      '(lambda ()
+         (vl-cmdf "_.UNDEFINE" "QLEADER")
+       )
+    )
+  )
+  (if (vl-catch-all-error-p LERR)
+    (princ (strcat "\n[TNT] SKIP: QLEADER WRAPPER INSTALL: " (vl-catch-all-error-message LERR)))
+    (princ "\n[TNT] DONE: QLEADER WRAPPER INSTALLED.")
+  )
+  (princ)
+)
+
+(TNT:LEADER:INSTALL-QLEADER-WRAPPER)
+
 (princ "\n[TNT] Loaded TNT_PACKAGE_07_LEADER_ALL.lsp")
 (princ)
