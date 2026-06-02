@@ -489,10 +489,7 @@
     (TNT:SYSTEM_SETTING "SELECTIONPREVIEW" 0)                    ;TẮT HIGHT KHI DI CHUỘT VÀO ĐỐI TƯỢNG
     (TNT:SYSTEM_SETTING "HIGHLIGHT" 1)                           ;BẬT HIGHT KHI CHỌN ĐỐI TƯỢNG
     (TNT:SYSTEM_SETTING "SELECTIONOFFSCREEN" 1)                  ;GIU DOI TUONG DUOC CHON KHI NAM NGOAI MAN HINH
-    (TNT:SYS:LOG
-      (strcat
-        "SELECTIONOFFSCREEN = "
-        (vl-princ-to-string (getvar "SELECTIONOFFSCREEN"))))
+    (TNT:SYSTEM:LOG-VARIABLE "SELECTIONOFFSCREEN")
   ;11 DRAW
     (TNT:SYSTEM_SETTING "SNAPMODE" 0)                            ;TẮT BẮT ĐIỂM GRID
     (TNT:SYSTEM_SETTING "GRIDMODE" 0)                            ;TẮT BẮT ĐIỂM GRID 
@@ -504,14 +501,36 @@
 ;;; ====================================================================================================
 ;;; [4] FUNCTION SYSTEM VARIABLES
 ;;; ====================================================================================================
-(defun TNT:SYSTEM_SETTING ( PVAR PVAL / LOLDVAL)
-  (setq LOLDVAL (getvar PVAR))
-  (if (not (equal LOLDVAL PVAL))
-    (progn
-      (setvar PVAR PVAL)
-      (princ (strcat "\n[TNT] DONE: CHANGE SYSTEM VARIABLE " PVAR " FROM " (vl-princ-to-string LOLDVAL) " → " (vl-princ-to-string PVAL)))
+(defun TNT:SYSTEM_SETTING ( PVAR PVAL / LERR LOLDVAL)
+  (setq LERR
+    (vl-catch-all-apply
+      (function
+        (lambda ()
+          (setq LOLDVAL (getvar PVAR))
+          (if (not (equal LOLDVAL PVAL))
+            (progn
+              (setvar PVAR PVAL)
+              (princ (strcat "\n[TNT] DONE: CHANGE SYSTEM VARIABLE " PVAR " FROM " (vl-princ-to-string LOLDVAL) " → " (vl-princ-to-string PVAL)))
+            )
+          )
+        )
+      )
+      '()
     )
   )
+  (if (vl-catch-all-error-p LERR)
+    (TNT:SYS:LOG (strcat "SKIP SYSTEM VARIABLE " PVAR ": " (vl-catch-all-error-message LERR)))
+  )
+  (princ)
+)
+
+(defun TNT:SYSTEM:LOG-VARIABLE ( PVAR / LVAL)
+  (setq LVAL (vl-catch-all-apply 'getvar (list PVAR)))
+  (if (vl-catch-all-error-p LVAL)
+    (TNT:SYS:LOG (strcat PVAR " = <UNAVAILABLE>: " (vl-catch-all-error-message LVAL)))
+    (TNT:SYS:LOG (strcat PVAR " = " (vl-princ-to-string LVAL)))
+  )
+  (princ)
 )
 
 (defun TNT:SYSTEM:DISASSOCIATE_DIMENSIONS (/ LSS LOLD LERR)
@@ -537,15 +556,18 @@
   (princ)
 )
 
-(defun TNT:SYSTEM:ENSURE_NAVVCUBE_OFF ( / LSPACE LOLD)
+(defun TNT:SYSTEM:ENSURE_NAVVCUBE_OFF ( / LERR LSPACE LOLD)
   (setq LSPACE (getvar "TILEMODE"))
   (if (= LSPACE 1)
     (progn
       (setq LOLD (getvar "CMDECHO"))
       (setvar "CMDECHO" 0)
-      (command "_.NAVVCUBE" "_Off")
+      (setq LERR (vl-catch-all-apply 'vl-cmdf (list "_.NAVVCUBE" "_Off")))
       (setvar "CMDECHO" LOLD)
-      (princ "\n[TNT] DONE: CHANGE SYSTEM NAVVCUBE OFF.")
+      (if (vl-catch-all-error-p LERR)
+        (TNT:SYS:LOG (strcat "SKIP NAVVCUBE: " (vl-catch-all-error-message LERR)))
+        (princ "\n[TNT] DONE: CHANGE SYSTEM NAVVCUBE OFF.")
+      )
     )
     (princ "\n[TNT] DONE: CANCEL CHANGE SYSTEM NAVVCUBE LAYOUT.")
   )
