@@ -417,7 +417,7 @@
       )
     )
     (if (and DIMSCALE (numberp DIMSCALE) (> DIMSCALE 0.0))
-      (setvar "DIMASZ" 2.0)
+      (setvar "DIMASZ" 1.1)
     )
     (setvar "CMDECHO" 1)
     (princ)

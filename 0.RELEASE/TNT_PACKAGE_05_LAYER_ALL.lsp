@@ -242,12 +242,13 @@
 ;;; ====================================================================================================
 (defun c:D1 (/)
   (command ".DIMLFAC")
+  (setvar "DIMASZ" 1.1)
   (princ)
 )
 
 (defun c:D2 (/)
   (command ".DIMSCALE")
-  (setvar "DIMASZ" 2.0)
+  (setvar "DIMASZ" 1.1)
   (princ)
 )
 

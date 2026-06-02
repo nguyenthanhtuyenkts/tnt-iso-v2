@@ -719,8 +719,8 @@
 (defun TNT:SHORTCUT:CMD:ANNO:DE (/)       (command "DIMSETDELETE") (princ))
 (defun TNT:SHORTCUT:CMD:ANNO:DX (/ A)     (setq A (ssget)) (command "DIMSETEXTEND" A "E") (princ))
 (defun TNT:SHORTCUT:CMD:ANNO:D1 (/ A B)   (setq A (getint "\n NHẬP TỶ LỆ: "))
-  (if (/= A 0) (progn (setq B (/ 1.0 A))  (command ".DIMLFAC" B)) (princ "\nLỗi: TỶ LỆ không thể bằng 0.")) (princ))
-(defun TNT:SHORTCUT:CMD:ANNO:D2 (/)       (command ".DIMSCALE") (setvar "DIMASZ" 2.0) (princ))
+  (if (/= A 0) (progn (setq B (/ 1.0 A))  (command ".DIMLFAC" B)) (princ "\nLỗi: TỶ LỆ không thể bằng 0.")) (setvar "DIMASZ" 1.1) (princ))
+(defun TNT:SHORTCUT:CMD:ANNO:D2 (/)       (command ".DIMSCALE") (setvar "DIMASZ" 1.1) (princ))
 (defun TNT:SHORTCUT:CMD:ANNO:WQ (/)       (command ".WIPEOUT") (princ))
 
 ;; * GROUP 6 - CUSTOM TOOLS - (TNT:SHORTCUT:CMD:TOOLS:*)

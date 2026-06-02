@@ -175,7 +175,7 @@
       ((= layer "....04_TNT_A_HIDDEN")         (vla-put-Linetype       lineObj "HIDDEN")                   (vla-put-LinetypeScale lineObj ls1))
       ((= layer "....06_TNT_A_SECTION-LINE")   (vla-put-Linetype       lineObj "ACAD_ISO07W100")           (vla-put-LinetypeScale lineObj ls3))    
       ((= layer "....07_TNT_A_BASE")           (vla-put-Linetype       lineObj "CENTER")                   (vla-put-LinetypeScale lineObj ls2))     
-      ((= layer "....08_TNT_A_DETAIL")         (vla-put-Linetype       lineObj "HIDDEN")                   (vla-put-LinetypeScale lineObj ls1))
+      ((= layer "....08_TNT_A_DETAIL")         (vla-put-Linetype       lineObj "HIDDEN")                   (vla-put-LinetypeScale lineObj ls2))
       ((= style "CENTER")                     (vla-put-Layer          lineObj "....07_TNT_A_BASE")         (vla-put-LinetypeScale lineObj ls2))
       ((= style "HIDDEN")                     (vla-put-LinetypeScale  lineObj ls1))
       ((= style "ACAD_ISO07W100")             (vla-put-Layer          lineObj "....06_TNT_A_SECTION-LINE") (vla-put-LinetypeScale lineObj ls3))
