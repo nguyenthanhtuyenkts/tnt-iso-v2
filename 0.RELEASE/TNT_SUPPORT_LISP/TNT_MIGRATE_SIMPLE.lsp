@@ -10,70 +10,91 @@
 
 (defun TNT:V16S:MAP-GROUPS (/)
   '(
+    ;; ....01_TNT_A_DRAWING
     ("....01_TNT_A_DRAWING"
       ("...0_TNT_LINE_NAME"
        "...01_010_A_DRAWING"
        "0_TNT-KHUNGTEN"))
+    ;; ....02_TNT_A_VIRTURAL
     ("....02_TNT_A_VIRTURAL"
       ("...4_TNT_LINE_VIRTURAL"
        "4_TNT_LINE_VIRTURAL"
        "TNT-Virtural"))
+    ;; ....03_TNT_A_THIN
     ("....03_TNT_A_THIN"
       ("...5_TNT_LINE_THIN"))
+    ;; ....04_TNT_A_HIDDEN
     ("....04_TNT_A_HIDDEN"
       ("...6_TNT_LINE_HIDDEN"
        "6_TNT_LINE_HIDDEN"
        "TNT-Hidden N"))
+    ;; ....05_TNT_A_SECTION
     ("....05_TNT_A_SECTION"
       ("...3_TNT_LINE_SECTION"
        "...05_010_A_SECTION"
        "TNT-Net Cat"))
+    ;; ....06_TNT_A_SECTION-LINE
     ("....06_TNT_A_SECTION-LINE"
       ("3_TNT_LINE_SECTION"
        "...17_TNT_SECTION_LINE"))
+    ;; ....07_TNT_A_BASE
     ("....07_TNT_A_BASE"
       ("...7_TNT_LINE_BASE"
        "...07_010_A_BASE"
        "7_TNT_LINE_BASE"))
+    ;; ....08_TNT_A_DETAIL
     ("....08_TNT_A_DETAIL"
       ("...16_TNT_LINE_DETAIL"
        "16_TNT_LINE_DETAIL"))
+    ;; ....10_TNT_A_COTE
     ("....10_TNT_A_COTE"
       ("...21_TNT_LINE_COTE"))
+    ;; ....11_TNT_A_PLOT
     ("....11_TNT_A_PLOT"
       ("...19_TNT_LINE_LAYOUT"))
+    ;; ....12_TNT_F_FURNITURE
     ("....12_TNT_F_FURNITURE"
       ("...8_TNT_LINE_FUNITURE"
        "A-Noithat"
        "FF-FURN"
        "TNT-Funiture"))
+    ;; ....13_TNT_F_TREE
     ("....13_TNT_F_TREE"
       ("...13_TNT_LINE_TREE"))
+    ;; ....14_TNT_F_GLASS
     ("....14_TNT_F_GLASS"
       ("14_TNT _LINE_GLASSE"))
+    ;; ....15_TNT_F_DOOR
     ("....15_TNT_F_DOOR"
       ("...15_TNT_LINE_DOOR"
        "15_TNT_LINE_DOOR"
        "TNT-Door"))
+    ;; ....16_TNT_S_CONCRETE
     ("....16_TNT_S_CONCRETE"
       ("TNT-Concrete"))
+    ;; ....17_TNT_S_WALL
     ("....17_TNT_S_WALL"
       ("...2_TNT_LINE_WALL"
        "2_TNT_LINE_WALL"
        "H-WALL"
        "TNT-Walls"))
+    ;; ....20_TNT_N_TEXT
     ("....20_TNT_N_TEXT"
       ("...9_TNT_LINE_TEXT"))
+    ;; ....22_TNT_N_DIMENSION
     ("....22_TNT_N_DIMENSION"
       ("...11_TNT_LINE_DIMENSION"
        "11_TNT_LINE_DIMENSION"))
+    ;; ....23_TNT_N_HATCH
     ("....23_TNT_N_HATCH"
       ("...10_TNT_LINE_HATCH"
        "...21_010_N_HATCH"
        "TNT-Hatch"))
+    ;; ....24_TNT_N_ANNOTATE
     ("....24_TNT_N_ANNOTATE"
       ("...12_TNT_LINE_ANNOTATE"
        "12_TNT_LINE_ANNOTATE"))
+    ;; ....26_TNT_M_TEXT
     ("....26_TNT_M_TEXT"
       ("...18_TNT_N_TEXT"
        "TNT-Text"))

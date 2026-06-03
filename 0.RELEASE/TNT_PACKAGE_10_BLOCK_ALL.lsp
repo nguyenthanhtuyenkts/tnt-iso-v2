@@ -2988,6 +2988,124 @@
   (princ)
 )
 
+(defun TNT:BLOCK:MABT:ATTRIBUTES (blk / obj attrs)
+  (setq attrs nil)
+  (if blk
+    (progn
+      (setq obj (vlax-ename->vla-object blk))
+      (if (and (= (vla-get-objectname obj) "AcDbBlockReference")
+               (= (vla-get-HasAttributes obj) :vlax-true))
+        (setq attrs (vl-catch-all-apply 'vlax-invoke (list obj 'GetAttributes)))
+      )
+    )
+  )
+  (if (vl-catch-all-error-p attrs) nil attrs)
+)
+
+(defun TNT:BLOCK:MABT:SOURCE-MAP (blk / att tag value result)
+  (foreach att (TNT:BLOCK:MABT:ATTRIBUTES blk)
+    (if (and (vlax-property-available-p att 'TagString)
+             (vlax-property-available-p att 'TextString))
+      (progn
+        (setq tag (strcase (vla-get-TagString att)))
+        (setq value (vla-get-TextString att))
+        (if tag
+          (setq result (cons (cons tag value) result))
+        )
+      )
+    )
+  )
+  result
+)
+
+(defun TNT:BLOCK:MABT:APPLY (blk valuemap / att tag item ok skip fail)
+  (setq ok 0 skip 0 fail 0)
+  (foreach att (TNT:BLOCK:MABT:ATTRIBUTES blk)
+    (if (and (vlax-property-available-p att 'TagString)
+             (vlax-property-available-p att 'TextString))
+      (progn
+        (setq tag (strcase (vla-get-TagString att)))
+        (setq item (assoc tag valuemap))
+        (if item
+          (if
+            (not
+              (vl-catch-all-error-p
+                (vl-catch-all-apply 'vla-put-TextString (list att (cdr item)))
+              )
+            )
+            (setq ok (1+ ok))
+            (setq fail (1+ fail))
+          )
+          (setq skip (1+ skip))
+        )
+      )
+    )
+  )
+  (list ok skip fail)
+)
+
+(defun c:MABT (/ *error* oldcmdecho src valuemap ss i blk result ok skip fail totalok totalskip totalfail)
+  (vl-load-com)
+  (defun *error* (msg)
+    (if oldcmdecho (setvar "CMDECHO" oldcmdecho))
+    (command "_.UNDO" "_End")
+    (if (and msg (not (member msg '("Function cancelled" "quit / exit abort"))))
+      (princ (strcat "\n[MABT] Error: " msg))
+    )
+    (princ)
+  )
+  (setq oldcmdecho (getvar "CMDECHO"))
+  (setvar "MODEMACRO" "TNT Architecture")
+  (setvar "CMDECHO" 0)
+  (command "_.UNDO" "_Begin")
+  (setq src (car (entsel "\n[MABT] Chon block nguon: ")))
+  (cond
+    ((not src)
+      (princ "\n[MABT] Khong chon block nguon.")
+    )
+    ((/= "INSERT" (cdr (assoc 0 (entget src))))
+      (princ "\n[MABT] Doi tuong nguon khong phai block.")
+    )
+    ((not (setq valuemap (TNT:BLOCK:MABT:SOURCE-MAP src)))
+      (princ "\n[MABT] Block nguon khong co attribute de copy noi dung.")
+    )
+    (T
+      (princ "\n[MABT] Chon block dich:")
+      (setq ss (ssget "_:L" '((0 . "INSERT"))))
+      (if ss
+        (progn
+          (setq i 0 totalok 0 totalskip 0 totalfail 0)
+          (while (setq blk (ssname ss i))
+            (setq result (TNT:BLOCK:MABT:APPLY blk valuemap))
+            (setq ok (car result))
+            (setq skip (cadr result))
+            (setq fail (caddr result))
+            (setq totalok (+ totalok ok))
+            (setq totalskip (+ totalskip skip))
+            (setq totalfail (+ totalfail fail))
+            (setq i (1+ i))
+          )
+          (princ
+            (strcat
+              "\n[MABT] Da copy noi dung cho "
+              (itoa totalok)
+              " attribute. Bo qua: "
+              (itoa totalskip)
+              ". Loi: "
+              (itoa totalfail)
+              "."
+            )
+          )
+        )
+        (princ "\n[MABT] Khong chon block dich.")
+      )
+    )
+  )
+  (command "_.UNDO" "_End")
+  (setvar "CMDECHO" oldcmdecho)
+  (princ)
+)
+
 (defun AT:GetSel (meth msg fnc / ent good)
   ;; meth - selection method (entsel, nentsel, nentselp)
   ;; msg - message to display (nil for default)
