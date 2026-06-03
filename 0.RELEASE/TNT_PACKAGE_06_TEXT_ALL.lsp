@@ -527,7 +527,10 @@
     )
     (T
       (setvar "TEXTSTYLE" style)
-      (setq ss (ssget '((0 . "TEXT,MTEXT,ATTRIB,ATTDEF,MULTILEADER"))))
+      (setq ss (ssget "_I" '((0 . "TEXT,MTEXT,ATTRIB,ATTDEF,MULTILEADER"))))
+      (if (not ss)
+        (setq ss (ssget '((0 . "TEXT,MTEXT,ATTRIB,ATTDEF,MULTILEADER"))))
+      )
       (if ss
         (progn
           (setq i 0 ok 0 fail 0)
