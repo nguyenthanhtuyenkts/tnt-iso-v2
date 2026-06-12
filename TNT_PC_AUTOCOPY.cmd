@@ -5,6 +5,7 @@ set "SRC=D:\0.TNT ISO 2026\0.RELEASE"
 set "DST=Z:\0000.TNT_ISO_2026"
 set "LOGDIR=D:\0.TNT ISO 2026\1.WORK"
 set "LOG=%LOGDIR%\TNT_PC_AUTOCOPY.log"
+set "PRESERVE_FILES=MarkText.exe"
 
 echo ============================================================
 echo TNT PC AUTOCOPY
@@ -12,6 +13,7 @@ echo Source:      %SRC%
 echo Destination: %DST%
 echo Log:         %LOG%
 echo Mode:        MIRROR - extra files in destination will be deleted
+echo Preserved:   %PRESERVE_FILES%
 echo ============================================================
 echo.
 
@@ -36,7 +38,8 @@ if not exist "%DST%\" (
 )
 
 echo WARNING: This will make the NAS folder exactly match 0.RELEASE.
-echo Extra files and folders in "%DST%" will be deleted.
+echo Extra files and folders in "%DST%" will be deleted,
+echo except preserved files: %PRESERVE_FILES%
 echo.
 set /p "CONFIRM=Type OK to continue: "
 if /I not "%CONFIRM%"=="OK" (
@@ -44,7 +47,7 @@ if /I not "%CONFIRM%"=="OK" (
   exit /b 20
 )
 
-robocopy "%SRC%" "%DST%" /MIR /COPY:DAT /DCOPY:DAT /R:2 /W:2 /TEE /LOG+:"%LOG%" /XD ".git" "__pycache__" /XF "*.bak" "*.tmp" "~$*"
+robocopy "%SRC%" "%DST%" /MIR /COPY:DAT /DCOPY:DAT /R:2 /W:2 /TEE /LOG+:"%LOG%" /XD ".git" "__pycache__" /XF "*.bak" "*.tmp" "~$*" "%PRESERVE_FILES%"
 set "RC=%ERRORLEVEL%"
 
 echo.
