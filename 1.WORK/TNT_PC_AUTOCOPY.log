@@ -2101,3 +2101,80 @@ Exc Files : MarkText.exe
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
    Ended : 12 Tha'ng Sa'u 2026 6:49:04 CH
 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 13 Tha'ng Sa'u 2026 3:16:38 CH
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : MarkText.exe
+	    *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  17	D:\0.TNT ISO 2026\0.RELEASE\
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                   2	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        29         0        29         0         0         1
+   Bytes :    6.71 m         0    6.71 m         0         0  134.35 m
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : 13 Tha'ng Sa'u 2026 3:16:38 CH
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 13 Tha'ng Sa'u 2026 3:17:59 CH
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : MarkText.exe
+	    *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  17	D:\0.TNT ISO 2026\0.RELEASE\
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                   3	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+	    New File  		   21628	TNT_STT.lsp  0%  100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        30         1        29         0         0         1
+   Bytes :    6.73 m    21.1 k    6.71 m         0         0  134.35 m
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :             3089714 Bytes/sec.
+   Speed :             176.794 MegaBytes/min.
+   Ended : 13 Tha'ng Sa'u 2026 3:18:00 CH
+
