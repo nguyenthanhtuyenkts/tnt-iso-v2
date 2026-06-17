@@ -337,6 +337,7 @@
     ("....43_TNT_P_DRAIN-WASH"                "P"   "6"     "HIDDEN"          "0"       "0"   "NÉT THOÁT RỬA"                   )
     ("....44_TNT_P_DRAIN-VENT"                "P"   "2"     "HIDDEN"          "0"       "0"   "NÉT THÔNG HƠI"                   )
     ("....45________________________________" "N"   "250"   "CONTINUOUS"      "0"       "0"   "________________________________")
+    ("....46_TNT_BASE_MEP"                    "P"   "8"     "CONTINUOUS"      ""        ""    "NÉT BASE CHO MEP"                )
     ;; FIREFIGHTING
   ))
 (DEFUN TNT:LAYER:STD-NAMES (/)

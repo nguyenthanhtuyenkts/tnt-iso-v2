@@ -19,7 +19,8 @@
     ("....02_TNT_A_VIRTURAL"
       ("...4_TNT_LINE_VIRTURAL"
        "4_TNT_LINE_VIRTURAL"
-       "TNT-Virtural"))
+       "TNT-Virtural"
+       "...20_TNT_LINE_COMPLETE"))
     ;; ....03_TNT_A_THIN
     ("....03_TNT_A_THIN"
       ("...5_TNT_LINE_THIN"))
@@ -63,7 +64,9 @@
       ("...13_TNT_LINE_TREE"))
     ;; ....14_TNT_F_GLASS
     ("....14_TNT_F_GLASS"
-      ("14_TNT _LINE_GLASSE"))
+      ("14_TNT _LINE_GLASSE"
+        "...14_TNT_LINE_GLASSE"
+        ))
     ;; ....15_TNT_F_DOOR
     ("....15_TNT_F_DOOR"
       ("...15_TNT_LINE_DOOR"
