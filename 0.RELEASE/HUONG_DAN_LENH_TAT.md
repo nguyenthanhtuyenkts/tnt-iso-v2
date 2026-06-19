@@ -1,220 +1,220 @@
-# Hướng dẫn lệnh tắt TNT Architecture
+﻿# HÆ°á»›ng dáº«n lá»‡nh táº¯t TNT Architecture
 
-Tài liệu này tổng hợp các lệnh có trong bộ Lisp tại thư mục `0.RELEASE`, được nhóm theo chức năng.
+TÃ i liá»‡u nÃ y tá»•ng há»£p cÃ¡c lá»‡nh cÃ³ trong bá»™ Lisp táº¡i thÆ° má»¥c `0.RELEASE`, Ä‘Æ°á»£c nhÃ³m theo chá»©c nÄƒng.
 
-## Cách sử dụng chung
+## CÃ¡ch sá»­ dá»¥ng chung
 
-1. Nạp các file Lisp của bộ TNT vào AutoCAD.
-2. Gõ lệnh tại command line rồi nhấn `Enter`.
-3. Làm theo lời nhắc chọn đối tượng, chọn điểm hoặc nhập giá trị.
-4. Nhấn `Esc` để hủy lệnh đang chạy.
+1. Náº¡p cÃ¡c file Lisp cá»§a bá»™ TNT vÃ o AutoCAD.
+2. GÃµ lá»‡nh táº¡i command line rá»“i nháº¥n `Enter`.
+3. LÃ m theo lá»i nháº¯c chá»n Ä‘á»‘i tÆ°á»£ng, chá»n Ä‘iá»ƒm hoáº·c nháº­p giÃ¡ trá»‹.
+4. Nháº¥n `Esc` Ä‘á»ƒ há»§y lá»‡nh Ä‘ang cháº¡y.
 
-> **Lưu ý:** Với nhóm lệnh chuyển layer `N...`, có thể chọn đối tượng trước rồi gọi lệnh. Nếu không chọn đối tượng, lệnh chỉ đặt layer tương ứng thành layer hiện hành.
+> **LÆ°u Ã½:** Vá»›i nhÃ³m lá»‡nh chuyá»ƒn layer `N...`, cÃ³ thá»ƒ chá»n Ä‘á»‘i tÆ°á»£ng trÆ°á»›c rá»“i gá»i lá»‡nh. Náº¿u khÃ´ng chá»n Ä‘á»‘i tÆ°á»£ng, lá»‡nh chá»‰ Ä‘áº·t layer tÆ°Æ¡ng á»©ng thÃ nh layer hiá»‡n hÃ nh.
 
-## 1. Khởi tạo và hệ thống
+## 1. Khá»Ÿi táº¡o vÃ  há»‡ thá»‘ng
 
-| Lệnh | Chức năng | Cách dùng / Ghi chú |
+| Lá»‡nh | Chá»©c nÄƒng | CÃ¡ch dÃ¹ng / Ghi chÃº |
 |---|---|---|
-| `0` | Khởi tạo toàn bộ môi trường TNT | Gõ `0` để áp dụng thiết lập hệ thống, tạo dữ liệu chuẩn và nạp lại shortcut. Nên chạy sau khi nạp bộ Lisp hoặc khi bản vẽ chưa có tiêu chuẩn TNT. |
-| `TNT_SETTING` | Áp dụng thiết lập hệ thống TNT | Gõ lệnh để thiết lập biến hệ thống, giao diện, layer mặc định cho Dim/Hatch và các cấu hình chuẩn. |
-| `TNT_SHORTCUT` | Khởi tạo lại các lệnh tắt | Dùng khi shortcut chưa nhận hoặc sau khi nạp lại `TNT_PACKAGE_11_SHORTCUT.lsp`. |
-| `TNT_LAYER` | Chuẩn hóa layer toàn bản vẽ | Tạo/reset layer TNT, phân loại đối tượng và ép thuộc tính về `ByLayer` trên các layer chuẩn. Nên lưu bản vẽ trước khi chạy. |
-| `TNT` | Đồng bộ đối tượng theo tỷ lệ khung | Chọn khung để lấy tỷ lệ, sau đó chọn block, line, polyline, circle, leader, text và dimension cần đồng bộ. |
+| `0` | Khá»Ÿi táº¡o toÃ n bá»™ mÃ´i trÆ°á»ng TNT | GÃµ `0` Ä‘á»ƒ Ã¡p dá»¥ng thiáº¿t láº­p há»‡ thá»‘ng, táº¡o dá»¯ liá»‡u chuáº©n vÃ  náº¡p láº¡i shortcut. NÃªn cháº¡y sau khi náº¡p bá»™ Lisp hoáº·c khi báº£n váº½ chÆ°a cÃ³ tiÃªu chuáº©n TNT. |
+| `TNT_SETTING` | Ãp dá»¥ng thiáº¿t láº­p há»‡ thá»‘ng TNT | GÃµ lá»‡nh Ä‘á»ƒ thiáº¿t láº­p biáº¿n há»‡ thá»‘ng, giao diá»‡n, layer máº·c Ä‘á»‹nh cho Dim/Hatch vÃ  cÃ¡c cáº¥u hÃ¬nh chuáº©n. |
+| `TNT_SHORTCUT` | Khá»Ÿi táº¡o láº¡i cÃ¡c lá»‡nh táº¯t | DÃ¹ng khi shortcut chÆ°a nháº­n hoáº·c sau khi náº¡p láº¡i `TNT_PACKAGE_11_SHORTCUT.lsp`. |
+| `TNT_LAYER` | Chuáº©n hÃ³a layer toÃ n báº£n váº½ | Táº¡o/reset layer TNT, phÃ¢n loáº¡i Ä‘á»‘i tÆ°á»£ng vÃ  Ã©p thuá»™c tÃ­nh vá» `ByLayer` trÃªn cÃ¡c layer chuáº©n. NÃªn lÆ°u báº£n váº½ trÆ°á»›c khi cháº¡y. |
+| `TNT` | Äá»“ng bá»™ Ä‘á»‘i tÆ°á»£ng theo tá»· lá»‡ khung | Chá»n khung Ä‘á»ƒ láº¥y tá»· lá»‡, sau Ä‘Ã³ chá»n block, line, polyline, circle, leader, text vÃ  dimension cáº§n Ä‘á»“ng bá»™. |
 
-## 2. Shortcut AutoCAD cơ bản
+## 2. Shortcut AutoCAD cÆ¡ báº£n
 
-| Lệnh tắt | Lệnh AutoCAD | Chức năng | Cách dùng |
+| Lá»‡nh táº¯t | Lá»‡nh AutoCAD | Chá»©c nÄƒng | CÃ¡ch dÃ¹ng |
 |---|---|---|---|
-| `C` | `COPY` | Sao chép đối tượng | Chọn đối tượng, chọn điểm gốc, chọn điểm đặt bản sao. |
-| `M` | `MOVE` | Di chuyển đối tượng | Chọn đối tượng, chọn điểm gốc, chọn điểm đích. |
-| `MM` | `MIRROR` | Đối xứng đối tượng | Chọn đối tượng, xác định hai điểm trục đối xứng, chọn có xóa bản gốc hay không. |
-| `R` | `ROTATE` | Xoay đối tượng | Chọn đối tượng, chọn tâm xoay, nhập góc hoặc dùng tùy chọn `Reference`. |
-| `S` | `STRETCH` | Kéo giãn đối tượng | Quét chọn crossing phần cần kéo, chọn điểm gốc và điểm đích. |
-| `SC` | `SCALE` | Thay đổi tỷ lệ | Chọn đối tượng, chọn điểm gốc, nhập hệ số hoặc dùng `Reference`. |
-| `CC` | `CIRCLE` | Vẽ đường tròn | Chọn tâm rồi nhập bán kính/đường kính. |
-| `ML` | `MLINE` | Vẽ đường nhiều nét | Gõ `ML`, chọn các điểm, nhấn `Enter` để kết thúc. |
-| `SPL` | `SPLINE` | Vẽ đường cong spline | Chọn lần lượt các điểm điều khiển, nhấn `Enter` để kết thúc. |
-| `XX` | `XLINE` | Vẽ đường dựng vô hạn | Chọn kiểu và các điểm xác định đường dựng. |
-| `D` | `DIMLINEAR` | Ghi kích thước ngang/đứng | Chọn hai điểm đo rồi đặt đường kích thước. |
-| `DD` | `DIMALIGNED` | Ghi kích thước xiên | Chọn hai điểm đo rồi đặt đường kích thước song song với phương đo. |
-| `DC` | `DIMCONTINUE` | Ghi kích thước nối tiếp | Chọn kích thước gốc nếu cần, sau đó chọn các điểm tiếp theo. |
-| `DST` | `DIMSTYLE` | Mở trình quản lý Dimstyle | Gõ `DST` để tạo, sửa hoặc đặt Dimstyle hiện hành. |
-| `LL` | `DIMSTYLE` | Mở trình quản lý Dimstyle | Lệnh đồng nghĩa với `DST`. |
+| `C` | `COPY` | Sao chÃ©p Ä‘á»‘i tÆ°á»£ng | Chá»n Ä‘á»‘i tÆ°á»£ng, chá»n Ä‘iá»ƒm gá»‘c, chá»n Ä‘iá»ƒm Ä‘áº·t báº£n sao. |
+| `M` | `MOVE` | Di chuyá»ƒn Ä‘á»‘i tÆ°á»£ng | Chá»n Ä‘á»‘i tÆ°á»£ng, chá»n Ä‘iá»ƒm gá»‘c, chá»n Ä‘iá»ƒm Ä‘Ã­ch. |
+| `MM` | `MIRROR` | Äá»‘i xá»©ng Ä‘á»‘i tÆ°á»£ng | Chá»n Ä‘á»‘i tÆ°á»£ng, xÃ¡c Ä‘á»‹nh hai Ä‘iá»ƒm trá»¥c Ä‘á»‘i xá»©ng, chá»n cÃ³ xÃ³a báº£n gá»‘c hay khÃ´ng. |
+| `R` | `ROTATE` | Xoay Ä‘á»‘i tÆ°á»£ng | Chá»n Ä‘á»‘i tÆ°á»£ng, chá»n tÃ¢m xoay, nháº­p gÃ³c hoáº·c dÃ¹ng tÃ¹y chá»n `Reference`. |
+| `S` | `STRETCH` | KÃ©o giÃ£n Ä‘á»‘i tÆ°á»£ng | QuÃ©t chá»n crossing pháº§n cáº§n kÃ©o, chá»n Ä‘iá»ƒm gá»‘c vÃ  Ä‘iá»ƒm Ä‘Ã­ch. |
+| `SC` | `SCALE` | Thay Ä‘á»•i tá»· lá»‡ | Chá»n Ä‘á»‘i tÆ°á»£ng, chá»n Ä‘iá»ƒm gá»‘c, nháº­p há»‡ sá»‘ hoáº·c dÃ¹ng `Reference`. |
+| `CC` | `CIRCLE` | Váº½ Ä‘Æ°á»ng trÃ²n | Chá»n tÃ¢m rá»“i nháº­p bÃ¡n kÃ­nh/Ä‘Æ°á»ng kÃ­nh. |
+| `ML` | `MLINE` | Váº½ Ä‘Æ°á»ng nhiá»u nÃ©t | GÃµ `ML`, chá»n cÃ¡c Ä‘iá»ƒm, nháº¥n `Enter` Ä‘á»ƒ káº¿t thÃºc. |
+| `SPL` | `SPLINE` | Váº½ Ä‘Æ°á»ng cong spline | Chá»n láº§n lÆ°á»£t cÃ¡c Ä‘iá»ƒm Ä‘iá»u khiá»ƒn, nháº¥n `Enter` Ä‘á»ƒ káº¿t thÃºc. |
+| `XX` | `XLINE` | Váº½ Ä‘Æ°á»ng dá»±ng vÃ´ háº¡n | Chá»n kiá»ƒu vÃ  cÃ¡c Ä‘iá»ƒm xÃ¡c Ä‘á»‹nh Ä‘Æ°á»ng dá»±ng. |
+| `D` | `DIMLINEAR` | Ghi kÃ­ch thÆ°á»›c ngang/Ä‘á»©ng | Chá»n hai Ä‘iá»ƒm Ä‘o rá»“i Ä‘áº·t Ä‘Æ°á»ng kÃ­ch thÆ°á»›c. |
+| `DD` | `DIMALIGNED` | Ghi kÃ­ch thÆ°á»›c xiÃªn | Chá»n hai Ä‘iá»ƒm Ä‘o rá»“i Ä‘áº·t Ä‘Æ°á»ng kÃ­ch thÆ°á»›c song song vá»›i phÆ°Æ¡ng Ä‘o. |
+| `DC` | `DIMCONTINUE` | Ghi kÃ­ch thÆ°á»›c ná»‘i tiáº¿p | Chá»n kÃ­ch thÆ°á»›c gá»‘c náº¿u cáº§n, sau Ä‘Ã³ chá»n cÃ¡c Ä‘iá»ƒm tiáº¿p theo. |
+| `DST` | `DIMSTYLE` | Má»Ÿ trÃ¬nh quáº£n lÃ½ Dimstyle | GÃµ `DST` Ä‘á»ƒ táº¡o, sá»­a hoáº·c Ä‘áº·t Dimstyle hiá»‡n hÃ nh. |
+| `LL` | `DIMSTYLE` | Má»Ÿ trÃ¬nh quáº£n lÃ½ Dimstyle | Lá»‡nh Ä‘á»“ng nghÄ©a vá»›i `DST`. |
 
-## 3. Quản lý hiển thị và layer
+## 3. Quáº£n lÃ½ hiá»ƒn thá»‹ vÃ  layer
 
-| Lệnh | Chức năng | Cách dùng / Ghi chú |
+| Lá»‡nh | Chá»©c nÄƒng | CÃ¡ch dÃ¹ng / Ghi chÃº |
 |---|---|---|
-| `1` | Cô lập layer (`LAYISO`) | Chọn đối tượng thuộc các layer cần giữ lại; các layer khác sẽ bị ẩn/khóa theo thiết lập AutoCAD. |
-| `2` | Bật toàn bộ layer (`LAYON`) | Gõ lệnh để bật lại tất cả layer đang tắt. |
-| `3` | Tắt layer (`LAYOFF`) | Chọn đối tượng thuộc layer cần tắt. |
-| `11` | Sửa block/Xref tại chỗ (`REFEDIT`) | Chọn block hoặc Xref cần chỉnh sửa ngay trong bản vẽ hiện hành. |
-| `22` | Kết thúc sửa tại chỗ (`REFCLOSE`) | Gõ lệnh rồi chọn lưu hoặc bỏ thay đổi của phiên `REFEDIT`. |
-| `D1` | Chỉnh hệ số đo kích thước `DIMLFAC` | Gõ `D1`, nhập hệ số đo mới; lệnh đồng thời đặt `DIMASZ = 1.1`. |
-| `D2` | Chỉnh tỷ lệ tổng thể `DIMSCALE` | Gõ `D2`, nhập tỷ lệ Dim mới; lệnh đồng thời đặt `DIMASZ = 1.1`. |
+| `1` | CÃ´ láº­p layer (`LAYISO`) | Chá»n Ä‘á»‘i tÆ°á»£ng thuá»™c cÃ¡c layer cáº§n giá»¯ láº¡i; cÃ¡c layer khÃ¡c sáº½ bá»‹ áº©n/khÃ³a theo thiáº¿t láº­p AutoCAD. |
+| `2` | Báº­t toÃ n bá»™ layer (`LAYON`) | GÃµ lá»‡nh Ä‘á»ƒ báº­t láº¡i táº¥t cáº£ layer Ä‘ang táº¯t. |
+| `3` | Táº¯t layer (`LAYOFF`) | Chá»n Ä‘á»‘i tÆ°á»£ng thuá»™c layer cáº§n táº¯t. |
+| `11` | Sá»­a block/Xref táº¡i chá»— (`REFEDIT`) | Chá»n block hoáº·c Xref cáº§n chá»‰nh sá»­a ngay trong báº£n váº½ hiá»‡n hÃ nh. |
+| `22` | Káº¿t thÃºc sá»­a táº¡i chá»— (`REFCLOSE`) | GÃµ lá»‡nh rá»“i chá»n lÆ°u hoáº·c bá» thay Ä‘á»•i cá»§a phiÃªn `REFEDIT`. |
+| `D1` | Chá»‰nh há»‡ sá»‘ Ä‘o kÃ­ch thÆ°á»›c `DIMLFAC` | GÃµ `D1`, nháº­p há»‡ sá»‘ Ä‘o má»›i; lá»‡nh Ä‘á»“ng thá»i Ä‘áº·t `DIMASZ = 1.1`. |
+| `D2` | Chá»‰nh tá»· lá»‡ tá»•ng thá»ƒ `DIMSCALE` | GÃµ `D2`, nháº­p tá»· lá»‡ Dim má»›i; lá»‡nh Ä‘á»“ng thá»i Ä‘áº·t `DIMASZ = 1.1`. |
 
-## 4. Chuyển nhanh layer kiến trúc
+## 4. Chuyá»ƒn nhanh layer kiáº¿n trÃºc
 
-| Lệnh | Layer đích | Chức năng / Cách dùng |
+| Lá»‡nh | Layer Ä‘Ã­ch | Chá»©c nÄƒng / CÃ¡ch dÃ¹ng |
 |---|---|---|
-| `NKH` | `....01_TNT_A_DRAWING` | Khung bản vẽ. Chọn trước đối tượng để chuyển layer, hoặc gọi lệnh để đặt layer hiện hành. |
-| `NT` | `....02_TNT_A_VIRTURAL` | Nét thấy. |
-| `NM` | `....03_TNT_A_THIN` | Nét mảnh. |
-| `NK` | `....04_TNT_A_HIDDEN` | Nét khuất. |
-| `NC` | `....05_TNT_A_SECTION` | Nét cắt. |
-| `NSL` | `....06_TNT_A_SECTION-LINE` | Trục/đường chỉ mặt cắt. |
-| `NTR` | `....07_TNT_A_BASE` | Nét trục hoặc đường cơ sở. |
-| `NDE` | `....08_TNT_A_DETAIL` | Nét chi tiết. |
-| `NCOM` | `....09_TNT_A_COMPLETE` | Nét hoàn thiện. |
-| `NCOT` | `....10_TNT_A_COTE` | Cao độ/cốt. |
-| `NPL` | `....11_TNT_A_PLOT` | Nét phục vụ in/khung plot. |
+| `NKH` | `....01_TNT_A_DRAWING` | Khung báº£n váº½. Chá»n trÆ°á»›c Ä‘á»‘i tÆ°á»£ng Ä‘á»ƒ chuyá»ƒn layer, hoáº·c gá»i lá»‡nh Ä‘á»ƒ Ä‘áº·t layer hiá»‡n hÃ nh. |
+| `NT` | `....02_TNT_A_VIRTURAL` | NÃ©t tháº¥y. |
+| `NM` | `....03_TNT_A_THIN` | NÃ©t máº£nh. |
+| `NK` | `....04_TNT_A_HIDDEN` | NÃ©t khuáº¥t. |
+| `NC` | `....05_TNT_A_SECTION` | NÃ©t cáº¯t. |
+| `NSL` | `....06_TNT_A_SECTION-LINE` | Trá»¥c/Ä‘Æ°á»ng chá»‰ máº·t cáº¯t. |
+| `NTR` | `....07_TNT_A_BASE` | NÃ©t trá»¥c hoáº·c Ä‘Æ°á»ng cÆ¡ sá»Ÿ. |
+| `NDE` | `....08_TNT_A_DETAIL` | NÃ©t chi tiáº¿t. |
+| `NCOM` | `....09_TNT_A_COMPLETE` | NÃ©t hoÃ n thiá»‡n. |
+| `NCOT` | `....10_TNT_A_COTE` | Cao Ä‘á»™/cá»‘t. |
+| `NPL` | `....11_TNT_A_PLOT` | NÃ©t phá»¥c vá»¥ in/khung plot. |
 
-## 5. Chuyển nhanh layer nội thất và kết cấu
+## 5. Chuyá»ƒn nhanh layer ná»™i tháº¥t vÃ  káº¿t cáº¥u
 
-| Lệnh | Layer đích | Chức năng / Cách dùng |
+| Lá»‡nh | Layer Ä‘Ã­ch | Chá»©c nÄƒng / CÃ¡ch dÃ¹ng |
 |---|---|---|
-| `NNT` | `....12_TNT_F_FURNITURE` | Nội thất. Chọn trước đối tượng để chuyển layer, hoặc gọi lệnh để đặt layer hiện hành. |
-| `NCC` | `....13_TNT_F_TREE` | Cây xanh. |
-| `NGL` | `....14_TNT_F_GLASS` | Kính. |
-| `NDO` | `....15_TNT_F_DOOR` | Cửa. |
-| `NCON` | `....16_TNT_S_CONCRETE` | Bê tông/Bê tông cốt thép. |
-| `NWA` | `....17_TNT_S_WALL` | Tường. |
+| `NNT` | `....12_TNT_F_FURNITURE` | Ná»™i tháº¥t. Chá»n trÆ°á»›c Ä‘á»‘i tÆ°á»£ng Ä‘á»ƒ chuyá»ƒn layer, hoáº·c gá»i lá»‡nh Ä‘á»ƒ Ä‘áº·t layer hiá»‡n hÃ nh. |
+| `NCC` | `....13_TNT_F_TREE` | CÃ¢y xanh. |
+| `NGL` | `....14_TNT_F_GLASS` | KÃ­nh. |
+| `NDO` | `....15_TNT_F_DOOR` | Cá»­a. |
+| `NCON` | `....16_TNT_S_CONCRETE` | BÃª tÃ´ng/BÃª tÃ´ng cá»‘t thÃ©p. |
+| `NWA` | `....17_TNT_S_WALL` | TÆ°á»ng. |
 
-## 6. Chuyển nhanh layer ghi chú
+## 6. Chuyá»ƒn nhanh layer ghi chÃº
 
-| Lệnh | Layer đích | Chức năng / Cách dùng |
+| Lá»‡nh | Layer Ä‘Ã­ch | Chá»©c nÄƒng / CÃ¡ch dÃ¹ng |
 |---|---|---|
-| `NTE` | `....20_TNT_N_TEXT` | Text/chữ. Chọn trước đối tượng để chuyển layer, hoặc gọi lệnh để đặt layer hiện hành. |
-| `NLE` | `....21_TNT_N_LEADER` | Leader/đường dẫn ghi chú. |
-| `NDI` | `....22_TNT_N_DIMENSION` | Dimension/kích thước. |
-| `NHA` | `....23_TNT_N_HATCH` | Hatch/vật liệu. |
-| `NAN` | `....24_TNT_N_ANNOTATE` | Ký hiệu và chú thích khác. |
+| `NTE` | `....20_TNT_N_TEXT` | Text/chá»¯. Chá»n trÆ°á»›c Ä‘á»‘i tÆ°á»£ng Ä‘á»ƒ chuyá»ƒn layer, hoáº·c gá»i lá»‡nh Ä‘á»ƒ Ä‘áº·t layer hiá»‡n hÃ nh. |
+| `NLE` | `....21_TNT_N_LEADER` | Leader/Ä‘Æ°á»ng dáº«n ghi chÃº. |
+| `NDI` | `....22_TNT_N_DIMENSION` | Dimension/kÃ­ch thÆ°á»›c. |
+| `NHA` | `....23_TNT_N_HATCH` | Hatch/váº­t liá»‡u. |
+| `NAN` | `....24_TNT_N_ANNOTATE` | KÃ½ hiá»‡u vÃ  chÃº thÃ­ch khÃ¡c. |
 
-## 7. Vẽ và hiệu chỉnh hình học
+## 7. Váº½ vÃ  hiá»‡u chá»‰nh hÃ¬nh há»c
 
-| Lệnh | Chức năng | Cách dùng / Ghi chú |
+| Lá»‡nh | Chá»©c nÄƒng | CÃ¡ch dÃ¹ng / Ghi chÃº |
 |---|---|---|
-| `VBB` | Tạo khung plot quanh block khung tên | Chọn các block khung tên; lệnh tạo rectangle bao ngoài trên layer `....11_TNT_A_PLOT`. |
-| `NC1` | Vẽ ký hiệu đường cắt dạng zíc-zắc | Chọn điểm đầu và điểm cuối; lệnh tự tạo polyline ký hiệu ở giữa đoạn. |
-| `CLD` | Tạo revision cloud hình chữ nhật | Chọn hai góc chữ nhật, nhập bán kính cung; lệnh chuyển rectangle thành revision cloud. |
-| `RV` | Tạo/chuyển đổi revision cloud | Chọn `New`, `Select` hoặc `Change`; có thể đặt bán kính cung và bề rộng nét. |
-| `ZZ` | Tạo revision cloud kiểu Calligraphy | Chọn hai góc chữ nhật; lệnh tạo cloud với bán kính cung mặc định `500`. |
-| `WQ1` | Tạo Wipeout theo biên đối tượng | Chọn Circle, Ellipse hoặc Polyline; sau đó chọn có xóa đường biên nguồn hay không. |
-| `DTM` | Tính và ghi diện tích m² | Chọn `Pick` để bấm trong vùng kín, `Select` để cộng diện tích đối tượng, hoặc `Settings` để chỉnh hệ số, số lẻ và chiều cao chữ. |
+| `VBB` | Táº¡o khung plot quanh block khung tÃªn | Chá»n cÃ¡c block khung tÃªn; lá»‡nh táº¡o rectangle bao ngoÃ i trÃªn layer `....11_TNT_A_PLOT`. |
+| `NC1` | Váº½ kÃ½ hiá»‡u Ä‘Æ°á»ng cáº¯t dáº¡ng zÃ­c-záº¯c | Chá»n Ä‘iá»ƒm Ä‘áº§u vÃ  Ä‘iá»ƒm cuá»‘i; lá»‡nh tá»± táº¡o polyline kÃ½ hiá»‡u á»Ÿ giá»¯a Ä‘oáº¡n. |
+| `CLD` | Táº¡o revision cloud hÃ¬nh chá»¯ nháº­t | Chá»n hai gÃ³c chá»¯ nháº­t, nháº­p bÃ¡n kÃ­nh cung; lá»‡nh chuyá»ƒn rectangle thÃ nh revision cloud. |
+| `RV` | Táº¡o/chuyá»ƒn Ä‘á»•i revision cloud | Chá»n `New`, `Select` hoáº·c `Change`; cÃ³ thá»ƒ Ä‘áº·t bÃ¡n kÃ­nh cung vÃ  bá» rá»™ng nÃ©t. |
+| `ZZ` | Táº¡o revision cloud kiá»ƒu Calligraphy | Chá»n hai gÃ³c chá»¯ nháº­t; lá»‡nh táº¡o cloud vá»›i bÃ¡n kÃ­nh cung máº·c Ä‘á»‹nh `500`. |
+| `WQ1` | Táº¡o Wipeout theo biÃªn Ä‘á»‘i tÆ°á»£ng | Chá»n Circle, Ellipse hoáº·c Polyline; sau Ä‘Ã³ chá»n cÃ³ xÃ³a Ä‘Æ°á»ng biÃªn nguá»“n hay khÃ´ng. |
+| `DTM` | TÃ­nh vÃ  ghi diá»‡n tÃ­ch mÂ² | Chá»n `Pick` Ä‘á»ƒ báº¥m trong vÃ¹ng kÃ­n, `Select` Ä‘á»ƒ cá»™ng diá»‡n tÃ­ch Ä‘á»‘i tÆ°á»£ng, hoáº·c `Settings` Ä‘á»ƒ chá»‰nh há»‡ sá»‘, sá»‘ láº» vÃ  chiá»u cao chá»¯. |
 
-## 8. Quản lý và sắp xếp đối tượng
+## 8. Quáº£n lÃ½ vÃ  sáº¯p xáº¿p Ä‘á»‘i tÆ°á»£ng
 
-| Lệnh | Chức năng | Cách dùng / Ghi chú |
+| Lá»‡nh | Chá»©c nÄƒng | CÃ¡ch dÃ¹ng / Ghi chÃº |
 |---|---|---|
-| `VC` | Di chuyển tâm nhóm đối tượng đến một điểm | Chọn nhóm đối tượng, sau đó chọn điểm đích; lệnh lấy tâm bounding box làm điểm gốc di chuyển. |
-| `VC1` | Đưa đối tượng vào tâm một vùng kín | Chọn đối tượng cần di chuyển, sau đó bấm điểm bên trong vùng kín đích. |
-| `VC2` | Biến thể căn tâm nhóm đối tượng | Chọn nhóm đối tượng và làm theo lời nhắc chọn vị trí đích; dùng tâm bounding box của nhóm. |
-| `VR1` | Xoay hướng nhìn theo ba điểm | Chọn tâm, phương hiện tại và phương mới; lệnh xoay UCS/PLAN nhưng giữ vùng nhìn. |
-| `VR2` | Xoay hướng nhìn `+90°` | Gõ lệnh để xoay UCS quanh trục Z và cập nhật PLAN. |
-| `VR3` | Xoay hướng nhìn `-90°` | Gõ lệnh để xoay UCS quanh trục Z và cập nhật PLAN. |
-| `VRR` | Trả hướng nhìn về World | Đặt UCS và PLAN về hệ tọa độ World. |
-| `STT` | Đánh số thứ tự Text, Attribute, Dimension | Mở hộp thoại, đặt tiền tố/hậu tố/số bắt đầu và chọn đối tượng cần đánh số. |
+| `VC` | Di chuyá»ƒn tÃ¢m nhÃ³m Ä‘á»‘i tÆ°á»£ng Ä‘áº¿n má»™t Ä‘iá»ƒm | Chá»n nhÃ³m Ä‘á»‘i tÆ°á»£ng, sau Ä‘Ã³ chá»n Ä‘iá»ƒm Ä‘Ã­ch; lá»‡nh láº¥y tÃ¢m bounding box lÃ m Ä‘iá»ƒm gá»‘c di chuyá»ƒn. |
+| `VC1` | ÄÆ°a Ä‘á»‘i tÆ°á»£ng vÃ o tÃ¢m má»™t vÃ¹ng kÃ­n | Chá»n Ä‘á»‘i tÆ°á»£ng cáº§n di chuyá»ƒn, sau Ä‘Ã³ báº¥m Ä‘iá»ƒm bÃªn trong vÃ¹ng kÃ­n Ä‘Ã­ch. |
+| `VC2` | Biáº¿n thá»ƒ cÄƒn tÃ¢m nhÃ³m Ä‘á»‘i tÆ°á»£ng | Chá»n nhÃ³m Ä‘á»‘i tÆ°á»£ng vÃ  lÃ m theo lá»i nháº¯c chá»n vá»‹ trÃ­ Ä‘Ã­ch; dÃ¹ng tÃ¢m bounding box cá»§a nhÃ³m. |
+| `VR1` | Xoay hÆ°á»›ng nhÃ¬n theo ba Ä‘iá»ƒm | Chá»n tÃ¢m, phÆ°Æ¡ng hiá»‡n táº¡i vÃ  phÆ°Æ¡ng má»›i; lá»‡nh xoay UCS/PLAN nhÆ°ng giá»¯ vÃ¹ng nhÃ¬n. |
+| `VR2` | Xoay hÆ°á»›ng nhÃ¬n `+90Â°` | GÃµ lá»‡nh Ä‘á»ƒ xoay UCS quanh trá»¥c Z vÃ  cáº­p nháº­t PLAN. |
+| `VR3` | Xoay hÆ°á»›ng nhÃ¬n `-90Â°` | GÃµ lá»‡nh Ä‘á»ƒ xoay UCS quanh trá»¥c Z vÃ  cáº­p nháº­t PLAN. |
+| `VRR` | Tráº£ hÆ°á»›ng nhÃ¬n vá» World | Äáº·t UCS vÃ  PLAN vá» há»‡ tá»a Ä‘á»™ World. |
+| `STT` | ÄÃ¡nh sá»‘ thá»© tá»± Text, Attribute, Dimension | Má»Ÿ há»™p thoáº¡i, Ä‘áº·t tiá»n tá»‘/háº­u tá»‘/sá»‘ báº¯t Ä‘áº§u vÃ  chá»n Ä‘á»‘i tÆ°á»£ng cáº§n Ä‘Ã¡nh sá»‘. |
 
-## 9. Text và ghi chú
+## 9. Text vÃ  ghi chÃº
 
-| Lệnh | Chức năng | Cách dùng / Ghi chú |
+| Lá»‡nh | Chá»©c nÄƒng | CÃ¡ch dÃ¹ng / Ghi chÃº |
 |---|---|---|
-| `T1` | Sao chép nội dung Text/Dimension | Chọn một Text/Dimension nguồn, sau đó chọn các Text/Dimension đích. |
-| `TA` | Căn chỉnh nhiều Text | Chọn hướng `TRÁI`, `PHẢI`, `LÊN`, `XUỐNG`, `GIỮA-NGANG` hoặc `GIỮA-DỌC`, rồi chọn các text và vị trí chuẩn. |
-| `FT` | Căn lề text theo text mẫu | Chọn các text cần xử lý, chọn text chuẩn, sau đó chọn kiểu `Left`, `Center`, `Right` hoặc `Fit`. |
-| `DF` | Dàn đều text theo phương Y | Chọn text, nhập khoảng cách, rồi chọn text chuẩn để giữ mốc. |
-| `DFX` | Dàn đều text theo phương X | Chọn text, nhập khoảng cách, rồi chọn text chuẩn để giữ mốc. |
-| `DX` | Căn các Text thẳng hàng theo Y | Chọn các Text, sau đó chọn Text chuẩn có tung độ cần dùng. |
-| `MAT` | Sao chép nội dung giữa các đối tượng chữ | Chọn đối tượng nguồn, rồi chọn các đối tượng đích có hỗ trợ nội dung chữ. |
-| `TS1` | Áp dụng Textstyle chính | Chọn Text/MText cần đổi sang `.TNT_A_TXT_1_MAIN`. |
-| `TS2` | Áp dụng Textstyle phụ | Chọn Text/MText cần đổi sang `.TNT_A_TXT_2_SUB`. |
-| `TS3` | Áp dụng Textstyle ghi chú | Chọn Text/MText cần đổi sang `.TNT_A_TXT_3_NOTE`. |
-| `BMASK` | Chỉnh background mask | Chọn MText, MLeader hoặc Dimension; thiết lập trạng thái, khoảng hở và màu nền trong hộp thoại. |
-| `ED2` | Sửa nhanh nội dung chữ/attribute | Chọn `ATTRIB`, `TEXT`, `MTEXT` hoặc `DIMENSION`; sửa nội dung trong hộp thoại, tiếp tục chọn đối tượng khác hoặc nhấn `Esc`. |
+| `T1` | Sao chÃ©p ná»™i dung Text/Dimension | Chá»n má»™t Text/Dimension nguá»“n, sau Ä‘Ã³ chá»n cÃ¡c Text/Dimension Ä‘Ã­ch. |
+| `TA` | CÄƒn chá»‰nh nhiá»u Text | Chá»n hÆ°á»›ng `TRÃI`, `PHáº¢I`, `LÃŠN`, `XUá»NG`, `GIá»®A-NGANG` hoáº·c `GIá»®A-Dá»ŒC`, rá»“i chá»n cÃ¡c text vÃ  vá»‹ trÃ­ chuáº©n. |
+| `FT` | CÄƒn lá» text theo text máº«u | Chá»n cÃ¡c text cáº§n xá»­ lÃ½, chá»n text chuáº©n, sau Ä‘Ã³ chá»n kiá»ƒu `Left`, `Center`, `Right` hoáº·c `Fit`. |
+| `DF` | DÃ n Ä‘á»u text theo phÆ°Æ¡ng Y | Chá»n text, nháº­p khoáº£ng cÃ¡ch, rá»“i chá»n text chuáº©n Ä‘á»ƒ giá»¯ má»‘c. |
+| `DFX` | DÃ n Ä‘á»u text theo phÆ°Æ¡ng X | Chá»n text, nháº­p khoáº£ng cÃ¡ch, rá»“i chá»n text chuáº©n Ä‘á»ƒ giá»¯ má»‘c. |
+| `DX` | CÄƒn cÃ¡c Text tháº³ng hÃ ng theo Y | Chá»n cÃ¡c Text, sau Ä‘Ã³ chá»n Text chuáº©n cÃ³ tung Ä‘á»™ cáº§n dÃ¹ng. |
+| `MAT` | Sao chÃ©p ná»™i dung giá»¯a cÃ¡c Ä‘á»‘i tÆ°á»£ng chá»¯ | Chá»n Ä‘á»‘i tÆ°á»£ng nguá»“n, rá»“i chá»n cÃ¡c Ä‘á»‘i tÆ°á»£ng Ä‘Ã­ch cÃ³ há»— trá»£ ná»™i dung chá»¯. |
+| `TS1` | Ãp dá»¥ng Textstyle chÃ­nh | Chá»n Text/MText cáº§n Ä‘á»•i sang `.TNT_A_TXT_1_MAIN`. |
+| `TS2` | Ãp dá»¥ng Textstyle phá»¥ | Chá»n Text/MText cáº§n Ä‘á»•i sang `.TNT_A_TXT_2_SUB`. |
+| `TS3` | Ãp dá»¥ng Textstyle ghi chÃº | Chá»n Text/MText cáº§n Ä‘á»•i sang `.TNT_A_TXT_3_NOTE`. |
+| `BMASK` | Chá»‰nh background mask | Chá»n MText, MLeader hoáº·c Dimension; thiáº¿t láº­p tráº¡ng thÃ¡i, khoáº£ng há»Ÿ vÃ  mÃ u ná»n trong há»™p thoáº¡i. |
+| `ED2` | Sá»­a nhanh ná»™i dung chá»¯/attribute | Chá»n `ATTRIB`, `TEXT`, `MTEXT` hoáº·c `DIMENSION`; sá»­a ná»™i dung trong há»™p thoáº¡i, tiáº¿p tá»¥c chá»n Ä‘á»‘i tÆ°á»£ng khÃ¡c hoáº·c nháº¥n `Esc`. |
 
 ## 10. Leader
 
-| Lệnh | Chức năng | Cách dùng / Ghi chú |
+| Lá»‡nh | Chá»©c nÄƒng | CÃ¡ch dÃ¹ng / Ghi chÃº |
 |---|---|---|
-| `A1` | Căn Text/MText theo Leader | Chọn Text/MText và Leader theo lời nhắc để đưa chữ về đúng vị trí đầu Leader. |
-| `A2` | Chỉnh đồng loạt góc Leader | Chọn các Leader, sau đó xác định hướng/góc mới. |
-| `A3` | Gom đầu Leader và Text theo một vị trí | Chọn Leader cùng Text, sau đó chọn điểm cuối Leader mới. |
-| `A4` | Chỉnh đoạn cuối Leader nằm ngang | Chọn các Leader cần hiệu chỉnh; lệnh đưa đoạn nối với chữ về phương ngang. |
+| `A1` | CÄƒn Text/MText theo Leader | Chá»n Text/MText vÃ  Leader theo lá»i nháº¯c Ä‘á»ƒ Ä‘Æ°a chá»¯ vá» Ä‘Ãºng vá»‹ trÃ­ Ä‘áº§u Leader. |
+| `A2` | Chá»‰nh Ä‘á»“ng loáº¡t gÃ³c Leader | Chá»n cÃ¡c Leader, sau Ä‘Ã³ xÃ¡c Ä‘á»‹nh hÆ°á»›ng/gÃ³c má»›i. |
+| `A3` | Gom Ä‘áº§u Leader vÃ  Text theo má»™t vá»‹ trÃ­ | Chá»n Leader cÃ¹ng Text, sau Ä‘Ã³ chá»n Ä‘iá»ƒm cuá»‘i Leader má»›i. |
+| `A4` | Chá»‰nh Ä‘oáº¡n cuá»‘i Leader náº±m ngang | Chá»n cÃ¡c Leader cáº§n hiá»‡u chá»‰nh; lá»‡nh Ä‘Æ°a Ä‘oáº¡n ná»‘i vá»›i chá»¯ vá» phÆ°Æ¡ng ngang. |
 
 ## 11. Dimension
 
-| Lệnh | Chức năng | Cách dùng / Ghi chú |
+| Lá»‡nh | Chá»©c nÄƒng | CÃ¡ch dÃ¹ng / Ghi chÃº |
 |---|---|---|
-| `SD1` | Áp dụng Dimstyle `.TNT_A_DIM_1` | Chọn Dimension/Leader để đổi style; nhấn `Enter` khi không chọn để đặt style này hiện hành. |
-| `SD2` | Áp dụng Dimstyle `.TNT_A_DIM_2` | Cách dùng tương tự `SD1`. |
-| `SD3` | Áp dụng Dimstyle `.TNT_A_DIM_3` | Cách dùng tương tự `SD1`. |
-| `D3` | Đồng bộ tỷ lệ theo đối tượng mẫu | Chọn Block, Dimension, Text hoặc Leader mẫu để lấy và áp dụng thông số tỷ lệ liên quan. |
-| `D4` | Chỉnh khoảng cách các đường Dimension | Chọn các Dimension và làm theo lời nhắc để sắp xếp khoảng cách. |
-| `D5` | Đặt tỷ lệ/giá trị scale cho Dimension | Nhập tỷ lệ, chọn các Dimension; lệnh cập nhật hệ số và xóa text override cũ. |
-| `CD` | Cắt hoặc kéo dài đường gióng Dimension | Chọn các Dimension rồi chọn điểm chuẩn cắt/kéo. |
-| `BD` | Dóng/căn các Dimension theo điểm chọn | Chọn các Dimension rồi chọn điểm chuẩn để đưa đường kích thước về cùng vị trí. |
-| `AD` | Căn chỉnh Dimension tự động | Chọn nhóm Dimension theo lời nhắc; lệnh gọi bộ căn chỉnh `ADIM` và khôi phục `DIMSCALE`. |
-| `ADIM` | Công cụ căn Dimension nâng cao | Chọn các Dimension cần phân loại và sắp xếp; dùng trực tiếp khi cần đầy đủ tùy chọn của bộ căn Dim. |
-| `LB1` | Kiểm tra kích thước theo thước Lỗ Ban 52.2 cm | Chọn Dimension; lệnh thêm kết quả `(tốt)` hoặc `(xấu)` vào nội dung kích thước. |
-| `LB2` | Kiểm tra kích thước theo thước Lỗ Ban 42.9 cm | Chọn Dimension; lệnh thêm kết quả `(tốt)` hoặc `(xấu)`. |
-| `LB3` | Kiểm tra kích thước theo thước Lỗ Ban 38.8 cm | Chọn Dimension; lệnh thêm kết quả `(tốt)` hoặc `(xấu)`. |
+| `SD1` | Ãp dá»¥ng Dimstyle `.TNT_A_DIM_1` | Chá»n Dimension/Leader Ä‘á»ƒ Ä‘á»•i style; nháº¥n `Enter` khi khÃ´ng chá»n Ä‘á»ƒ Ä‘áº·t style nÃ y hiá»‡n hÃ nh. |
+| `SD2` | Ãp dá»¥ng Dimstyle `.TNT_A_DIM_2` | CÃ¡ch dÃ¹ng tÆ°Æ¡ng tá»± `SD1`. |
+| `SD3` | Ãp dá»¥ng Dimstyle `.TNT_A_DIM_3` | CÃ¡ch dÃ¹ng tÆ°Æ¡ng tá»± `SD1`. |
+| `D3` | Äá»“ng bá»™ tá»· lá»‡ theo Ä‘á»‘i tÆ°á»£ng máº«u | Chá»n Block, Dimension, Text hoáº·c Leader máº«u Ä‘á»ƒ láº¥y vÃ  Ã¡p dá»¥ng thÃ´ng sá»‘ tá»· lá»‡ liÃªn quan. |
+| `D4` | Chá»‰nh khoáº£ng cÃ¡ch cÃ¡c Ä‘Æ°á»ng Dimension | Chá»n cÃ¡c Dimension vÃ  lÃ m theo lá»i nháº¯c Ä‘á»ƒ sáº¯p xáº¿p khoáº£ng cÃ¡ch. |
+| `D5` | Äáº·t tá»· lá»‡/giÃ¡ trá»‹ scale cho Dimension | Nháº­p tá»· lá»‡, chá»n cÃ¡c Dimension; lá»‡nh cáº­p nháº­t há»‡ sá»‘ vÃ  xÃ³a text override cÅ©. |
+| `CD` | Cáº¯t hoáº·c kÃ©o dÃ i Ä‘Æ°á»ng giÃ³ng Dimension | Chá»n cÃ¡c Dimension rá»“i chá»n Ä‘iá»ƒm chuáº©n cáº¯t/kÃ©o. |
+| `BD` | DÃ³ng/cÄƒn cÃ¡c Dimension theo Ä‘iá»ƒm chá»n | Chá»n cÃ¡c Dimension rá»“i chá»n Ä‘iá»ƒm chuáº©n Ä‘á»ƒ Ä‘Æ°a Ä‘Æ°á»ng kÃ­ch thÆ°á»›c vá» cÃ¹ng vá»‹ trÃ­. |
+| `AD` | CÄƒn chá»‰nh Dimension tá»± Ä‘á»™ng | Chá»n nhÃ³m Dimension theo lá»i nháº¯c; lá»‡nh gá»i bá»™ cÄƒn chá»‰nh `ADIM` vÃ  khÃ´i phá»¥c `DIMSCALE`. |
+| `ADIM` | CÃ´ng cá»¥ cÄƒn Dimension nÃ¢ng cao | Chá»n cÃ¡c Dimension cáº§n phÃ¢n loáº¡i vÃ  sáº¯p xáº¿p; dÃ¹ng trá»±c tiáº¿p khi cáº§n Ä‘áº§y Ä‘á»§ tÃ¹y chá»n cá»§a bá»™ cÄƒn Dim. |
+| `LB1` | Kiá»ƒm tra kÃ­ch thÆ°á»›c theo thÆ°á»›c Lá»— Ban 52.2 cm | Chá»n Dimension; lá»‡nh thÃªm káº¿t quáº£ `(tá»‘t)` hoáº·c `(xáº¥u)` vÃ o ná»™i dung kÃ­ch thÆ°á»›c. |
+| `LB2` | Kiá»ƒm tra kÃ­ch thÆ°á»›c theo thÆ°á»›c Lá»— Ban 42.9 cm | Chá»n Dimension; lá»‡nh thÃªm káº¿t quáº£ `(tá»‘t)` hoáº·c `(xáº¥u)`. |
+| `LB3` | Kiá»ƒm tra kÃ­ch thÆ°á»›c theo thÆ°á»›c Lá»— Ban 38.8 cm | Chá»n Dimension; lá»‡nh thÃªm káº¿t quáº£ `(tá»‘t)` hoáº·c `(xáº¥u)`. |
 
 ## 12. Hatch
 
-| Lệnh | Chức năng | Cách dùng / Ghi chú |
+| Lá»‡nh | Chá»©c nÄƒng | CÃ¡ch dÃ¹ng / Ghi chÃº |
 |---|---|---|
-| `H25` | Tạo Hatch màu 250 | Gõ lệnh rồi chọn điểm/đối tượng theo quy trình `-HATCH`. |
-| `H251` | Tạo Hatch màu 251 | Cách dùng tương tự `H25`. |
-| `H252` | Tạo Hatch màu 252 | Cách dùng tương tự `H25`. |
-| `H253` | Tạo Hatch màu 253 | Cách dùng tương tự `H25`. |
-| `H254` | Tạo Hatch màu 254 | Cách dùng tương tự `H25`. |
-| `H255` | Tạo Hatch màu 255 | Cách dùng tương tự `H25`. |
-| `HB` | Đưa Hatch xuống dưới biên | Chọn Hatch cần đổi draw order. |
-| `HF` | Đưa Hatch lên trước biên | Chọn Hatch cần đổi draw order. |
-| `HC` | Sao chép mẫu Hatch sang vùng khác | Chọn Hatch mẫu, sau đó bấm điểm trong vùng cần hatch. |
-| `HV` | Di chuyển/tạo lại Hatch theo vùng mới | Chọn Hatch mẫu rồi bấm vùng đích; lệnh giữ mẫu, góc, tỷ lệ và layer. |
-| `HS` | Đổi tỷ lệ Hatch | Chọn Hatch, nhập tỷ lệ mới. |
-| `HA` | Đổi góc Hatch | Chọn Hatch, nhập hoặc chỉ góc mới. |
-| `HT` | Chia Hatch bằng đường cắt | Chọn Line/Polyline cắt, sau đó chọn Hatch tại phía cần xử lý. |
-| `HG` | Đổi origin của Hatch | Chọn một hoặc nhiều Hatch, sau đó chọn điểm origin mới. |
-| `HSE` | Bật/tắt bắt điểm trên Hatch | Chuyển đổi biến `OSNAPHATCH` giữa `0` và `1`. |
-| `HSA` | Tắt liên kết Associative của Hatch | Chọn các Hatch cần tách khỏi đường biên. |
-| `RHB` | Tạo lại đường biên Hatch | Chọn Hatch; lệnh tạo boundary dạng Polyline và giữ liên kết nếu AutoCAD hỗ trợ. |
+| `H25` | Táº¡o Hatch mÃ u 250 | GÃµ lá»‡nh rá»“i chá»n Ä‘iá»ƒm/Ä‘á»‘i tÆ°á»£ng theo quy trÃ¬nh `-HATCH`. |
+| `H251` | Táº¡o Hatch mÃ u 251 | CÃ¡ch dÃ¹ng tÆ°Æ¡ng tá»± `H25`. |
+| `H252` | Táº¡o Hatch mÃ u 252 | CÃ¡ch dÃ¹ng tÆ°Æ¡ng tá»± `H25`. |
+| `H253` | Táº¡o Hatch mÃ u 253 | CÃ¡ch dÃ¹ng tÆ°Æ¡ng tá»± `H25`. |
+| `H254` | Táº¡o Hatch mÃ u 254 | CÃ¡ch dÃ¹ng tÆ°Æ¡ng tá»± `H25`. |
+| `H255` | Táº¡o Hatch mÃ u 255 | CÃ¡ch dÃ¹ng tÆ°Æ¡ng tá»± `H25`. |
+| `HB` | ÄÆ°a Hatch xuá»‘ng dÆ°á»›i biÃªn | Chá»n Hatch cáº§n Ä‘á»•i draw order. |
+| `HF` | ÄÆ°a Hatch lÃªn trÆ°á»›c biÃªn | Chá»n Hatch cáº§n Ä‘á»•i draw order. |
+| `HC` | Sao chÃ©p máº«u Hatch sang vÃ¹ng khÃ¡c | Chá»n Hatch máº«u, sau Ä‘Ã³ báº¥m Ä‘iá»ƒm trong vÃ¹ng cáº§n hatch. |
+| `HV` | Di chuyá»ƒn/táº¡o láº¡i Hatch theo vÃ¹ng má»›i | Chá»n Hatch máº«u rá»“i báº¥m vÃ¹ng Ä‘Ã­ch; lá»‡nh giá»¯ máº«u, gÃ³c, tá»· lá»‡ vÃ  layer. |
+| `HS` | Äá»•i tá»· lá»‡ Hatch | Chá»n Hatch, nháº­p tá»· lá»‡ má»›i. |
+| `HA` | Äá»•i gÃ³c Hatch | Chá»n Hatch, nháº­p hoáº·c chá»‰ gÃ³c má»›i. |
+| `HT` | Chia Hatch báº±ng Ä‘Æ°á»ng cáº¯t | Chá»n Line/Polyline cáº¯t, sau Ä‘Ã³ chá»n Hatch táº¡i phÃ­a cáº§n xá»­ lÃ½. |
+| `HG` | Äá»•i origin cá»§a Hatch | Chá»n má»™t hoáº·c nhiá»u Hatch, sau Ä‘Ã³ chá»n Ä‘iá»ƒm origin má»›i. |
+| `HSE` | Báº­t/táº¯t báº¯t Ä‘iá»ƒm trÃªn Hatch | Chuyá»ƒn Ä‘á»•i biáº¿n `OSNAPHATCH` giá»¯a `0` vÃ  `1`. |
+| `HSA` | Táº¯t liÃªn káº¿t Associative cá»§a Hatch | Chá»n cÃ¡c Hatch cáº§n tÃ¡ch khá»i Ä‘Æ°á»ng biÃªn. |
+| `RHB` | Táº¡o láº¡i Ä‘Æ°á»ng biÃªn Hatch | Chá»n Hatch; lá»‡nh táº¡o boundary dáº¡ng Polyline vÃ  giá»¯ liÃªn káº¿t náº¿u AutoCAD há»— trá»£. |
 
-## 13. Block và Attribute
+## 13. Block vÃ  Attribute
 
-| Lệnh | Chức năng | Cách dùng / Ghi chú |
+| Lá»‡nh | Chá»©c nÄƒng | CÃ¡ch dÃ¹ng / Ghi chÃº |
 |---|---|---|
-| `B0` | Đưa hình học trong block về layer `0` | Chọn block cần chuẩn hóa; lệnh xử lý cả block lồng. Nên lưu bản vẽ trước khi chạy. |
-| `CBP` | Đổi base point, giữ nguyên tọa độ insertion | Chọn block rồi chọn base point mới; vị trí tham chiếu block có thể thay đổi theo base point. |
-| `B3` | Đổi base point, giữ nguyên vị trí block trên bản vẽ | Chọn block rồi chọn base point mới; các block reference được bù vị trí để không dịch chuyển hình học. |
-| `MAB` | Thay nhiều block bằng block mẫu | Chọn block thay thế, sau đó chọn các block cần thay; giữ vị trí đích nhưng dùng rotation và scale của block mẫu. |
-| `MABT` | Sao chép Attribute theo Tag | Chọn block nguồn có Attribute, sau đó chọn các block đích; chỉ các Tag trùng nhau được cập nhật. |
-| `RB` | Đổi tên block | Chọn block reference, nhập tên mới; đổi tên definition hiện có. |
-| `CB` | Sao chép block thành tên mới | Chọn block reference, nhập tên mới; tạo definition mới và giữ definition cũ. |
-| `AT1` | Chép toàn bộ Attribute giữa hai block | Chọn block nguồn rồi block đích; giá trị được chép theo thứ tự Attribute. |
-| `AT2` | Chép Text vào Attribute cùng Tag | Chọn Attribute mẫu để lấy Tag, chọn Text nguồn, sau đó chọn block đích tại điểm chỉ. |
-| `B1` | Đổi Visibility State của Dynamic Block | Chọn Dynamic Block rồi chọn trạng thái hiển thị trong danh sách. |
-| `CA` | Cập nhật cao độ Attribute hàng loạt | Chọn Attribute cao độ mẫu trong block, sau đó chọn các block cần tính/cập nhật theo tọa độ. |
-| `MATB` | Sao chép style/thuộc tính trình bày block | Chọn block nguồn rồi các block đích để áp dụng bản đồ thuộc tính/style tương ứng. |
-| `SSC` | Ghi/khôi phục bộ style hiện hành | Chạy lệnh để lấy và áp dụng trạng thái style hiện hành đã lưu trong Registry. |
-| `ASC` | Đồng bộ thuộc tính/style theo đối tượng | Chọn đối tượng theo lời nhắc để áp dụng các thuộc tính như layer, màu, linetype, lineweight và style liên quan. |
+| `B0` | ÄÆ°a hÃ¬nh há»c trong block vá» layer `0` | Chá»n block cáº§n chuáº©n hÃ³a; lá»‡nh xá»­ lÃ½ cáº£ block lá»“ng. NÃªn lÆ°u báº£n váº½ trÆ°á»›c khi cháº¡y. |
+| `CBP` | Äá»•i base point, giá»¯ nguyÃªn tá»a Ä‘á»™ insertion | Chá»n block rá»“i chá»n base point má»›i; vá»‹ trÃ­ tham chiáº¿u block cÃ³ thá»ƒ thay Ä‘á»•i theo base point. |
+| `B3` | Äá»•i base point, giá»¯ nguyÃªn vá»‹ trÃ­ block trÃªn báº£n váº½ | Chá»n block rá»“i chá»n base point má»›i; cÃ¡c block reference Ä‘Æ°á»£c bÃ¹ vá»‹ trÃ­ Ä‘á»ƒ khÃ´ng dá»‹ch chuyá»ƒn hÃ¬nh há»c. |
+| `MAB` | Thay nhiá»u block báº±ng block máº«u | Chá»n block thay tháº¿, sau Ä‘Ã³ chá»n cÃ¡c block cáº§n thay; giá»¯ vá»‹ trÃ­ Ä‘Ã­ch nhÆ°ng dÃ¹ng rotation vÃ  scale cá»§a block máº«u. |
+| `MABT` | Sao chÃ©p Attribute theo Tag | Chá»n block nguá»“n cÃ³ Attribute, sau Ä‘Ã³ chá»n cÃ¡c block Ä‘Ã­ch; chá»‰ cÃ¡c Tag trÃ¹ng nhau Ä‘Æ°á»£c cáº­p nháº­t. |
+| `RB` | Äá»•i tÃªn block | Chá»n block reference, nháº­p tÃªn má»›i; Ä‘á»•i tÃªn definition hiá»‡n cÃ³. |
+| `CB` | Sao chÃ©p block thÃ nh tÃªn má»›i | Chá»n block reference, nháº­p tÃªn má»›i; táº¡o definition má»›i vÃ  giá»¯ definition cÅ©. |
+| `AT1` | ChÃ©p toÃ n bá»™ Attribute giá»¯a hai block | Chá»n block nguá»“n rá»“i block Ä‘Ã­ch; giÃ¡ trá»‹ Ä‘Æ°á»£c chÃ©p theo thá»© tá»± Attribute. |
+| `AT2` | ChÃ©p Text vÃ o Attribute cÃ¹ng Tag | Chá»n Attribute máº«u Ä‘á»ƒ láº¥y Tag, chá»n Text nguá»“n, sau Ä‘Ã³ chá»n block Ä‘Ã­ch táº¡i Ä‘iá»ƒm chá»‰. |
+| `B1` | Äá»•i Visibility State cá»§a Dynamic Block | Chá»n Dynamic Block rá»“i chá»n tráº¡ng thÃ¡i hiá»ƒn thá»‹ trong danh sÃ¡ch. |
+| `CA` | Cáº­p nháº­t cao Ä‘á»™ Attribute hÃ ng loáº¡t | Chá»n Attribute cao Ä‘á»™ máº«u trong block, sau Ä‘Ã³ chá»n cÃ¡c block cáº§n tÃ­nh/cáº­p nháº­t theo tá»a Ä‘á»™. |
+| `MATB` | Sao chÃ©p style/thuá»™c tÃ­nh trÃ¬nh bÃ y block | Chá»n block nguá»“n rá»“i cÃ¡c block Ä‘Ã­ch Ä‘á»ƒ Ã¡p dá»¥ng báº£n Ä‘á»“ thuá»™c tÃ­nh/style tÆ°Æ¡ng á»©ng. |
+| `SSC` | Ghi/khÃ´i phá»¥c bá»™ style hiá»‡n hÃ nh | Cháº¡y lá»‡nh Ä‘á»ƒ láº¥y vÃ  Ã¡p dá»¥ng tráº¡ng thÃ¡i style hiá»‡n hÃ nh Ä‘Ã£ lÆ°u trong Registry. |
+| `ASC` | Äá»“ng bá»™ thuá»™c tÃ­nh/style theo Ä‘á»‘i tÆ°á»£ng | Chá»n Ä‘á»‘i tÆ°á»£ng theo lá»i nháº¯c Ä‘á»ƒ Ã¡p dá»¥ng cÃ¡c thuá»™c tÃ­nh nhÆ° layer, mÃ u, linetype, lineweight vÃ  style liÃªn quan. |
 
-## 14. Chuyển đổi bản vẽ cũ
+## 14. Chuyá»ƒn Ä‘á»•i báº£n váº½ cÅ©
 
-Các lệnh này nằm trong `TNT_SUPPORT_LISP` và chỉ dùng khi đã nạp file hỗ trợ tương ứng.
+CÃ¡c lá»‡nh nÃ y náº±m trong `TNT_SUPPORT_LISP` vÃ  chá»‰ dÃ¹ng khi Ä‘Ã£ náº¡p file há»— trá»£ tÆ°Æ¡ng á»©ng.
 
-| Lệnh | Chức năng | Cách dùng / Ghi chú |
+| Lá»‡nh | Chá»©c nÄƒng | CÃ¡ch dÃ¹ng / Ghi chÃº |
 |---|---|---|
-| `TNT_MIGRATE_SIMPLE` | Chuyển toàn bộ layer V16 cũ sang layer TNT ISO | Chạy trên bản sao hoặc sau khi lưu file; lệnh chuyển đối tượng, block definition và cố gắng xóa layer cũ. |
-| `TNT_MIGRATE_SELECTION` | Chuyển layer V16 cho vùng chọn | Chọn các đối tượng cấp cao nhất cần chuyển; phù hợp khi không muốn xử lý toàn bản vẽ. |
-| `TNT_MIGRATE_DIMSTYLE` | Chuyển Dimstyle cũ sang chuẩn mới | Chuyển `TNT_DIM`, `TNT_DIM1`, `TNT_DIM2` sang `.TNT_A_DIM_1`, `.TNT_A_DIM_2`, `.TNT_A_DIM_3` và cố gắng xóa style cũ. |
+| `TNT_LAYER_SYNC_ALL` | Chuyá»ƒn toÃ n bá»™ layer V16 cÅ© sang layer TNT ISO | Cháº¡y trÃªn báº£n sao hoáº·c sau khi lÆ°u file; lá»‡nh chuyá»ƒn Ä‘á»‘i tÆ°á»£ng, block definition vÃ  cá»‘ gáº¯ng xÃ³a layer cÅ©. |
+| `TNT_LAYER_SYNC_SELECTION` | Chuyá»ƒn layer V16 cho vÃ¹ng chá»n | Chá»n cÃ¡c Ä‘á»‘i tÆ°á»£ng cáº¥p cao nháº¥t cáº§n chuyá»ƒn; phÃ¹ há»£p khi khÃ´ng muá»‘n xá»­ lÃ½ toÃ n báº£n váº½. |
+| `TNT_MIGRATE_DIMSTYLE` | Chuyá»ƒn Dimstyle cÅ© sang chuáº©n má»›i | Chuyá»ƒn `TNT_DIM`, `TNT_DIM1`, `TNT_DIM2` sang `.TNT_A_DIM_1`, `.TNT_A_DIM_2`, `.TNT_A_DIM_3` vÃ  cá»‘ gáº¯ng xÃ³a style cÅ©. |
 
-## Ghi chú an toàn
+## Ghi chÃº an toÃ n
 
-| Tình huống | Khuyến nghị |
+| TÃ¬nh huá»‘ng | Khuyáº¿n nghá»‹ |
 |---|---|
-| Lệnh không nhận | Chạy `0` hoặc `TNT_SHORTCUT`, kiểm tra file Lisp tương ứng đã được nạp. |
-| Layer/style chuẩn chưa tồn tại | Chạy `0`, `TNT_SETTING` hoặc `TNT_LAYER` trước. |
-| Xử lý hàng loạt block/layer | Lưu bản vẽ hoặc tạo bản sao trước khi dùng `B0`, `MAB`, `TNT_LAYER` và các lệnh `TNT_MIGRATE_*`. |
-| Kết quả không đúng mong muốn | Dùng `UNDO` ngay sau lệnh; phần lớn lệnh TNT đã gom thao tác vào một nhóm Undo. |
+| Lá»‡nh khÃ´ng nháº­n | Cháº¡y `0` hoáº·c `TNT_SHORTCUT`, kiá»ƒm tra file Lisp tÆ°Æ¡ng á»©ng Ä‘Ã£ Ä‘Æ°á»£c náº¡p. |
+| Layer/style chuáº©n chÆ°a tá»“n táº¡i | Cháº¡y `0`, `TNT_SETTING` hoáº·c `TNT_LAYER` trÆ°á»›c. |
+| Xá»­ lÃ½ hÃ ng loáº¡t block/layer | LÆ°u báº£n váº½ hoáº·c táº¡o báº£n sao trÆ°á»›c khi dÃ¹ng `B0`, `MAB`, `TNT_LAYER` vÃ  cÃ¡c lá»‡nh `TNT_MIGRATE_*`. |
+| Káº¿t quáº£ khÃ´ng Ä‘Ãºng mong muá»‘n | DÃ¹ng `UNDO` ngay sau lá»‡nh; pháº§n lá»›n lá»‡nh TNT Ä‘Ã£ gom thao tÃ¡c vÃ o má»™t nhÃ³m Undo. |

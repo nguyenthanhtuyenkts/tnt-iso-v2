@@ -2260,3 +2260,39 @@ Exc Files : MarkText.exe
    Speed :            1588.032 MegaBytes/min.
    Ended : 17 Tha'ng Sa'u 2026 6:45:11 CH
 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 19 Tha'ng Sa'u 2026 9:42:41 SA
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : MarkText.exe
+	    *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  18	D:\0.TNT ISO 2026\0.RELEASE\
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                   4	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        32         0        32         0         0         1
+   Bytes :   12.27 m         0   12.27 m         0         0  134.35 m
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : 19 Tha'ng Sa'u 2026 9:42:41 SA
+

@@ -90,8 +90,8 @@
 | <code>TNT</code> | <code>TNT_PACKAGE_02_GENERAL_ALL.lsp</code> | dong bo ti le/doi tuong |
 | <code>TNT_LAYER</code> | <code>TNT_PACKAGE_05_LAYER_ALL.lsp</code> | layer |
 | <code>TNT_MIGRATE_DIMSTYLE</code> | <code>TNT_SUPPORT_LISP\TNT_MIGRATE_DIMSTYLE.lsp</code> | migration |
-| <code>TNT_MIGRATE_SELECTION</code> | <code>TNT_SUPPORT_LISP\TNT_MIGRATE_SIMPLE.lsp</code> | migration |
-| <code>TNT_MIGRATE_SIMPLE</code> | <code>TNT_SUPPORT_LISP\TNT_MIGRATE_SIMPLE.lsp</code> | migration |
+| <code>TNT_LAYER_SYNC_ALL</code> | <code>TNT_SUPPORT_LISP\TNT_LAYER_SYNC_ALL.lsp</code> | layer sync |
+| <code>TNT_LAYER_SYNC_SELECTION</code> | <code>TNT_SUPPORT_LISP\TNT_LAYER_SYNC_ALL.lsp</code> | layer sync |
 | <code>TNT_SETTING</code> | <code>TNT_PACKAGE_00_SYSTEM_ALL.lsp</code> | system/setup |
 | <code>TNT_SHORTCUT</code> | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut |
 | <code>vbb</code> | <code>TNT_PACKAGE_04_DRAW_ALL.lsp</code> | ve/phu tro ve |
@@ -127,7 +127,7 @@
 | <code>TNT_PACKAGE_09_HATCH_ALL.lsp</code> | hatch | 17 | 0 | B_TNT_Hatch.lsp, C_TNT_Hatch_Boundary.lsp |
 | <code>TNT_PACKAGE_10_BLOCK_ALL.lsp</code> | block | 13 | 85 | .Current Style.lsp, a list whose first item is a 3x3 transformation matrix and, B_TNT_Block_Layer0_B0.lsp, C_TNT_Block_Basepoint_B3.lsp, D_TNT_Block_Copy_MAB.lsp, E_TNT_Block_Rename_RB-CB.lsp, F_TNT_Block_Copy_Text_Att_AT1.lsp, G_TNT_Block_Change_Vibisility_B1.lsp ... +4 |
 | <code>TNT_PACKAGE_11_SHORTCUT.lsp</code> | shortcut | 21 | 10 |  |
-| <code>TNT_SUPPORT_LISP\TNT_MIGRATE_SIMPLE.lsp</code> | migration | 2 | 10 | TNT_MIGRATE_SIMPLE to move old V16 layers to TNT ISO layers immediately. |
+| <code>TNT_SUPPORT_LISP\TNT_LAYER_SYNC_ALL.lsp</code> | layer sync | 2 | 10 | TNT_LAYER_SYNC_ALL to sync mapped layers to TNT ISO layers immediately. |
 
 ## Detail By File
 
@@ -241,14 +241,14 @@
 - Commands: <code>1, 11, 2, 22, 3, C, CC, D, DC, DD, DST, LL, M, ML, MM, R, S, SC, SPL, TNT_SHORTCUT, XX</code>
 - Helper/internal functions: 10; sample: <code>TNT:SHORTCUT:LAYER:DEFINE-COMMAND, TNT:SHORTCUT:LAYER:ENSURE, TNT:SHORTCUT:LAYER:INIT, TNT:SHORTCUT:LAYER:PRINT-TABLE, TNT:SHORTCUT:LAYER:SET-OR-CHANGE, TNT:SHORTCUT:LAYER:TABLE, TNT:SHORTCUT:PGP:DEFINE-COMMAND, TNT:SHORTCUT:PGP:INIT, TNT:SHORTCUT:PGP:TABLE, TNT_SHORTCUT</code>
 
-### TNT_SUPPORT_LISP\TNT_MIGRATE_SIMPLE.lsp
+### TNT_SUPPORT_LISP\TNT_LAYER_SYNC_ALL.lsp
 
 - Size: 6.5 KB
 - Modified: 2026-05-26 12:02:55
-- Hint: migration
-- Commands: <code>TNT_MIGRATE_SELECTION, TNT_MIGRATE_SIMPLE</code>
-- Helper/internal functions: 10; sample: <code>TNT:V16S:ENSURE-LAYER, TNT:V16S:LAYER-OBJ, TNT:V16S:MAP, TNT:V16S:MOVE, TNT:V16S:MOVE-BLOCK-DEFS, TNT:V16S:PURGE-OLD-LAYER, TNT:V16S:RUN, TNT:V16S:RUN-SELECTION, TNT:V16S:TARGET-LAYER, TNT:V16S:UNLOCK</code>
-- Notes: TNT_MIGRATE_SIMPLE to move old V16 layers to TNT ISO layers immediately.
+- Hint: layer sync
+- Commands: <code>TNT_LAYER_SYNC_ALL, TNT_LAYER_SYNC_SELECTION</code>
+- Helper/internal functions: 10; sample: <code>TNT:LAYER-SYNC:ENSURE-LAYER, TNT:LAYER-SYNC:LAYER-OBJ, TNT:LAYER-SYNC:MAP, TNT:LAYER-SYNC:MOVE, TNT:LAYER-SYNC:MOVE-BLOCK-DEFS, TNT:LAYER-SYNC:PURGE-OLD-LAYER, TNT:LAYER-SYNC:RUN, TNT:LAYER-SYNC:RUN-SELECTION, TNT:LAYER-SYNC:TARGET-LAYER, TNT:LAYER-SYNC:UNLOCK</code>
+- Notes: TNT_LAYER_SYNC_ALL to sync mapped layers to TNT ISO layers immediately.
 
 ### TNT_SUPPORT_LISP\TNT_MIGRATE_DIMSTYLE.lsp
 
