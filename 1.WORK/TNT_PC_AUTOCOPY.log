@@ -2296,3 +2296,52 @@ Exc Files : MarkText.exe
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
    Ended : 19 Tha'ng Sa'u 2026 9:42:41 SA
 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 19 Tha'ng Sa'u 2026 11:09:33 SA
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : MarkText.exe
+	    *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  17	D:\0.TNT ISO 2026\0.RELEASE\
+	    Newer     		   29507	HUONG_DAN_LENH_TAT.md  0%  100%  
+	    Newer     		   20301	RELEASE_LISP_INDEX.md  0%  100%  
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                   9	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+	  *EXTRA File 		    9078	TNT_MIGRATE_SIMPLE.lsp
+	    New File  		    2056	TNT_LAYER_LISTING.lsp  0%  100%  
+	    New File  		   10228	TNT_LAYER_SYNC_ALL.lsp  0%  100%  
+	    New File  		   24080	TNT_LAYER_SYNC_ALL_MAPPING.xls  0%  100%  
+	    New File  		    9078	TNT_MIGRATE_SIMPLE.lsp.bak_20260619_104637  0%  100%  
+	    New File  		     162	TNT_UPDATE_LAYER_SYNC_ALL_MAPPING.cmd  0%  100%  
+	    New File  		    7006	TNT_UPDATE_LAYER_SYNC_ALL_MAPPING.ps1  0%  100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        36         8        28         0         0         2
+   Bytes :    6.81 m   100.0 k    6.71 m         0         0  134.36 m
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :             2179106 Bytes/sec.
+   Speed :             124.689 MegaBytes/min.
+   Ended : 19 Tha'ng Sa'u 2026 11:09:33 SA
+
