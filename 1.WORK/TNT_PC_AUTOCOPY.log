@@ -2345,3 +2345,63 @@ Exc Files : MarkText.exe
    Speed :             124.689 MegaBytes/min.
    Ended : 19 Tha'ng Sa'u 2026 11:09:33 SA
 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 20 Tha'ng Bay 2026 4:01:31 CH
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : MarkText.exe
+	    *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  19	D:\0.TNT ISO 2026\0.RELEASE\
+	*EXTRA Dir        -1	Z:\0000.TNT_ISO_2026\Plot Styles\
+	  *EXTRA File 		    3428	IN DIEN (NHAT).ctb
+	  *EXTRA File 		    3478	IN DIEN.ctb
+	  *EXTRA File 		    4785	IN NUOC ( NHAT).ctb
+	  *EXTRA File 		    4807	In nuoc.ctb
+	  *EXTRA File 		    4444	ISO-2025_TNT(Vu).ctb
+	  *EXTRA File 		    4512	ISO-2025_TNT.ctb
+	  *EXTRA File 		    4509	MECHANICAL (KDK).ctb
+	  *EXTRA File 		    4113	monochrome.ctb
+	  *EXTRA File 		    4379	NET IN KET CAU.KC.ctb
+	  *EXTRA File 		    4504	TNT_PLOT_STYLE_2026.ctb
+	  *EXTRA File 		   30381	Plot Styles.rar
+	    Newer     		   31101	HUONG_DAN_LENH_TAT.md  0%  100%  
+	    Newer     		   69987	TNT_PACKAGE_08_DIMENSION_ALL.lsp  0%  100%  
+	    Newer     		    6561	TNT_PACKAGE_11_SHORTCUT.lsp  0%  100%  
+	    New File  		      65	TNT_TEMPLATE_2026.dwl  0%  100%  
+	    New File  		     217	TNT_TEMPLATE_2026.dwl2  0%  100%  
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+	  *EXTRA File 		    9078	TNT_MIGRATE_SIMPLE.lsp.bak_20260619_104637
+	    New File  		    6369	TNT_AEC_TO_ACAD.lsp  0%  100%  
+	    New File  		    5873	TNT_BACKUP.lsp  0%  100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         1
+   Files :        39         7        32         0         0        13
+   Bytes :    6.81 m   117.3 k    6.70 m         0         0  134.43 m
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :             1144504 Bytes/sec.
+   Speed :              65.489 MegaBytes/min.
+   Ended : 20 Tha'ng Bay 2026 4:01:31 CH
+
