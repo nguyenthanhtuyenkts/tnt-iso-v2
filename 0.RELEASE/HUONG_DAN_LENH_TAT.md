@@ -126,6 +126,7 @@ Tài liệu này tổng hợp các lệnh có trong bộ Lisp tại thư mục `
 | `DFX`   | Dàn đều text theo phương X               | Chọn text, nhập khoảng cách, rồi chọn text chuẩn để giữ mốc.                                                                 |
 | `DX`    | Căn các Text thẳng hàng theo Y           | Chọn các Text, sau đó chọn Text chuẩn có tung độ cần dùng.                                                                   |
 | `MAT`   | Sao chép nội dung giữa các đối tượng chữ | Chọn đối tượng nguồn, rồi chọn các đối tượng đích có hỗ trợ nội dung chữ.                                                    |
+| `MATS`  | Sao chép TextStyle giữa các đối tượng chữ | Chọn Text/MText/Attribute/MLeader nguồn, rồi chọn các đối tượng chữ đích; nội dung chữ được giữ nguyên.                              |
 | `TS1`   | Áp dụng Textstyle chính                  | Chọn Text/MText cần đổi sang `.TNT_A_TXT_1_MAIN`.                                                                            |
 | `TS2`   | Áp dụng Textstyle phụ                    | Chọn Text/MText cần đổi sang `.TNT_A_TXT_2_SUB`.                                                                             |
 | `TS3`   | Áp dụng Textstyle ghi chú                | Chọn Text/MText cần đổi sang `.TNT_A_TXT_3_NOTE`.                                                                            |
