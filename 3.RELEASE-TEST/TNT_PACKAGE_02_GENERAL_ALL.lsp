@@ -89,6 +89,10 @@
 
 -------------------------------------------------------------------------------------------------------------------
 ;;;Hàm lấy biến Scale Iso TNT để đồng bộ
+(defun TNT:FrameBlockNameP (name /)
+  T
+)
+
 (defun TNT:GetScaleFromFrame ( / ename elist objtype refname effname scale )
   (while
     (progn
@@ -110,8 +114,8 @@
           (setq elist   (entget ename))
           (setq refname (cdr (assoc 2 elist)))
           (setq effname (TNT:GENERAL:GET-EFFECTIVENAME-BLOCK (vlax-ename->vla-object ename)))
-          (if (or (and refname (wcmatch (strcase refname) "*TNT*"))
-                  (and effname (wcmatch (strcase effname) "*TNT*"))
+          (if (or (TNT:FrameBlockNameP refname)
+                  (TNT:FrameBlockNameP effname)
               )
             nil ; kết thúc vòng lặp nếu đúng tên
             (progn
@@ -125,8 +129,8 @@
   )
   ;;Chỉ trả về scale nếu đúng block TNT, còn lại trả về nil
   (if (and ename
-           (or (and refname (wcmatch (strcase refname) "*TNT*"))
-               (and effname (wcmatch (strcase effname) "*TNT*"))
+           (or (TNT:FrameBlockNameP refname)
+               (TNT:FrameBlockNameP effname)
            )
       )
     (cdr (assoc 41 elist))
