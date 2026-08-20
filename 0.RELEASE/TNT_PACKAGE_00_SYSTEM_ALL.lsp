@@ -337,7 +337,7 @@
     ("....43_TNT_P_DRAIN-WASH"                "P"   "6"     "HIDDEN"          "0"       "0"   "NÉT THOÁT RỬA"                   )
     ("....44_TNT_P_DRAIN-VENT"                "P"   "2"     "HIDDEN"          "0"       "0"   "NÉT THÔNG HƠI"                   )
     ("....45________________________________" "N"   "250"   "CONTINUOUS"      "0"       "0"   "________________________________")
-    ("....46_TNT_BASE_MEP"                    "P"   "8"     "CONTINUOUS"      ""        ""    "NÉT BASE CHO MEP"                )
+    ("....46_TNT_BASE_MEP"                    "P"   "250"   "CONTINUOUS"      ""        ""    "NÉT BASE CHO MEP"                )
     ;; FIREFIGHTING
   ))
 (DEFUN TNT:LAYER:STD-NAMES (/)
@@ -453,8 +453,12 @@
     ;(TNT:SYSTEM_SETTING "GRIPSIZE" 15)                          ;DO RONG O VUONG CHUC NANG
   ;2 GROUP LAYER & LINETYPE
     (TNT:SYSTEM_SETTING "DIMLAYER" "....22_TNT_N_DIMENSION")   ;LAYER "DIMENTION"
-    (TNT:SYSTEM_SETTING "DIMASSOC" 1)                           ;NON-ASSOCIATIVE DIMENSION OBJECTS
-    (TNT:SYSTEM:DISASSOCIATE_DIMENSIONS)
+    (if (not (and (boundp 'TNT:AEC:SKIP-DIMENSIONS) TNT:AEC:SKIP-DIMENSIONS))
+      (progn
+        (TNT:SYSTEM_SETTING "DIMASSOC" 1)                       ;NON-ASSOCIATIVE DIMENSION OBJECTS
+        (TNT:SYSTEM:DISASSOCIATE_DIMENSIONS)
+      )
+    )
     (TNT:SYSTEM_SETTING "HPLAYER" "....23_TNT_N_HATCH")        ;LAYER "HATCH"
     (TNT:SYSTEM_SETTING "TEXTLAYER" "....20_TNT_N_TEXT")        ;LAYER "TEXT"
     (TNT:SYSTEM_SETTING "MLEADERLAYER" "....21_TNT_N_LEADER")   ;LAYER "MLEADER"
