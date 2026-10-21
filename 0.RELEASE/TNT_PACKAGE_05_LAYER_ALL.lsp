@@ -270,5 +270,33 @@
   (princ)
 )
 
+;;; ====================================================================================================
+;;; MOVE SELECTED OBJECTS TO LAYER 0
+;;; ====================================================================================================
+(defun c:N0 (/ *error* oldcmdecho ss)
+  (setq oldcmdecho (getvar "CMDECHO"))
+  (defun *error* (msg)
+    (setvar "CMDECHO" oldcmdecho)
+    (if (and msg (not (wcmatch (strcase msg) "*CANCEL*,*QUIT*,*EXIT*")))
+      (princ (strcat "\n[TNT] ERROR: N0: " msg))
+    )
+    (princ)
+  )
+  (setvar "CMDECHO" 0)
+  (setq ss (ssget "_I"))
+  (if (not ss)
+    (setq ss (ssget))
+  )
+  (if ss
+    (progn
+      (command-s "_.CHANGE" ss "" "_Properties" "_LAyer" "0" "")
+      (princ (strcat "\n[TNT] N0: Da chuyen " (itoa (sslength ss)) " doi tuong sang layer 0."))
+    )
+    (princ "\n[TNT] N0: Khong co doi tuong nao duoc chon.")
+  )
+  (setvar "CMDECHO" oldcmdecho)
+  (princ)
+)
+
 (princ "\n[TNT] Loaded TNT_PACKAGE_05_LAYER_ALL.lsp")
 (princ)
