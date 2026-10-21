@@ -29,6 +29,7 @@ Tài liệu này tổng hợp các lệnh có trong bộ Lisp tại thư mục `
 | `M`      | `MOVE`        | Di chuyển đối tượng       | Chọn đối tượng, chọn điểm gốc, chọn điểm đích.                                  |
 | `MM`     | `MIRROR`      | Đối xứng đối tượng        | Chọn đối tượng, xác định hai điểm trục đối xứng, chọn có xóa bản gốc hay không. |
 | `R`      | `ROTATE`      | Xoay đối tượng            | Chọn đối tượng, chọn tâm xoay, nhập góc hoặc dùng tùy chọn `Reference`.         |
+| `RR`     | `REVCLOUD`    | Vẽ đám mây hiệu chỉnh     | Gõ `RR`, chọn hai góc đối diện để vẽ revision cloud hình chữ nhật.                                    |
 | `S`      | `STRETCH`     | Kéo giãn đối tượng        | Quét chọn crossing phần cần kéo, chọn điểm gốc và điểm đích.                    |
 | `SC`     | `SCALE`       | Thay đổi tỷ lệ            | Chọn đối tượng, chọn điểm gốc, nhập hệ số hoặc dùng `Reference`.                |
 | `CC`     | `CIRCLE`      | Vẽ đường tròn             | Chọn tâm rồi nhập bán kính/đường kính.                                          |

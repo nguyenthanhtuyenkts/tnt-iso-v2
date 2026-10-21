@@ -131,6 +131,7 @@
     ("M"   "MOVE")
     ("ML"  "MLINE")
     ("R"   "ROTATE")
+    ("RR"  "REVCLOUD")
     ("S"   "STRETCH")
     ("SC"  "SCALE")
     ("SPL" "SPLINE")
@@ -191,6 +192,14 @@
 
 (defun c:TNT_SHORTCUT (/)
   (TNT_SHORTCUT)
+  (princ)
+)
+
+;;; Use the current command version so AutoCAD exposes the Rectangular option.
+(defun c:RR (/)
+  (setvar "MODEMACRO" "TNT Architecture")
+  (initcommandversion)
+  (command "_.REVCLOUD" "_Rectangular")
   (princ)
 )
 
