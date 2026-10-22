@@ -6,6 +6,7 @@
 
 (vl-load-com)
 (setvar "MODEMACRO" "TNT Architecture")
+(setvar "PICKFIRST" 1)
 
 ;;; ----------------------------------------------------------------------------------------------------
 ;;; Core system helpers
@@ -439,6 +440,7 @@
 ;;; [3] SETTING SYSTEM VARIABLES
 ;;; ====================================================================================================
 (defun TNT:SYSTEM:CREATE_VARIABLES (/)
+    (TNT:SYSTEM_SETTING "PICKFIRST" 1)
   ;1 GROUP INTERFACE
     (TNT:SYSTEM_SETTING "MODEMACRO" "TNT Architecture")
     (TNT:SYSTEM_SETTING "MENUBAR" 1)                        	   ;HIEN THI MENUBAR

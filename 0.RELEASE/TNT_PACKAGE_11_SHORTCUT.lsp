@@ -5,6 +5,7 @@
 
 (vl-load-com)
 (setvar "MODEMACRO" "TNT Architecture")
+(setvar "PICKFIRST" 1)
 
 ;;; ----------------------------------------------------------------------------------------------------
 ;;; [1] EDIT THIS TABLE
@@ -66,6 +67,8 @@
 )
 
 (defun TNT:SHORTCUT:LAYER:SET-OR-CHANGE (layername / oldcmdecho ss)
+  ;; Capture implied selection before layer creation can run other commands.
+  (setq ss (ssget "_I"))
   (setq oldcmdecho (getvar "CMDECHO"))
   (setvar "CMDECHO" 0)
   (cond
@@ -74,7 +77,7 @@
       (princ (strcat "\n[TNT] Layer not found: " layername))
     )
     (T
-      (setq ss (ssget))
+      (if (not ss) (setq ss (ssget)))
       (if ss
         (command-s "_.CHANGE" ss "" "P" "LA" layername "")
       )
