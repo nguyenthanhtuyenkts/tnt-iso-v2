@@ -2405,3 +2405,93 @@ Exc Files : MarkText.exe
    Speed :              65.489 MegaBytes/min.
    Ended : 20 Tha'ng Bay 2026 4:01:31 CH
 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 27 Tha'ng Muo`i 2026 11:38:07 SA
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : MarkText.exe
+	    *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  18	D:\0.TNT ISO 2026\0.RELEASE\
+	    Newer     		   31523	HUONG_DAN_LENH_TAT.md  0%  100%  
+	    Newer     		   31035	TNT_PACKAGE_00_SYSTEM_ALL.lsp  0%  100%  
+	    Newer     		   12773	TNT_PACKAGE_02_GENERAL_ALL.lsp  0%  100%  
+	    Newer     		   13377	TNT_PACKAGE_05_LAYER_ALL.lsp  0%  100%  
+	    Newer     		   51760	TNT_PACKAGE_06_TEXT_ALL.lsp  0%  100%  
+	    Newer     		    6948	TNT_PACKAGE_11_SHORTCUT.lsp  0%  100%  
+	    Newer     		   5.5 m	TNT_TEMPLATE_2026.dwg  0%    9%   18%   27%   36%   45%   54%   63%   72%   81%   90%   99%  100%  
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                  11	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+	    New File  		    5661	TNT_AEC_DOWN2014.lsp  0%  100%  
+	    Newer     		   13047	TNT_AEC_TO_ACAD.lsp  0%  100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        39         9        30         0         0         1
+   Bytes :   12.37 m    5.68 m    6.68 m         0         0  134.35 m
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :            25378127 Bytes/sec.
+   Speed :            1452.148 MegaBytes/min.
+   Ended : 27 Tha'ng Muo`i 2026 11:38:07 SA
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 27 Tha'ng Muo`i 2026 11:56:40 SA
+   Source : D:\0.TNT ISO 2026\0.RELEASE\
+     Dest : Z:\0000.TNT_ISO_2026\
+
+    Files : *.*
+	    
+Exc Files : MarkText.exe
+	    *.bak
+	    *.tmp
+	    ~$*
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    
+  Options : *.* /TEE /S /E /DCOPY:DAT /COPY:DAT /PURGE /MIR /R:2 /W:2 
+
+------------------------------------------------------------------------------
+
+	                  18	D:\0.TNT ISO 2026\0.RELEASE\
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_FONT\
+	                  10	D:\0.TNT ISO 2026\0.RELEASE\TNT_SUPPORT_LISP\
+	    Newer     		   16908	TNT_AEC_TO_ACAD.lsp  0%  100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         0         3         0         0         0
+   Files :        38         1        37         0         0         1
+   Bytes :   12.37 m    16.5 k   12.35 m         0         0  134.35 m
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :              545419 Bytes/sec.
+   Speed :              31.209 MegaBytes/min.
+   Ended : 27 Tha'ng Muo`i 2026 11:56:40 SA
+
