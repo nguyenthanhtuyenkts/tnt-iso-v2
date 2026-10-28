@@ -189,15 +189,15 @@
   result
 )
 
-(defun TNT:AEC:TEXT-COLOR-251 (obj dimension / value cleaned)
+(defun TNT:AEC:TEXT-COLOR-252 (obj dimension / value cleaned)
   (if dimension
     (progn
-      (vla-put-TextColor obj 251)
+      (vla-put-TextColor obj 252)
       (setq value (vla-get-TextOverride obj)
             cleaned (TNT:AEC:STRIP-TEXT-COLORS value))
       (if (/= value cleaned) (vla-put-TextOverride obj cleaned)))
     (progn
-      (vla-put-Color obj 251)
+      (vla-put-Color obj 252)
       (if (= (vla-get-ObjectName obj) "AcDbMText")
         (progn
           (setq value (vla-get-TextString obj)
@@ -224,7 +224,7 @@
       (vlax-for obj block
         (cond
           ((or (TNT:AEC:DIMENSION-P obj) (TNT:AEC:TEXT-P obj))
-            (setq result (vl-catch-all-apply 'TNT:AEC:TEXT-COLOR-251
+            (setq result (vl-catch-all-apply 'TNT:AEC:TEXT-COLOR-252
                            (list obj (TNT:AEC:DIMENSION-P obj))))
             (if (vl-catch-all-error-p result)
               (setq failed (1+ failed)) (setq changed (1+ changed))))
@@ -238,7 +238,7 @@
               (if (vl-catch-all-error-p attributes)
                 (setq failed (1+ failed))
                 (foreach attribute attributes
-                  (setq result (vl-catch-all-apply 'TNT:AEC:TEXT-COLOR-251
+                  (setq result (vl-catch-all-apply 'TNT:AEC:TEXT-COLOR-252
                                  (list attribute nil)))
                   (if (vl-catch-all-error-p result)
                     (setq failed (1+ failed)) (setq changed (1+ changed)))))))
@@ -449,7 +449,7 @@
       (list 0 (length TNT:AEC:EXTRACT-JOBS)))
     (list (length TNT:AEC:EXTRACT-JOBS) 0)))
 
-(defun TNT:AEC:SOLIDS-TO-TOP-IN-BLOCK (block objects / dictionary sortents array)
+(defun TNT:AEC:MOVE-TO-TOP-IN-BLOCK (block objects / dictionary sortents array)
   (setq dictionary (vla-GetExtensionDictionary block))
   (if (dictsearch (vlax-vla-object->ename dictionary) "ACAD_SORTENTS")
     (setq sortents (vla-GetObject dictionary "ACAD_SORTENTS"))
@@ -472,7 +472,7 @@
             (setq objects (cons obj objects))))
         (if objects
           (progn
-            (setq result (vl-catch-all-apply 'TNT:AEC:SOLIDS-TO-TOP-IN-BLOCK
+            (setq result (vl-catch-all-apply 'TNT:AEC:MOVE-TO-TOP-IN-BLOCK
                            (list block (reverse objects))))
             (if (vl-catch-all-error-p result)
               (progn
@@ -483,6 +483,33 @@
   (vla-Regen doc 1)
   (list moved failed))
 
+(defun TNT:AEC:TEXT-TO-TOP (/ doc block obj objects result moved failed)
+  ;; Draw order belongs to entities in each space/block, not to layers.
+  ;; Attribute references follow the draw order of their owning INSERT.
+  ;; Run after SOLID ordering so text remains above the background hatches.
+  (setq doc (vla-get-ActiveDocument (vlax-get-acad-object)) moved 0 failed 0)
+  (vlax-for block (vla-get-Blocks doc)
+    (if (TNT:AEC:EDITABLE-BLOCK-P block)
+      (progn
+        (setq objects nil)
+        (vlax-for obj block
+          (if (or (TNT:AEC:TEXT-P obj)
+                  (TNT:AEC:DIMENSION-P obj)
+                  (and (= (vla-get-ObjectName obj) "AcDbBlockReference")
+                       (= (vla-get-HasAttributes obj) :vlax-true)))
+            (setq objects (cons obj objects))))
+        (if objects
+          (progn
+            (setq result (vl-catch-all-apply 'TNT:AEC:MOVE-TO-TOP-IN-BLOCK
+                           (list block (reverse objects))))
+            (if (vl-catch-all-error-p result)
+              (progn
+                (setq failed (+ failed (length objects)))
+                (prompt (strcat "\n[TNT] Loi dua text len tren trong "
+                                (vla-get-Name block) ": " (vl-catch-all-error-message result))))
+              (setq moved (+ moved (length objects)))))))))
+  (vla-Regen doc 1)
+  (list moved failed))
 (defun TNT:AEC:ACCEPT-DEFAULTS (/ steps lastprompt answer)
   (setq steps 0)
   ;; Keep the source Wall layer: explode to primitives and resolve the parent
@@ -513,7 +540,7 @@
   )
 )
 
-(defun C:TNT_ACAD (/ *error* olderror wallcount normalized textColors solid17 solidOrder
+(defun C:TNT_ACAD (/ *error* olderror wallcount normalized textColors solid17 solidOrder textOrder
                     extracted doc layer lockedLayers undoStarted)
   (setq olderror *error*)
   (defun *error* (msg)
@@ -584,7 +611,7 @@
     )
   )
   (setq textColors (TNT:AEC:COLOR-ALL-TEXT))
-  (prompt (strcat "\n[TNT] Text/Attribute va chu Dimension doi mau 251: "
+  (prompt (strcat "\n[TNT] Text/Attribute va chu Dimension doi mau 252: "
                  (itoa (car textColors)) "; loi: " (itoa (cadr textColors))
                  ". Chi doi mau chu, giu nguyen cac thuoc tinh khac."))
   (setq extracted (TNT:AEC:EXTRACT-SOLIDS))
@@ -593,6 +620,10 @@
   (setq solidOrder (TNT:AEC:SOLIDS-TO-TOP))
   (prompt (strcat "\n[TNT] SOLID hatch con lai dua len tren cung: " (itoa (car solidOrder))
                  "; khong dua len duoc: " (itoa (cadr solidOrder)) "."))
+  (setq textOrder (TNT:AEC:TEXT-TO-TOP))
+  (prompt (strcat "\n[TNT] Text/Dimension va block co Attribute dua len tren cung: "
+                 (itoa (car textOrder)) "; khong dua len duoc: "
+                 (itoa (cadr textOrder)) "."))
   (foreach layer lockedLayers (vla-put-Lock layer :vlax-true))
   (setq lockedLayers nil)
   (vla-EndUndoMark doc)
