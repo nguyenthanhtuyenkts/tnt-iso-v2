@@ -110,24 +110,80 @@
   (PRINC))
 
 ;; 4) Lenh tong hop: tao/reset layer, phan loai doi tuong, ep ByLayer
-(DEFUN TNT:LAYER:RUN (/ OLD-SKIP LERR)
-  (SETQ OLD-SKIP (IF (BOUNDP '*TNT.LAYER.SKIP-LTYPE-SYNC-NAMES*)
-                   *TNT.LAYER.SKIP-LTYPE-SYNC-NAMES*
-                   NIL))
-  (SETQ *TNT.LAYER.SKIP-LTYPE-SYNC-NAMES*
-        '("....21_TNT_N_LEADER" "....08_TNT_A_DETAIL"))
-  (SETQ LERR
-        (VL-CATCH-ALL-APPLY
-          '(LAMBDA (/)
-             (TNT:LAY:CREATE)
-             (TNT:LAYER:CHANGE)
-             (TNT:MODEL:FORCE-BYLAYER-STD))))
-  (SETQ *TNT.LAYER.SKIP-LTYPE-SYNC-NAMES* OLD-SKIP)
-  (IF (VL-CATCH-ALL-ERROR-P LERR)
-    (PRINC (STRCAT "\n[TNT] ERROR: TNT_LAYER: " (VL-CATCH-ALL-ERROR-MESSAGE LERR)))
-    (PRINC "\n[TNT] DONE: TNT_LAYER.")
-  )
-  (PRINC))
+;; Process only selected top-level entities; never reset existing shared layers.
+(defun TNT:LAYER:SELECTED-ONE (EN / ED KIND NAME DEST ROW OBJ PSET PEX)
+  (setq ED (entget EN) KIND (cdr (assoc 0 ED)) NAME (cdr (assoc 8 ED)))
+  (if (/= 0 (logand 4 (cdr (assoc 70 (tblsearch "LAYER" NAME)))))
+    (list nil "Source layer is locked.")
+    (progn
+      (setq DEST
+        (cond
+          ((and (member KIND '("TEXT" "MTEXT" "LEADER" "MULTILEADER"))
+                (not (member (strcase NAME)
+                  '("DEFPOINTS" "....23_TNT_N_HATCH" "....24_TNT_N_ANNOTATE"
+                    "....25_TNT_M_NOTE" "....26_TNT_M_TEXT" "....32_TNT_E_NOTE"
+                    "....33_TNT_E_TEXT" "....36_TNT_P_NOTE" "....37_TNT_P_TEXT"))))
+           (if (member KIND '("TEXT" "MTEXT")) "....20_TNT_N_TEXT" "....21_TNT_N_LEADER"))
+          ((= KIND "DIMENSION") "....22_TNT_N_DIMENSION")
+          ((= KIND "HATCH") "....23_TNT_N_HATCH")
+          (T NAME)))
+      (if (not (tblsearch "LAYER" DEST))
+        (progn
+          (setq ROW (assoc DEST (TNT:LAYER:STD-TABLE)))
+          (if ROW (apply 'TNT:LAYER:MAKE ROW))))
+      (cond
+        ((not (tblsearch "LAYER" DEST)) (list nil "Destination layer not created."))
+        ((/= 0 (logand 4 (cdr (assoc 70 (tblsearch "LAYER" DEST)))))
+         (list nil "Destination layer is locked."))
+        (T
+          (setq OBJ (vlax-ename->vla-object EN))
+          (vla-put-Layer OBJ DEST)
+          (setq PSET (mapcar 'strcase (TNT:LAYER:STD-NAMES))
+                PEX (mapcar 'strcase (TNT:LAYER:STD-EXCLUDE-NAMES)))
+          (if (and (member (strcase DEST) PSET) (not (member (strcase DEST) PEX)))
+            (progn
+              (vla-put-Color OBJ 256)
+              (if (and (not (member (strcase DEST)
+                                '("....21_TNT_N_LEADER" "....08_TNT_A_DETAIL")))
+                       (vlax-property-available-p OBJ 'Linetype T))
+                (vla-put-Linetype OBJ "ByLayer"))
+              (if (vlax-property-available-p OBJ 'Lineweight T)
+                (vla-put-Lineweight OBJ -1))
+              ;; EntityTransparency is the ActiveX string property, including 2014.
+              (if (vlax-property-available-p OBJ 'EntityTransparency T)
+                (vlax-put-property OBJ 'EntityTransparency "ByLayer"))))
+          (list T nil))))))
+
+(defun TNT:LAYER:RUN (/ *error* DOC MARK SS I EN RESULT OK FAILED)
+  (setq DOC (vla-get-ActiveDocument (vlax-get-acad-object)))
+  (defun *error* (MSG)
+    (if MARK (progn (setq MARK nil) (vla-EndUndoMark DOC)))
+    (if (and MSG (not (wcmatch (strcase MSG) "*CANCEL*,*QUIT*,*BREAK*")))
+      (princ (strcat "\n[TNT] ERROR: TNT_LAYER: " MSG)))
+    (princ))
+  (setq SS (ssget "_I"))
+  (if (not SS)
+    (progn (prompt "\n[TNT] Chon doi tuong can xu ly: ") (setq SS (ssget))))
+  (if SS
+    (progn
+      (vla-StartUndoMark DOC)
+      (setq MARK T I 0 OK 0 FAILED 0)
+      (repeat (sslength SS)
+        (setq EN (ssname SS I) I (1+ I))
+        (setq RESULT (vl-catch-all-apply 'TNT:LAYER:SELECTED-ONE (list EN)))
+        (if (or (vl-catch-all-error-p RESULT) (not (car RESULT)))
+          (progn
+            (setq FAILED (1+ FAILED))
+            (princ (strcat "\n[TNT] Handle " (cdr (assoc 5 (entget EN))) ": "
+                     (if (vl-catch-all-error-p RESULT)
+                       (vl-catch-all-error-message RESULT) (cadr RESULT)))))
+          (setq OK (1+ OK))))
+      (vla-EndUndoMark DOC)
+      (setq MARK nil)
+      (princ (strcat "\n[TNT] TNT_LAYER: Da xu ly " (itoa OK)
+                     "; loi/bo qua " (itoa FAILED) ".")))
+    (princ "\n[TNT] Khong co doi tuong nao duoc chon."))
+  (princ))
 ;;; ====================================================================================================
 ;;; END SOURCE: B_TNT_Layer_Fix.lsp
 ;;; ====================================================================================================
