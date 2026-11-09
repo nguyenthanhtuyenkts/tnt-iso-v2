@@ -62,12 +62,14 @@
     ;; ....08_TNT_A_DETAIL
     ("....08_TNT_A_DETAIL"
       ("...16_TNT_LINE_DETAIL"
-       "16_TNT_LINE_DETAIL")
+       "16_TNT_LINE_DETAIL"
+       "TNT-Mark")
     )
     ;; ....10_TNT_A_COTE
     ("....10_TNT_A_COTE"
       ("...21_TNT_LINE_COTE"
-       "21_TNT_COTE")
+       "21_TNT_COTE"
+       "...10_010_A_COTE")
     )
     ;; ....11_TNT_A_PLOT
     ("....11_TNT_A_PLOT"
@@ -86,7 +88,8 @@
     ;; ....13_TNT_F_TREE
     ("....13_TNT_F_TREE"
       ("...13_TNT_LINE_TREE"
-       "13_TNT_LINE_TREE")
+       "13_TNT_LINE_TREE"
+       "TNT-Tree")
     )
     ;; ....14_TNT_F_GLASS
     ("....14_TNT_F_GLASS"
@@ -114,7 +117,8 @@
        "2_TNT_LINE_WALL"
        "H-WALL"
        "TNT-Walls"
-       "A-Wall-G")
+       "A-Wall-G"
+       "...17_010_S_WALL")
     )
     ;; ....20_TNT_N_TEXT
     ("....20_TNT_N_TEXT"
@@ -152,6 +156,14 @@
       ("...18_TNT_N_TEXT"
        "TNT-Text"
        "...9_TNT_LINE_TEXT")
+    )
+    ;; ....43_TNT_P_DRAIN-WASH
+    ("....43_TNT_P_DRAIN-WASH"
+      ("...28_TNT_WATER-DRAIN-WASH")
+    )
+    ;; ....44_TNT_P_DRAIN-VENT
+    ("....44_TNT_P_DRAIN-VENT"
+      ("...29_TNT_WATER-DRAIN-VENT")
     )
   )
 )

@@ -6,6 +6,8 @@
 ;;;   and points only the selected block reference to that new definition when possible.
 ;;; - Moves editable objects to layer ....46_TNT_BASE_MEP, including AEC objects that expose Layer.
 ;;; - Forces editable object color to ByLayer.
+;;; - Converts selected/nested AEC objects to native private blocks using EXPLODE on staged copies.
+;;;   Requires Architecture/MEP or the matching Object Enabler. Failed conversions retain their source.
 ;;; - For AEC Wall objects, tries to change style to .TNT_A_WALL_COMPLETE-01.
 ;;;   After that, changes wall justification from Baseline to Center only; other justifications stay unchanged.
 ;;; - Blocks named ...TNT_COT_1 / ....TNT_COT_1 are exploded and processed even when nested inside other blocks.
@@ -151,7 +153,7 @@
   )
 )
 
-(defun TNT:MEPB:OBJECTS->SS (objects / ss ent)
+(defun TNT:MEPB:OBJECTS->SS (objects / ss ent obj)
   (setq ss (ssadd))
   (foreach obj objects
     (setq ent (vl-catch-all-apply 'vlax-vla-object->ename (list obj)))
@@ -173,15 +175,19 @@
   )
 )
 
-(defun TNT:MEPB:APPLY-ISO-TO-OBJECTS (objects / obj changed failed)
+(defun TNT:MEPB:APPLY-ISO-TO-OBJECTS (objects / obj changed failed kept converted)
   (setq changed 0 failed 0)
   (foreach obj objects
-    (if (TNT:MEPB:PUT-ISO-PROPS obj TNT:MEPB:TARGET-LAYER)
+    (setq converted nil)
+    (if (if (TNT:MEPB:AEC-P obj)
+          (setq converted (TNT:MEPB:CONVERT-AEC obj 24))
+          (TNT:MEPB:PUT-ISO-PROPS obj TNT:MEPB:TARGET-LAYER))
       (setq changed (1+ changed))
       (setq failed (1+ failed))
     )
+    (setq kept (cons (if converted converted obj) kept))
   )
-  (list changed failed)
+  (list changed failed (reverse kept))
 )
 
 (defun TNT:MEPB:HATCH-P (obj / objectName ent data dxfType)
@@ -222,7 +228,7 @@
   (list (reverse kept) deleted failed)
 )
 
-(defun TNT:MEPB:COPY-BLOCK-CONTENTS (sourceBlock targetBlock / doc items arr idx result copied)
+(defun TNT:MEPB:COPY-BLOCK-CONTENTS (sourceBlock targetBlock / doc items arr idx result copied obj)
   (setq doc (vla-get-ActiveDocument (vlax-get-acad-object)))
   (setq items nil)
   (vlax-for obj sourceBlock
@@ -411,9 +417,11 @@
   (and layerOk colorOk styleOk)
 )
 
-(defun TNT:MEPB:MOVE-BLOCK-CONTENTS-REC (block layerName depth / obj objectName nested made nestedName nestedBlock setNameResult counts changed failed skipCurrent)
+(defun TNT:MEPB:MOVE-BLOCK-CONTENTS-REC (block layerName depth / obj objects objectName nested made nestedName nestedBlock setNameResult counts changed failed skipCurrent)
   (setq changed 0 failed 0)
-  (vlax-for obj block
+  ;; Conversion can delete/add entities: never mutate a live COM enumerator.
+  (vlax-for obj block (setq objects (cons obj objects)))
+  (foreach obj (reverse objects)
     (setq skipCurrent nil)
     (setq objectName (vl-catch-all-apply 'vla-get-ObjectName (list obj)))
     (if (and (> depth 0)
@@ -441,15 +449,19 @@
                     (setq changed (+ changed (car counts)))
                     (setq failed  (+ failed  (cadr counts)))
                   )
+                  (setq failed (1+ failed))
                 )
               )
+              (setq failed (1+ failed))
             )
           )
         )
       )
     )
     (if (not skipCurrent)
-      (if (TNT:MEPB:PUT-ISO-PROPS obj layerName)
+      (if (if (TNT:MEPB:AEC-P obj)
+            (and (> depth 0) (TNT:MEPB:CONVERT-AEC obj (1- depth)))
+            (TNT:MEPB:PUT-ISO-PROPS obj layerName))
         (setq changed (1+ changed))
         (setq failed (1+ failed))
       )
@@ -495,6 +507,7 @@
       (setq deleted (cadr hatchResult))
       (setq failedDelete (caddr hatchResult))
       (setq counts (TNT:MEPB:APPLY-ISO-TO-OBJECTS objects))
+      (setq objects (caddr counts))
       (setq ss (TNT:MEPB:OBJECTS->SS objects))
       (if (> (sslength ss) 0)
         (progn
@@ -582,7 +595,82 @@
   )
 )
 
+(defun TNT:MEPB:AEC-P (obj / name ent kind)
+  (setq name (strcase (TNT:MEPB:OBJECT-NAME obj)))
+  (setq ent (vlax-vla-object->ename obj) kind (cdr (assoc 0 (entget ent))))
+  (or (wcmatch name "AEC*,ACDBPROXYENTITY")
+      (and kind (wcmatch (strcase kind) "AEC*,ACAD_PROXY_ENTITY")))
+)
+
+(defun TNT:MEPB:COPY-TO (objects owner / arr doc)
+  (setq doc (vla-get-ActiveDocument (vlax-get-acad-object)))
+  (setq arr (vlax-make-safearray vlax-vbObject (cons 0 (1- (length objects)))))
+  (vlax-safearray-fill arr objects)
+  (TNT:MEPB:VARIANT->LIST (vla-CopyObjects doc arr owner))
+)
+
+(defun TNT:MEPB:CLEAN-STAGED (/ item)
+  (foreach item TNT:MEPB:STAGED
+    (if (not (vlax-erased-p item)) (vla-Delete item)))
+  (setq TNT:MEPB:STAGED nil)
+)
+
+(defun TNT:MEPB:CONVERT-AEC (obj depth / doc space owner temp before item objects
+                                      ent result name block ref counts savedStage)
+  ;; Work on a copy in the active space. EXPLODE can demand-load the AEC
+  ;; Object Enabler; plain property edits cannot override component display.
+  ;; Coordinates remain in the source owner's coordinate system throughout.
+  (setq doc (vla-get-ActiveDocument (vlax-get-acad-object)))
+  (setq owner (vla-ObjectIDToObject doc (vla-get-OwnerID obj)))
+  (setq space (if (= (getvar "CVPORT") 1) (vla-get-PaperSpace doc) (vla-get-ModelSpace doc)))
+  (setq savedStage TNT:MEPB:STAGED)
+  (setq temp (car (TNT:MEPB:COPY-TO (list obj) space)))
+  (setq TNT:MEPB:STAGED (cons temp TNT:MEPB:STAGED))
+  (setq before nil)
+  (vlax-for item space (setq before (cons (vla-get-Handle item) before)))
+  (command-s "_.EXPLODE" (vlax-vla-object->ename temp) "")
+  (setq objects nil)
+  (vlax-for item space
+    (if (not (member (vla-get-Handle item) before))
+      (progn (setq objects (cons item objects))
+             (setq TNT:MEPB:STAGED (cons item TNT:MEPB:STAGED)))))
+  (if (and (vlax-erased-p temp) objects)
+    (progn
+      (setq name (TNT:MEPB:REBLOCK-NAME "AEC"))
+      (setq block (vla-Add (vla-get-Blocks doc) (vlax-3d-point '(0.0 0.0 0.0)) name))
+      (TNT:MEPB:COPY-TO (reverse objects) block)
+      ;; Snapshot traversal also handles anonymous blocks returned by AEC EXPLODE.
+      (setq counts (TNT:MEPB:MOVE-BLOCK-CONTENTS-REC block TNT:MEPB:TARGET-LAYER depth))
+      (if (= (cadr counts) 0)
+        (progn
+          (setq ref (vla-InsertBlock owner (vlax-3d-point '(0.0 0.0 0.0)) name 1.0 1.0 1.0 0.0))
+          (setq TNT:MEPB:STAGED (cons ref TNT:MEPB:STAGED))
+          (if (TNT:MEPB:PUT-ISO-PROPS ref TNT:MEPB:TARGET-LAYER)
+            (progn
+              (vla-Delete obj)
+              ;; Keep the replacement only after deletion of the source succeeds.
+              (setq TNT:MEPB:STAGED (vl-remove ref TNT:MEPB:STAGED))
+              (setq result ref)))))
+    ))
+  ;; Nested conversions share the error cleanup list, but clean only their work.
+  (foreach item TNT:MEPB:STAGED
+    (if (and (not (member item savedStage)) (not (vlax-erased-p item)))
+      (vla-Delete item)))
+  (setq TNT:MEPB:STAGED savedStage)
+  (if (not result)
+    (princ "\n[TNT] AEC conversion failed; source retained. Requires Architecture/MEP or a matching Object Enabler; check source layer locks and remaining nested AEC."))
+  result
+)
+
 (defun TNT:MEPB:PROCESS-OBJECT (obj / ok)
+  (if (TNT:MEPB:AEC-P obj)
+    (progn
+      (setq ok (TNT:MEPB:CONVERT-AEC obj 24))
+      (if ok (princ "\n[TNT] AEC converted to private native block; layer/color set ByLayer.")))
+    (TNT:MEPB:PROCESS-NATIVE-OBJECT obj))
+)
+
+(defun TNT:MEPB:PROCESS-NATIVE-OBJECT (obj / ok)
   (setq ok (TNT:MEPB:PUT-ISO-PROPS obj TNT:MEPB:TARGET-LAYER))
   (vl-catch-all-apply 'vla-Update (list obj))
   (if ok
@@ -599,10 +687,20 @@
   )
 )
 
-(defun TNT:MEPB:RUN (/ oldcmdecho ss i ent obj total)
+(defun TNT:MEPB:RUN (/ *error* oldcmdecho ss i ent obj total doc undoStarted TNT:MEPB:STAGED)
   (setq oldcmdecho (getvar "CMDECHO"))
+  (setq doc (vla-get-ActiveDocument (vlax-get-acad-object)))
+  (defun *error* (msg / cleanup)
+    (setq cleanup (vl-catch-all-apply 'TNT:MEPB:CLEAN-STAGED nil))
+    (if (vl-catch-all-error-p cleanup)
+      (princ (strcat "\n[TNT] Cleanup failed; use UNDO: " (vl-catch-all-error-message cleanup))))
+    (if undoStarted (vla-EndUndoMark doc))
+    (setvar "CMDECHO" oldcmdecho)
+    (if msg (princ (strcat "\n[TNT] " msg)))
+    (princ))
   (setvar "CMDECHO" 0)
-  (command-s "_.UNDO" "_BE")
+  (vla-StartUndoMark doc)
+  (setq undoStarted T)
   (TNT:MEPB:UNLOCK TNT:MEPB:TARGET-LAYER)
   (setq ss (TNT:MEPB:SELECT-OBJECTS))
   (if ss
@@ -629,7 +727,8 @@
     )
     (princ "\n[TNT] Nothing selected.")
   )
-  (command-s "_.UNDO" "_END")
+  (vla-EndUndoMark doc)
+  (setq undoStarted nil)
   (setvar "CMDECHO" oldcmdecho)
   (princ)
 )
