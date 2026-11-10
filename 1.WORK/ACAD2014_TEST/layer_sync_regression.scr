@@ -1,0 +1,4 @@
+(setvar "SECURELOAD" 0)
+(load "D:/0.PC TUYEN/0.TNT ISO/00.TNT ISO 2026/1.WORK/ACAD2014_TEST/layer_sync_regression.lsp")
+_QUIT
+_Y

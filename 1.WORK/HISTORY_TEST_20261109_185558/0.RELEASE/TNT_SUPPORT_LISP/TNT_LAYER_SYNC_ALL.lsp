@@ -10,148 +10,9 @@
 
 (defun TNT:LAYER-SYNC:MAP-GROUPS (/)
   '(
-    ;; ....01_TNT_A_DRAWING
-    ("....01_TNT_A_DRAWING"
-      ("...0_TNT_LINE_NAME"
-       "...01_010_A_DRAWING"
-       "0_TNT-KHUNGTEN"
-       "KHUNG"
-       "19_TNT_LAYOUT")
-    )
-    ;; ....02_TNT_A_VIRTURAL
-    ("....02_TNT_A_VIRTURAL"
-      ("...4_TNT_LINE_VIRTURAL"
-       "4_TNT_LINE_VIRTURAL"
-       "TNT-Virtural"
-       "...20_TNT_LINE_COMPLETE"
-       "LC-NETTHAY"
-       "20_TNT_COMPLETE"
-       "3.Net.Thay.KT")
-    )
-    ;; ....03_TNT_A_THIN
-    ("....03_TNT_A_THIN"
-      ("...5_TNT_LINE_THIN"
-       "LC-LOPTRAT"
-       "5_TNT_LINE_THIN")
-    )
-    ;; ....04_TNT_A_HIDDEN
-    ("....04_TNT_A_HIDDEN"
-      ("...6_TNT_LINE_HIDDEN"
-       "6_TNT_LINE_HIDDEN"
-       "TNT-Hidden N")
-    )
-    ;; ....05_TNT_A_SECTION
-    ("....05_TNT_A_SECTION"
-      ("...3_TNT_LINE_SECTION"
-       "...05_010_A_SECTION"
-       "TNT-Net Cat"
-       "3_TNT_LINE_SECTION")
-    )
-    ;; ....06_TNT_A_SECTION-LINE
-    ("....06_TNT_A_SECTION-LINE"
-      ("3_TNT_LINE_SECTION"
-       "...17_TNT_SECTION_LINE"
-       "17_TNT_SECTION_LINE")
-    )
-    ;; ....07_TNT_A_BASE
-    ("....07_TNT_A_BASE"
-      ("...7_TNT_LINE_BASE"
-       "...07_010_A_BASE"
-       "7_TNT_LINE_BASE")
-    )
-    ;; ....08_TNT_A_DETAIL
-    ("....08_TNT_A_DETAIL"
-      ("...16_TNT_LINE_DETAIL"
-       "16_TNT_LINE_DETAIL")
-    )
-    ;; ....10_TNT_A_COTE
-    ("....10_TNT_A_COTE"
-      ("...21_TNT_LINE_COTE"
-       "21_TNT_COTE")
-    )
-    ;; ....11_TNT_A_PLOT
-    ("....11_TNT_A_PLOT"
-      ("...19_TNT_LINE_LAYOUT"
-       "IN")
-    )
-    ;; ....12_TNT_F_FURNITURE
-    ("....12_TNT_F_FURNITURE"
-      ("...8_TNT_LINE_FUNITURE"
-       "A-Noithat"
-       "FF-FURN"
-       "TNT-Funiture"
-       "8_TNT_LINE_FUNITURE"
-       "LC-NOITHAT")
-    )
-    ;; ....13_TNT_F_TREE
-    ("....13_TNT_F_TREE"
-      ("...13_TNT_LINE_TREE"
-       "13_TNT_LINE_TREE")
-    )
-    ;; ....14_TNT_F_GLASS
-    ("....14_TNT_F_GLASS"
-      ("14_TNT _LINE_GLASSE"
-       "...14_TNT_LINE_GLASSE"
-       "A-Glaz")
-    )
-    ;; ....15_TNT_F_DOOR
-    ("....15_TNT_F_DOOR"
-      ("...15_TNT_LINE_DOOR"
-       "15_TNT_LINE_DOOR"
-       "TNT-Door"
-       "A-Door"
-       "LC-CUA"
-       "CC01$0$A-Cua")
-    )
-    ;; ....16_TNT_S_CONCRETE
-    ("....16_TNT_S_CONCRETE"
-      ("TNT-Concrete"
-       "1_TNT_LINE_CONCRETE")
-    )
-    ;; ....17_TNT_S_WALL
-    ("....17_TNT_S_WALL"
-      ("...2_TNT_LINE_WALL"
-       "2_TNT_LINE_WALL"
-       "H-WALL"
-       "TNT-Walls"
-       "A-Wall-G")
-    )
-    ;; ....20_TNT_N_TEXT
-    ("....20_TNT_N_TEXT"
-      ("...9_TNT_LINE_TEXT"
-       "TNT-Text"
-       "H_text"
-       "VTSDD"
-       "9_TNT_LINE_TEXT"
-       "18_TNT_LINE_TITLE"
-       "LC-TEXT")
-    )
-    ;; ....22_TNT_N_DIMENSION
-    ("....22_TNT_N_DIMENSION"
-      ("...11_TNT_LINE_DIMENSION"
-       "11_TNT_LINE_DIMENSION"
-       "TNT-Dimention")
-    )
-    ;; ....23_TNT_N_HATCH
-    ("....23_TNT_N_HATCH"
-      ("...10_TNT_LINE_HATCH"
-       "...21_010_N_HATCH"
-       "TNT-Hatch"
-       "10_TNT_LINE_HATCH")
-    )
-    ;; ....24_TNT_N_ANNOTATE
-    ("....24_TNT_N_ANNOTATE"
-      ("...12_TNT_LINE_ANNOTATE"
-       "12_TNT_LINE_ANNOTATE"
-       "G-Anno-Nplt"
-       "A-Anno-Scrn"
-       "Aec-AnnotationNonPlot-T")
-    )
-    ;; ....26_TNT_M_TEXT
-    ("....26_TNT_M_TEXT"
-      ("...18_TNT_N_TEXT"
-       "TNT-Text"
-       "...9_TNT_LINE_TEXT")
+    ;; ....42_TNT_P_DRAIN-RAIN
+    ("....42_TNT_P_DRAIN-RAIN"
+      ("EXTERNAL_TOILET_OLD")
     )
   )
 )
@@ -200,18 +61,53 @@
   (princ)
 )
 
-(defun TNT:LAYER-SYNC:MOVE (oldLayer newLayer / ss n)
+(defun TNT:LAYER-SYNC:EXACT-FILTER (name / code result)
+  ;; ssget string filters use wildcards, including dots and question marks.
+  (setq result "")
+  (foreach code (vl-string->list name)
+    (setq result (strcat result "`" (chr code)))
+  )
+  result
+)
+
+(defun TNT:LAYER-SYNC:SET-LAYER (obj newLayer / result actual)
+  (setq result (vl-catch-all-apply 'vla-put-Layer (list obj newLayer)))
+  (if (vl-catch-all-error-p result)
+    (progn
+      (princ (strcat "\n[TNT] Cannot move object to " newLayer ": "
+                     (vl-catch-all-error-message result)))
+      nil
+    )
+    (progn
+      (setq actual (vl-catch-all-apply 'vla-get-Layer (list obj)))
+      (if (and (not (vl-catch-all-error-p actual))
+               (= (strcase actual) (strcase newLayer)))
+        T
+        (progn (princ (strcat "\n[TNT] Layer change not confirmed: " newLayer)) nil)
+      )
+    )
+  )
+)
+
+(defun TNT:LAYER-SYNC:MOVE (oldLayer newLayer / ss i count obj)
   (TNT:LAYER-SYNC:UNLOCK oldLayer)
   (TNT:LAYER-SYNC:UNLOCK newLayer)
-  (setq ss (ssget "_X" (list (cons 8 oldLayer))))
+  (setq ss (ssget "_X" (list (cons 8 (TNT:LAYER-SYNC:EXACT-FILTER oldLayer)))))
+  (setq count 0)
   (if ss
     (progn
-      (setq n (sslength ss))
-      (command-s "_.CHPROP" ss "" "_LA" newLayer "")
-      n
+      ;; Set each entity directly: CHPROP ignores entities in other spaces.
+      (setq i 0)
+      (repeat (sslength ss)
+        (setq obj (vlax-ename->vla-object (ssname ss i)))
+        (if (TNT:LAYER-SYNC:SET-LAYER obj newLayer)
+          (setq count (1+ count))
+        )
+        (setq i (1+ i))
+      )
     )
-    0
   )
+  count
 )
 
 (defun TNT:LAYER-SYNC:MOVE-BLOCK-DEFS (oldLayer newLayer / doc blocks block obj count objLayer)
@@ -227,8 +123,7 @@
         (setq objLayer (vl-catch-all-apply 'vla-get-Layer (list obj)))
         (if (and (not (vl-catch-all-error-p objLayer))
                  (= (strcase objLayer) (strcase oldLayer)))
-          (if (not (vl-catch-all-error-p
-                     (vl-catch-all-apply 'vla-put-Layer (list obj newLayer))))
+          (if (TNT:LAYER-SYNC:SET-LAYER obj newLayer)
             (setq count (1+ count))
           )
         )
@@ -282,8 +177,7 @@
               (progn
                 (TNT:LAYER-SYNC:UNLOCK oldLayer)
                 (TNT:LAYER-SYNC:UNLOCK newLayer)
-                (if (not (vl-catch-all-error-p
-                           (vl-catch-all-apply 'vla-put-Layer (list obj newLayer))))
+                (if (TNT:LAYER-SYNC:SET-LAYER obj newLayer)
                   (setq changed (1+ changed))
                   (setq failed (1+ failed))
                 )
@@ -369,5 +263,5 @@
   (TNT:LAYER-SYNC:RUN-SELECTION)
 )
 
-(princ "\n[TNT] Loaded TNT_LAYER_SYNC_ALL.lsp. Commands: TNT_LAYER_SYNC_ALL, TNT_LAYER_SYNC_SELECTION")
+(princ "\n[TNT] Loaded TNT_LAYER_SYNC_ALL.lsp [2026-11-09 spaces fix]. Commands: TNT_LAYER_SYNC_ALL, TNT_LAYER_SYNC_SELECTION")
 (princ)

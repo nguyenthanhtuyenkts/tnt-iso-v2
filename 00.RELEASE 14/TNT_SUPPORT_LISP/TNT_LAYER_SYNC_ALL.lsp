@@ -158,9 +158,43 @@
        "TNT-Text"
        "...9_TNT_LINE_TEXT")
     )
+    ;; ....36_TNT_P_NOTE
+    ("....36_TNT_P_NOTE"
+      ("...22_TNT_WATER-NOTE")
+    )
+    ;; ....37_TNT_P_TEXT
+    ("....37_TNT_P_TEXT"
+      ("...23_TNT_WATER-TEXT")
+    )
+    ;; ....38_TNT_P_SUPPLY-TANK
+    ("....38_TNT_P_SUPPLY-TANK"
+      ("...24_TNT_WATER-SUPPLY")
+    )
+    ;; ....39_TNT_P_SUPPLY-COOL
+    ("....39_TNT_P_SUPPLY-COOL"
+      ("water supply")
+    )
+    ;; ....40_TNT_P_SUPPLY-HOT
+    ("....40_TNT_P_SUPPLY-HOT"
+      ("...25_TNT_WATER-SUPPLY-HOT"
+       "NUOCNONG")
+    )
+    ;; ....41_TNT_P_DRAIN-TOILET
+    ("....41_TNT_P_DRAIN-TOILET"
+      ("T-N\\U+01AF\\U+1EDAC THO\U+00C1T X\U+00CD"
+       "T-N\\U+01AF\\U+1EDAC THO?T X?"
+       "...26_TNT_WATER-DRAIN-TOILET")
+    )
+    ;; ....42_TNT_P_DRAIN-RAIN
+    ("....42_TNT_P_DRAIN-RAIN"
+      ("...27_TNT_WATER-DRAIN-RAIN")
+    )
     ;; ....43_TNT_P_DRAIN-WASH
     ("....43_TNT_P_DRAIN-WASH"
-      ("...28_TNT_WATER-DRAIN-WASH")
+      ("...28_TNT_WATER-DRAIN-WASH"
+       "...28_TNT_WATER-DRAIN-KITCHEN"
+       "T-N\\U+01AF\\U+1EDAC THO\U+00C1T CHAU"
+       "T-N\\U+01AF\\U+1EDAC THO?T CHAU")
     )
     ;; ....44_TNT_P_DRAIN-VENT
     ("....44_TNT_P_DRAIN-VENT"
@@ -213,18 +247,53 @@
   (princ)
 )
 
-(defun TNT:LAYER-SYNC:MOVE (oldLayer newLayer / ss n)
+(defun TNT:LAYER-SYNC:EXACT-FILTER (name / code result)
+  ;; ssget string filters use wildcards, including dots and question marks.
+  (setq result "")
+  (foreach code (vl-string->list name)
+    (setq result (strcat result "`" (chr code)))
+  )
+  result
+)
+
+(defun TNT:LAYER-SYNC:SET-LAYER (obj newLayer / result actual)
+  (setq result (vl-catch-all-apply 'vla-put-Layer (list obj newLayer)))
+  (if (vl-catch-all-error-p result)
+    (progn
+      (princ (strcat "\n[TNT] Cannot move object to " newLayer ": "
+                     (vl-catch-all-error-message result)))
+      nil
+    )
+    (progn
+      (setq actual (vl-catch-all-apply 'vla-get-Layer (list obj)))
+      (if (and (not (vl-catch-all-error-p actual))
+               (= (strcase actual) (strcase newLayer)))
+        T
+        (progn (princ (strcat "\n[TNT] Layer change not confirmed: " newLayer)) nil)
+      )
+    )
+  )
+)
+
+(defun TNT:LAYER-SYNC:MOVE (oldLayer newLayer / ss i count obj)
   (TNT:LAYER-SYNC:UNLOCK oldLayer)
   (TNT:LAYER-SYNC:UNLOCK newLayer)
-  (setq ss (ssget "_X" (list (cons 8 oldLayer))))
+  (setq ss (ssget "_X" (list (cons 8 (TNT:LAYER-SYNC:EXACT-FILTER oldLayer)))))
+  (setq count 0)
   (if ss
     (progn
-      (setq n (sslength ss))
-      (command-s "_.CHPROP" ss "" "_LA" newLayer "")
-      n
+      ;; Set each entity directly: CHPROP ignores entities in other spaces.
+      (setq i 0)
+      (repeat (sslength ss)
+        (setq obj (vlax-ename->vla-object (ssname ss i)))
+        (if (TNT:LAYER-SYNC:SET-LAYER obj newLayer)
+          (setq count (1+ count))
+        )
+        (setq i (1+ i))
+      )
     )
-    0
   )
+  count
 )
 
 (defun TNT:LAYER-SYNC:MOVE-BLOCK-DEFS (oldLayer newLayer / doc blocks block obj count objLayer)
@@ -240,8 +309,7 @@
         (setq objLayer (vl-catch-all-apply 'vla-get-Layer (list obj)))
         (if (and (not (vl-catch-all-error-p objLayer))
                  (= (strcase objLayer) (strcase oldLayer)))
-          (if (not (vl-catch-all-error-p
-                     (vl-catch-all-apply 'vla-put-Layer (list obj newLayer))))
+          (if (TNT:LAYER-SYNC:SET-LAYER obj newLayer)
             (setq count (1+ count))
           )
         )
@@ -295,8 +363,7 @@
               (progn
                 (TNT:LAYER-SYNC:UNLOCK oldLayer)
                 (TNT:LAYER-SYNC:UNLOCK newLayer)
-                (if (not (vl-catch-all-error-p
-                           (vl-catch-all-apply 'vla-put-Layer (list obj newLayer))))
+                (if (TNT:LAYER-SYNC:SET-LAYER obj newLayer)
                   (setq changed (1+ changed))
                   (setq failed (1+ failed))
                 )
@@ -382,5 +449,5 @@
   (TNT:LAYER-SYNC:RUN-SELECTION)
 )
 
-(princ "\n[TNT] Loaded TNT_LAYER_SYNC_ALL.lsp. Commands: TNT_LAYER_SYNC_ALL, TNT_LAYER_SYNC_SELECTION")
+(princ "\n[TNT] Loaded TNT_LAYER_SYNC_ALL.lsp [2026-11-09 spaces fix]. Commands: TNT_LAYER_SYNC_ALL, TNT_LAYER_SYNC_SELECTION")
 (princ)

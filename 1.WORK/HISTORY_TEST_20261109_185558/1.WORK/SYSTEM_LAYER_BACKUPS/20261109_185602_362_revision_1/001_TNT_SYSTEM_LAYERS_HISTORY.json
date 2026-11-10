@@ -1,0 +1,2007 @@
+{
+    "Schema":  1,
+    "Revision":  0,
+    "Current":  [
+                    {
+                        "ID":  "TNT-L0001",
+                        "Name":  "....00________________________________",
+                        "Values":  [
+                                       "....00________________________________",
+                                       "N",
+                                       "250",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "________________________________",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....00________________________________"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0002",
+                        "Name":  "....01_TNT_A_DRAWING",
+                        "Values":  [
+                                       "....01_TNT_A_DRAWING",
+                                       "P",
+                                       "7",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT KHUNG BẢN VẼ",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....01_TNT_A_DRAWING"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0003",
+                        "Name":  "....02_TNT_A_VIRTURAL",
+                        "Values":  [
+                                       "....02_TNT_A_VIRTURAL",
+                                       "P",
+                                       "9",
+                                       "CONTINUOUS",
+                                       "0.3",
+                                       "50",
+                                       "NÉT THẤY",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....02_TNT_A_VIRTURAL"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0004",
+                        "Name":  "....03_TNT_A_THIN",
+                        "Values":  [
+                                       "....03_TNT_A_THIN",
+                                       "P",
+                                       "251",
+                                       "CONTINUOUS",
+                                       "0.15",
+                                       "50",
+                                       "NÉT MẢNH",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....03_TNT_A_THIN"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0005",
+                        "Name":  "....04_TNT_A_HIDDEN",
+                        "Values":  [
+                                       "....04_TNT_A_HIDDEN",
+                                       "P",
+                                       "251",
+                                       "HIDDEN",
+                                       "0",
+                                       "50",
+                                       "NÉT KHUẤT",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....04_TNT_A_HIDDEN"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0006",
+                        "Name":  "....05_TNT_A_SECTION",
+                        "Values":  [
+                                       "....05_TNT_A_SECTION",
+                                       "P",
+                                       "30",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "50",
+                                       "NÉT CẮT",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....05_TNT_A_SECTION"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0007",
+                        "Name":  "....06_TNT_A_SECTION-LINE",
+                        "Values":  [
+                                       "....06_TNT_A_SECTION-LINE",
+                                       "P",
+                                       "6",
+                                       "ACAD_ISO07W100",
+                                       "0",
+                                       "0",
+                                       "NÉT TRỤC CẮT",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....06_TNT_A_SECTION-LINE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0008",
+                        "Name":  "....07_TNT_A_BASE",
+                        "Values":  [
+                                       "....07_TNT_A_BASE",
+                                       "P",
+                                       "177",
+                                       "CENTER",
+                                       "0",
+                                       "0",
+                                       "NÉT TRỤC",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....07_TNT_A_BASE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0009",
+                        "Name":  "....08_TNT_A_DETAIL",
+                        "Values":  [
+                                       "....08_TNT_A_DETAIL",
+                                       "P",
+                                       "156",
+                                       "HIDDEN",
+                                       "0",
+                                       "50",
+                                       "NÉT CHI TIẾT",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....08_TNT_A_DETAIL"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0010",
+                        "Name":  "....09_TNT_A_COMPLETE",
+                        "Values":  [
+                                       "....09_TNT_A_COMPLETE",
+                                       "P",
+                                       "8",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "50",
+                                       "NÉT HOÀN THIỆN",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....09_TNT_A_COMPLETE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0011",
+                        "Name":  "....10_TNT_A_COTE",
+                        "Values":  [
+                                       "....10_TNT_A_COTE",
+                                       "P",
+                                       "14",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT CAO ĐỘ",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....10_TNT_A_COTE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0012",
+                        "Name":  "....11_TNT_A_PLOT",
+                        "Values":  [
+                                       "....11_TNT_A_PLOT",
+                                       "N",
+                                       "250",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT IN",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....11_TNT_A_PLOT"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0013",
+                        "Name":  "....12________________________________",
+                        "Values":  [
+                                       "....12________________________________",
+                                       "N",
+                                       "250",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "50",
+                                       "________________________________",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....12________________________________"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0014",
+                        "Name":  "....12_TNT_F_FURNITURE",
+                        "Values":  [
+                                       "....12_TNT_F_FURNITURE",
+                                       "P",
+                                       "27",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "50",
+                                       "NÉT NỘI THẤT",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....12_TNT_F_FURNITURE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0015",
+                        "Name":  "....13_TNT_F_TREE",
+                        "Values":  [
+                                       "....13_TNT_F_TREE",
+                                       "P",
+                                       "76",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "50",
+                                       "NÉT CÂY",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....13_TNT_F_TREE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0016",
+                        "Name":  "....14_TNT_F_GLASS",
+                        "Values":  [
+                                       "....14_TNT_F_GLASS",
+                                       "P",
+                                       "147",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "50",
+                                       "NÉT KÍNH",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....14_TNT_F_GLASS"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0017",
+                        "Name":  "....15_TNT_F_DOOR",
+                        "Values":  [
+                                       "....15_TNT_F_DOOR",
+                                       "P",
+                                       "33",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "50",
+                                       "NÉT CỬA",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....15_TNT_F_DOOR"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0018",
+                        "Name":  "....16________________________________",
+                        "Values":  [
+                                       "....16________________________________",
+                                       "N",
+                                       "250",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "________________________________",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....16________________________________"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0019",
+                        "Name":  "....16_TNT_S_CONCRETE",
+                        "Values":  [
+                                       "....16_TNT_S_CONCRETE",
+                                       "P",
+                                       "7",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "50",
+                                       "NÉT BTCT",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....16_TNT_S_CONCRETE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0020",
+                        "Name":  "....17_TNT_S_WALL",
+                        "Values":  [
+                                       "....17_TNT_S_WALL",
+                                       "P",
+                                       "41",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "50",
+                                       "NÉT TƯỜNG",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....17_TNT_S_WALL"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0021",
+                        "Name":  "....18_TNT_S_COLUMN",
+                        "Values":  [
+                                       "....18_TNT_S_COLUMN",
+                                       "P",
+                                       "9",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "50",
+                                       "NÉT CỘT",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....18_TNT_S_COLUMN"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0022",
+                        "Name":  "....19________________________________",
+                        "Values":  [
+                                       "....19________________________________",
+                                       "N",
+                                       "250",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "________________________________",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....19________________________________"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0023",
+                        "Name":  "....20_TNT_N_TEXT",
+                        "Values":  [
+                                       "....20_TNT_N_TEXT",
+                                       "P",
+                                       "9",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT CHỮ",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....20_TNT_N_TEXT"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0024",
+                        "Name":  "....21_TNT_N_LEADER",
+                        "Values":  [
+                                       "....21_TNT_N_LEADER",
+                                       "P",
+                                       "9",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT GHI CHÚ",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....21_TNT_N_LEADER"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0025",
+                        "Name":  "....22_TNT_N_DIMENSION",
+                        "Values":  [
+                                       "....22_TNT_N_DIMENSION",
+                                       "P",
+                                       "251",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT KÍCH THƯỚC",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....22_TNT_N_DIMENSION"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0026",
+                        "Name":  "....23_TNT_N_HATCH",
+                        "Values":  [
+                                       "....23_TNT_N_HATCH",
+                                       "P",
+                                       "250",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "50",
+                                       "NÉT VẬT LIỆU",
+                                       "Y"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....23_TNT_N_HATCH"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0027",
+                        "Name":  "....24_TNT_N_ANNOTATE",
+                        "Values":  [
+                                       "....24_TNT_N_ANNOTATE",
+                                       "P",
+                                       "14",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT CHÚ THÍCH",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....24_TNT_N_ANNOTATE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0028",
+                        "Name":  "....25________________________________",
+                        "Values":  [
+                                       "....25________________________________",
+                                       "N",
+                                       "250",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "________________________________",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....25________________________________"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0029",
+                        "Name":  "....25_TNT_M_NOTE",
+                        "Values":  [
+                                       "....25_TNT_M_NOTE",
+                                       "P",
+                                       "1",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT THIẾT BỊ ĐHKK",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....25_TNT_M_NOTE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0030",
+                        "Name":  "....26_TNT_M_TEXT",
+                        "Values":  [
+                                       "....26_TNT_M_TEXT",
+                                       "P",
+                                       "4",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT CHỮ ĐHKK",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....26_TNT_M_TEXT"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0031",
+                        "Name":  "....27_TNT_M_CONTROL",
+                        "Values":  [
+                                       "....27_TNT_M_CONTROL",
+                                       "P",
+                                       "5",
+                                       "HIDDEN",
+                                       "0",
+                                       "0",
+                                       "NÉT ĐIỀU KHIỂN ĐHKK",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....27_TNT_M_CONTROL"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0032",
+                        "Name":  "....28_TNT_M_COPPER-PIPE",
+                        "Values":  [
+                                       "....28_TNT_M_COPPER-PIPE",
+                                       "P",
+                                       "3",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT ỐNG ĐỒNG",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....28_TNT_M_COPPER-PIPE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0033",
+                        "Name":  "....29_TNT_M_CONDENSED-W",
+                        "Values":  [
+                                       "....29_TNT_M_CONDENSED-W",
+                                       "P",
+                                       "6",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT NƯỚC NGƯNG",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....29_TNT_M_CONDENSED-W"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0034",
+                        "Name":  "....30_TNT_M_RETURN-DUCT",
+                        "Values":  [
+                                       "....30_TNT_M_RETURN-DUCT",
+                                       "P",
+                                       "6",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT HỒI ĐHKK",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....30_TNT_M_RETURN-DUCT"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0035",
+                        "Name":  "....31_TNT_M_SUPPLY-DUCT",
+                        "Values":  [
+                                       "....31_TNT_M_SUPPLY-DUCT",
+                                       "P",
+                                       "4",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT CẤP ĐHKK",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....31_TNT_M_SUPPLY-DUCT"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0036",
+                        "Name":  "....32________________________________",
+                        "Values":  [
+                                       "....32________________________________",
+                                       "N",
+                                       "250",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "________________________________",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....32________________________________"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0037",
+                        "Name":  "....32_TNT_E_NOTE",
+                        "Values":  [
+                                       "....32_TNT_E_NOTE",
+                                       "P",
+                                       "1",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT THIẾT BỊ ĐIỆN",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....32_TNT_E_NOTE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0038",
+                        "Name":  "....33_TNT_E_TEXT",
+                        "Values":  [
+                                       "....33_TNT_E_TEXT",
+                                       "P",
+                                       "2",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT CHỮ PHẦN ĐIỆN",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....33_TNT_E_TEXT"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0039",
+                        "Name":  "....34_TNT_E_LINE",
+                        "Values":  [
+                                       "....34_TNT_E_LINE",
+                                       "P",
+                                       "4",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT SĐNL ĐIỆN",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....34_TNT_E_LINE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0040",
+                        "Name":  "....35_TNT_E_WIRE",
+                        "Values":  [
+                                       "....35_TNT_E_WIRE",
+                                       "P",
+                                       "6",
+                                       "DASHDOT",
+                                       "0",
+                                       "0",
+                                       "NÉT DÂY ĐIỆN",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....35_TNT_E_WIRE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0041",
+                        "Name":  "....36________________________________",
+                        "Values":  [
+                                       "....36________________________________",
+                                       "N",
+                                       "250",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "________________________________",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....36________________________________"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0042",
+                        "Name":  "....36_TNT_P_NOTE",
+                        "Values":  [
+                                       "....36_TNT_P_NOTE",
+                                       "P",
+                                       "11",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT THIẾT BỊ NƯỚC",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....36_TNT_P_NOTE"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0043",
+                        "Name":  "....37_TNT_P_TEXT",
+                        "Values":  [
+                                       "....37_TNT_P_TEXT",
+                                       "P",
+                                       "3",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT CHỮ NƯỚC",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....37_TNT_P_TEXT"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0044",
+                        "Name":  "....38_TNT_P_SUPPLY-TANK",
+                        "Values":  [
+                                       "....38_TNT_P_SUPPLY-TANK",
+                                       "P",
+                                       "4",
+                                       "HIDDEN",
+                                       "0",
+                                       "0",
+                                       "NÉT CẤP TÉT",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....38_TNT_P_SUPPLY-TANK"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0045",
+                        "Name":  "....39_TNT_P_SUPPLY-COOL",
+                        "Values":  [
+                                       "....39_TNT_P_SUPPLY-COOL",
+                                       "P",
+                                       "4",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "NÉT CẤP LẠNH",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....39_TNT_P_SUPPLY-COOL"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0046",
+                        "Name":  "....40_TNT_P_SUPPLY-HOT",
+                        "Values":  [
+                                       "....40_TNT_P_SUPPLY-HOT",
+                                       "P",
+                                       "1",
+                                       "HIDDEN",
+                                       "0",
+                                       "0",
+                                       "NÉT CẤP NÓNG",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....40_TNT_P_SUPPLY-HOT"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0047",
+                        "Name":  "....41_TNT_P_DRAIN-TOILET",
+                        "Values":  [
+                                       "....41_TNT_P_DRAIN-TOILET",
+                                       "P",
+                                       "4",
+                                       "HIDDEN",
+                                       "0",
+                                       "0",
+                                       "NÉT THOÁT XÍ",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....41_TNT_P_DRAIN-TOILET"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0048",
+                        "Name":  "....42_TNT_P_DRAIN-RAIN",
+                        "Values":  [
+                                       "....42_TNT_P_DRAIN-RAIN",
+                                       "P",
+                                       "5",
+                                       "HIDDEN",
+                                       "0",
+                                       "0",
+                                       "NÉT THOÁT MƯA",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....42_TNT_P_DRAIN-RAIN"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0049",
+                        "Name":  "....43_TNT_P_DRAIN-WASH",
+                        "Values":  [
+                                       "....43_TNT_P_DRAIN-WASH",
+                                       "P",
+                                       "6",
+                                       "HIDDEN",
+                                       "0",
+                                       "0",
+                                       "NÉT THOÁT RỬA",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....43_TNT_P_DRAIN-WASH"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0050",
+                        "Name":  "....44_TNT_P_DRAIN-VENT",
+                        "Values":  [
+                                       "....44_TNT_P_DRAIN-VENT",
+                                       "P",
+                                       "2",
+                                       "HIDDEN",
+                                       "0",
+                                       "0",
+                                       "NÉT THÔNG HƠI",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....44_TNT_P_DRAIN-VENT"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0051",
+                        "Name":  "....45________________________________",
+                        "Values":  [
+                                       "....45________________________________",
+                                       "N",
+                                       "250",
+                                       "CONTINUOUS",
+                                       "0",
+                                       "0",
+                                       "________________________________",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....45________________________________"
+                                    ]
+                    },
+                    {
+                        "ID":  "TNT-L0052",
+                        "Name":  "....46_TNT_BASE_MEP",
+                        "Values":  [
+                                       "....46_TNT_BASE_MEP",
+                                       "P",
+                                       "250",
+                                       "CONTINUOUS",
+                                       "",
+                                       "",
+                                       "NÉT BASE CHO MEP",
+                                       "N"
+                                   ],
+                        "Status":  "ACTIVE",
+                        "ReplacementID":  "",
+                        "Aliases":  [
+                                        "....46_TNT_BASE_MEP"
+                                    ]
+                    }
+                ],
+    "Defaults":  {
+                     "DIMLAYER":  "....22_TNT_N_DIMENSION",
+                     "HPLAYER":  "....23_TNT_N_HATCH",
+                     "TEXTLAYER":  "....20_TNT_N_TEXT",
+                     "MLEADERLAYER":  "....21_TNT_N_LEADER"
+                 },
+    "Events":  [
+                   {
+                       "Revision":  0,
+                       "UTC":  "2026-11-09T11:49:37.5997723Z",
+                       "Action":  "BASELINE",
+                       "Before":  [
+
+                                  ],
+                       "After":  [
+                                     {
+                                         "ID":  "TNT-L0001",
+                                         "Name":  "....00________________________________",
+                                         "Values":  [
+                                                        "....00________________________________",
+                                                        "N",
+                                                        "250",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "________________________________",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....00________________________________"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0002",
+                                         "Name":  "....01_TNT_A_DRAWING",
+                                         "Values":  [
+                                                        "....01_TNT_A_DRAWING",
+                                                        "P",
+                                                        "7",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT KHUNG BẢN VẼ",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....01_TNT_A_DRAWING"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0003",
+                                         "Name":  "....02_TNT_A_VIRTURAL",
+                                         "Values":  [
+                                                        "....02_TNT_A_VIRTURAL",
+                                                        "P",
+                                                        "9",
+                                                        "CONTINUOUS",
+                                                        "0.3",
+                                                        "50",
+                                                        "NÉT THẤY",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....02_TNT_A_VIRTURAL"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0004",
+                                         "Name":  "....03_TNT_A_THIN",
+                                         "Values":  [
+                                                        "....03_TNT_A_THIN",
+                                                        "P",
+                                                        "251",
+                                                        "CONTINUOUS",
+                                                        "0.15",
+                                                        "50",
+                                                        "NÉT MẢNH",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....03_TNT_A_THIN"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0005",
+                                         "Name":  "....04_TNT_A_HIDDEN",
+                                         "Values":  [
+                                                        "....04_TNT_A_HIDDEN",
+                                                        "P",
+                                                        "251",
+                                                        "HIDDEN",
+                                                        "0",
+                                                        "50",
+                                                        "NÉT KHUẤT",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....04_TNT_A_HIDDEN"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0006",
+                                         "Name":  "....05_TNT_A_SECTION",
+                                         "Values":  [
+                                                        "....05_TNT_A_SECTION",
+                                                        "P",
+                                                        "30",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "50",
+                                                        "NÉT CẮT",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....05_TNT_A_SECTION"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0007",
+                                         "Name":  "....06_TNT_A_SECTION-LINE",
+                                         "Values":  [
+                                                        "....06_TNT_A_SECTION-LINE",
+                                                        "P",
+                                                        "6",
+                                                        "ACAD_ISO07W100",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT TRỤC CẮT",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....06_TNT_A_SECTION-LINE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0008",
+                                         "Name":  "....07_TNT_A_BASE",
+                                         "Values":  [
+                                                        "....07_TNT_A_BASE",
+                                                        "P",
+                                                        "177",
+                                                        "CENTER",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT TRỤC",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....07_TNT_A_BASE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0009",
+                                         "Name":  "....08_TNT_A_DETAIL",
+                                         "Values":  [
+                                                        "....08_TNT_A_DETAIL",
+                                                        "P",
+                                                        "156",
+                                                        "HIDDEN",
+                                                        "0",
+                                                        "50",
+                                                        "NÉT CHI TIẾT",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....08_TNT_A_DETAIL"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0010",
+                                         "Name":  "....09_TNT_A_COMPLETE",
+                                         "Values":  [
+                                                        "....09_TNT_A_COMPLETE",
+                                                        "P",
+                                                        "8",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "50",
+                                                        "NÉT HOÀN THIỆN",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....09_TNT_A_COMPLETE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0011",
+                                         "Name":  "....10_TNT_A_COTE",
+                                         "Values":  [
+                                                        "....10_TNT_A_COTE",
+                                                        "P",
+                                                        "14",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT CAO ĐỘ",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....10_TNT_A_COTE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0012",
+                                         "Name":  "....11_TNT_A_PLOT",
+                                         "Values":  [
+                                                        "....11_TNT_A_PLOT",
+                                                        "N",
+                                                        "250",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT IN",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....11_TNT_A_PLOT"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0013",
+                                         "Name":  "....12________________________________",
+                                         "Values":  [
+                                                        "....12________________________________",
+                                                        "N",
+                                                        "250",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "50",
+                                                        "________________________________",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....12________________________________"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0014",
+                                         "Name":  "....12_TNT_F_FURNITURE",
+                                         "Values":  [
+                                                        "....12_TNT_F_FURNITURE",
+                                                        "P",
+                                                        "27",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "50",
+                                                        "NÉT NỘI THẤT",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....12_TNT_F_FURNITURE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0015",
+                                         "Name":  "....13_TNT_F_TREE",
+                                         "Values":  [
+                                                        "....13_TNT_F_TREE",
+                                                        "P",
+                                                        "76",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "50",
+                                                        "NÉT CÂY",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....13_TNT_F_TREE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0016",
+                                         "Name":  "....14_TNT_F_GLASS",
+                                         "Values":  [
+                                                        "....14_TNT_F_GLASS",
+                                                        "P",
+                                                        "147",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "50",
+                                                        "NÉT KÍNH",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....14_TNT_F_GLASS"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0017",
+                                         "Name":  "....15_TNT_F_DOOR",
+                                         "Values":  [
+                                                        "....15_TNT_F_DOOR",
+                                                        "P",
+                                                        "33",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "50",
+                                                        "NÉT CỬA",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....15_TNT_F_DOOR"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0018",
+                                         "Name":  "....16________________________________",
+                                         "Values":  [
+                                                        "....16________________________________",
+                                                        "N",
+                                                        "250",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "________________________________",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....16________________________________"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0019",
+                                         "Name":  "....16_TNT_S_CONCRETE",
+                                         "Values":  [
+                                                        "....16_TNT_S_CONCRETE",
+                                                        "P",
+                                                        "7",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "50",
+                                                        "NÉT BTCT",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....16_TNT_S_CONCRETE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0020",
+                                         "Name":  "....17_TNT_S_WALL",
+                                         "Values":  [
+                                                        "....17_TNT_S_WALL",
+                                                        "P",
+                                                        "41",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "50",
+                                                        "NÉT TƯỜNG",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....17_TNT_S_WALL"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0021",
+                                         "Name":  "....18_TNT_S_COLUMN",
+                                         "Values":  [
+                                                        "....18_TNT_S_COLUMN",
+                                                        "P",
+                                                        "9",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "50",
+                                                        "NÉT CỘT",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....18_TNT_S_COLUMN"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0022",
+                                         "Name":  "....19________________________________",
+                                         "Values":  [
+                                                        "....19________________________________",
+                                                        "N",
+                                                        "250",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "________________________________",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....19________________________________"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0023",
+                                         "Name":  "....20_TNT_N_TEXT",
+                                         "Values":  [
+                                                        "....20_TNT_N_TEXT",
+                                                        "P",
+                                                        "9",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT CHỮ",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....20_TNT_N_TEXT"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0024",
+                                         "Name":  "....21_TNT_N_LEADER",
+                                         "Values":  [
+                                                        "....21_TNT_N_LEADER",
+                                                        "P",
+                                                        "9",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT GHI CHÚ",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....21_TNT_N_LEADER"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0025",
+                                         "Name":  "....22_TNT_N_DIMENSION",
+                                         "Values":  [
+                                                        "....22_TNT_N_DIMENSION",
+                                                        "P",
+                                                        "251",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT KÍCH THƯỚC",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....22_TNT_N_DIMENSION"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0026",
+                                         "Name":  "....23_TNT_N_HATCH",
+                                         "Values":  [
+                                                        "....23_TNT_N_HATCH",
+                                                        "P",
+                                                        "250",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "50",
+                                                        "NÉT VẬT LIỆU",
+                                                        "Y"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....23_TNT_N_HATCH"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0027",
+                                         "Name":  "....24_TNT_N_ANNOTATE",
+                                         "Values":  [
+                                                        "....24_TNT_N_ANNOTATE",
+                                                        "P",
+                                                        "14",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT CHÚ THÍCH",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....24_TNT_N_ANNOTATE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0028",
+                                         "Name":  "....25________________________________",
+                                         "Values":  [
+                                                        "....25________________________________",
+                                                        "N",
+                                                        "250",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "________________________________",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....25________________________________"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0029",
+                                         "Name":  "....25_TNT_M_NOTE",
+                                         "Values":  [
+                                                        "....25_TNT_M_NOTE",
+                                                        "P",
+                                                        "1",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT THIẾT BỊ ĐHKK",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....25_TNT_M_NOTE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0030",
+                                         "Name":  "....26_TNT_M_TEXT",
+                                         "Values":  [
+                                                        "....26_TNT_M_TEXT",
+                                                        "P",
+                                                        "4",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT CHỮ ĐHKK",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....26_TNT_M_TEXT"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0031",
+                                         "Name":  "....27_TNT_M_CONTROL",
+                                         "Values":  [
+                                                        "....27_TNT_M_CONTROL",
+                                                        "P",
+                                                        "5",
+                                                        "HIDDEN",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT ĐIỀU KHIỂN ĐHKK",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....27_TNT_M_CONTROL"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0032",
+                                         "Name":  "....28_TNT_M_COPPER-PIPE",
+                                         "Values":  [
+                                                        "....28_TNT_M_COPPER-PIPE",
+                                                        "P",
+                                                        "3",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT ỐNG ĐỒNG",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....28_TNT_M_COPPER-PIPE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0033",
+                                         "Name":  "....29_TNT_M_CONDENSED-W",
+                                         "Values":  [
+                                                        "....29_TNT_M_CONDENSED-W",
+                                                        "P",
+                                                        "6",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT NƯỚC NGƯNG",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....29_TNT_M_CONDENSED-W"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0034",
+                                         "Name":  "....30_TNT_M_RETURN-DUCT",
+                                         "Values":  [
+                                                        "....30_TNT_M_RETURN-DUCT",
+                                                        "P",
+                                                        "6",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT HỒI ĐHKK",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....30_TNT_M_RETURN-DUCT"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0035",
+                                         "Name":  "....31_TNT_M_SUPPLY-DUCT",
+                                         "Values":  [
+                                                        "....31_TNT_M_SUPPLY-DUCT",
+                                                        "P",
+                                                        "4",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT CẤP ĐHKK",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....31_TNT_M_SUPPLY-DUCT"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0036",
+                                         "Name":  "....32________________________________",
+                                         "Values":  [
+                                                        "....32________________________________",
+                                                        "N",
+                                                        "250",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "________________________________",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....32________________________________"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0037",
+                                         "Name":  "....32_TNT_E_NOTE",
+                                         "Values":  [
+                                                        "....32_TNT_E_NOTE",
+                                                        "P",
+                                                        "1",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT THIẾT BỊ ĐIỆN",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....32_TNT_E_NOTE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0038",
+                                         "Name":  "....33_TNT_E_TEXT",
+                                         "Values":  [
+                                                        "....33_TNT_E_TEXT",
+                                                        "P",
+                                                        "2",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT CHỮ PHẦN ĐIỆN",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....33_TNT_E_TEXT"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0039",
+                                         "Name":  "....34_TNT_E_LINE",
+                                         "Values":  [
+                                                        "....34_TNT_E_LINE",
+                                                        "P",
+                                                        "4",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT SĐNL ĐIỆN",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....34_TNT_E_LINE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0040",
+                                         "Name":  "....35_TNT_E_WIRE",
+                                         "Values":  [
+                                                        "....35_TNT_E_WIRE",
+                                                        "P",
+                                                        "6",
+                                                        "DASHDOT",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT DÂY ĐIỆN",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....35_TNT_E_WIRE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0041",
+                                         "Name":  "....36________________________________",
+                                         "Values":  [
+                                                        "....36________________________________",
+                                                        "N",
+                                                        "250",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "________________________________",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....36________________________________"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0042",
+                                         "Name":  "....36_TNT_P_NOTE",
+                                         "Values":  [
+                                                        "....36_TNT_P_NOTE",
+                                                        "P",
+                                                        "11",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT THIẾT BỊ NƯỚC",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....36_TNT_P_NOTE"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0043",
+                                         "Name":  "....37_TNT_P_TEXT",
+                                         "Values":  [
+                                                        "....37_TNT_P_TEXT",
+                                                        "P",
+                                                        "3",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT CHỮ NƯỚC",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....37_TNT_P_TEXT"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0044",
+                                         "Name":  "....38_TNT_P_SUPPLY-TANK",
+                                         "Values":  [
+                                                        "....38_TNT_P_SUPPLY-TANK",
+                                                        "P",
+                                                        "4",
+                                                        "HIDDEN",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT CẤP TÉT",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....38_TNT_P_SUPPLY-TANK"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0045",
+                                         "Name":  "....39_TNT_P_SUPPLY-COOL",
+                                         "Values":  [
+                                                        "....39_TNT_P_SUPPLY-COOL",
+                                                        "P",
+                                                        "4",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT CẤP LẠNH",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....39_TNT_P_SUPPLY-COOL"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0046",
+                                         "Name":  "....40_TNT_P_SUPPLY-HOT",
+                                         "Values":  [
+                                                        "....40_TNT_P_SUPPLY-HOT",
+                                                        "P",
+                                                        "1",
+                                                        "HIDDEN",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT CẤP NÓNG",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....40_TNT_P_SUPPLY-HOT"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0047",
+                                         "Name":  "....41_TNT_P_DRAIN-TOILET",
+                                         "Values":  [
+                                                        "....41_TNT_P_DRAIN-TOILET",
+                                                        "P",
+                                                        "4",
+                                                        "HIDDEN",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT THOÁT XÍ",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....41_TNT_P_DRAIN-TOILET"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0048",
+                                         "Name":  "....42_TNT_P_DRAIN-RAIN",
+                                         "Values":  [
+                                                        "....42_TNT_P_DRAIN-RAIN",
+                                                        "P",
+                                                        "5",
+                                                        "HIDDEN",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT THOÁT MƯA",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....42_TNT_P_DRAIN-RAIN"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0049",
+                                         "Name":  "....43_TNT_P_DRAIN-WASH",
+                                         "Values":  [
+                                                        "....43_TNT_P_DRAIN-WASH",
+                                                        "P",
+                                                        "6",
+                                                        "HIDDEN",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT THOÁT RỬA",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....43_TNT_P_DRAIN-WASH"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0050",
+                                         "Name":  "....44_TNT_P_DRAIN-VENT",
+                                         "Values":  [
+                                                        "....44_TNT_P_DRAIN-VENT",
+                                                        "P",
+                                                        "2",
+                                                        "HIDDEN",
+                                                        "0",
+                                                        "0",
+                                                        "NÉT THÔNG HƠI",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....44_TNT_P_DRAIN-VENT"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0051",
+                                         "Name":  "....45________________________________",
+                                         "Values":  [
+                                                        "....45________________________________",
+                                                        "N",
+                                                        "250",
+                                                        "CONTINUOUS",
+                                                        "0",
+                                                        "0",
+                                                        "________________________________",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....45________________________________"
+                                                     ]
+                                     },
+                                     {
+                                         "ID":  "TNT-L0052",
+                                         "Name":  "....46_TNT_BASE_MEP",
+                                         "Values":  [
+                                                        "....46_TNT_BASE_MEP",
+                                                        "P",
+                                                        "250",
+                                                        "CONTINUOUS",
+                                                        "",
+                                                        "",
+                                                        "NÉT BASE CHO MEP",
+                                                        "N"
+                                                    ],
+                                         "Status":  "ACTIVE",
+                                         "ReplacementID":  "",
+                                         "Aliases":  [
+                                                         "....46_TNT_BASE_MEP"
+                                                     ]
+                                     }
+                                 ],
+                       "BeforeDefaults":  null,
+                       "AfterDefaults":  {
+                                             "DIMLAYER":  "....22_TNT_N_DIMENSION",
+                                             "HPLAYER":  "....23_TNT_N_HATCH",
+                                             "TEXTLAYER":  "....20_TNT_N_TEXT",
+                                             "MLEADERLAYER":  "....21_TNT_N_LEADER"
+                                         }
+                   }
+               ]
+}

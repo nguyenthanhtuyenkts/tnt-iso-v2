@@ -548,9 +548,53 @@
     <Cell><Data ss:Type="String">....26_TNT_M_TEXT</Data></Cell>
     <Cell><Data ss:Type="String">...9_TNT_LINE_TEXT</Data></Cell>
    </Row>
+   <Row ss:Index="307" ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">....36_TNT_P_NOTE</Data></Cell>
+    <Cell><Data ss:Type="String">...22_TNT_WATER-NOTE</Data></Cell>
+   </Row>
+   <Row ss:Index="312" ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">....37_TNT_P_TEXT</Data></Cell>
+    <Cell><Data ss:Type="String">...23_TNT_WATER-TEXT</Data></Cell>
+   </Row>
+   <Row ss:Index="322" ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">....38_TNT_P_SUPPLY-TANK</Data></Cell>
+    <Cell><Data ss:Type="String">...24_TNT_WATER-SUPPLY</Data></Cell>
+   </Row>
+   <Row ss:Index="333" ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">....39_TNT_P_SUPPLY-COOL</Data></Cell>
+    <Cell><Data ss:Type="String">water supply</Data></Cell>
+   </Row>
+   <Row ss:Index="341" ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">....40_TNT_P_SUPPLY-HOT</Data></Cell>
+    <Cell><Data ss:Type="String">...25_TNT_WATER-SUPPLY-HOT</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">....40_TNT_P_SUPPLY-HOT</Data></Cell>
+    <Cell><Data ss:Type="String">NUOCNONG</Data></Cell>
+   </Row>
+   <Row ss:Index="348" ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">....41_TNT_P_DRAIN-TOILET</Data></Cell>
+    <Cell><Data ss:Type="String">T-N\U+01AF\U+1EDAC THOÁT XÍ</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">....41_TNT_P_DRAIN-TOILET</Data></Cell>
+    <Cell><Data ss:Type="String">...26_TNT_WATER-DRAIN-TOILET</Data></Cell>
+   </Row>
+   <Row ss:Index="358" ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">....42_TNT_P_DRAIN-RAIN</Data></Cell>
+    <Cell><Data ss:Type="String">...27_TNT_WATER-DRAIN-RAIN</Data></Cell>
+   </Row>
    <Row ss:Index="368" ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">....43_TNT_P_DRAIN-WASH</Data></Cell>
     <Cell><Data ss:Type="String">...28_TNT_WATER-DRAIN-WASH</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">....43_TNT_P_DRAIN-WASH</Data></Cell>
+    <Cell><Data ss:Type="String">...28_TNT_WATER-DRAIN-KITCHEN</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">....43_TNT_P_DRAIN-WASH</Data></Cell>
+    <Cell><Data ss:Type="String">T-N\U+01AF\U+1EDAC THOÁT CHAU</Data></Cell>
    </Row>
    <Row ss:Index="376" ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">....44_TNT_P_DRAIN-VENT</Data></Cell>
@@ -560,12 +604,12 @@
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <Unsynced/>
    <Selected/>
-   <TopRowVisible>352</TopRowVisible>
+   <TopRowVisible>218</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>374</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>245</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
