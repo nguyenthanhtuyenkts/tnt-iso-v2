@@ -1,0 +1,431 @@
+;;; TNT drawing index. AutoCAD 2014+ / Windows. APPLOAD, command DM.
+;;; Source is ASCII; attribute drawing text is preserved verbatim.
+(vl-load-com)
+
+;;; Read only direct ATTDEF entities in the selected block's definition.
+;;; Dynamic blocks use their authoring (EffectiveName) definition.
+(defun tnt:dmbv-def-tags (en / obj name block item out tag)
+  (setq obj (vlax-ename->vla-object en)
+        name (if (vlax-property-available-p obj 'EffectiveName)
+               (vla-get-EffectiveName obj) (vla-get-Name obj))
+        block (vla-Item (vla-get-Blocks (vla-get-Document obj)) name))
+  (if (= :vlax-false (vla-get-IsXRef block))
+    (vlax-for item block
+      (if (= "AcDbAttributeDefinition" (vla-get-ObjectName item))
+        (progn
+          (setq tag (strcase (vla-get-TagString item)))
+          (if (not (member tag out)) (setq out (cons tag out)))))))
+  (reverse out))
+
+(defun tnt:dmbv-atts (obj / out a)
+  (if (= :vlax-true (vla-get-HasAttributes obj))
+    (progn
+      (foreach a (vlax-invoke obj 'GetAttributes)
+        (setq out (cons (cons (strcase (vla-get-TagString a))
+                             (vla-get-TextString a)) out)))
+      (foreach a (vlax-invoke obj 'GetConstantAttributes)
+        (setq out (cons (cons (strcase (vla-get-TagString a))
+                             (vla-get-TextString a)) out)))))
+  out)
+
+;;; Segment / WCS bounding rectangle intersection, returns entry parameter.
+(defun tnt:dmbv-hit (a b lo hi / t0 t1 axis delta u v tmp ok)
+  (setq t0 0.0 t1 1.0 axis 0 ok T)
+  (repeat 2
+    (setq delta (- (nth axis b) (nth axis a)))
+    (if (< (abs delta) 1e-10)
+      (if (or (< (nth axis a) (nth axis lo))
+              (> (nth axis a) (nth axis hi))) (setq ok nil))
+      (progn
+        (setq u (/ (- (nth axis lo) (nth axis a)) delta)
+              v (/ (- (nth axis hi) (nth axis a)) delta))
+        (if (> u v) (setq tmp u u v v tmp))
+        (setq t0 (max t0 u) t1 (min t1 v))
+        (if (> t0 t1) (setq ok nil))))
+    (setq axis (1+ axis)))
+  (if ok t0))
+
+(defun tnt:dmbv-scan (/ ss i e obj at lo hi out)
+  (setq ss (ssget "_X" '((0 . "INSERT") (410 . "Model"))) i 0)
+  (if ss
+    (repeat (sslength ss)
+      (setq e (ssname ss i) i (1+ i) obj (vlax-ename->vla-object e)
+            at (tnt:dmbv-atts obj))
+      (if at
+        (progn
+          (vla-GetBoundingBox obj 'lo 'hi)
+          (setq out (cons (list e at (vlax-safearray->list lo)
+                                    (vlax-safearray->list hi)) out))))))
+  (reverse out))
+
+(defun tnt:dmbv-empty (s) (or (null s) (= "" (vl-string-trim " \t\r\n" s))))
+(defun tnt:dmbv-value (tag at) (if (assoc tag at) (cdr (assoc tag at)) ""))
+
+;;; Each role accepts a comma-separated priority list, for mixed frame templates.
+(defun tnt:dmbv-tags (s / pos tag out)
+  (setq s (strcase s))
+  (while (setq pos (vl-string-search "," s))
+    (setq tag (vl-string-trim " \t" (substr s 1 pos))
+          s (substr s (+ pos 2)))
+    (if (/= tag "") (setq out (cons tag out))))
+  (setq tag (vl-string-trim " \t" s))
+  (if (/= tag "") (setq out (cons tag out)))
+  (reverse out))
+
+(defun tnt:dmbv-match (tags at / tag pair found)
+  ;; Prefer the first nonempty value; preserve an empty match for warnings.
+  (foreach tag tags
+    (if (setq pair (assoc tag at))
+      (if (or (null found) (and (tnt:dmbv-empty (cdr found))
+                               (not (tnt:dmbv-empty (cdr pair)))))
+        (setq found pair))))
+  found)
+
+(defun tnt:dmbv-addtag (key value / tag old)
+  (setq tag (nth (atoi value) dm-tags) old (get_tile key))
+  (if (and tag (not (member tag (tnt:dmbv-tags old))))
+    (set_tile key (strcat old (if (tnt:dmbv-empty old) "" ",") tag))))
+
+(defun tnt:dmbv-accept (/ keys values role tags tag used conflict)
+  (setq keys '("label" "stt" "code" "title"))
+  (foreach role keys
+    (setq tags (tnt:dmbv-tags (get_tile role)))
+    (if (null tags) (setq conflict "Hay nhap TAG cho du 4 noi dung."))
+    (foreach tag tags
+      (if (not (member tag dm-tags))
+        (setq conflict (strcat "TAG khong co ATTDEF trong khung da chon: " tag)))
+      (if (member tag used) (setq conflict "Mot TAG chi duoc gan cho mot noi dung."))
+      (setq used (cons tag used)))
+    (setq values (cons tags values)))
+  (if conflict (set_tile "error" conflict)
+    (progn (setq dm-result (reverse values)) (done_dialog 1))))
+
+(defun tnt:dmbv-pick-request (key / field)
+  (setq dm-pick-key key dm-state nil)
+  (foreach field '("label" "stt" "code" "title")
+    (setq dm-state (cons (cons field (get_tile field)) dm-state)))
+  (done_dialog 2))
+
+(defun tnt:dmbv-pick-attribute (candidates allowed / selection ed owner tag)
+  (setq selection (vl-catch-all-apply 'nentsel
+                    (list "\nPick Attribute trong khung/bia da chon: ")))
+  (cond
+    ((vl-catch-all-error-p selection)
+     (if (not (wcmatch (strcase (vl-catch-all-error-message selection)) "*CANCEL*,*QUIT*,*BREAK*"))
+       (princ (strcat "\nDM pick: " (vl-catch-all-error-message selection)))) nil)
+    ((null selection) nil)
+    (T
+     (setq ed (entget (car selection)) owner (cdr (assoc 330 ed))
+           tag (strcase (if (assoc 2 ed) (cdr (assoc 2 ed)) "")))
+     (cond
+       ((/= "ATTRIB" (cdr (assoc 0 ed)))
+        (princ "\nHay pick truc tiep chu Attribute, khong pick TEXT hay duong khung.") nil)
+       ((not (assoc owner candidates))
+        (princ "\nAttribute phai thuoc khung/bia da chon bang Fence.") nil)
+       ((not (member tag allowed))
+        (princ "\nTAG khong nam trong danh sach ATTDEF duoc phep mapping.") nil)
+       (T tag)))))
+
+(defun tnt:dmbv-config (candidates / *error* path file id dm-tags dm-items
+                       dm-result rec pair role key defaults idx status tag valid
+                       dm-state dm-pick-key)
+  (defun *error* (msg)
+    (if file (close file))
+    (if (and id (> id 0)) (unload_dialog id))
+    (if (and path (findfile path)) (vl-file-delete path))
+    (if msg (princ (strcat "\nDM mapping: " msg)))
+    (princ))
+  (foreach rec candidates
+    (foreach tag (tnt:dmbv-def-tags (car rec))
+      (if (not (member tag dm-tags))
+        (setq dm-tags (cons tag dm-tags)
+              dm-items (cons (cons tag (tnt:dmbv-value tag (cadr rec))) dm-items)))))
+  (setq dm-tags (acad_strlsort dm-tags)
+        path (vl-filename-mktemp "TNT_DM_" nil ".dcl") file (open path "w"))
+  (write-line "tnt_dm : dialog { label = \"DM - Anh xa TAG danh muc ban ve\";" file)
+  (write-line ": text { label = \"Chi dung TAG ATTDEF trong dinh nghia block khung/bia da chon.\"; }" file)
+  (write-line ": text { label = \"Nhieu mau khung: nhap TAG1,TAG2 (uu tien tu trai sang phai).\"; }" file)
+  (foreach role '(("label" "Nhan cum / bia") ("stt" "So thu tu")
+                   ("code" "Ky hieu ban ve") ("title" "Ten ban ve"))
+    (setq key (car role))
+    (write-line (strcat ": boxed_column { label = \"" (cadr role) "\";") file)
+    (write-line (strcat ": popup_list { key = \"p_" key "\"; label = \"TAG - noi dung mau\"; width = 70; }") file)
+    (write-line (strcat ": edit_box { key = \"" key "\"; label = \"TAG gan cho noi dung nay\"; edit_width = 48; }") file)
+    (write-line (strcat ": button { key = \"pick_" key "\"; label = \"Pick Attribute\"; } }") file))
+  (write-line ": text { key = \"error\"; width = 75; } ok_cancel; }" file)
+  (close file) (setq file nil id (load_dialog path))
+  (setq status 2)
+  (while (= status 2)
+  (if (and (> id 0) (new_dialog "tnt_dm" id))
+    (progn
+      (setq defaults (if *tnt:dmbv-map* *tnt:dmbv-map*
+                       '(("TITLE_KHUNG-HM") ("STTBV_DOC") ("KHBV_DOC") ("TENBANVE_DOC"))) idx 0)
+      (foreach key '("label" "stt" "code" "title")
+        (start_list (strcat "p_" key))
+        (add_list "-- Chon TAG de them --")
+        (foreach pair dm-tags
+          (add_list (strcat pair " = " (substr (tnt:dmbv-value pair dm-items) 1 70))))
+        (end_list)
+        (set_tile (strcat "p_" key) "0")
+        (setq valid nil)
+        (foreach tag (nth idx defaults)
+          (if (member tag dm-tags) (setq valid (cons tag valid))))
+        (set_tile key (if dm-state (cdr (assoc key dm-state))
+                         (tnt:dmbv-join (reverse valid))))
+        (action_tile (strcat "pick_" key)
+          (strcat "(tnt:dmbv-pick-request \"" key "\")"))
+        (action_tile (strcat "p_" key)
+          (strcat "(if (> (atoi $value) 0) (tnt:dmbv-addtag \"" key "\" (itoa (1- (atoi $value)))))"))
+        (setq idx (1+ idx)))
+      (action_tile "accept" "(tnt:dmbv-accept)")
+      (setq status (start_dialog)))
+    (progn (setq status 0) (princ "\nKhong mo duoc hop thoai mapping TAG.")))
+  (if (= status 2)
+    (if (setq tag (tnt:dmbv-pick-attribute candidates dm-tags))
+      ;; A direct pick replaces this role's mapping; other roles stay intact.
+      (setq dm-state (subst (cons dm-pick-key tag)
+                           (assoc dm-pick-key dm-state) dm-state)))))
+  (if (and id (> id 0)) (unload_dialog id))
+  (if (findfile path) (vl-file-delete path))
+  (if (= status 1) (setq *tnt:dmbv-map* dm-result)))
+
+(defun tnt:dmbv-join (tags / out tag)
+  (setq out "")
+  (foreach tag tags (setq out (strcat out (if (= out "") "" ",") tag)))
+  out)
+;;; Escape MText control characters; do not interpret attribute data as formatting.
+(defun tnt:dmbv-literal (s / i c out)
+  (setq i 1 out "")
+  (repeat (strlen s)
+    (setq c (substr s i 1) i (1+ i)
+          out (strcat out (if (member c '("\\" "{" "}")) "\\" "") c)))
+  out)
+
+;;; Flatten paragraph breaks for drawing titles only; retain other drawing data.
+(defun tnt:dmbv-title-flat (s / i c next out)
+  (setq i 1 out "")
+  (while (<= i (strlen s))
+    (setq c (substr s i 1) next (substr s (1+ i) 1))
+    (cond
+      ((and (= c "\\") (= next "\\"))
+       (setq out (strcat out c next) i (1+ i)))
+      ((and (= c "\\") (= next "P"))
+       (setq out (strcat out " ") i (1+ i)))
+      ((member c '("\r" "\n" "\t")) (setq out (strcat out " ")))
+      (T (setq out (strcat out c))))
+    (setq i (1+ i)))
+  (while (vl-string-search "  " out)
+    (setq out (vl-string-subst " " "  " out)))
+  (vl-string-trim " " out))
+
+(defun tnt:dmbv-styles-ready (/ name missing)
+  (foreach name '(".TNT_A_TXT_1_MAIN" ".TNT_A_TXT_2_SUB" ".TNT_A_TXT_3_NOTE")
+    (if (not (tblsearch "STYLE" name)) (setq missing (cons name missing))))
+  (foreach name (reverse missing) (princ (strcat "\nDM: Thieu text style " name)))
+  (if missing (princ "\nHay nap cac text style TNT vao ban ve truoc khi chay DM."))
+  (null missing))
+
+;;; TABLE owns the grid; independent MTEXT permits a separate text layer.
+(defun tnt:dmbv-celltext (space tb pt row col text style merged / x y i width rh obj ins)
+  (setq x (car pt) y (cadr pt) i 0)
+  (repeat row (setq y (- y (vla-GetRowHeight tb i)) i (1+ i)))
+  (setq i 0)
+  (repeat col (setq x (+ x (vla-GetColumnWidth tb i)) i (1+ i)))
+  (setq width (if merged (vla-get-Width tb) (vla-GetColumnWidth tb col))
+        rh (vla-GetRowHeight tb row)
+        ins (list (if (= col 2) (+ x (* 0.15 rh)) (+ x (/ width 2.0)))
+                  (- y (/ rh 2.0)) (caddr pt)))
+  (setq obj (vla-AddMText space (vlax-3d-point ins)
+                         (max 0.01 (- width (* 0.3 rh))) text)
+        made (cons obj made))
+  (vla-put-Layer obj "....20_TNT_N_TEXT")
+  (vla-put-Color obj 256)
+  (vla-put-StyleName obj style)
+  (vla-put-Height obj (* 0.38 rh))
+  (vla-put-AttachmentPoint obj (if (= col 2) 4 5))
+  (vla-put-InsertionPoint obj (vlax-3d-point ins))
+  obj)
+
+(defun tnt:dmbv-table (space pt rows h / tb r item c s texts entry layers name)
+  (setq layers (vla-get-Layers (vla-get-Document space)))
+  (foreach name '("....03_TNT_A_THIN" "....20_TNT_N_TEXT")
+    (if (not (tblsearch "LAYER" name)) (vla-Add layers name)))
+  (setq tb (vla-AddTable space (vlax-3d-point pt) (+ 2 (length rows)) 3 h (* 12 h))
+        made (cons tb made))
+  (vla-put-RegenerateTableSuppressed tb :vlax-true)
+  (vla-put-Layer tb "....03_TNT_A_THIN")
+  (vla-put-Color tb 256)
+  (vla-put-StyleName tb (getvar "CTABLESTYLE"))
+  (vla-SetColumnWidth tb 0 (* 3 h))
+  (vla-SetColumnWidth tb 1 (* 7 h))
+  (vla-SetColumnWidth tb 2 (* 26 h))
+  (vla-MergeCells tb 0 0 0 2)
+  (setq texts (list
+    (list 0 0 "DANH M\\U+1EE4C B\\U+1EA2N V\\U+1EBC" ".TNT_A_TXT_1_MAIN" T)
+    (list 1 0 "STT" ".TNT_A_TXT_2_SUB" nil)
+    (list 1 1 "K\\U+00DD HI\\U+1EC6U B\\U+1EA2N V\\U+1EBC" ".TNT_A_TXT_2_SUB" nil)
+    (list 1 2 "T\\U+00CAN B\\U+1EA2N V\\U+1EBC" ".TNT_A_TXT_2_SUB" nil)))
+  (setq r 2)
+  (foreach item rows
+    (if (= (car item) 'label)
+      (progn
+        (vla-MergeCells tb r r 0 2)
+        (setq texts (append texts (list (list r 0 (tnt:dmbv-literal (cadr item)) ".TNT_A_TXT_2_SUB" T)))))
+      (progn
+        (setq c 0)
+        (foreach s (cdr item)
+          (setq texts (append texts (list (list r c (tnt:dmbv-literal
+                         (if (= c 2) (tnt:dmbv-title-flat s) s)) ".TNT_A_TXT_3_NOTE" nil)))
+                c (1+ c)))))
+    (setq r (1+ r)))
+  (setq r 0)
+  (repeat (+ 2 (length rows))
+    (setq c 0)
+    (repeat 3
+      (vla-SetText tb r c "")
+      (vla-SetCellTextHeight tb r c (* 0.38 h))
+      (setq c (1+ c)))
+    (vla-SetRowHeight tb r h)
+    (setq r (1+ r)))
+  (vla-put-RegenerateTableSuppressed tb :vlax-false)
+  (vla-Update tb)
+  (foreach entry texts
+    (tnt:dmbv-celltext space tb pt (nth 0 entry) (nth 1 entry)
+                      (nth 2 entry) (nth 3 entry) (nth 4 entry)))
+  tb)
+;;; Fence-style point chain, in UCS for input and WCS for intersection tests.
+;;; No LINE entities are added to the drawing.
+(defun tnt:dmbv-preview-clear (records / rec)
+  (foreach rec records
+    (if (entget (car rec)) (redraw (car rec) 4)))
+  (redraw))
+
+;;; Repaint the complete path after every pick, not only its last segment.
+;;; Yellow WCS bounding rectangles show the exact areas used for selection.
+(defun tnt:dmbv-preview (points records / prev pt rec lo hi z corners)
+  (redraw)
+  (foreach pt points
+    (if prev (grdraw prev pt 3 1))
+    (setq prev pt))
+  (foreach rec records
+    (setq lo (nth 2 rec) hi (nth 3 rec) z (caddr lo)
+          corners (mapcar '(lambda (p) (trans p 0 1))
+                    (list (list (car lo) (cadr lo) z)
+                          (list (car hi) (cadr lo) z)
+                          (list (car hi) (cadr hi) z)
+                          (list (car lo) (cadr hi) z)
+                          (list (car lo) (cadr lo) z)))
+          prev nil)
+    (foreach pt corners
+      (if prev (grdraw prev pt 2 1))
+      (setq prev pt))
+    (if (entget (car rec)) (redraw (car rec) 3))))
+
+(defun tnt:dmbv-pick (candidates / *error* first next a b hits rec tval seen ordered n points)
+  (defun *error* (msg)
+    (tnt:dmbv-preview-clear ordered)
+    (if (and msg (not (wcmatch (strcase msg) "*CANCEL*,*QUIT*,*BREAK*")))
+      (princ (strcat "\nDM Fence: " msg)))
+    (princ))
+  (princ "\nFence: pick cac diem qua khung theo thu tu mong muon. Enter de mapping TAG.")
+  (if (setq first (getpoint "\nSpecify first fence point: "))
+    (progn
+    (setq points (list first))
+    (while (setq next (getpoint first "\nSpecify next fence point or Enter to finish: "))
+      (setq a (trans first 1 0) b (trans next 1 0) hits nil)
+      (if (> (distance a b) 1e-10)
+        (progn
+          (setq points (append points (list next)))
+          (foreach rec candidates
+            (if (and (not (member (car rec) seen))
+                     (setq tval (tnt:dmbv-hit a b (nth 2 rec) (nth 3 rec))))
+              (setq hits (cons (list tval rec) hits))))
+          ;; Retain all records, including equal intersection parameters.
+          (foreach n (vl-sort-i hits '(lambda (x y) (< (car x) (car y))))
+            (setq rec (cadr (nth n hits)) seen (cons (car rec) seen)
+                  ordered (cons rec ordered)))
+          (princ (strcat "\nDa lay " (itoa (length hits)) " khung/bia moi; tong "
+                         (itoa (length ordered)) " khung/bia."))))
+      (tnt:dmbv-preview points ordered)
+      (setq first next))))
+  (tnt:dmbv-preview-clear ordered)
+  (reverse ordered))
+(defun tnt:dmbv-run (ordered mapping / *error* doc space undo made sel en ed a b pick tmp
+                  hits rec tval seen at label rows st code title nums codes
+                  warnings handle maxrows h pt chunk remaining n tab)
+  (setq doc (vla-get-ActiveDocument (vlax-get-acad-object)))
+  (defun *error* (msg)
+    (foreach tab made (if (not (vlax-erased-p tab)) (vla-Delete tab)))
+    (if undo (vla-EndUndoMark doc))
+    (if (and msg (not (wcmatch (strcase msg) "*CANCEL*,*QUIT*,*BREAK*")))
+      (princ (strcat "\nDM error: " msg)))
+    (princ))
+  (if (/= 1 (getvar "TILEMODE"))
+    (princ "\nHay chuyen sang Model truoc khi chay DM.")
+    (progn
+      (foreach rec ordered
+        (setq at (cadr rec) handle (cdr (assoc 5 (entget (car rec)))))
+        (if (tnt:dmbv-match (nth 0 mapping) at)
+          (progn
+            (setq label (cdr (tnt:dmbv-match (nth 0 mapping) at)))
+            (if (tnt:dmbv-empty label)
+              (setq label "[THIEU NHAN CUM]" warnings (cons (strcat handle ": thieu nhan cum") warnings)))
+            (setq rows (cons (list 'label label) rows)))
+          (progn
+            (setq st (cdr (tnt:dmbv-match (nth 1 mapping) at))
+                  code (cdr (tnt:dmbv-match (nth 2 mapping) at))
+                  title (cdr (tnt:dmbv-match (nth 3 mapping) at)))
+            (if (null st) (setq st ""))
+            (if (null code) (setq code ""))
+            (if (null title) (setq title ""))
+            (if (or (tnt:dmbv-empty st) (tnt:dmbv-empty code) (tnt:dmbv-empty title))
+              (setq warnings (cons (strcat handle ": thieu ATT/noi dung") warnings)))
+            (if (null label) (setq warnings (cons (strcat handle ": ban ve truoc bia dau tien") warnings)))
+            (if (or (and (/= st "") (member st nums))
+                    (and (/= code "") (member (strcase code) codes)))
+              (setq warnings (cons (strcat handle ": trung STT/ky hieu " st " / " code) warnings)))
+            (setq nums (cons st nums) codes (cons (strcase code) codes)
+                  rows (cons (list 'drawing st code title) rows)))))
+      (foreach tmp (reverse warnings) (princ (strcat "\nCANH BAO - handle " tmp)))
+      (if rows
+        (progn
+          ;; Fixed Excel-style bands: content rows 1-45, 46-90, 91-135, ...
+          ;; Label rows count as content; title/header rows do not.
+          (setq maxrows 45)
+          (initget 6) (setq h (getdist "\nChieu cao dong <8>: "))
+          (if (null h) (setq h 8.0))
+          (if (setq pt (getpoint "\nDiem chen goc tren trai bang: "))
+            (progn
+              (setq pt (trans pt 1 0) remaining (reverse rows)
+                    space (vla-get-ModelSpace doc))
+              (vla-StartUndoMark doc) (setq undo T)
+              (while remaining
+                (setq chunk nil n 0)
+                (while (and remaining (< n maxrows))
+                  (setq chunk (cons (car remaining) chunk)
+                        remaining (cdr remaining) n (1+ n)))
+                (setq tab (tnt:dmbv-table space pt (reverse chunk) h)
+                      pt (list (+ (car pt) (* 38 h)) (cadr pt) (caddr pt))))
+              (vla-EndUndoMark doc) (setq undo nil made nil)
+              (princ (strcat "\nDa tao danh muc. Canh bao: " (itoa (length warnings)) ".")))))
+        (princ "\nKhong co du lieu duoc chon."))))
+  (princ))
+
+(defun c:DM (/ candidates ordered mapping selected rec tags)
+  (if (tnt:dmbv-styles-ready)
+  (if (/= 1 (getvar "TILEMODE"))
+    (princ "\nHay chuyen sang Model truoc khi chay DM.")
+    (if (setq candidates (tnt:dmbv-scan))
+      (if (setq ordered (tnt:dmbv-pick candidates))
+        (if (setq mapping (tnt:dmbv-config ordered))
+          (progn
+            (setq tags (apply 'append mapping))
+            (foreach rec ordered
+              (if (tnt:dmbv-match tags (cadr rec)) (setq selected (cons rec selected))))
+            (if selected (tnt:dmbv-run (reverse selected) mapping)
+              (princ "\nKhong co block nao khop TAG da gan."))))
+        (princ "\nKhong co khung/bia nao duoc chon. Khong mo mapping."))
+      (princ "\nKhong tim thay block co Attribute trong Model."))))
+  (princ))
+(princ "\nTNT Danh muc ban ve loaded. Lenh: DM.")
+(princ)
