@@ -140,6 +140,7 @@
     ("SC"  "SCALE")
     ("SPL" "SPLINE")
     ("D"   "DIMLINEAR")
+    ("DB"  "DIMBASELINE")
     ("DC"  "DIMCONTINUE")
     ("DD"  "DIMALIGNED")
     ("DST" "DIMSTYLE")
