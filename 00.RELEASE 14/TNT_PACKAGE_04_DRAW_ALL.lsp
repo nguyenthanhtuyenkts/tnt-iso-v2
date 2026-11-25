@@ -10,12 +10,19 @@
 ;;; ====================================================================================================
 ;;; BEGIN SOURCE: B_TNT_Draw_Rectang_Plot_VBB.lsp
 ;;; ====================================================================================================
-(defun c:vbb (/ osm layer1 ss i blkEnt blkObj scaleX scaleY scale minPt maxPt offset pt1 pt2 existing found)
+(defun c:vbb (/ *error* osm layer1 ss i blkEnt blkObj scaleX scaleY scale minPt maxPt offset pt1 pt2)
   (vl-load-com)
 
   ;; Luu trang thai
   (setq osm (getvar "osmode"))
   (setq layer1 (getvar "clayer"))
+
+  (defun *error* (msg)
+    (setvar "clayer" layer1)
+    (setvar "osmode" osm)
+    (if (and msg (not (wcmatch (strcase msg) "*CANCEL*,*QUIT*,*BREAK*")))
+      (princ (strcat "\n[VBB] " msg)))
+    (princ))
 
   ;; Chon nhieu block
   (prompt "\nChon cac block khung ten: ")
@@ -24,66 +31,55 @@
   (if ss
     (progn
       ;; Tao layer neu chua co
-      (if (not (tblsearch "LAYER" "....11_TNT_A_PLOT"))
-        (command "-LAYER" "n" "....11_TNT_A_PLOT"
-                         "c" "250" "....11_TNT_A_PLOT"
-                         "L" "CONTINUOUS" "....11_TNT_A_PLOT"
-                         "LW" "0" "....11_TNT_A_PLOT"
-                         "TR" "0" "....11_TNT_A_PLOT"
-                         "P" "N" "....11_TNT_A_PLOT"
-                         "")
-        (setvar "clayer" "....11_TNT_A_PLOT")
-      )
+      (if (or (tblsearch "LAYER" "....11_TNT_A_PLOT")
+              (entmake '((0 . "LAYER")
+                         (100 . "AcDbSymbolTableRecord")
+                         (100 . "AcDbLayerTableRecord")
+                         (2 . "....11_TNT_A_PLOT")
+                         (70 . 0)
+                         (62 . 250)
+                         (6 . "CONTINUOUS")
+                         (290 . 0)
+                         (370 . 0))))
+        (progn
+          (setvar "clayer" "....11_TNT_A_PLOT")
 
-      ;; Duyet tung block
-      (setq i 0)
-      (while (< i (sslength ss))
-        (setq blkEnt (ssname ss i))
-        (setq blkObj (vlax-ename->vla-object blkEnt))
+          ;; Duyet tung block
+          (setq i 0)
+          (while (< i (sslength ss))
+            (setq blkEnt (ssname ss i))
+            (setq blkObj (vlax-ename->vla-object blkEnt))
 
-        ;; Lay scale trung binh
-        (setq scaleX (vlax-get blkObj 'XScaleFactor))
-        (setq scaleY (vlax-get blkObj 'YScaleFactor))
-        (setq scale (/ (+ scaleX scaleY) 2.0))
+            ;; Lay scale trung binh
+            (setq scaleX (vlax-get blkObj 'XScaleFactor))
+            (setq scaleY (vlax-get blkObj 'YScaleFactor))
+            (setq scale (/ (+ scaleX scaleY) 2.0))
 
-        ;; Lay bounding box
-        (vla-GetBoundingBox blkObj 'minPt 'maxPt)
-        (setq minPt (vlax-safearray->list minPt))
-        (setq maxPt (vlax-safearray->list maxPt))
+            ;; Lay bounding box
+            (vla-GetBoundingBox blkObj 'minPt 'maxPt)
+            (setq minPt (vlax-safearray->list minPt))
+            (setq maxPt (vlax-safearray->list maxPt))
 
-        ;; Offset vao trong
-        (setq offset (* 15.0 scale))
-        (setq pt1 (list (+ (car minPt) offset) (+ (cadr minPt) offset)))
-        (setq pt2 (list (- (car maxPt) offset) (- (cadr maxPt) offset)))
+            ;; Offset vao trong
+            (setq offset (* 15.0 scale))
+            (setq pt1 (list (+ (car minPt) offset) (+ (cadr minPt) offset)))
+            (setq pt2 (list (- (car maxPt) offset) (- (cadr maxPt) offset)))
 
-        ;; Kiem tra da co RECTANG (LWPOLYLINE) nao trong vung nay chua
-        (setq existing
-          (ssget "C" pt1 pt2 '((0 . "LWPOLYLINE") (8 . "....11_TNT_A_PLOT")))
-        )
-        (setq found nil)
-        (if existing
-          (repeat (sslength existing)
-            (setq ent (ssname existing 0))
-            ;; Co the kiem tra them chieu dai polyline de chac chan la khung
-            (setq found T)
-            (setq existing nil)
+            ;; Kiem tra da co RECTANG (LWPOLYLINE) nao trong vung nay chua
+            (if (not (ssget "_C" pt1 pt2 '((0 . "LWPOLYLINE") (8 . "....11_TNT_A_PLOT"))))
+              (progn
+                (setvar "osmode" 0)
+                (command "_.RECTANG" pt1 pt2)
+              )
+            )
+
+            (setq i (1+ i))
           )
-        )
 
-        ;; Neu chua co -> ve moi
-        (if (not found)
-          (progn
-            (setvar "osmode" 0)
-            (command "_.rectang" pt1 pt2)
-          )
-        )
-
-        (setq i (1+ i))
-      )
-
-      ;; Tra lai trang thai
-      (setvar "clayer" layer1)
-      (setvar "osmode" osm)
+          ;; Tra lai trang thai
+          (setvar "clayer" layer1)
+          (setvar "osmode" osm))
+        (prompt "\n[VBB] Khong tao duoc layer ....11_TNT_A_PLOT."))
     )
     (prompt "\nKhong chon block nao.")
   )
